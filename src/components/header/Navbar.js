@@ -16,9 +16,11 @@ const Navbar = () => {
         </li>
         <li className={router.pathname === '/portfolios' && 'active'}>
           <Link href={'/portfolios'}>Portfolios{Icons.dropDown}</Link>
+          <div className='dropdown'>Drop down</div>
         </li>
         <li className={router.pathname === 'services' && 'active'}>
           <Link href={'/services'}>Services{Icons.dropDown}</Link>
+          <div className='dropdown'>Drop down</div>
         </li>
         <li className={router.pathname === '/about' && 'active'}>
           <Link href={'/about'}>About Us</Link>
@@ -27,6 +29,7 @@ const Navbar = () => {
           <Link href={'/contact'}>Contact Us</Link>
         </li>
       </ul>
+      <i className='menu-icon'>{Icons.menu}</i>
     </Wrapper>
   )
 }
@@ -34,17 +37,21 @@ const Navbar = () => {
 const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
-
+  /* List */
   ul {
     display: flex;
     li {
       padding-right: 1.2rem;
+      position: relative;
       :hover {
         svg {
           margin-bottom: -0.8rem;
         }
         a {
           color: var(--secondary-5);
+        }
+        .dropdown {
+          display: block;
         }
       }
       a {
@@ -63,6 +70,40 @@ const Wrapper = styled.nav`
   }
   @media (min-width: 620px) {
     margin-right: 1rem;
+  }
+  @media (max-width: 620px) {
+    ul {
+      display: none;
+    }
+  }
+  /* drop down */
+  .dropdown {
+    background-color: var(--white);
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    top: 1.8rem;
+    left: -4rem;
+    display: none;
+    border: 2px solid black;
+
+    transition: var(--transition);
+  }
+  /* menu icon */
+  .menu-icon {
+    :hover {
+      cursor: pointer;
+    }
+    svg {
+    }
+    svg {
+      color: white !important;
+    }
+  }
+  @media (min-width: 620px) {
+    .menu-icon {
+      display: none;
+    }
   }
 `
 export default Navbar
