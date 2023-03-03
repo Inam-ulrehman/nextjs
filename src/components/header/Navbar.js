@@ -91,6 +91,7 @@ const Wrapper = styled.nav`
   }
   /* menu icon */
   .menu-icon {
+    padding: 1rem;
     :hover {
       cursor: pointer;
     }
