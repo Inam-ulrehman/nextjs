@@ -7,12 +7,15 @@ import Logo from './Logo'
 import NavbarDrawer from './NavbarDrawer'
 const initialState = {
   showNavbarDrawer: false,
+  showPortfolios: false,
+  showServices: false,
+  servicesHeight: '',
 }
 
 const Navbar = () => {
   const [state, setState] = useState(initialState)
   const router = useRouter()
-  console.log(router.pathname)
+
   const handleNavbarDrawer = (e) => {
     setState({ ...state, showNavbarDrawer: !state.showNavbarDrawer })
   }
