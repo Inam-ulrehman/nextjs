@@ -55,7 +55,11 @@ const Navbar = () => {
           }}
         >
           {state.showNavbarDrawer && (
-            <NavbarDrawer state={state} setState={setState} />
+            <NavbarDrawer
+              handleNavbarDrawer={handleNavbarDrawer}
+              state={state}
+              setState={setState}
+            />
           )}
         </div>
         <div onClick={handleNavbarDrawer} className='navbar-drawer-close'></div>

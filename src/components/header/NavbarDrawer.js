@@ -4,14 +4,17 @@ import { useRouter } from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
 
-const NavbarDrawer = ({ state, setState }) => {
+const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
   const router = useRouter()
 
   const handleDropdown = (e) => {}
   return (
     <Wrapper>
       <ul className='drawer-list'>
-        <li className={router.pathname === '/' ? 'active' : ''}>
+        <li
+          onClick={handleNavbarDrawer}
+          className={router.pathname === '/' ? 'active' : ''}
+        >
           <Link href={'/'}>Home</Link>
         </li>
         <li className={router.pathname === '/portfolios' ? 'active ' : ''}>
@@ -22,14 +25,20 @@ const NavbarDrawer = ({ state, setState }) => {
         </li>
         <li className={router.pathname === 'services' ? 'active ' : ''}>
           <button type='button' onClick={handleDropdown}>
-            Portfolios <i>{Icons.dropDown}</i>
+            services <i>{Icons.dropDown}</i>
           </button>
           <div>Drop down</div>
         </li>
-        <li className={router.pathname === '/about' ? 'active' : ''}>
+        <li
+          onClick={handleNavbarDrawer}
+          className={router.pathname === '/about' ? 'active' : ''}
+        >
           <Link href={'/about'}>About Us</Link>
         </li>
-        <li className={router.pathname === '/contact' ? 'active' : ''}>
+        <li
+          onClick={handleNavbarDrawer}
+          className={router.pathname === '/contact' ? 'active' : ''}
+        >
           <Link href={'/contact'}>Contact Us</Link>
         </li>
       </ul>
