@@ -24,12 +24,12 @@ const Logo = () => {
 }
 
 const Wrapper = styled.div`
-  border: 2px solid black;
   height: 60px;
   overflow: hidden;
   width: fit-content;
   img {
-    margin-top: -4rem;
+    margin-top: -4.3rem;
+    margin-left: 1rem;
   }
 `
 export default Logo

@@ -11,7 +11,7 @@ import { icons } from './Icons'
 
 // ========logo =========== //
 export const logo =
-  'https://res.cloudinary.com/inam6530/image/upload/v1667486202/inamwebsolutions/Inam_n9s4i4.svg'
+  'https://res.cloudinary.com/inam6530/image/upload/v1677861169/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_qvfgi0.svg'
 // ========Nav Bar=========== //
 
 export const navbar = [

@@ -29,10 +29,15 @@ const Navbar = () => {
 }
 
 const Wrapper = styled.nav`
-  border: 2px solid var(--grey-3);
   display: flex;
+  justify-content: space-between;
   ul {
     display: flex;
+    li {
+      a {
+        color: var(--white);
+      }
+    }
   }
 `
 export default Navbar
