@@ -1,3 +1,4 @@
+import { Landing } from '@/components/home'
 import Head from 'next/head'
 import styled from 'styled-components'
 
@@ -12,23 +13,10 @@ export default function Home() {
       </Head>
 
       <Wrapper>
-        <button className='btn'>Hello button</button>
-
-        <h1>Heading 1</h1>
-        <h2>Heading 2</h2>
-        <h3>Heading 3</h3>
-        <h4>Heading 4</h4>
-        <h5>Heading 5</h5>
-        <p>
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Expedita
-          deleniti repudiandae adipisci libero nulla sequi voluptatem fugiat id
-          possimus quis hic, aut necessitatibus quae quisquam!
-        </p>
+        <Landing />
       </Wrapper>
     </>
   )
 }
 
-const Wrapper = styled.div`
-  background-color: pink;
-`
+const Wrapper = styled.div``
