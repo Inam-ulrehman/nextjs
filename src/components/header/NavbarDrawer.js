@@ -1,4 +1,5 @@
 import { Icons } from '@/styles/Icons'
+import { portfoliosData } from '@/utils/data'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useRef } from 'react'
@@ -10,16 +11,13 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
   const portfoliosHeightRef = useRef()
 
   const handlePortfolios = () => {
-    const portfoliosHeight = servicesHeightRef?.current?.clientHeight
     setState({
       ...state,
       showPortfolios: !state.showPortfolios,
-      portfoliosHeight,
     })
   }
   const handleServices = (e) => {
-    const servicesHeight = servicesHeightRef?.current?.clientHeight
-    setState({ ...state, showServices: !state.showServices, servicesHeight })
+    setState({ ...state, showServices: !state.showServices })
   }
   return (
     <Wrapper>
@@ -40,17 +38,24 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
             className='drawer-dropdown'
             style={{
               height: `${
-                state.showPortfolios ? `${state.portfoliosHeight}px` : '0px'
+                state.showPortfolios
+                  ? `${portfoliosHeightRef?.current?.clientHeight}px`
+                  : '0px'
               }`,
               overflow: 'hidden',
             }}
           >
-            <div ref={portfoliosHeightRef}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-              asperiores assumenda iure placeat deserunt labore sed est minima
-              velit repellat reiciendis doloribus facere pariatur voluptates,
-              quisquam harum. Nostrum, minima enim.
-            </div>
+            <ul ref={portfoliosHeightRef}>
+              {portfoliosData.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <Link href={item.path} target='_blank'>
+                      {item.title}
+                    </Link>{' '}
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </li>
         <hr />
@@ -69,10 +74,10 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
             }}
           >
             <div ref={servicesHeightRef}>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Mollitia
-              asperiores assumenda iure placeat deserunt labore sed est minima
-              velit repellat reiciendis doloribus facere pariatur voluptates,
-              quisquam harum. Nostrum, minima enim.
+              <p>
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
+                exercitationem.
+              </p>
             </div>
           </div>
         </li>
@@ -116,7 +121,6 @@ const Wrapper = styled.div`
   }
   /* drawer  */
   .drawer-dropdown {
-    background-color: pink;
     transition: var(--transition-1);
   }
 `

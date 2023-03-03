@@ -9,7 +9,6 @@ const initialState = {
   showNavbarDrawer: false,
   showPortfolios: false,
   showServices: false,
-  servicesHeight: '',
 }
 
 const Navbar = () => {
