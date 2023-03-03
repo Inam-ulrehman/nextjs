@@ -18,6 +18,7 @@ const Logo = () => {
         height={200}
         src={logo}
         alt='logo'
+        priority
       />
     </Wrapper>
   )
