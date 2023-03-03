@@ -12,7 +12,7 @@ const initialState = {
 const Navbar = () => {
   const [state, setState] = useState(initialState)
   const router = useRouter()
-
+  console.log(router.pathname)
   const handleNavbarDrawer = (e) => {
     setState({ ...state, showNavbarDrawer: !state.showNavbarDrawer })
   }
@@ -99,7 +99,7 @@ const Wrapper = styled.nav`
   }
   .active {
     a {
-      color: var(--secondary-5);
+      color: var(--secondary-5) !important;
     }
   }
   @media (min-width: 620px) {
