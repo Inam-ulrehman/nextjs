@@ -54,10 +54,12 @@ const Navbar = () => {
         <div
           className='navbar-drawer-width'
           style={{
-            width: `${state.showNavbarDrawer ? '300px' : '00px'}`,
+            width: `${state.showNavbarDrawer ? '70vw' : '00px'}`,
           }}
         >
-          <NavbarDrawer state={state} setState={setState} />
+          {state.showNavbarDrawer && (
+            <NavbarDrawer state={state} setState={setState} />
+          )}
         </div>
       </div>
     </Wrapper>
