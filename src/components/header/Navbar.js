@@ -57,7 +57,7 @@ const Navbar = () => {
             width: `${state.showNavbarDrawer ? '300px' : '00px'}`,
           }}
         >
-          <NavbarDrawer />
+          <NavbarDrawer state={state} setState={setState} />
         </div>
       </div>
     </Wrapper>

@@ -1,8 +1,16 @@
 import React from 'react'
 import styled from 'styled-components'
 
-const NavbarDrawer = () => {
-  return <Wrapper>NavbarDrawer</Wrapper>
+const NavbarDrawer = ({ state, setState }) => {
+  return (
+    <Wrapper
+      style={{
+        width: `${state.showNavbarDrawer ? 'inherit' : '00px'}`,
+      }}
+    >
+      hello
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div``
