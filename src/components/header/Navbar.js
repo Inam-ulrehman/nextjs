@@ -14,7 +14,8 @@ const Navbar = () => {
   const router = useRouter()
 
   const handleNavbarDrawer = (e) => {
-    if (e.target.className === 'navbar-drawer-width') {
+    console.log(e.target)
+    if (e.target.id === 'no-hide') {
       return
     }
     setState({ ...state, showNavbarDrawer: !state.showNavbarDrawer })
@@ -22,7 +23,7 @@ const Navbar = () => {
   return (
     <Wrapper>
       <Logo />
-      <ul>
+      <ul className='navbar-list'>
         <li className={router.pathname === '/' ? 'active' : ''}>
           <Link href={'/'}>Home</Link>
         </li>
@@ -52,7 +53,8 @@ const Navbar = () => {
         }}
       >
         <div
-          className='navbar-drawer-width'
+          className='navbar-drawer-width '
+          id='no-hide'
           style={{
             width: `${state.showNavbarDrawer ? '70vw' : '00px'}`,
           }}
@@ -70,7 +72,7 @@ const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
   /* List */
-  ul {
+  .navbar-list {
     display: flex;
     li {
       padding-right: 1.2rem;
@@ -104,7 +106,7 @@ const Wrapper = styled.nav`
     margin-right: 1rem;
   }
   @media (max-width: 620px) {
-    ul {
+    .navbar-list {
       display: none;
     }
   }
