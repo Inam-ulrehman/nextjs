@@ -212,6 +212,7 @@ small,
 
 a {
   text-decoration: none;
+  color: var(--textColor);
 }
 ul {
   list-style-type: none;
