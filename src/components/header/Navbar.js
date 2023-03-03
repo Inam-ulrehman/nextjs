@@ -14,9 +14,6 @@ const Navbar = () => {
   const router = useRouter()
 
   const handleNavbarDrawer = (e) => {
-    if (e.target.id === 'no-hide') {
-      return
-    }
     setState({ ...state, showNavbarDrawer: !state.showNavbarDrawer })
   }
   return (
@@ -44,8 +41,8 @@ const Navbar = () => {
       <i onClick={handleNavbarDrawer} className='menu-icon'>
         {Icons.menu}
       </i>
+      {/* navbar drawer */}
       <div
-        onClick={handleNavbarDrawer}
         className='navbar-drawer'
         style={{
           width: `${state.showNavbarDrawer ? '100vw' : '00px'}`,
@@ -53,7 +50,6 @@ const Navbar = () => {
       >
         <div
           className='navbar-drawer-width '
-          id='no-hide'
           style={{
             width: `${state.showNavbarDrawer ? '70vw' : '00px'}`,
           }}
@@ -62,6 +58,7 @@ const Navbar = () => {
             <NavbarDrawer state={state} setState={setState} />
           )}
         </div>
+        <div onClick={handleNavbarDrawer} className='navbar-drawer-close'></div>
       </div>
     </Wrapper>
   )
@@ -157,6 +154,9 @@ const Wrapper = styled.nav`
       right: 0;
       transition: var(--transition);
     }
+  }
+  .navbar-drawer-close {
+    height: 100vh;
   }
 `
 export default Navbar

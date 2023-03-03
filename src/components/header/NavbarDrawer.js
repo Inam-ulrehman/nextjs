@@ -14,21 +14,15 @@ const NavbarDrawer = ({ state, setState }) => {
         <li className={router.pathname === '/' ? 'active' : ''}>
           <Link href={'/'}>Home</Link>
         </li>
-        <li
-          id='no-hide'
-          className={router.pathname === '/portfolios' ? 'active ' : ''}
-        >
-          <button id='no-hide' type='button' onClick={handleDropdown}>
-            Portfolios <i id='no-hide'>{Icons.dropDown}</i>
+        <li className={router.pathname === '/portfolios' ? 'active ' : ''}>
+          <button type='button' onClick={handleDropdown}>
+            Portfolios <i>{Icons.dropDown}</i>
           </button>
           <div>Drop down</div>
         </li>
-        <li
-          id='no-hide'
-          className={router.pathname === 'services' ? 'active ' : ''}
-        >
-          <button type='button' id='no-hide' onClick={handleDropdown}>
-            Portfolios <i id='no-hide'>{Icons.dropDown}</i>
+        <li className={router.pathname === 'services' ? 'active ' : ''}>
+          <button type='button' onClick={handleDropdown}>
+            Portfolios <i>{Icons.dropDown}</i>
           </button>
           <div>Drop down</div>
         </li>
