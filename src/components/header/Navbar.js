@@ -14,7 +14,6 @@ const Navbar = () => {
   const router = useRouter()
 
   const handleNavbarDrawer = (e) => {
-    console.log(e.target)
     if (e.target.id === 'no-hide') {
       return
     }
