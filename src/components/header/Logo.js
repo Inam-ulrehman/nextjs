@@ -14,7 +14,8 @@ const Logo = () => {
     <Wrapper>
       <Image
         onClick={handleClick}
-        style={{ width: '200px', height: '200px' }}
+        width={200}
+        height={200}
         src={logo}
         alt='logo'
       />
@@ -22,5 +23,13 @@ const Logo = () => {
   )
 }
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  border: 2px solid black;
+  height: 60px;
+  overflow: hidden;
+  width: fit-content;
+  img {
+    margin-top: -4rem;
+  }
+`
 export default Logo
