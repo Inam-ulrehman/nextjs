@@ -68,16 +68,16 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
             className='drawer-dropdown'
             style={{
               height: `${
-                state.showServices ? `${state.servicesHeight}px` : '0px'
+                state.showServices
+                  ? `${servicesHeightRef?.current?.clientHeight}px`
+                  : '0px'
               }`,
               overflow: 'hidden',
             }}
           >
             <div ref={servicesHeightRef}>
-              <p>
-                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
-                exercitationem.
-              </p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
+              exercitationem.
             </div>
           </div>
         </li>
