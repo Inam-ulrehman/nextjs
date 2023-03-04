@@ -123,7 +123,7 @@ const Wrapper = styled.nav`
     height: 200px;
     width: 200px;
     position: absolute;
-    top: 1.8rem;
+    top: 4rem;
     left: -4rem;
     display: none;
     border: 2px solid black;
