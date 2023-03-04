@@ -6,6 +6,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components'
 import Logo from './Logo'
 import NavbarDrawer from './NavbarDrawer'
+import ServicesDropdown from './ServicesDropdown'
 const initialState = {
   showNavbarDrawer: false,
   showPortfolios: false,
@@ -44,7 +45,9 @@ const Navbar = () => {
         {/* ======Services======= */}
         <li className={router.pathname === 'services' ? 'active' : ''}>
           <Link href={'/services'}>Services{Icons.dropDown}</Link>
-          <div className='desktop-navbar-dropdown'>Drop down</div>
+          <ul className='desktop-navbar-dropdown desktop-navbar-dropdown-services'>
+            <ServicesDropdown />
+          </ul>
         </li>
         <li className={router.pathname === '/about' ? 'active' : ''}>
           <Link href={'/about'}>About Us</Link>
@@ -137,15 +140,15 @@ const Wrapper = styled.nav`
     top: 4rem;
     left: -30%;
     display: none;
+
     transition: var(--transition);
+
     li {
       padding: 0;
       width: 200px;
 
       :hover {
-        a {
-          color: var(--blue-5) !important;
-        }
+        background-color: #f8f8ff;
       }
     }
     a {
@@ -155,6 +158,12 @@ const Wrapper = styled.nav`
       color: var(--text-color) !important;
       margin-left: 1rem;
     }
+  }
+  .desktop-navbar-dropdown-services {
+    max-height: 70vh;
+    overflow: scroll;
+    overflow-x: hidden;
+    left: -100%;
   }
   /* menu icon */
   .menu-icon {

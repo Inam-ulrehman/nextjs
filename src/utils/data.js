@@ -52,11 +52,12 @@ export const portfoliosData = [
 
 // Services
 
-export const services = [
+export const servicesData = [
   {
     id: 1,
     logo: '',
     title: 'Web Application Development',
+    path: 'Web-application-development',
     description:
       'We have decade-long experience building best-in-class B2B and B2C web apps that power modern businesses and workflows.',
     points: [
@@ -149,6 +150,7 @@ export const services = [
     id: 2,
     logo: '',
     title: 'Custom Software Development',
+    path: 'custom-software-development',
     description:
       'Our customized software solutions are unique to individual needs, budgets, timelines, and target groups.',
     points: [
@@ -226,9 +228,10 @@ export const services = [
   },
 
   {
-    id: 4,
+    id: 3,
     logo: '',
     title: 'Outsourced Product Development',
+    path: 'outsourced-product-development',
     description:
       'Benefit from our product-building expertise and high-class engineering that get you the results without letting you struggle or put your mind to them.',
     points: [
@@ -306,9 +309,10 @@ export const services = [
   },
 
   {
-    id: 6,
+    id: 5,
     logo: '',
     title: 'Testing & QA',
+    path: 'testing-qa',
     description:
       'What’s the point of a timely release if it’s full of bugs? We help you avoid such a case by using proven testing practices that ensure high-quality, bug-free releases on time and within budget.',
     points: [
@@ -398,9 +402,10 @@ export const services = [
     ],
   },
   {
-    id: 1,
+    id: 6,
     logo: '',
     title: 'DevOps',
+    path: 'devops',
     description:
       'Get in touch with our ace DevOps engineers to plan, build, and test your products and ship them faster to any cloud or on-premise - within optimized costs.',
     points: [
@@ -468,9 +473,10 @@ export const services = [
     ],
   },
   {
-    id: 1,
+    id: 8,
     logo: '',
     title: 'Dedicated Development Team',
+    path: 'dedicated-development-team',
     description:
       'Spreading yourself too thin? Let our dedicated team handle all your development needs so that you can put your energy to good use with fewer, more critical stuff',
     points: [{ id: 1, logo: '', title: '', description: '' }],
