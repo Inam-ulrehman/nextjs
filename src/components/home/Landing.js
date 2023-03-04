@@ -11,11 +11,18 @@ const Landing = () => {
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1>Website and Software Designing Company</h1>
-        <h2>Best website Designing company you can think of !!</h2>
+        <h1>Professional Website Designing Services.</h1>
+        <h2>
+          we have the expertise and resources to create a website that reflects
+          your brand
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit odio
-          ad obcaecati numquam similique modi.
+          At our website designing company, we offer professional and customized
+          website design services that are tailored to meet the unique needs of
+          your business. Our team of expert designers and developers work
+          together to create visually appealing, user-friendly, and responsive
+          websites that not only look great but also perform seamlessly on all
+          devices.
         </p>
         <Link className='btn' href='/contact'>
           Let's Talk

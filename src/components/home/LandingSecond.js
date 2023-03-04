@@ -4,7 +4,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 const url =
-  'https://res.cloudinary.com/inam6530/image/upload/v1677933229/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_asog8v.gif'
+  'https://res.cloudinary.com/inam6530/image/upload/v1677957166/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_ef9ahv.gif'
 
 const LandingSecond = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
