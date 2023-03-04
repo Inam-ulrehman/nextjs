@@ -47,9 +47,9 @@ const Wrapper = styled.div`
         margin-top: -5px;
       }
       &:nth-child(2) {
-        font-weight: 600;
+        font-weight: 700;
         font-size: var(--text-medium);
-        margin-top: -1rem;
+        margin-top: -0.7rem;
       }
     }
   }
