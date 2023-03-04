@@ -4,18 +4,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 const url =
-  'https://res.cloudinary.com/inam6530/image/upload/v1677933229/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_asog8v.gif'
+  'https://res.cloudinary.com/inam6530/image/upload/v1677958689/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_3_erurs4.gif'
 
 const LandingThird = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1> Your Ultimate Destination for Exceptional Website </h1>
-        <h2>
+        <h4> Your Ultimate Destination for Exceptional Website </h4>
+        <h5>
           we are committed to ensuring that you are completely satisfied with
           the final product.
-        </h2>
+        </h5>
         <p>
           We understand that every business is different, which is why we take
           the time to get to know your brand, your goals, and your audience
@@ -61,14 +61,15 @@ const Wrapper = styled.div`
   }
   .text-box {
     padding-left: 3rem;
-    h1 {
+    h4 {
       font-size: var(--medium);
       color: var(--primary-5);
       font-weight: 800;
     }
-    h2 {
+    h5 {
       font-weight: 700;
       color: var(--primary-8);
+      font-size: 2.44rem;
     }
     p {
     }

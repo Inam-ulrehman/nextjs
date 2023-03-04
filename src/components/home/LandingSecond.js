@@ -4,18 +4,18 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 const url =
-  'https://res.cloudinary.com/inam6530/image/upload/v1677957166/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_ef9ahv.gif'
+  'https://res.cloudinary.com/inam6530/image/upload/v1677958690/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_yuz7vd.gif'
 
 const LandingSecond = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1>Where Creativity Meets Technology</h1>
-        <h2>
+        <h3>Where Creativity Meets Technology</h3>
+        <h4>
           Contact us today to learn more about our services and how we can help
           you succeed online.
-        </h2>
+        </h4>
         <p>
           Whether you need a simple website to showcase your products or a
           complex e-commerce platform to sell your services, we have the
@@ -61,12 +61,13 @@ const Wrapper = styled.div`
   }
   .text-box {
     padding-left: 3rem;
-    h1 {
+    h3 {
       font-size: var(--medium);
       color: var(--primary-5);
       font-weight: 800;
     }
-    h2 {
+    h4 {
+      font-size: 2.44rem;
       font-weight: 700;
       color: var(--primary-8);
     }
