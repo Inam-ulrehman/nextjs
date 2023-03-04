@@ -43,6 +43,7 @@ const Wrapper = styled.div`
     .image-box {
       img {
         width: 350px;
+        height: 350px;
       }
     }
   }
