@@ -19,10 +19,7 @@ const Landing = () => {
         <p>
           At our website designing company, we offer professional and customized
           website design services that are tailored to meet the unique needs of
-          your business. Our team of expert designers and developers work
-          together to create visually appealing, user-friendly, and responsive
-          websites that not only look great but also perform seamlessly on all
-          devices.
+          your business.
         </p>
         <Link className='btn' href='/contact'>
           Let's Talk
