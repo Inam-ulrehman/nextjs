@@ -5,7 +5,7 @@ import styled from 'styled-components'
 
 const ServicesPage = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
-  console.log(headerHeight)
+
   return (
     <Wrapper style={{ height: `calc(100vh - ${headerHeight}px` }}></Wrapper>
   )

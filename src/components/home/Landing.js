@@ -26,7 +26,13 @@ const Landing = () => {
         </Link>
       </div>
       <div className='image-box box'>
-        <Image src={url} width={400} height={400} alt='Home page image'></Image>
+        <Image
+          src={url}
+          width={400}
+          height={400}
+          alt='Home page image'
+          priority
+        ></Image>
       </div>
     </Wrapper>
   )
