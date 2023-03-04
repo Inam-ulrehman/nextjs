@@ -14,23 +14,39 @@ const Logo = () => {
     <Wrapper>
       <Image
         onClick={handleClick}
-        width={200}
-        height={200}
+        width={50}
+        height={50}
         src={logo}
         alt='logo'
         priority
       />
+      <div className='logo-text'>
+        <span>INAM</span>
+        <span>WEB SOLUTIONS</span>
+      </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  height: 60px;
-  overflow: hidden;
-  width: fit-content;
-  img {
-    margin-top: -4.3rem;
-    margin-left: 1rem;
+  display: flex;
+  .logo-text {
+    display: grid;
+    text-align: center;
+    color: var(--blue-8);
+
+    > * {
+      &:first-child {
+        font-weight: 700;
+        font-size: large;
+        margin-top: 5px;
+      }
+      &:nth-child(2) {
+        font-weight: 600;
+        font-size: var(--text-medium);
+        margin-top: -10px;
+      }
+    }
   }
 `
 export default Logo

@@ -2,7 +2,7 @@ import { icons } from './Icons'
 
 // ========logo =========== //
 export const logo =
-  'https://res.cloudinary.com/inam6530/image/upload/v1677861169/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_qvfgi0.svg'
+  'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/1_um6god.svg'
 // ========Nav Bar=========== //
 
 export const portfoliosData = [
