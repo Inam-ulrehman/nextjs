@@ -1,4 +1,5 @@
 import { Icons } from '@/styles/Icons'
+import { portfoliosData } from '@/utils/data'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
@@ -25,13 +26,25 @@ const Navbar = () => {
         <li className={router.pathname === '/' ? 'active' : ''}>
           <Link href={'/'}>Home</Link>
         </li>
+        {/* ========portfolio====== */}
         <li className={router.pathname === '/portfolios' ? 'active' : ''}>
           <Link href={'/portfolios'}>Portfolios{Icons.dropDown}</Link>
-          <div className='dropdown'>Drop down</div>
+          <ul className='desktop-navbar-dropdown'>
+            {portfoliosData.map((item, index) => {
+              return (
+                <li key={index}>
+                  <Link href={item.path} target='_blank'>
+                    {item.title}
+                  </Link>{' '}
+                </li>
+              )
+            })}
+          </ul>
         </li>
+        {/* ======Services======= */}
         <li className={router.pathname === 'services' ? 'active' : ''}>
           <Link href={'/services'}>Services{Icons.dropDown}</Link>
-          <div className='dropdown'>Drop down</div>
+          <div className='desktop-navbar-dropdown'>Drop down</div>
         </li>
         <li className={router.pathname === '/about' ? 'active' : ''}>
           <Link href={'/about'}>About Us</Link>
@@ -90,7 +103,7 @@ const Wrapper = styled.nav`
         a {
           color: var(--blue-5);
         }
-        .dropdown {
+        .desktop-navbar-dropdown {
           display: block;
         }
       }
@@ -118,17 +131,30 @@ const Wrapper = styled.nav`
     }
   }
   /* drop down */
-  .dropdown {
+  .desktop-navbar-dropdown {
     background-color: var(--white);
-    height: 200px;
-    width: 200px;
     position: absolute;
     top: 4rem;
-    left: -4rem;
-    display: none;
-    border: 2px solid black;
-
+    left: -30%;
+    /* display: none; */
     transition: var(--transition);
+    li {
+      padding: 0;
+      width: 200px;
+
+      :hover {
+        a {
+          color: var(--blue-5) !important;
+        }
+      }
+    }
+    a {
+      display: block;
+      padding: 5px;
+      transition: var(--transition);
+      color: var(--text-color) !important;
+      margin-left: 1rem;
+    }
   }
   /* menu icon */
   .menu-icon {
