@@ -40,6 +40,7 @@ const Wrapper = styled.div`
     }
   }
   @media (max-width: 620px) {
+    text-align: left;
     .image-box {
       img {
         width: 350px;
