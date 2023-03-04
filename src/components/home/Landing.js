@@ -1,13 +1,15 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 const url =
   'https://res.cloudinary.com/inam6530/image/upload/v1677933229/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_asog8v.gif'
 
 const Landing = () => {
+  const { headerHeight } = useSelector((state) => state.websitecontent)
   return (
-    <Wrapper>
+    <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
         <h1>Website and Software Designing Company</h1>
         <h2>Best website Designing company you can think of !!</h2>
@@ -27,10 +29,10 @@ const Landing = () => {
 }
 
 const Wrapper = styled.div`
-  min-height: calc(100vh - 90px);
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   align-items: center;
+
   @media (max-width: 820px) {
     min-height: auto;
     grid-template-columns: 1fr;
