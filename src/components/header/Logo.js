@@ -14,8 +14,8 @@ const Logo = () => {
     <Wrapper>
       <Image
         onClick={handleClick}
-        width={50}
-        height={50}
+        width={40}
+        height={40}
         src={logo}
         alt='logo'
         priority
@@ -29,6 +29,8 @@ const Logo = () => {
 }
 
 const Wrapper = styled.div`
+  margin-left: 1rem;
+  margin-top: 5px;
   display: flex;
   .logo-text {
     display: grid;
@@ -39,12 +41,12 @@ const Wrapper = styled.div`
       &:first-child {
         font-weight: 700;
         font-size: large;
-        margin-top: 5px;
+        margin-top: -5px;
       }
       &:nth-child(2) {
         font-weight: 600;
         font-size: var(--text-medium);
-        margin-top: -10px;
+        margin-top: -15px;
       }
     }
   }
