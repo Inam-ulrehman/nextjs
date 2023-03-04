@@ -136,7 +136,7 @@ const Wrapper = styled.nav`
     position: absolute;
     top: 4rem;
     left: -30%;
-    /* display: none; */
+    display: none;
     transition: var(--transition);
     li {
       padding: 0;
