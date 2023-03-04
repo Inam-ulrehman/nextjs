@@ -1,4 +1,4 @@
-import { FeaturePage, Landing } from '@/components/home'
+import { FeaturePage, Landing, LandingSecond } from '@/components/home'
 
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -16,6 +16,7 @@ export default function Home() {
       <Wrapper>
         <Landing />
         <FeaturePage />
+        <LandingSecond />
       </Wrapper>
     </>
   )

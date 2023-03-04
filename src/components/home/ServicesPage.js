@@ -3,7 +3,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
-const FeaturePage = () => {
+const ServicesPage = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
   console.log(headerHeight)
   return (
@@ -19,4 +19,4 @@ const Wrapper = styled.div`
     margin-right: 1rem;
   }
 `
-export default FeaturePage
+export default ServicesPage

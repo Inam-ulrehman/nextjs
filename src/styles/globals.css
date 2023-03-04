@@ -14,7 +14,11 @@ html {
 :root {
   /* colors */
 
-  /* primary */
+  --primary: #00b4d8;
+  --secondary: #023e8a;
+  --success: #17c964;
+  --warning: #f5a524;
+  --error: #f31260;
   /* colors */
   --primary-1: #caf0f8;
   --primary-2: #ade8f4;
@@ -137,13 +141,22 @@ html {
   --transition-1: 0.5s ease-in-out all;
   --transition-2: 0.7s ease-in-out all;
   /* box shadow*/
-  --shadow-1: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
-  --shadow-2: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-  --shadow-3: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-    0 4px 6px -2px rgba(0, 0, 0, 0.05);
-  --shadow-4: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-1: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-2: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-3: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-4: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  --shadow-5: 0 20px 25px -5px rgb(0 0 0 / 0.1),
+    0 8px 10px -6px rgb(0 0 0 / 0.1);
+  --shadow-6: 0 30px 35px -10px rgb(0 0 0 / 0.1),
+    0 12px 12px -8px rgb(0 0 0 / 0.1);
+  --shadow-7: 0 40px 45px -15px rgb(0 0 0 / 0.1),
+    0 16px 14px -10px rgb(0 0 0 / 0.1);
+  --shadow-8: 0 50px 55px -20px rgb(0 0 0 / 0.1),
+    0 18px 16px -12px rgb(0 0 0 / 0.1);
+  --shadow-9: 0 60px 65px -25px rgb(0 0 0 / 0.1),
+    0 20px 18px -14px rgb(0 0 0 / 0.1);
+  --shadow-10: 0 70px 75px -30px rgb(0 0 0 / 0.1),
+    0 22px 20px -16px rgb(0 0 0 / 0.1);
 }
 
 body {
@@ -242,7 +255,7 @@ ul {
 
 .btn:hover {
   background: var(--primary-7);
-  box-shadow: var(--shadow-3);
+  box-shadow: var(--shadow-7);
 }
 .btn-hipster {
   color: var(--primary-5);
@@ -252,6 +265,7 @@ ul {
   color: var(--primary-2);
   background: var(--primary-7);
 }
+
 .btn-block {
   width: 100%;
 }

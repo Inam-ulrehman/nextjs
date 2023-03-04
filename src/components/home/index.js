@@ -1,5 +1,6 @@
 import FeaturePage from './FeaturePage'
+import Landing from './Landing'
+import LandingSecond from './LandingSecond'
+import ServicesPage from './ServicesPage'
 
-const { default: Landing } = require('./Landing')
-
-export { Landing, FeaturePage }
+export { Landing, FeaturePage, LandingSecond, ServicesPage }
