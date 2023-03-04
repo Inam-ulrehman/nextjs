@@ -80,8 +80,8 @@ const Wrapper = styled.div`
         margin-top: 0px;
       }
     }
-    h1,
-    h2,
+    h4,
+    h5,
     p,
     a {
       margin-left: 0;
