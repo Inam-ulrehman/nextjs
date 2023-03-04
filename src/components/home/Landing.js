@@ -1,6 +1,9 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
+const url =
+  'https://res.cloudinary.com/inam6530/image/upload/v1677933229/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_asog8v.gif'
 
 const Landing = () => {
   return (
@@ -16,50 +19,60 @@ const Landing = () => {
           Let's Talk
         </Link>
       </div>
-      <div className='image-box box'></div>
+      <div className='image-box box'>
+        <Image src={url} width={400} height={400} alt='Home page image'></Image>
+      </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
   min-height: 100vh;
-  background-color: var(--primary-5);
   display: grid;
   grid-template-columns: 1.5fr 1fr;
+  align-items: center;
+  @media (max-width: 820px) {
+    min-height: auto;
+    grid-template-columns: 1fr;
+    text-align: center;
+    .text-box {
+      padding: 1rem;
+    }
+  }
+  @media (max-width: 620px) {
+    .image-box {
+      img {
+        width: 350px;
+      }
+    }
+  }
   .box {
-    border: 2px solid var(--grey-1);
   }
   .text-box {
-    padding-top: 6rem;
+    padding-left: 3rem;
     h1 {
       font-size: var(--medium);
-      color: var(--secondary-5) !important;
+      color: var(--primary-5);
       font-weight: 800;
     }
     h2 {
       font-weight: 700;
-      padding-top: 1rem;
+      color: var(--primary-8);
     }
     p {
-      padding-top: 2rem;
     }
     .btn {
-      background-color: var(--secondary-5);
-      color: var(--primary-5);
-      margin-top: 2rem;
       transition: var(--transition);
+
       :hover {
-        background-color: var(--secondary-4);
-        transform: scale(1.1);
+        margin-top: 0px;
       }
     }
     h1,
     h2,
     p,
     a {
-      color: var(--white);
-      margin: 0;
-      margin-left: 4rem;
+      margin-left: 0;
     }
   }
 `
