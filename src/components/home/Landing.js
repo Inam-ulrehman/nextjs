@@ -34,9 +34,12 @@ const Wrapper = styled.div`
   @media (max-width: 820px) {
     min-height: auto;
     grid-template-columns: 1fr;
-    text-align: center;
+
     .text-box {
       padding: 1rem;
+    }
+    .image-box {
+      text-align: center;
     }
   }
   @media (max-width: 620px) {
