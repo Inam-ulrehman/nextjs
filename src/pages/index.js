@@ -1,4 +1,10 @@
-import { FeaturePage, Landing, LandingSecond } from '@/components/home'
+import {
+  FeaturePage,
+  Landing,
+  LandingSecond,
+  LandingThird,
+  ServicesPage,
+} from '@/components/home'
 
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -17,6 +23,8 @@ export default function Home() {
         <Landing />
         <FeaturePage />
         <LandingSecond />
+        <ServicesPage />
+        <LandingThird />
       </Wrapper>
     </>
   )
