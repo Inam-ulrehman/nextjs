@@ -138,9 +138,6 @@ const Wrapper = styled.nav`
     }
     svg {
     }
-    svg {
-      color: white !important;
-    }
   }
   @media (min-width: 620px) {
     .menu-icon {

@@ -104,6 +104,9 @@ const Wrapper = styled.div`
   font-weight: 600;
   .drawer-list {
     padding: 2rem;
+    li {
+      width: fit-content;
+    }
   }
 
   button {
