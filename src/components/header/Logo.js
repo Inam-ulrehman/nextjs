@@ -37,6 +37,9 @@ const Wrapper = styled.div`
     text-align: center;
     color: var(--blue-8);
 
+    height: 50px;
+    overflow: hidden;
+
     > * {
       &:first-child {
         font-weight: 700;
@@ -46,7 +49,7 @@ const Wrapper = styled.div`
       &:nth-child(2) {
         font-weight: 600;
         font-size: var(--text-medium);
-        margin-top: -15px;
+        margin-top: -1rem;
       }
     }
   }

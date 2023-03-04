@@ -15,6 +15,6 @@ const Header = () => {
 const Wrapper = styled.header`
   position: sticky;
   top: 0;
-  background-color: var(--primary-5);
+  background-color: var(--white);
 `
 export default Header

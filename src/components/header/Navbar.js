@@ -73,25 +73,28 @@ const Navbar = () => {
 const Wrapper = styled.nav`
   display: flex;
   justify-content: space-between;
+
   /* List */
   .navbar-list {
     display: flex;
+    margin: 0;
     li {
-      padding-right: 1.2rem;
       position: relative;
+      padding: 1rem;
+
       :hover {
+        border-bottom: 2px solid var(--blue-5);
         svg {
           margin-bottom: -0.8rem;
         }
         a {
-          color: var(--secondary-5);
+          color: var(--blue-5);
         }
         .dropdown {
           display: block;
         }
       }
       a {
-        color: var(--white);
       }
       svg {
         margin-bottom: -0.6rem;
@@ -101,8 +104,10 @@ const Wrapper = styled.nav`
   }
   .active {
     a {
-      color: var(--secondary-5) !important;
+      color: var(--blue-5) !important;
     }
+
+    border-bottom: 2px solid var(--blue-5);
   }
   @media (min-width: 620px) {
     margin-right: 1rem;
