@@ -11,11 +11,15 @@ const LandingThird = () => {
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1>Website and Software Designing Company</h1>
-        <h2>Best website Designing company you can think of !!</h2>
+        <h1> Your Ultimate Destination for Exceptional Website </h1>
+        <h2>
+          we are committed to ensuring that you are completely satisfied with
+          the final product.
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit odio
-          ad obcaecati numquam similique modi.
+          We understand that every business is different, which is why we take
+          the time to get to know your brand, your goals, and your audience
+          before we start the design process.
         </p>
         <Link className='btn' href='/contact'>
           Let's Talk

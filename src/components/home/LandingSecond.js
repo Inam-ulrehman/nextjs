@@ -11,11 +11,15 @@ const LandingSecond = () => {
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1>Website and Software Designing Company</h1>
-        <h2>Best website Designing company you can think of !!</h2>
+        <h1>Where Creativity Meets Technology</h1>
+        <h2>
+          Contact us today to learn more about our services and how we can help
+          you succeed online.
+        </h2>
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipisicing elit. Velit odio
-          ad obcaecati numquam similique modi.
+          Whether you need a simple website to showcase your products or a
+          complex e-commerce platform to sell your services, we have the
+          expertise to deliver results that exceed your expectations.
         </p>
         <Link className='btn' href='/contact'>
           Let's Talk
