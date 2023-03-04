@@ -2,7 +2,7 @@ import { customFetch } from '@/utils/axios'
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 const initialState = {
-  headerHeight: '',
+  headerHeight: '90',
   name: '',
   email: '',
   password: '',

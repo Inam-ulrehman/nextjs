@@ -27,7 +27,7 @@ const Landing = () => {
 }
 
 const Wrapper = styled.div`
-  min-height: 100vh;
+  min-height: calc(100vh - 90px);
   display: grid;
   grid-template-columns: 1.5fr 1fr;
   align-items: center;
