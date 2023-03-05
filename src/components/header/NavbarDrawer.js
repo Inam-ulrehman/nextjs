@@ -1,5 +1,5 @@
 import { Icons } from '@/styles/Icons'
-import { portfoliosData } from '@/utils/data'
+import { portfoliosData, servicesData } from '@/utils/data'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useRef } from 'react'
@@ -75,10 +75,15 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
               overflow: 'hidden',
             }}
           >
-            <div ref={servicesHeightRef}>
-              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Nobis,
-              exercitationem.
-            </div>
+            <ul ref={servicesHeightRef}>
+              {servicesData.map((item, index) => {
+                return (
+                  <li key={index}>
+                    <Link href={item.path}>{item.title}</Link>
+                  </li>
+                )
+              })}
+            </ul>
           </div>
         </li>
         <hr />
