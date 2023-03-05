@@ -30,7 +30,7 @@ const Logo = () => {
 
 const Wrapper = styled.div`
   margin-left: 1rem;
-  margin-top: 5px;
+  margin-top: 10px;
   display: flex;
   .logo-text {
     display: grid;
