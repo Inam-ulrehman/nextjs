@@ -97,9 +97,10 @@ const Wrapper = styled.nav`
     li {
       position: relative;
       padding: 1rem;
-
+      border-bottom: 2px solid var(--white);
       :hover {
         border-bottom: 2px solid var(--blue-5);
+
         svg {
           margin-bottom: -0.8rem;
         }
