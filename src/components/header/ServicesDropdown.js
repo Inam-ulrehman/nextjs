@@ -1,3 +1,4 @@
+import { Icons } from '@/styles/Icons'
 import { servicesData } from '@/utils/data'
 import Link from 'next/link'
 import React from 'react'
@@ -11,7 +12,7 @@ const ServicesDropdown = () => {
           <Wrapper key={index}>
             <Link href={item.path}>
               <div className='menu'>
-                <i>ICON</i>
+                <i>{Icons[item.icon]}</i>
                 <div className='span'>
                   <span className='span-title'>{item.title}</span>
                   <span className='description'>{item.description}</span>
