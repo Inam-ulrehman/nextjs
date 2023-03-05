@@ -10,7 +10,7 @@ const ServicesDropdown = () => {
       {servicesData.map((item, index) => {
         return (
           <Wrapper key={index}>
-            <Link href={item.path}>
+            <Link href={`/services/${item.path}`}>
               <div className='menu'>
                 <i style={{ color: item.color }}>{Icons[item.icon]}</i>
                 <div className='span'>
