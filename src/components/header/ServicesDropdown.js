@@ -12,9 +12,14 @@ const ServicesDropdown = () => {
           <Wrapper key={index}>
             <Link href={`/services/${item.path}`}>
               <div className='menu'>
-                <i style={{ color: item.color }}>{Icons[item.icon]}</i>
+                <i style={{ color: `var(--${item.color}-6)` }}>
+                  {Icons[item.icon]}
+                </i>
                 <div className='span'>
-                  <span style={{ color: item.color }} className='span-title'>
+                  <span
+                    style={{ color: `var(--${item.color}-7)` }}
+                    className='span-title'
+                  >
                     {item.title}
                   </span>
                   <span className='description'>{item.description}</span>

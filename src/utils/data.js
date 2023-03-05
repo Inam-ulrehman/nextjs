@@ -7,11 +7,11 @@ export const logo =
 
 export const portfoliosData = [
   {
-    id: 1,
-    title: 'Burger Queen',
+    id: 5,
+    title: 'BOLT SIGNS',
     image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1669135918/inamwebsolutions/2_nerta3.svg',
-    path: 'https://burgerqueenbyinam.netlify.app/',
+      'https://res.cloudinary.com/inam6530/image/upload/v1676298680/inamwebsolutions/portfolio_720_720_grrpv3.png',
+    path: 'https://boltsign.netlify.app/',
   },
   {
     id: 2,
@@ -20,20 +20,7 @@ export const portfoliosData = [
       'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/5_p8gnj6.png',
     path: 'https://aryanaspa.netlify.app/',
   },
-  {
-    id: 3,
-    title: 'Business Website',
-    image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1669135917/inamwebsolutions/1_xtvk85.svg',
-    path: 'https://inamulrehman.netlify.app/',
-  },
-  {
-    id: 4,
-    title: 'Real Pure Water',
-    image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/7_utcyd8.png',
-    path: 'https://www.realpurewater.ca/',
-  },
+
   {
     id: 5,
     title: 'K-W OPTICAL HOUSE',
@@ -42,11 +29,26 @@ export const portfoliosData = [
     path: 'https://k-w-opticalhouse.netlify.app/',
   },
   {
-    id: 5,
-    title: 'BOLT SIGNS',
+    id: 3,
+    title: 'Business Website',
     image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1676298680/inamwebsolutions/portfolio_720_720_grrpv3.png',
-    path: 'https://boltsign.netlify.app/',
+      'https://res.cloudinary.com/inam6530/image/upload/v1669135917/inamwebsolutions/1_xtvk85.svg',
+    path: 'https://inamulrehman.netlify.app/',
+  },
+
+  {
+    id: 4,
+    title: 'Real Pure Water',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/7_utcyd8.png',
+    path: 'https://www.realpurewater.ca/',
+  },
+  {
+    id: 1,
+    title: 'Burger Queen',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1669135918/inamwebsolutions/2_nerta3.svg',
+    path: 'https://burgerqueenbyinam.netlify.app/',
   },
 ]
 
@@ -56,7 +58,7 @@ export const servicesData = [
   {
     id: 1,
     icon: 'development',
-    color: 'var(--red-7)',
+    color: 'red',
     title: 'Web Application Development',
     path: 'Web-application-development',
     description:
@@ -150,7 +152,7 @@ export const servicesData = [
   {
     id: 2,
     icon: 'software',
-    color: 'var(--yellow-7)',
+    color: 'yellow',
     title: 'Custom Software Development',
     path: 'custom-software-development',
     description:
@@ -314,7 +316,7 @@ export const servicesData = [
   {
     id: 5,
     icon: 'test',
-    color: 'var(--pink-7)',
+    color: 'pink',
     title: 'Testing & QA',
     path: 'testing-qa',
     description:
@@ -408,7 +410,7 @@ export const servicesData = [
   {
     id: 6,
     icon: 'devops',
-    color: 'var(--blue-7)',
+    color: 'blue',
     title: 'DevOps',
     path: 'devops',
     description:
@@ -480,7 +482,7 @@ export const servicesData = [
   {
     id: 8,
     icon: 'team',
-    color: 'var(--yellow-5)',
+    color: 'yellow',
     title: 'Dedicated Development Team',
     path: 'dedicated-development-team',
     description:
