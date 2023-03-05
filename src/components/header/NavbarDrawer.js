@@ -58,7 +58,7 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
             </ul>
           </div>
         </li>
-        <hr />
+
         {/* services */}
         <li className={router.pathname === '/services' ? 'active ' : ''}>
           <button type='button' onClick={handleServices}>
@@ -86,7 +86,6 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
             </ul>
           </div>
         </li>
-        <hr />
 
         <li
           onClick={handleNavbarDrawer}
@@ -107,6 +106,9 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
 
 const Wrapper = styled.div`
   font-weight: 600;
+
+  height: 100vh;
+  overflow: scroll;
   .drawer-list {
     padding: 2rem;
     li {
@@ -130,6 +132,9 @@ const Wrapper = styled.div`
   /* drawer  */
   .drawer-dropdown {
     transition: var(--transition-1);
+    li {
+      border-bottom: 2px solid var(--grey-5);
+    }
   }
 `
 export default NavbarDrawer
