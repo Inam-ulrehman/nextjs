@@ -12,9 +12,11 @@ const ServicesDropdown = () => {
           <Wrapper key={index}>
             <Link href={item.path}>
               <div className='menu'>
-                <i>{Icons[item.icon]}</i>
+                <i style={{ color: item.color }}>{Icons[item.icon]}</i>
                 <div className='span'>
-                  <span className='span-title'>{item.title}</span>
+                  <span style={{ color: item.color }} className='span-title'>
+                    {item.title}
+                  </span>
                   <span className='description'>{item.description}</span>
                 </div>
               </div>
@@ -35,7 +37,6 @@ const Wrapper = styled.li`
     align-items: center;
     i {
       margin-right: 10px;
-      color: pink;
     }
     .span {
       display: grid;

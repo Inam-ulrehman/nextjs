@@ -56,6 +56,7 @@ export const servicesData = [
   {
     id: 1,
     icon: 'development',
+    color: 'var(--red-7)',
     title: 'Web Application Development',
     path: 'Web-application-development',
     description:
@@ -149,6 +150,7 @@ export const servicesData = [
   {
     id: 2,
     icon: 'software',
+    color: 'var(--yellow-7)',
     title: 'Custom Software Development',
     path: 'custom-software-development',
     description:
@@ -230,6 +232,7 @@ export const servicesData = [
   {
     id: 3,
     icon: 'product',
+    color: 'var(--cyan-7)',
     title: 'Outsourced Product Development',
     path: 'outsourced-product-development',
     description:
@@ -311,6 +314,7 @@ export const servicesData = [
   {
     id: 5,
     icon: 'test',
+    color: 'var(--pink-7)',
     title: 'Testing & QA',
     path: 'testing-qa',
     description:
@@ -404,6 +408,7 @@ export const servicesData = [
   {
     id: 6,
     icon: 'devops',
+    color: 'var(--blue-7)',
     title: 'DevOps',
     path: 'devops',
     description:
@@ -474,7 +479,8 @@ export const servicesData = [
   },
   {
     id: 8,
-    icon: 'development',
+    icon: 'team',
+    color: 'var(--yellow-5)',
     title: 'Dedicated Development Team',
     path: 'dedicated-development-team',
     description:
