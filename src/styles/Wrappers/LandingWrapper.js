@@ -74,8 +74,8 @@ export const LandingWrapper = styled.div`
         margin-top: 0px;
       }
     }
-    h1,
-    h2,
+    .first-heading,
+    .second-heading,
     p,
     a {
       margin-left: 0;
