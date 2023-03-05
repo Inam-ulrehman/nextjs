@@ -139,7 +139,7 @@ const Wrapper = styled.nav`
     position: absolute;
     top: 3.85rem;
     left: -30%;
-    /* display: none; */
+    display: none;
 
     transition: var(--transition);
 
