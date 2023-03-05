@@ -37,12 +37,15 @@ export const LandingWrapper = styled.div`
       padding-left: 0rem !important;
       .first-heading {
         padding: 1rem;
+        margin: 0;
       }
       .second-heading {
         display: none;
+        margin: 0px;
       }
       p {
         padding: 1rem;
+        margin: 0;
       }
     }
     .image-box {
