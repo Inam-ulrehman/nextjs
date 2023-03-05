@@ -26,7 +26,6 @@ export const LandingWrapper = styled.div`
     width: 100vw;
     overflow: hidden;
     .mobile-image {
-      border: 2px solid black;
       width: 100vw;
       img {
         width: 340px;
