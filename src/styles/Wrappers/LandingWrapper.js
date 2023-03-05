@@ -27,6 +27,7 @@ export const LandingWrapper = styled.div`
     overflow: hidden;
     .mobile-image {
       width: 100vw;
+      overflow: hidden;
       img {
         width: 340px;
         height: 340px;
@@ -34,6 +35,9 @@ export const LandingWrapper = styled.div`
     }
     .text-box {
       padding-left: 0rem !important;
+      .first-heading {
+        padding: 1rem;
+      }
       .second-heading {
         display: none;
       }
