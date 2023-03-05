@@ -234,7 +234,7 @@ export const servicesData = [
   {
     id: 3,
     icon: 'product',
-    color: 'var(--cyan-7)',
+    color: 'cyan',
     title: 'Outsourced Product Development',
     path: 'outsourced-product-development',
     description:
