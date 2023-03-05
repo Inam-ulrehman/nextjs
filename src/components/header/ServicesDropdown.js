@@ -35,6 +35,7 @@ const Wrapper = styled.li`
     align-items: center;
     i {
       margin-right: 10px;
+      color: pink;
     }
     .span {
       display: grid;
