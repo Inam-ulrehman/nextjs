@@ -1,3 +1,4 @@
+import { LandingWrapper } from '@/styles/Wrappers/LandingWrapper'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
@@ -9,10 +10,12 @@ const url =
 const Landing = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
   return (
-    <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
+    <LandingWrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='text-box box'>
-        <h1>Professional Website Designing Services.</h1>
-        <h2>
+        <h1 className='first-heading'>
+          Professional Website Designing Services.
+        </h1>
+        <h2 className='second-heading'>
           we have the expertise and resources to create a website that reflects
           your brand
         </h2>
@@ -21,6 +24,15 @@ const Landing = () => {
           website design services that are tailored to meet the unique needs of
           your business.
         </p>
+        <div className='mobile-image'>
+          <Image
+            src={url}
+            width={400}
+            height={400}
+            alt='Home page image'
+            priority
+          ></Image>
+        </div>
         <Link className='btn' href='/contact'>
           Let's Talk
         </Link>
@@ -34,63 +46,8 @@ const Landing = () => {
           priority
         ></Image>
       </div>
-    </Wrapper>
+    </LandingWrapper>
   )
 }
 
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1.5fr 1fr;
-  align-items: center;
-
-  @media (max-width: 820px) {
-    min-height: auto;
-    grid-template-columns: 1fr;
-
-    .text-box {
-      padding: 1rem;
-    }
-    .image-box {
-      text-align: center;
-    }
-  }
-  @media (max-width: 620px) {
-    text-align: left;
-    .image-box {
-      img {
-        width: 350px;
-        height: 350px;
-      }
-    }
-  }
-  .box {
-  }
-  .text-box {
-    padding-left: 3rem;
-    h1 {
-      font-size: var(--medium);
-      color: var(--primary-5);
-      font-weight: 800;
-    }
-    h2 {
-      font-weight: 700;
-      color: var(--primary-8);
-    }
-    p {
-    }
-    .btn {
-      transition: var(--transition);
-
-      :hover {
-        margin-top: 0px;
-      }
-    }
-    h1,
-    h2,
-    p,
-    a {
-      margin-left: 0;
-    }
-  }
-`
 export default Landing
