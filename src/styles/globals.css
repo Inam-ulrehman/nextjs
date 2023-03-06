@@ -300,6 +300,15 @@ td {
   color: var(--green-dark);
   background: var(--green-light);
 }
+/* card */
+.card {
+  background: var(--white);
+  border-radius: var(--borderRadius);
+  box-shadow: var(--shadow-2);
+  padding: 1rem;
+  margin: 1rem;
+  width: 300px;
+}
 /* form */
 
 .form {
