@@ -82,13 +82,11 @@ const Wrapper = styled.div`
       margin-left: 0;
     }
     h2 {
-      margin: 0 auto;
       max-width: 700px;
       font-size: var(--large-text);
     }
     p {
       min-width: 90vw;
-      margin: 0 auto;
     }
   }
   @media (max-width: 620px) {
@@ -97,8 +95,8 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr;
     }
     .heading {
-      text-align: center;
       h1 {
+        text-align: center;
         font-size: x-large;
       }
       img {
