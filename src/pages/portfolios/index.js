@@ -71,6 +71,7 @@ const Wrapper = styled.div`
       margin: 0 auto;
     }
   }
+
   @media (max-width: 620px) {
     .heading-container {
       display: grid;
