@@ -39,7 +39,7 @@ const Banner = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: var(--grey-9);
+  background-color: var(--grey-6);
   color: var(--white);
   /* address */
   .contact {
