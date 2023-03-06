@@ -27,7 +27,7 @@ const SingleService = ({ data }) => {
             return (
               <div className='body-container card' key={index}>
                 <div className='body-container-header'>
-                  <i>{Icons.development}</i>
+                  <i>{Icons?.development}</i>
                   <p>{item?.title}</p>
                 </div>
                 <p className='description'>{item?.description}</p>
