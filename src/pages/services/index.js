@@ -7,7 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Services = ({ data }) => {
-  const { title, subtitle, description, image } = websiteContent?.services
+  const { title, subtitle, description, image } = websiteContent.services
   return (
     <>
       <Head>
@@ -31,16 +31,16 @@ const Services = ({ data }) => {
           {data?.map((item, index) => {
             return (
               <div className='body-container card ' key={index}>
-                <Link href={`/services/[id]`} as={`/services/${item?.path}`}>
+                <Link href={`/services/[id]`} as={`/services/${item.path}`}>
                   <div className='body-container-header'>
-                    <i style={{ color: `var(--${item?.color}-7)` }}>
-                      {Icons[item?.icon]}
+                    <i style={{ color: `var(--${item.color}-7)` }}>
+                      {Icons[item.icon]}
                     </i>
-                    <p style={{ color: `var(--${item?.color}-7)` }}>
-                      {item?.title}
+                    <p style={{ color: `var(--${item.color}-7)` }}>
+                      {item.title}
                     </p>
                   </div>
-                  <p>{item?.description}</p>
+                  <p>{item.description}</p>
                 </Link>
               </div>
             )
