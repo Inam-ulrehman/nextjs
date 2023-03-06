@@ -63,7 +63,8 @@ const Wrapper = styled.div`
     display: grid;
     justify-content: center;
 
-    p {
+    p,
+    h1 {
       text-align: center;
     }
   }
