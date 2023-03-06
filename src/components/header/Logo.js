@@ -2,7 +2,7 @@ import Image from 'next/image'
 import { useRouter } from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
-import { logo } from '../../utils/data'
+import { imagesData, logo } from '../../utils/data'
 
 const Logo = () => {
   const router = useRouter()
@@ -16,7 +16,7 @@ const Logo = () => {
         onClick={handleClick}
         width={40}
         height={40}
-        src={logo}
+        src={imagesData.logo}
         alt='logo'
         priority
       />

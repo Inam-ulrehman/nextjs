@@ -1,9 +1,11 @@
 import { Icons } from '@/styles/Icons'
 
 // ========icon =========== //
-export const logo =
-  'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/1_um6god.svg'
-// ========Nav Bar=========== //
+export const imagesData = {
+  logo: 'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/1_um6god.svg',
+  error:
+    'https://res.cloudinary.com/inam6530/image/upload/v1678108028/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_1_muogoy.svg',
+}
 
 export const portfoliosData = [
   {
