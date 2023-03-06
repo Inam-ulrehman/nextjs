@@ -17,6 +17,15 @@ export const websiteContent = {
     description:
       'At our website designing company, we offer professional custom and responsive web design services to businesses of all sizes. Our team of experienced designers will work with you to create a visually appealing website that aligns with your brand and engages your target audience. From initial concept to final delivery, we take care of every step of the design process to ensure your website is functional, user-friendly, and optimized for search engines. Contact us today to discuss your website design needs and take the first step towards a successful online presence.',
   },
+  portfolios: {
+    title: 'Our Website Design Portfolio ',
+    subtitle:
+      ' We hope that our work speaks for itself and inspires you to trust us with your website design needs. ',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678126706/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_13_e7kmfb.gif',
+    description:
+      'Our website design portfolio showcases some of our most recent and successful projects. From small businesses to large corporations, we have worked with clients from various industries to create websites that not only look great but also drive results. Our portfolio includes examples of website designs, branding, and custom development projects that we have completed for our clients.',
+  },
 }
 
 export const portfoliosData = [
