@@ -92,6 +92,7 @@ const Wrapper = styled.div`
       }
     }
     .description {
+      text-align: center;
       color: var(--grey-8);
     }
   }
