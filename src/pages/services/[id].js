@@ -76,6 +76,8 @@ const Wrapper = styled.div`
       }
     }
     h1 {
+      text-align: center;
+      font-size: x-large;
       margin-left: 0;
       font-weight: 700;
     }
@@ -109,6 +111,11 @@ const Wrapper = styled.div`
     .description {
       text-align: center;
       color: var(--grey-8);
+    }
+    @media (max-width: 620px) {
+      .description {
+        text-align: start;
+      }
     }
   }
 `

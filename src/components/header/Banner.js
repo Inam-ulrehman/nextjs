@@ -2,7 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Banner = () => {
-  return <Wrapper>Banner</Wrapper>
+  return (
+    <Wrapper>
+      <div className='contact'></div>
+      <div className='social'></div>
+    </Wrapper>
+  )
 }
 
 const Wrapper = styled.div`
