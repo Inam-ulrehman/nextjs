@@ -19,7 +19,7 @@ const SingleService = ({ data }) => {
           <p>{data?.description}</p>
         </div>
         <div className='body'>
-          {data.points.map((item, index) => {
+          {data?.points?.map((item, index) => {
             return (
               <div className='body-container card' key={index}>
                 <div className='body-container-header'>
