@@ -10,7 +10,7 @@ const SingleService = ({ data }) => {
     <>
       <Head>
         <title>{data?.title}</title>
-        <meta name='description' content={data?.description} />
+        <meta name='description' content={data.description} />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
@@ -27,7 +27,7 @@ const SingleService = ({ data }) => {
             return (
               <div className='body-container card' key={index}>
                 <div className='body-container-header'>
-                  <i>{Icons?.development}</i>
+                  <i>{Icons.development}</i>
                   <p>{item?.title}</p>
                 </div>
                 <p className='description'>{item?.description}</p>
@@ -68,7 +68,13 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-
+    @media (max-width: 620px) {
+      grid-template-columns: 1fr;
+      img {
+        width: 95vw;
+        height: auto;
+      }
+    }
     h1 {
       margin-left: 0;
       font-weight: 700;
@@ -77,13 +83,12 @@ const Wrapper = styled.div`
       margin: 0 auto;
     }
   }
-
   .body {
     display: grid;
     place-content: center;
   }
   .body-container {
-    width: 80vw;
+    width: 90vw;
     display: grid;
     place-content: center;
 
