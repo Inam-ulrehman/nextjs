@@ -29,8 +29,8 @@ export const LandingWrapper = styled.div`
       width: 100vw;
       overflow: hidden;
       img {
-        width: 340px;
-        height: 340px;
+        min-width: 95vw;
+        height: auto;
       }
     }
     .text-box {
