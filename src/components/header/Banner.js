@@ -5,24 +5,39 @@ import React from 'react'
 import styled from 'styled-components'
 
 const { email, mobile } = websiteContent.address
-console.log(email.title)
+const { facebook, instagram, linkedin } = websiteContent.socialMedia
+
 const Banner = () => {
   return (
     <Wrapper>
       <div className='contact'>
-        <Link className='email' href={email.titleInfo}>
+        <Link className='email' href={email.path}>
           <i>{Icons.email}</i> <span>{email.titleText}</span>
         </Link>
-        <Link className='mobile' href={mobile.titleInfo}>
+        <Link className='mobile' href={mobile.path}>
           <i>{Icons.mobile}</i> <span>{mobile.titleText}</span>
         </Link>
       </div>
-      <div className='social'>Social</div>
+      <div className='social'>
+        <Link className='facebook' target={'_blank'} href={facebook.path}>
+          <i>{Icons.facebook}</i>
+        </Link>
+        <Link className='linkedin' target={'_blank'} href={linkedin.path}>
+          <i>{Icons.linkedin}</i>
+        </Link>
+        <Link className='instagram' target={'_blank'} href={instagram.path}>
+          <i>{Icons.instagram}</i>
+        </Link>
+      </div>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
+  display: flex;
+  justify-content: space-around;
+  background-color: var(--grey-9);
+  color: var(--white);
   /* address */
   .contact {
     display: flex;
@@ -45,10 +60,28 @@ const Wrapper = styled.div`
   .mobile {
     padding-left: 1rem;
   }
-  display: flex;
-  justify-content: space-around;
-  background-color: var(--grey-9);
-  color: var(--white);
+  /* social  */
+  .social {
+    a {
+      color: var(--white);
+      margin-left: 1rem;
+    }
+    .facebook {
+      :hover {
+        color: var(--blue-8);
+      }
+    }
+    .linkedin {
+      :hover {
+        color: var(--blue-7);
+      }
+    }
+    .instagram {
+      :hover {
+        color: var(--yellow-5);
+      }
+    }
+  }
   @media (max-width: 620px) {
     display: none;
   }

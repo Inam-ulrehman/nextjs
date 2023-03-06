@@ -3,7 +3,12 @@ import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { MdImportantDevices } from 'react-icons/md'
 import { GrCloudSoftware } from 'react-icons/gr'
 import { FaProductHunt } from 'react-icons/fa'
-import { BsTelephone } from 'react-icons/bs'
+import {
+  BsFacebook,
+  BsInstagram,
+  BsLinkedin,
+  BsTelephone,
+} from 'react-icons/bs'
 import { SiSpeedtest, SiAzuredevops, SiJirasoftware } from 'react-icons/si'
 
 export const Icons = {
@@ -17,4 +22,7 @@ export const Icons = {
   team: <RiTeamFill size={30}></RiTeamFill>,
   email: <AiOutlineMail size={16}></AiOutlineMail>,
   mobile: <BsTelephone size={16}></BsTelephone>,
+  instagram: <BsInstagram size={16}></BsInstagram>,
+  facebook: <BsFacebook size={16}></BsFacebook>,
+  linkedin: <BsLinkedin size={16}></BsLinkedin>,
 }

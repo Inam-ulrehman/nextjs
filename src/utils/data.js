@@ -29,12 +29,12 @@ export const websiteContent = {
   address: {
     mobile: {
       title: 'mobile',
-      titleInfo: 'tel:4165606790',
+      path: 'tel:4165606790',
       titleText: '4165606790',
     },
     email: {
       title: 'email',
-      titleInfo: 'mailto:Support@inamwebsolutions.com',
+      path: 'mailto:Support@inamwebsolutions.com',
       titleText: 'support@inamwebsolutions.com',
     },
     address: {
@@ -48,7 +48,7 @@ export const websiteContent = {
   },
 
   // ======Data for SocialIcons=====Start
-  socialIcons: {
+  socialMedia: {
     facebook: {
       id: 1,
       path: 'https://www.facebook.com/inamwebsolutions',
