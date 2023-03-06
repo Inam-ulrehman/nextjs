@@ -89,8 +89,7 @@ export const servicesData = [
       {
         id: 1,
         icon: '',
-        title:
-          'Are you looking to work with a team that puts forth a transparent design process and delivers spot-on results within budget? Turn to our long-standing design team specializing in corporate identity designs, responsive web solutions, print designs, motion graphics, and UX strategy and consulting.',
+        title: 'UX Strategy And Consulting',
         description:
           'Are you looking to work with a team that puts forth a transparent design process and delivers spot-on results within budget? Turn to our long-standing design team specializing in corporate identity designs, responsive web solutions, print designs, motion graphics, and UX strategy and consulting.',
       },
