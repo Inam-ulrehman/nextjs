@@ -1,4 +1,8 @@
-import { RiArrowDropDownLine, RiTeamFill } from 'react-icons/ri'
+import {
+  RiArrowDropDownLine,
+  RiInstagramFill,
+  RiTeamFill,
+} from 'react-icons/ri'
 import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { MdImportantDevices } from 'react-icons/md'
 import { GrCloudSoftware } from 'react-icons/gr'
@@ -22,7 +26,7 @@ export const Icons = {
   team: <RiTeamFill size={30}></RiTeamFill>,
   email: <AiOutlineMail size={16}></AiOutlineMail>,
   mobile: <BsTelephone size={16}></BsTelephone>,
-  instagram: <BsInstagram size={16}></BsInstagram>,
+  instagram: <RiInstagramFill size={16}></RiInstagramFill>,
   facebook: <BsFacebook size={16}></BsFacebook>,
   linkedin: <BsLinkedin size={16}></BsLinkedin>,
   twitter: <FaTwitterSquare size={16}></FaTwitterSquare>,
