@@ -68,8 +68,13 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-
+    .header-titles {
+      margin-left: 3rem;
+    }
     @media (max-width: 620px) {
+      .header-titles {
+        margin-left: 0rem;
+      }
       grid-template-columns: 1fr;
       img {
         width: 95vw;
@@ -77,10 +82,10 @@ const Wrapper = styled.div`
       }
       h1 {
         text-align: center;
+        font-size: x-large;
       }
     }
     h1 {
-      font-size: x-large;
       margin-left: 0;
       font-weight: 700;
     }
