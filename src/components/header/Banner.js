@@ -5,7 +5,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const { email, mobile } = websiteContent.address
-const { facebook, instagram, linkedin } = websiteContent.socialMedia
+const { facebook, instagram, linkedin, twitter } = websiteContent.socialMedia
 
 const Banner = () => {
   return (
@@ -19,14 +19,17 @@ const Banner = () => {
         </Link>
       </div>
       <div className='social'>
-        <Link className='facebook' target={'_blank'} href={facebook.path}>
+        <Link className='facebook' target={'_blank'} href={facebook}>
           <i>{Icons.facebook}</i>
         </Link>
-        <Link className='linkedin' target={'_blank'} href={linkedin.path}>
+        <Link className='linkedin' target={'_blank'} href={linkedin}>
           <i>{Icons.linkedin}</i>
         </Link>
-        <Link className='instagram' target={'_blank'} href={instagram.path}>
+        <Link className='instagram' target={'_blank'} href={instagram}>
           <i>{Icons.instagram}</i>
+        </Link>
+        <Link className='twitter' target={'_blank'} href={twitter}>
+          <i>{Icons.twitter}</i>
         </Link>
       </div>
     </Wrapper>
@@ -79,6 +82,11 @@ const Wrapper = styled.div`
     .instagram {
       :hover {
         color: var(--yellow-5);
+      }
+    }
+    .twitter {
+      :hover {
+        color: var(--blue-5);
       }
     }
   }

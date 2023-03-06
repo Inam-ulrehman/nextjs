@@ -2,7 +2,7 @@ import { RiArrowDropDownLine, RiTeamFill } from 'react-icons/ri'
 import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { MdImportantDevices } from 'react-icons/md'
 import { GrCloudSoftware } from 'react-icons/gr'
-import { FaProductHunt } from 'react-icons/fa'
+import { FaProductHunt, FaTwitterSquare } from 'react-icons/fa'
 import {
   BsFacebook,
   BsInstagram,
@@ -25,4 +25,5 @@ export const Icons = {
   instagram: <BsInstagram size={16}></BsInstagram>,
   facebook: <BsFacebook size={16}></BsFacebook>,
   linkedin: <BsLinkedin size={16}></BsLinkedin>,
+  twitter: <FaTwitterSquare size={16}></FaTwitterSquare>,
 }

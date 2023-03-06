@@ -49,27 +49,13 @@ export const websiteContent = {
 
   // ======Data for SocialIcons=====Start
   socialMedia: {
-    facebook: {
-      id: 1,
-      path: 'https://www.facebook.com/inamwebsolutions',
-      target: '_blank',
-      rel: 'noreferrer',
-      title: 'facebook',
-    },
-    linkedin: {
-      id: 2,
-      path: 'https://www.linkedin.com/in/Inamwebsolutions',
-      target: '_blank',
-      rel: 'noreferrer',
-      title: 'linkedin',
-    },
-    instagram: {
-      id: 3,
-      path: 'https://www.instagram.com/inamwebsolutions/',
-      target: '_blank',
-      rel: 'noreferrer',
-      title: 'instagram',
-    },
+    facebook: 'https://www.facebook.com/inamwebsolutions',
+
+    linkedin: 'https://www.linkedin.com/in/Inamwebsolutions',
+
+    instagram: 'https://www.instagram.com/inamwebsolutions/',
+
+    twitter: 'https://twitter.com/Inamulrehmn',
   },
 }
 
