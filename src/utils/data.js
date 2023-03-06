@@ -7,6 +7,18 @@ export const imagesData = {
     'https://res.cloudinary.com/inam6530/image/upload/v1678108028/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_1_muogoy.svg',
 }
 
+export const websiteContent = {
+  services: {
+    title: 'Professional Website Design Services ',
+    subtitle:
+      ' Let us help you create a stunning online presence that engages your audience and drives business growth ',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678122269/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_5_rwr82w.gif',
+    description:
+      'At our website designing company, we offer professional custom and responsive web design services to businesses of all sizes. Our team of experienced designers will work with you to create a visually appealing website that aligns with your brand and engages your target audience. From initial concept to final delivery, we take care of every step of the design process to ensure your website is functional, user-friendly, and optimized for search engines. Contact us today to discuss your website design needs and take the first step towards a successful online presence.',
+  },
+}
+
 export const portfoliosData = [
   {
     id: 5,
@@ -55,7 +67,6 @@ export const portfoliosData = [
 ]
 
 // Services
-
 export const servicesData = [
   {
     id: 1,

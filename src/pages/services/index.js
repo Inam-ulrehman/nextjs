@@ -1,5 +1,5 @@
 import { Icons } from '@/styles/Icons'
-import { servicesData } from '@/utils/data'
+import { servicesData, websiteContent } from '@/utils/data'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -7,22 +7,25 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Services = ({ data }) => {
+  const { title, subtitle, description, image } = websiteContent.services
   return (
     <>
       <Head>
-        <title>Services</title>
-        <meta name='description' content='Services page' />
+        <title>{title}</title>
+        <meta name='description' content={subtitle} />
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Wrapper>
         <div className='heading'>
-          <h1>This is services</h1>
-          <p>
-            Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eum animi
-            aliquid repellat molestias aut maiores officia dolore ipsam atque,
-            nemo nostrum ipsum sapiente provident voluptatum?
-          </p>
+          <div className='heading-container'>
+            <div className='heading-titles'>
+              <h1>{title}</h1>
+              <h2>{subtitle}</h2>
+            </div>
+            <Image src={image} width={400} height={400}></Image>
+          </div>
+          <p>{description}</p>
         </div>
         <div className='body'>
           {data?.map((item, index) => {
@@ -63,11 +66,44 @@ export async function getStaticProps() {
 // style
 const Wrapper = styled.div`
   padding: 1rem;
+  .heading-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
   .heading {
     display: grid;
-    text-align: center;
-    p {
+
+    img {
       margin: 0 auto;
+    }
+    h1 {
+      font-weight: 700;
+      margin-left: 0;
+    }
+    h2 {
+      margin: 0 auto;
+      max-width: 700px;
+      font-size: var(--large-text);
+    }
+    p {
+      min-width: 90vw;
+      margin: 0 auto;
+    }
+  }
+  @media (max-width: 620px) {
+    .heading-container {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .heading {
+      text-align: center;
+      h1 {
+        font-size: x-large;
+      }
+      img {
+        width: 95vw;
+        height: auto;
+      }
     }
   }
   .body {

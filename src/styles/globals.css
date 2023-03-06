@@ -124,8 +124,11 @@ html {
 
   /* fonts  */
 
-  --small-text: 0.875rem;
   --extra-small-text: 0.7em;
+  --small-text: 0.875rem;
+  --medium-text: 1rem;
+  --large-text: 1.5rem;
+  --extra-large-text: 2rem;
   /* rest of the vars */
   --backgroundColor: var(--grey-05);
   --textColor: var(--grey-9);
