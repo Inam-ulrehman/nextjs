@@ -15,7 +15,7 @@ const SingleService = ({ data }) => {
       </Head>
       <Wrapper>
         <div className='header'>
-          <h1>{data.title}</h1>
+          <h1>{data?.title}</h1>
           <p>{data.description}</p>
         </div>
         <div className='body'>
@@ -24,7 +24,7 @@ const SingleService = ({ data }) => {
               <div className='body-container card' key={index}>
                 <div className='body-container-header'>
                   <i>{Icons.development}</i>
-                  <p>{item.title}</p>
+                  <p>{item?.title}</p>
                 </div>
                 <p className='description'>{item.description}</p>
               </div>
