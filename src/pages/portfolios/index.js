@@ -72,10 +72,16 @@ const Wrapper = styled.div`
     }
   }
 
+  .heading-titles {
+    margin-left: 3rem;
+  }
   @media (max-width: 620px) {
     .heading-container {
       display: grid;
       grid-template-columns: 1fr;
+    }
+    .heading-titles {
+      margin-left: 0rem;
     }
     .heading {
       h1 {

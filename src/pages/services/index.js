@@ -68,11 +68,10 @@ const Wrapper = styled.div`
   padding: 1rem;
   .heading-container {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
   }
   .heading {
-    border: 2px solid black;
     display: grid;
 
     img {
