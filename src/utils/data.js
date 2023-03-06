@@ -169,6 +169,8 @@ export const servicesData = [
     color: 'yellow',
     title: 'Custom Software Development',
     path: 'custom-software-development',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678124612/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_7_tkll8e.gif',
     description:
       'Our customized software solutions are unique to individual needs, budgets, timelines, and target groups.',
     points: [
@@ -251,6 +253,8 @@ export const servicesData = [
     color: 'cyan',
     title: 'Outsourced Product Development',
     path: 'outsourced-product-development',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678124668/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_8_hkli1a.gif',
     description:
       'Benefit from our product-building expertise and high-class engineering that get you the results without letting you struggle or put your mind to them.',
     points: [
@@ -333,6 +337,8 @@ export const servicesData = [
     color: 'pink',
     title: 'Testing & QA',
     path: 'testing-qa',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678124732/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_9_s0tnxi.gif',
     description:
       'What’s the point of a timely release if it’s full of bugs? We help you avoid such a case by using proven testing practices that ensure high-quality, bug-free releases on time and within budget.',
     points: [
@@ -427,6 +433,8 @@ export const servicesData = [
     color: 'blue',
     title: 'DevOps',
     path: 'devops',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678124966/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_10_qhlnhx.gif',
     description:
       'Get in touch with our ace DevOps engineers to plan, build, and test your products and ship them faster to any cloud or on-premise - within optimized costs.',
     points: [
@@ -499,6 +507,8 @@ export const servicesData = [
     color: 'yellow',
     title: 'Dedicated Development Team',
     path: 'dedicated-development-team',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1678125054/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_11_qwom7n.gif',
     description:
       'Spreading yourself too thin? Let our dedicated team handle all your development needs so that you can put your energy to good use with fewer, more critical stuff',
     points: [{ id: 1, icon: '', title: '', description: '' }],
