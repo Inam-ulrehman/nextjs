@@ -105,6 +105,7 @@ const Wrapper = styled.div`
       }
     }
   }
+  /* body */
   .body {
     display: flex;
     flex-wrap: wrap;
@@ -114,6 +115,7 @@ const Wrapper = styled.div`
       position: relative;
       z-index: 0;
       transition: var(--transition);
+
       :hover {
         cursor: pointer;
         box-shadow: var(--shadow-5);
@@ -125,6 +127,11 @@ const Wrapper = styled.div`
       p {
         font-weight: 700;
         margin-bottom: 0;
+      }
+    }
+    @media (max-width: 620px) {
+      .body-container {
+        min-width: 90vw;
       }
     }
   }
