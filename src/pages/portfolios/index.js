@@ -77,9 +77,9 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr;
     }
     .heading {
-      text-align: center;
       h1 {
         font-size: x-large;
+        text-align: center;
       }
       img {
         width: 95vw;
