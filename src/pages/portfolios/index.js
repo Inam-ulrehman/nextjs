@@ -1,8 +1,9 @@
 import Head from 'next/head'
 import React from 'react'
 import styled from 'styled-components'
-import { websiteContent } from '@/utils/data'
+import { portfoliosData, websiteContent } from '@/utils/data'
 import Image from 'next/image'
+import Link from 'next/link'
 const { title, subtitle, description, image } = websiteContent.portfolios
 const Portfolios = () => {
   return (
@@ -24,7 +25,18 @@ const Portfolios = () => {
           </div>
           <p>{description}</p>
         </div>
-        <div className='body'></div>
+        <div className='body'>
+          {portfoliosData.map((item, index) => {
+            return (
+              <Link href={item.path} target='_blank' key={index}>
+                <div className='card'>
+                  <div className='title'>{item.title}</div>
+                  <Image src={item.image} width={400} height={400} />
+                </div>
+              </Link>
+            )
+          })}
+        </div>
       </Wrapper>
     </>
   )
@@ -72,6 +84,29 @@ const Wrapper = styled.div`
       img {
         width: 95vw;
         height: auto;
+      }
+    }
+  }
+  .body {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    .title {
+      font-weight: 700;
+    }
+    .card {
+      transition: var(--transition);
+      :hover {
+        box-shadow: var(--shadow-4);
+        img {
+          background-color: var(--grey-2) !important;
+        }
+      }
+      img {
+        width: 100%;
+        height: auto;
+
+        background-color: var(--grey-05);
       }
     }
   }
