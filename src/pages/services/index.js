@@ -68,10 +68,11 @@ const Wrapper = styled.div`
   padding: 1rem;
   .heading-container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 2fr 1fr;
     align-items: center;
   }
   .heading {
+    border: 2px solid black;
     display: grid;
 
     img {
@@ -91,10 +92,16 @@ const Wrapper = styled.div`
       margin: 0 auto;
     }
   }
+  .heading-titles {
+    margin-left: 3rem;
+  }
   @media (max-width: 620px) {
     .heading-container {
       display: grid;
       grid-template-columns: 1fr;
+    }
+    .heading-titles {
+      margin-left: 0rem;
     }
     .heading {
       h1 {
