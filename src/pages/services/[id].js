@@ -16,7 +16,7 @@ const SingleService = ({ data }) => {
       <Wrapper>
         <div className='header'>
           <h1>{data?.title}</h1>
-          <p>{data.description}</p>
+          <p>{data?.description}</p>
         </div>
         <div className='body'>
           {data.points.map((item, index) => {
@@ -26,7 +26,7 @@ const SingleService = ({ data }) => {
                   <i>{Icons.development}</i>
                   <p>{item?.title}</p>
                 </div>
-                <p className='description'>{item.description}</p>
+                <p className='description'>{item?.description}</p>
               </div>
             )
           })}
