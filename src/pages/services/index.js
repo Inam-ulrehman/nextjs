@@ -84,9 +84,11 @@ const Wrapper = styled.div`
     h2 {
       max-width: 700px;
       font-size: var(--large-text);
+      margin-left: 0;
     }
     p {
       min-width: 90vw;
+      margin: 0 auto;
     }
   }
   @media (max-width: 620px) {
