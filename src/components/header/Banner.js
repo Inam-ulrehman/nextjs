@@ -52,7 +52,7 @@ const Wrapper = styled.div`
       }
       span {
         margin-top: -6px;
-        margin-left: 5px;
+        margin-left: 10px;
       }
     }
     .email {
