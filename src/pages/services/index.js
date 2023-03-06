@@ -69,6 +69,7 @@ const Wrapper = styled.div`
   .heading-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
   .heading {
     display: grid;
