@@ -7,7 +7,7 @@ import React from 'react'
 import styled from 'styled-components'
 
 const Services = ({ data }) => {
-  const { title, subtitle, description, image } = websiteContent.services
+  const { title, subtitle, description, image } = websiteContent?.services
   return (
     <>
       <Head>
