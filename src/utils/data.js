@@ -26,6 +26,51 @@ export const websiteContent = {
     description:
       'Our website design portfolio showcases some of our most recent and successful projects. From small businesses to large corporations, we have worked with clients from various industries to create websites that not only look great but also drive results. Our portfolio includes examples of website designs, branding, and custom development projects that we have completed for our clients.',
   },
+  address: {
+    mobile: {
+      title: 'mobile',
+      titleInfo: 'tel:4165606790',
+      titleText: '4165606790',
+    },
+    email: {
+      title: 'email',
+      titleInfo: 'mailto:Support@inamwebsolutions.com',
+      titleText: 'support@inamwebsolutions.com',
+    },
+    address: {
+      id: 3,
+      title: 'address',
+      titleInfo: 'https://www.google.com/maps/@43.4450731,-80.4859129,17z',
+      titleText: '86 Cedar Street,Kitchener, ON,  N2G 3L8',
+      target: '_blank',
+      rel: 'noreferrer',
+    },
+  },
+
+  // ======Data for SocialIcons=====Start
+  socialIcons: {
+    facebook: {
+      id: 1,
+      path: 'https://www.facebook.com/inamwebsolutions',
+      target: '_blank',
+      rel: 'noreferrer',
+      title: 'facebook',
+    },
+    linkedin: {
+      id: 2,
+      path: 'https://www.linkedin.com/in/Inamwebsolutions',
+      target: '_blank',
+      rel: 'noreferrer',
+      title: 'linkedin',
+    },
+    instagram: {
+      id: 3,
+      path: 'https://www.instagram.com/inamwebsolutions/',
+      target: '_blank',
+      rel: 'noreferrer',
+      title: 'instagram',
+    },
+  },
 }
 
 export const portfoliosData = [
