@@ -28,22 +28,16 @@ export const websiteContent = {
   },
   address: {
     mobile: {
-      title: 'mobile',
       path: 'tel:4165606790',
-      titleText: '4165606790',
+      title: '4165606790',
     },
     email: {
-      title: 'email',
       path: 'mailto:Support@inamwebsolutions.com',
-      titleText: 'support@inamwebsolutions.com',
+      title: 'support@inamwebsolutions.com',
     },
     address: {
-      id: 3,
-      title: 'address',
-      titleInfo: 'https://www.google.com/maps/@43.4450731,-80.4859129,17z',
-      titleText: '86 Cedar Street,Kitchener, ON,  N2G 3L8',
-      target: '_blank',
-      rel: 'noreferrer',
+      path: 'https://www.google.com/maps/@43.4450731,-80.4859129,17z',
+      title: '86 Cedar Street,Kitchener, ON,  N2G 3L8',
     },
   },
 

@@ -12,10 +12,10 @@ const Banner = () => {
     <Wrapper>
       <div className='contact'>
         <Link className='email' href={email.path}>
-          <i>{Icons.email}</i> <span>{email.titleText}</span>
+          <i>{Icons.email}</i> <span>{email.title}</span>
         </Link>
         <Link className='mobile' href={mobile.path}>
-          <i>{Icons.mobile}</i> <span>{mobile.titleText}</span>
+          <i>{Icons.mobile}</i> <span>{mobile.title}</span>
         </Link>
       </div>
       <div className='social'>

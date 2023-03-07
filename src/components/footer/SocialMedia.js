@@ -11,16 +11,24 @@ const SocialMedia = () => {
       <div className='heading'>SOCIAL MEDIA</div>
       <ul>
         <li>
-          <Link href={facebook}>{Icons.facebook} </Link>
+          <Link className='facebook' target='_blank' href={facebook}>
+            {Icons.facebook}{' '}
+          </Link>
         </li>
         <li>
-          <Link href={linkedin}>{Icons.linkedin} </Link>
+          <Link className='linkedin' target='_blank' href={linkedin}>
+            {Icons.linkedin}{' '}
+          </Link>
         </li>
         <li>
-          <Link href={instagram}>{Icons.instagram} </Link>
+          <Link className='instagram' target='_blank' href={instagram}>
+            {Icons.instagram}{' '}
+          </Link>
         </li>
         <li>
-          <Link href={twitter}>{Icons.twitter} </Link>
+          <Link className='twitter' target='_blank' href={twitter}>
+            {Icons.twitter}{' '}
+          </Link>
         </li>
       </ul>
     </Wrapper>
@@ -34,10 +42,32 @@ const Wrapper = styled.div`
     font-weight: 700;
     color: var(--primary-8);
     border-bottom: 2px solid var(--primary-8);
+    width: fit-content;
+    margin: 0 auto;
   }
   ul {
     display: flex;
     gap: 1rem;
+  }
+  .facebook {
+    :hover {
+      color: var(--facebook);
+    }
+  }
+  .linkedin {
+    :hover {
+      color: var(--linkedin);
+    }
+  }
+  .instagram {
+    :hover {
+      color: var(--instagram);
+    }
+  }
+  .twitter {
+    :hover {
+      color: var(--twitter);
+    }
   }
 `
 export default SocialMedia

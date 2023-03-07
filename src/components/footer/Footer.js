@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from 'styled-components'
 import Logo from '../header/Logo'
+import Address from './Address'
 import NavbarLinks from './NavbarLinks'
 import SocialMedia from './SocialMedia'
 
@@ -12,6 +13,7 @@ const Footer = () => {
         <NavbarLinks />
       </div>
       <SocialMedia />
+      <Address />
     </Wrapper>
   )
 }
