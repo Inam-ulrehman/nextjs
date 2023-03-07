@@ -11,37 +11,41 @@ const navList = [
 const NavbarLinks = () => {
   return (
     <Wrapper>
-      {navList.map((item, index) => {
-        return (
-          <li key={index}>
-            <Link href={item.path}>{item.title}</Link>
-          </li>
-        )
-      })}
+      <ul>
+        {navList.map((item, index) => {
+          return (
+            <li key={index}>
+              <Link href={item.path}>{item.title}</Link>
+            </li>
+          )
+        })}
+      </ul>
     </Wrapper>
   )
 }
 
-const Wrapper = styled.ul`
-  font-weight: 700;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  max-width: 300px;
-  margin: 0 auto;
-  li {
-    padding: 0.3rem;
-  }
-  a {
-    padding: 5px;
-
-    color: var(--grey-8);
-    :hover {
-      color: var(--primary-8);
-      border-bottom: 2px solid var(--primary-8);
+const Wrapper = styled.div`
+  ul {
+    font-weight: 700;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 300px;
+    margin: 0 auto;
+    li {
+      padding: 0.3rem;
     }
+    a {
+      padding: 5px;
+
+      color: var(--grey-8);
+      :hover {
+        color: var(--primary-8);
+        border-bottom: 2px solid var(--primary-8);
+      }
+    }
+    display: grid;
+    justify-content: center;
   }
-  display: grid;
-  justify-content: center;
 `
 
 export default NavbarLinks

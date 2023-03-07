@@ -2,20 +2,14 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../header/Logo'
 import NavbarLinks from './NavbarLinks'
-const navbar = [
-  { name: 'Home', path: '/' },
-  { name: 'Portfolios', path: '/portfolios' },
-  { name: 'Services', path: '/services' },
-  { name: 'About', path: '/about' },
-  { name: 'Contact', path: '/services' },
-]
+
 const Footer = () => {
   return (
     <Wrapper>
       <div className='logo'>
         <Logo />
+        <NavbarLinks />
       </div>
-      <NavbarLinks />
     </Wrapper>
   )
 }
