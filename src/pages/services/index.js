@@ -1,3 +1,4 @@
+import ProductCard from '@/components/cards/ProductCard'
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
 import Head from 'next/head'
@@ -23,27 +24,19 @@ const Services = ({ data }) => {
               <h1>{title}</h1>
               <h2>{subtitle}</h2>
             </div>
-            <Image src={image} width={400} height={400}></Image>
+            <Image
+              src={image}
+              width={400}
+              height={400}
+              alt={title}
+              priority
+            ></Image>
           </div>
           <p>{description}</p>
         </div>
         <div className='body'>
           {data?.map((item, index) => {
-            return (
-              <div className='body-container card ' key={index}>
-                <Link href={`/services/[id]`} as={`/services/${item.path}`}>
-                  <div className='body-container-header'>
-                    <i style={{ color: `var(--${item.color}-7)` }}>
-                      {Icons[item.icon]}
-                    </i>
-                    <p style={{ color: `var(--${item.color}-7)` }}>
-                      {item.title}
-                    </p>
-                  </div>
-                  <p>{item.description}</p>
-                </Link>
-              </div>
-            )
+            return <ProductCard key={index} item={item} />
           })}
         </div>
       </Wrapper>
@@ -118,29 +111,5 @@ const Wrapper = styled.div`
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
-
-    .body-container {
-      position: relative;
-      z-index: 0;
-      transition: var(--transition);
-
-      :hover {
-        cursor: pointer;
-        box-shadow: var(--shadow-5);
-      }
-    }
-
-    .body-container-header {
-      text-align: center;
-      p {
-        font-weight: 700;
-        margin-bottom: 0;
-      }
-    }
-    @media (max-width: 620px) {
-      .body-container {
-        min-width: 90vw;
-      }
-    }
   }
 `
