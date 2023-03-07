@@ -24,7 +24,7 @@ const Wrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1rem;
+  gap: 0.5rem;
   .title {
     font-weight: 700;
   }
@@ -51,6 +51,11 @@ const Wrapper = styled.div`
       height: auto;
 
       background-color: var(--grey-05);
+    }
+  }
+  @media (max-width: 620px) {
+    .container {
+      width: 40vw;
     }
   }
 `
