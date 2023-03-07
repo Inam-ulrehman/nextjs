@@ -27,7 +27,7 @@ const ProductCard = ({ item }) => {
 const Wrapper = styled.div`
   :hover {
     color: ${(props) => props.inputColor};
-    background-color: var(--${(props) => props.inputColor}-1);
+    background-color: var(--${(props) => props.inputColor}-05);
   }
 
   position: relative;
