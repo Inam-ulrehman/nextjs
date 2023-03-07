@@ -2,6 +2,7 @@ import React from 'react'
 import styled from 'styled-components'
 import Logo from '../header/Logo'
 import NavbarLinks from './NavbarLinks'
+import SocialMedia from './SocialMedia'
 
 const Footer = () => {
   return (
@@ -10,6 +11,7 @@ const Footer = () => {
         <Logo />
         <NavbarLinks />
       </div>
+      <SocialMedia />
     </Wrapper>
   )
 }

@@ -65,9 +65,13 @@ const Wrapper = styled.div`
   }
   /* social  */
   .social {
+    display: flex;
+
     a {
       color: var(--white);
       margin-left: 1rem;
+      margin-bottom: -5px;
+      padding: 2px;
     }
     .facebook {
       :hover {
