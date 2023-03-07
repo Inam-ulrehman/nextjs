@@ -1,22 +1,36 @@
-import { Button } from '@/styles/Wrappers/Buttons'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import PortfolioCard from '../cards/PortfolioCard'
 
 const FeaturePage = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
 
   return (
-    <Wrapper style={{ height: `calc(100vh - ${headerHeight}px` }}></Wrapper>
+    <Wrapper>
+      <div className='heading-title'>
+        <span>PORTFOLIOS</span>
+      </div>
+
+      <PortfolioCard />
+    </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  padding: 4rem;
-  min-height: 100vh;
-  background-color: var(--grey-1);
-  button {
-    margin-right: 1rem;
+  .heading-title {
+    font-weight: 700;
+    text-align: center;
+    padding: 1rem;
+    font-size: 40px;
+    color: var(--primary-7);
+    span {
+      border-bottom: 4px solid var(--primary-5);
+    }
+  }
+  @media (min-width: 620px) {
+    .heading-title {
+    }
   }
 `
 export default FeaturePage
