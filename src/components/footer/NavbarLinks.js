@@ -11,6 +11,7 @@ const navList = [
 const NavbarLinks = () => {
   return (
     <Wrapper>
+      <div className='heading'>QUICK LINKS</div>
       <ul>
         {navList.map((item, index) => {
           return (
@@ -25,6 +26,13 @@ const NavbarLinks = () => {
 }
 
 const Wrapper = styled.div`
+  .heading {
+    font-weight: 700;
+    color: var(--primary-8);
+    border-bottom: 2px solid var(--primary-8);
+    width: fit-content;
+    margin: 0 auto;
+  }
   ul {
     font-weight: 700;
     display: grid;

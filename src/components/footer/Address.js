@@ -28,8 +28,7 @@ const Address = () => {
   )
 }
 const Wrapper = styled.div`
-  display: grid;
-  justify-content: center;
+  margin: 0 auto;
   .heading {
     font-weight: 700;
     color: var(--primary-8);
