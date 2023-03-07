@@ -6,15 +6,10 @@ import GoogleMapComponent from '../GoogleMapComponent'
 const ContactSection = () => {
   return (
     <Wrapper>
-      <div className='contact-form'></div>
-      <div className='map'>
-        <GoogleMapComponent />
-      </div>
+      <GoogleMapComponent />
     </Wrapper>
   )
 }
 
-const Wrapper = styled.div`
-  min-height: 100vh;
-`
+const Wrapper = styled.div``
 export default ContactSection

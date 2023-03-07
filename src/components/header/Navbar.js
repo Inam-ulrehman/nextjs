@@ -50,10 +50,10 @@ const Navbar = () => {
           </ul>
         </li>
         <li className={router.pathname === '/about' ? 'active' : ''}>
-          <Link href={'/about'}>About Us</Link>
+          <Link href={'/about'}>About</Link>
         </li>
         <li className={router.pathname === '/contact' ? 'active' : ''}>
-          <Link href={'/contact'}>Contact Us</Link>
+          <Link href={'/contact'}>Contact</Link>
         </li>
       </ul>
       <i onClick={handleNavbarDrawer} className='menu-icon'>
