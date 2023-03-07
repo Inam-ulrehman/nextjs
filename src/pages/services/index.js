@@ -35,9 +35,14 @@ const Services = ({ data }) => {
           <p>{description}</p>
         </div>
         <div className='body'>
-          {data?.map((item, index) => {
-            return <ProductCard key={index} item={item} />
-          })}
+          <div className='heading-title'>
+            <span>SERVICES</span>
+          </div>
+          <div className='container'>
+            {data?.map((item, index) => {
+              return <ProductCard key={index} item={item} />
+            })}
+          </div>
         </div>
       </Wrapper>
     </>
@@ -111,8 +116,20 @@ const Wrapper = styled.div`
   }
   /* body */
   .body {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .heading-title {
+      font-weight: 700;
+      text-align: center;
+      padding: 1rem;
+      font-size: 40px;
+      color: var(--primary-7);
+      span {
+        border-bottom: 4px solid var(--primary-5);
+      }
+    }
   }
 `
