@@ -86,8 +86,16 @@ const Wrapper = styled.div`
       }
     }
     h1 {
-      margin-left: 0;
       font-weight: 700;
+      margin-left: 0;
+      color: var(--primary-8);
+    }
+    p {
+      max-width: 700px;
+      font-weight: 700;
+      font-size: var(--large-text);
+      margin-left: 0;
+      color: var(--grey-8);
     }
     img {
       margin: 0 auto;

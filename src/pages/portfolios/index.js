@@ -50,15 +50,18 @@ const Wrapper = styled.div`
     h1 {
       font-weight: 700;
       margin-left: 0;
+      color: var(--primary-8);
     }
     h2 {
-      margin: 0 auto;
       max-width: 700px;
+      font-weight: 700;
       font-size: var(--large-text);
+      margin-left: 0;
     }
     p {
       min-width: 90vw;
       margin: 0 auto;
+      color: var(--grey-7);
     }
   }
 
