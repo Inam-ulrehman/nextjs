@@ -75,22 +75,22 @@ const Wrapper = styled.div`
     }
     .facebook {
       :hover {
-        color: var(--blue-8);
+        color: var(--facebook);
       }
     }
     .linkedin {
       :hover {
-        color: var(--blue-7);
+        color: var(--linkedin);
       }
     }
     .instagram {
       :hover {
-        color: var(--yellow-5);
+        color: var(--instagram);
       }
     }
     .twitter {
       :hover {
-        color: var(--blue-5);
+        color: var(--twitter);
       }
     }
   }

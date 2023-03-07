@@ -19,6 +19,10 @@ html {
   --success: #17c964;
   --warning: #f5a524;
   --error: #f31260;
+  --facebook: var(--blue-8);
+  --linkedin: var(--blue-7);
+  --twitter: var(--blue-5);
+  --instagram: var(--yellow-5);
   /* colors */
   --primary-1: #caf0f8;
   --primary-2: #ade8f4;
