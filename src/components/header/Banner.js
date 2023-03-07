@@ -56,12 +56,20 @@ const Wrapper = styled.div`
       }
     }
     .email {
+      transition: var(--transition);
       border-right: 2px solid var(--white);
       padding-right: 1rem;
+      :hover {
+        color: var(--blue-8);
+      }
     }
   }
   .mobile {
     padding-left: 1rem;
+    transition: var(--transition);
+    :hover {
+      color: var(--blue-8);
+    }
   }
   /* social  */
   .social {
@@ -74,21 +82,25 @@ const Wrapper = styled.div`
       padding: 2px;
     }
     .facebook {
+      transition: var(--transition);
       :hover {
         color: var(--facebook);
       }
     }
     .linkedin {
+      transition: var(--transition);
       :hover {
         color: var(--linkedin);
       }
     }
     .instagram {
+      transition: var(--transition);
       :hover {
         color: var(--instagram);
       }
     }
     .twitter {
+      transition: var(--transition);
       :hover {
         color: var(--twitter);
       }
