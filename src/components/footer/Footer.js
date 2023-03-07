@@ -1,28 +1,41 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 import Logo from '../header/Logo'
 import Address from './Address'
+import CopyRight from './CopyRight'
 import NavbarLinks from './NavbarLinks'
 import SocialMedia from './SocialMedia'
 
 const Footer = () => {
+  const { headerHeight } = useSelector((state) => state.websitecontent)
   return (
-    <Wrapper>
+    <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='logo'>
         <Logo />
-        <NavbarLinks />
       </div>
-      <SocialMedia />
-      <Address />
+      <div className='footer-body'>
+        <NavbarLinks />
+        <SocialMedia />
+        <Address />
+      </div>
+      <CopyRight />
     </Wrapper>
   )
 }
 const Wrapper = styled.footer`
+  display: grid;
+
   .logo {
     display: grid;
     justify-content: center;
   }
   background-color: var(--grey-4);
-  min-height: 100vh;
+  @media (min-width: 768px) {
+    .footer-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+    }
+  }
 `
 export default Footer
