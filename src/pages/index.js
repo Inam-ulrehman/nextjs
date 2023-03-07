@@ -5,6 +5,7 @@ import {
   LandingThird,
   ServicesSection,
 } from '@/components/home'
+import ContactSection from '@/components/home/ContactSection'
 
 import Head from 'next/head'
 import styled from 'styled-components'
@@ -25,6 +26,7 @@ export default function Home() {
         <LandingSecond />
         <FeatureSection />
         <LandingThird />
+        <ContactSection />
       </Wrapper>
     </>
   )

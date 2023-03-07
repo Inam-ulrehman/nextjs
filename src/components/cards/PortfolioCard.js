@@ -12,7 +12,12 @@ const PortfolioCard = () => {
           <Link href={item.path} target='_blank' key={index}>
             <div className='container'>
               <div className='title'>{item.title}</div>
-              <Image src={item.image} width={400} height={400} />
+              <Image
+                src={item.image}
+                width={400}
+                height={400}
+                alt={item.title}
+              />
             </div>
           </Link>
         )
