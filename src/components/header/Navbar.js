@@ -43,7 +43,7 @@ const Navbar = () => {
           </ul>
         </li>
         {/* ======Services======= */}
-        <li className={router.pathname === 'services' ? 'active' : ''}>
+        <li className={router.pathname.startsWith('/services') ? 'active' : ''}>
           <Link href={'/services'}>Services{Icons.dropDown}</Link>
           <ul className='desktop-navbar-dropdown desktop-navbar-dropdown-services'>
             <ServicesDropdown />
@@ -112,6 +112,7 @@ const Wrapper = styled.nav`
         }
       }
       a {
+        font-weight: 500;
       }
       svg {
         margin-bottom: -0.6rem;
