@@ -3,9 +3,16 @@ import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
 
+const LinkWrapper = styled.div`
+  :hover {
+    color: ${(props) => props.inputColor};
+    background-color: var(--${(props) => props.inputColor}-1);
+  }
+`
+
 const ProductCard = ({ item }) => {
   return (
-    <Wrapper className='body-container '>
+    <Wrapper inputColor={item.color} className='body-container '>
       <Link href={`/services/[id]`} as={`/services/${item.path}`}>
         <div className='body-container-header'>
           <i style={{ color: `var(--${item.color}-7)` }}>{Icons[item.icon]}</i>
@@ -18,6 +25,11 @@ const ProductCard = ({ item }) => {
 }
 
 const Wrapper = styled.div`
+  :hover {
+    color: ${(props) => props.inputColor};
+    background-color: var(--${(props) => props.inputColor}-1);
+  }
+
   position: relative;
   z-index: 0;
   transition: var(--transition);
