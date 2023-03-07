@@ -38,7 +38,7 @@ const Wrapper = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     max-width: 300px;
-    margin: 0 auto;
+    margin: 1rem auto;
 
     text-align: center;
     li {
