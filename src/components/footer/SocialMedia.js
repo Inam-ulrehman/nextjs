@@ -51,21 +51,25 @@ const Wrapper = styled.div`
     justify-content: center;
   }
   .facebook {
+    transition: var(--transition);
     :hover {
       color: var(--facebook);
     }
   }
   .linkedin {
+    transition: var(--transition);
     :hover {
       color: var(--linkedin);
     }
   }
   .instagram {
+    transition: var(--transition);
     :hover {
       color: var(--instagram);
     }
   }
   .twitter {
+    transition: var(--transition);
     :hover {
       color: var(--twitter);
     }
