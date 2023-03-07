@@ -21,9 +21,9 @@ export default function Home() {
 
       <Wrapper>
         <Landing />
-        <FeaturePage />
-        <LandingSecond />
         <ServicesPage />
+        <LandingSecond />
+        <FeaturePage />
         <LandingThird />
       </Wrapper>
     </>

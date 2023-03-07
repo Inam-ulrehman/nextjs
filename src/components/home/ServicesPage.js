@@ -1,19 +1,24 @@
-import { Button } from '@/styles/Wrappers/Buttons'
+import { servicesData } from '@/utils/data'
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
+import ProductCard from '../cards/ProductCard'
 
 const ServicesPage = () => {
-  const { headerHeight } = useSelector((state) => state.websitecontent)
-
+  const data = servicesData
+  console.log(data)
   return (
-    <Wrapper style={{ height: `calc(100vh - ${headerHeight}px` }}></Wrapper>
+    <Wrapper>
+      {data?.map((item, index) => {
+        return <ProductCard item={item} key={index} />
+      })}
+    </Wrapper>
   )
 }
 
 const Wrapper = styled.div`
-  padding: 4rem;
-  min-height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   background-color: var(--grey-1);
   button {
     margin-right: 1rem;
