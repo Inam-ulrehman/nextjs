@@ -4,9 +4,11 @@ import styled from 'styled-components'
 const CopyRight = () => {
   return (
     <Wrapper>
-      <FaRegCopyright />
-      Copyright {new Date().getFullYear()} INAM Web Solutions. All Rights
-      Reserved. Web Design and Content Management by INAM Web Solutions.
+      <span>
+        <FaRegCopyright />
+        Copyright {new Date().getFullYear()} INAM Web Solutions. All Rights
+        Reserved. Web Design and Content Management by INAM Web Solutions.
+      </span>
     </Wrapper>
   )
 }
@@ -15,5 +17,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   text-align: center;
   padding: 1rem;
+  bottom: 0;
+  height: fit-content;
 `
 export default CopyRight

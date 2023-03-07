@@ -25,7 +25,7 @@ const Footer = () => {
 }
 const Wrapper = styled.footer`
   display: grid;
-
+  align-content: space-between;
   .logo {
     display: grid;
     justify-content: center;
