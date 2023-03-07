@@ -1,21 +1,18 @@
-import { servicesData } from '@/utils/data'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import ProductCard from '../cards/ProductCard'
+import PortfolioCard from '../cards/PortfolioCard'
 
-const ServicesPage = () => {
-  const data = servicesData
+const FeatureSection = () => {
+  const { headerHeight } = useSelector((state) => state.websitecontent)
 
   return (
     <Wrapper>
       <div className='heading-title'>
-        <span>SERVICES</span>
+        <span>PORTFOLIOS</span>
       </div>
-      <div className='container'>
-        {data?.map((item, index) => {
-          return <ProductCard item={item} key={index} />
-        })}
-      </div>
+
+      <PortfolioCard />
     </Wrapper>
   )
 }
@@ -35,10 +32,5 @@ const Wrapper = styled.div`
     .heading-title {
     }
   }
-  .container {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
 `
-export default ServicesPage
+export default FeatureSection

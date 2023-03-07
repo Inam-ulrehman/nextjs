@@ -1,9 +1,9 @@
 import {
-  FeaturePage,
+  FeatureSection,
   Landing,
   LandingSecond,
   LandingThird,
-  ServicesPage,
+  ServicesSection,
 } from '@/components/home'
 
 import Head from 'next/head'
@@ -21,9 +21,9 @@ export default function Home() {
 
       <Wrapper>
         <Landing />
-        <ServicesPage />
+        <ServicesSection />
         <LandingSecond />
-        <FeaturePage />
+        <FeatureSection />
         <LandingThird />
       </Wrapper>
     </>

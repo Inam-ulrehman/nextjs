@@ -1,7 +1,7 @@
-import FeaturePage from './FeaturePage'
+import FeatureSection from './FeatureSection'
 import Landing from './Landing'
 import LandingSecond from './LandingSecond'
 import LandingThird from './LandingThird'
-import ServicesPage from './ServicesPage'
+import ServicesSection from './ServicesSection'
 
-export { Landing, FeaturePage, LandingSecond, ServicesPage, LandingThird }
+export { Landing, ServicesSection, FeatureSection, LandingSecond, LandingThird }
