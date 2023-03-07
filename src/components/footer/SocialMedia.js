@@ -36,8 +36,8 @@ const SocialMedia = () => {
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  justify-content: center;
+  margin: 0 auto;
+
   .heading {
     font-weight: 700;
     color: var(--primary-8);
@@ -48,6 +48,7 @@ const Wrapper = styled.div`
   ul {
     display: flex;
     gap: 1rem;
+    justify-content: center;
   }
   .facebook {
     :hover {

@@ -35,6 +35,8 @@ const Wrapper = styled.footer`
     .footer-body {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
+      max-width: var(--max-width);
+      margin: 0 auto;
     }
   }
 `

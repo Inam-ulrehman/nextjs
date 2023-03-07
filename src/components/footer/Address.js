@@ -28,13 +28,16 @@ const Address = () => {
   )
 }
 const Wrapper = styled.div`
-  margin: 0 auto;
   .heading {
     font-weight: 700;
     color: var(--primary-8);
     border-bottom: 2px solid var(--primary-8);
     width: fit-content;
     margin: 0 auto;
+  }
+  ul {
+    display: grid;
+    justify-content: center;
   }
   a {
     font-weight: 700;
