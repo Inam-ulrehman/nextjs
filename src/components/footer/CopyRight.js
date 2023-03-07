@@ -19,5 +19,11 @@ const Wrapper = styled.div`
   padding: 1rem;
   bottom: 0;
   height: fit-content;
+  span {
+    svg {
+      margin-right: 5px;
+      margin-bottom: -2px;
+    }
+  }
 `
 export default CopyRight
