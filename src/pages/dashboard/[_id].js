@@ -1,5 +1,5 @@
 import dbConnect from '@/lib/dbConnect'
-import Users from '@/models/Users'
+import Users from '@/models/User'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React from 'react'

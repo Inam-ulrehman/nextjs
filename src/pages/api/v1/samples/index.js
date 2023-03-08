@@ -1,23 +1,23 @@
 import dbConnect from '@/lib/dbConnect'
-import Users from '@/models/User'
+import Samples from '@/models/Sample'
 
 export default async function handler(req, res) {
   await dbConnect()
   const { method, body, query } = req
-  // ===========Get a User=========
+  // ===========Get a Sample=========
   if (method === 'GET') {
     try {
-      const user = await Users.find()
-      return res.status(200).json({ user })
+      const sample = await Samples.find()
+      return res.status(200).json({ sample })
     } catch (error) {
       return res.status(400).json({ error })
     }
   }
-  // Create a User
+  // Create a Sample
   if (method === 'POST') {
     try {
-      const user = await Users.create(body)
-      return res.status(200).json({ msg: 'User Registered' })
+      const sample = await Samples.create(body)
+      return res.status(200).json({ msg: 'Sample Registered' })
     } catch (error) {
       return res.status(400).json({ error })
     }

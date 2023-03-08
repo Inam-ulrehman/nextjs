@@ -2,8 +2,17 @@ import { NextResponse } from 'next/server'
 
 export function middleware(request) {
   // this logic is many routes
-  if (request.nextUrl.pathname.startsWith('/random')) {
-    console.log(request.body)
+  // console.log(request.nextUrl.pathname)
+
+  if (request.nextUrl.pathname.startsWith('/api/v1')) {
+    // console.log('middleware')
+    // direct response back if fail for actions.
+
+    return NextResponse.next()
+  }
+  if (request.nextUrl.pathname.startsWith('/dashboard')) {
+    // console.log('dashboard')
+    // direct response back if fail for actions.
 
     return NextResponse.next()
   }
@@ -11,5 +20,6 @@ export function middleware(request) {
 
 // this logic is default
 export const config = {
-  matcher: ['/api/v1/random:function*'],
+  // any routes to v1 match
+  matcher: ['/api/v1/:path*', '/dashboard/:path*'],
 }
