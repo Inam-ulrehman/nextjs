@@ -53,9 +53,6 @@ const Navbar = () => {
         <li className={router.pathname === '/contact' ? 'active' : ''}>
           <Link href={'/contact'}>Contact</Link>
         </li>
-        <li className={router.pathname === '/dashboard' ? 'active' : ''}>
-          <Link href={'/dashboard'}></Link>
-        </li>
       </ul>
       <i onClick={handleNavbarDrawer} className='menu-icon'>
         {Icons.menu}
