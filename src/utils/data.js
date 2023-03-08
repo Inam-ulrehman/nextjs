@@ -15,7 +15,7 @@ export const websiteContent = {
     keywords:
       'Kitchener, Waterloo, Ontario, Web Design, Website Application Development, Content Management System, Cambridge, Guelph, Hosting, Ecommerce',
     description:
-      'we offer a range of services to help businesses achieve their online goals, including custom website design, e-commerce solutions, website maintenance, and more',
+      'we offer a range of services like custom website design, e-commerce solutions, website maintenance, and more. Call 416-560-6790',
     author: 'INAM Web Solutions',
     ogSiteName: 'INAM Web Solutions',
     ogTitle: 'Business Website Design and Development',
