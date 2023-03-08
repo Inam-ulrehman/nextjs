@@ -27,6 +27,14 @@ const Navbar = () => {
         <li className={router.pathname === '/' ? 'active' : ''}>
           <Link href={'/'}>Home</Link>
         </li>
+
+        {/* ======Services======= */}
+        <li className={router.pathname.startsWith('/services') ? 'active' : ''}>
+          <Link href={'/services'}>Services{Icons.dropDown}</Link>
+          <ul className='desktop-navbar-dropdown desktop-navbar-dropdown-services'>
+            <ServicesDropdown />
+          </ul>
+        </li>
         {/* ========portfolio====== */}
         <li className={router.pathname === '/portfolios' ? 'active' : ''}>
           <Link href={'/portfolios'}>Portfolios{Icons.dropDown}</Link>
@@ -42,21 +50,11 @@ const Navbar = () => {
             })}
           </ul>
         </li>
-        {/* ======Services======= */}
-        <li className={router.pathname.startsWith('/services') ? 'active' : ''}>
-          <Link href={'/services'}>Services{Icons.dropDown}</Link>
-          <ul className='desktop-navbar-dropdown desktop-navbar-dropdown-services'>
-            <ServicesDropdown />
-          </ul>
-        </li>
-        <li className={router.pathname === '/about' ? 'active' : ''}>
-          <Link href={'/about'}>About</Link>
-        </li>
         <li className={router.pathname === '/contact' ? 'active' : ''}>
           <Link href={'/contact'}>Contact</Link>
         </li>
         <li className={router.pathname === '/dashboard' ? 'active' : ''}>
-          <Link href={'/dashboard'}>dashboard</Link>
+          <Link href={'/dashboard'}></Link>
         </li>
       </ul>
       <i onClick={handleNavbarDrawer} className='menu-icon'>

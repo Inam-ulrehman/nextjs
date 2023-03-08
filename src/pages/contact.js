@@ -74,7 +74,7 @@ const Contact = () => {
           />
         </div>
         <div className='form'>
-          <h1 className='title'>Contact Customers support</h1>
+          <h1 className='title'>How can we help ?</h1>
           <div className='title-underline'></div>
           <form onSubmit={handleSubmit} className='form-container'>
             {/* name */}
@@ -140,6 +140,7 @@ const Wrapper = styled.div`
     h1 {
       margin-top: 0;
       font-size: medium;
+      font-weight: 500;
     }
     .form-container {
     }

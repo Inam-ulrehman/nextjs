@@ -89,12 +89,6 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
 
         <li
           onClick={handleNavbarDrawer}
-          className={router.pathname === '/about' ? 'active' : ''}
-        >
-          <Link href={'/about'}>About</Link>
-        </li>
-        <li
-          onClick={handleNavbarDrawer}
           className={router.pathname === '/contact' ? 'active' : ''}
         >
           <Link href={'/contact'}>Contact</Link>
