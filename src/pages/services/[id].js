@@ -20,7 +20,7 @@ const SingleService = ({ data }) => {
             <h1>{data?.title}</h1>
             <p>{data?.description}</p>
           </div>
-          <Image src={data?.image} width={400} height={400} />
+          <Image src={data?.image} width={400} height={400} alt={data?.title} />
         </div>
         <div className='body'>
           {data?.points?.map((item, index) => {

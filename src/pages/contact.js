@@ -1,7 +1,59 @@
+import FormInput from '@/components/FormInput'
+import { Button } from '@/styles/Wrappers/Buttons'
+import { customFetch } from '@/utils/axios'
+import { imagesData } from '@/utils/data'
 import Head from 'next/head'
-import React from 'react'
+import Image from 'next/image'
+import React, { useState } from 'react'
+import { toast } from 'react-toastify'
+import styled from 'styled-components'
 
+const initialState = {
+  name: '',
+  email: '',
+  mobile: '',
+  subject: '',
+  message: '',
+  isLoading: false,
+}
 const Contact = () => {
+  const [state, setState] = useState(initialState)
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    if (!state.name) {
+      return toast.warning('Please enter name')
+    }
+    if (!state.email) {
+      return toast.warning('Please enter email')
+    }
+    if (!state.mobile) {
+      return toast.warning('Please enter mobile')
+    }
+    if (!state.subject) {
+      return toast.warning('Please enter subject')
+    }
+    if (!state.subject) {
+      return toast.warning('Please enter message')
+    }
+    try {
+      setState({ ...state, isLoading: true })
+      const result = await customFetch.post('/contacts', state)
+      console.log(result)
+      toast.success('Your request is submitted.')
+      setState(initialState)
+    } catch (error) {
+      setState({ ...state, isLoading: false })
+      toast.error(error.response.statusText)
+      console.log(error.response)
+    }
+  }
+
+  const handleChange = (e) => {
+    const name = e.target.name
+    const value = e.target.value
+    setState({ ...state, [name]: value })
+  }
   return (
     <>
       <Head>
@@ -10,9 +62,90 @@ const Contact = () => {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
-      <div className='section'>Contact us</div>
+
+      <Wrapper className='section'>
+        <div className='contact-image'>
+          <Image
+            src={imagesData.contact}
+            width={400}
+            height={400}
+            alt='contact us'
+            priority
+          />
+        </div>
+        <div className='form'>
+          <h1 className='title'>Contact Customers support</h1>
+          <div className='title-underline'></div>
+          <form onSubmit={handleSubmit} className='form-container'>
+            {/* name */}
+            <FormInput name='name' value={state.name} onChange={handleChange} />
+            {/* email */}
+            <FormInput
+              name='email'
+              value={state.email}
+              onChange={handleChange}
+            />
+            {/* mobile */}
+            <FormInput
+              name='mobile'
+              value={state.mobile}
+              onChange={handleChange}
+            />
+            {/* subject */}
+            <FormInput
+              name='subject'
+              value={state.subject}
+              onChange={handleChange}
+            />
+            {/* message */}
+            <label htmlFor='message' className='form-label'>
+              Message
+            </label>
+            <textarea
+              className='form-input'
+              type='text'
+              cols='50'
+              rows='5'
+              name='message'
+              value={state.message}
+              onChange={handleChange}
+            />
+            {state.isLoading ? (
+              <Button disabled={state.isLoading} type='submit'>
+                <span className='loading-span'></span> Submitting...
+              </Button>
+            ) : (
+              <Button type='submit'>Submit</Button>
+            )}
+          </form>
+        </div>
+      </Wrapper>
     </>
   )
 }
 
+const Wrapper = styled.div`
+  padding-top: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  @media (max-width: 620px) {
+    .contact-image {
+      display: none;
+    }
+  }
+  .contact-image {
+  }
+  .form {
+    h1 {
+      margin-top: 0;
+      font-size: medium;
+    }
+    .form-container {
+    }
+    button {
+      width: 100%;
+    }
+  }
+`
 export default Contact

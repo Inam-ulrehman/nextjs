@@ -32,7 +32,7 @@ const ContactSchema = new mongoose.Schema(
       type: String,
       required: [true, 'Please provide message'],
       minLength: 3,
-      maxLength: 10,
+      maxLength: 4000,
     },
   },
 

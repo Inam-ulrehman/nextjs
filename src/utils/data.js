@@ -5,6 +5,8 @@ export const imagesData = {
   logo: 'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/1_um6god.svg',
   error:
     'https://res.cloudinary.com/inam6530/image/upload/v1678125716/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_12_jqzwzf.gif',
+  contact:
+    'https://res.cloudinary.com/inam6530/image/upload/v1678288363/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_14_jotvy3.gif',
 }
 
 export const websiteContent = {

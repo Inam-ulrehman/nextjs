@@ -22,7 +22,13 @@ const Portfolios = () => {
               <h1>{title}</h1>
               <h2>{subtitle}</h2>
             </div>
-            <Image src={image} width={400} height={400}></Image>
+            <Image
+              src={image}
+              width={400}
+              height={400}
+              alt={title}
+              priority
+            ></Image>
           </div>
           <p>{description}</p>
         </div>

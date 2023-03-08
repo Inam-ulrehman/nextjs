@@ -17,6 +17,7 @@ const PortfolioCard = () => {
                 width={400}
                 height={400}
                 alt={item.title}
+                priority
               />
             </div>
           </Link>

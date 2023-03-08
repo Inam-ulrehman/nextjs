@@ -52,3 +52,4 @@ export const Button = styled.button`
       props.shadow ? 'var(--primary) 0px 0px 10px 1px' : ''};
   }
 `
+// loading button

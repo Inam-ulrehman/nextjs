@@ -1,25 +1,12 @@
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
 import { imagesData, logo } from '../../utils/data'
 
 const Logo = () => {
-  const router = useRouter()
-
-  const handleClick = () => {
-    router.push('/')
-  }
   return (
     <Wrapper>
-      <Image
-        onClick={handleClick}
-        width={40}
-        height={40}
-        src={imagesData.logo}
-        alt='logo'
-        priority
-      />
+      <Image width={40} height={40} src={imagesData.logo} alt='logo' priority />
       <div className='logo-text'>
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>

@@ -17,7 +17,13 @@ const Error = () => {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
-        <Image src={imagesData.error} width={400} height={400} />
+        <Image
+          src={imagesData.error}
+          width={400}
+          height={400}
+          alt='Page not found'
+          priority
+        />
         <Link href={'/'} className='btn '>
           Back To Home Page
         </Link>
