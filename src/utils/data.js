@@ -10,6 +10,19 @@ export const imagesData = {
 }
 
 export const websiteContent = {
+  homepage: {
+    title: 'Business Website Design and Development',
+    keywords:
+      'Kitchener, Waterloo, Ontario, Web Design, Website Application Development, Content Management System, Cambridge, Guelph, Hosting, Ecommerce',
+    description:
+      'we offer a range of services to help businesses achieve their online goals, including custom website design, e-commerce solutions, website maintenance, and more',
+    author: 'INAM Web Solutions',
+    ogSiteName: 'INAM Web Solutions',
+    ogTitle: 'Business Website Design and Development',
+    ogUrl: 'https://www.inamwebsolutions.com',
+    ogImage:
+      'https://res.cloudinary.com/inam6530/image/upload/v1667486202/inamwebsolutions/Inam_n9s4i4.svg',
+  },
   services: {
     title: 'Professional Website Design Services ',
     subtitle:
