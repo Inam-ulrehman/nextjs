@@ -121,7 +121,6 @@ const Wrapper = styled.nav`
   .active {
     a {
       color: var(--primary-5);
-      background-color: var(--primary-1);
       border-radius: var(--radius-2);
       padding: 0.75rem;
       font-weight: 700 !important;
