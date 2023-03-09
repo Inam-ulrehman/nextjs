@@ -12,6 +12,10 @@ const Portfolios = () => {
       <Head>
         <title>{title}</title>
         <meta name='description' content={subtitle} />
+        <link
+          rel='canonical'
+          href={`${websiteContent.seo.websiteName}/portfolios`}
+        />
       </Head>
       <Wrapper>
         <div className='heading'>

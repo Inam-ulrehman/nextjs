@@ -62,7 +62,10 @@ const Contact = () => {
           name='description'
           content='We would love to hear from you! Whether you have a question about our services, want to discuss your project, or simply want to say hello, our team is here to help.'
         />
-        <link rel='canonical' href='/contact' />
+        <link
+          rel='canonical'
+          href={`${websiteContent.seo.websiteName}/contact`}
+        />
       </Head>
 
       <Wrapper className='section'>

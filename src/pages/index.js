@@ -26,7 +26,7 @@ export default function Home() {
     <>
       <Head>
         <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='canonical' href='/' />
+        <link rel='canonical' href={`${websiteContent.seo.websiteName}/`} />
         <link rel='icon' href='/favicon.ico' />
         <meta name='robots' content='index,follow' />
         <meta name='googlebot' content='index,follow' />
@@ -42,7 +42,7 @@ export default function Home() {
         <meta name='og:url' content={ogUrl} />
         <meta name='og:image' content={ogImage} />
         <meta property='og:type' content='website' />
-        <meta property='og:locale' content='en_CAD' />
+        <meta property='og:locale' content='en_CA' />
         <meta name='og:description' content={description} />
       </Head>
 

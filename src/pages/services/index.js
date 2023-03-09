@@ -14,7 +14,10 @@ const Services = ({ data }) => {
       <Head>
         <title>{title}</title>
         <meta name='description' content={subtitle} />
-        <link rel='canonical' href='/services' />
+        <link
+          rel='canonical'
+          href={`${websiteContent.seo.websiteName}/services`}
+        />
       </Head>
       <Wrapper>
         <div className='heading'>
