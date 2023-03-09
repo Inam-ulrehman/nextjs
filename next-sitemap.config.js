@@ -1,6 +1,18 @@
 module.exports = {
-  siteUrl: 'https://example.com',
+  siteUrl: process.env.SITE_URL || 'https://example.com',
   generateRobotsTxt: true,
-  sitemapSize: 7000,
-  generateIndexSitemap: false,
+  robotsTxtOptions: {
+    policies: [
+      {
+        userAgent: '*',
+        allow: '/',
+      },
+
+      {
+        userAgent: '*',
+        disallow: ['/dashboard', '/user'],
+      },
+    ],
+  },
+  exclude: ['/dashboard'],
 }

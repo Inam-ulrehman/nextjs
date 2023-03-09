@@ -2,8 +2,13 @@
 User-agent: *
 Allow: /
 
+# *
+User-agent: *
+Disallow: /dashboard
+Disallow: /user
+
 # Host
-Host: https://example.com
+Host: https://www.inamwebsolutions.com
 
 # Sitemaps
-Sitemap: https://example.com/sitemap.xml
+Sitemap: https://www.inamwebsolutions.com/sitemap.xml
