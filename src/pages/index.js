@@ -28,6 +28,8 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='canonical' href={`${websiteContent.seo.websiteName}/`} />
         <link rel='icon' href='/favicon.ico' />
+        <link rel='apple-touch-icon' href='/favicon.ico' />
+        <link rel='manifest' href='/manifest.json' />
         <meta name='robots' content='index,follow' />
         <meta name='googlebot' content='index,follow' />
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
