@@ -7,6 +7,7 @@ import {
 } from '@/components/home'
 import ContactSection from '@/components/home/ContactSection'
 import { websiteContent } from '@/utils/data'
+import { googleBusinessSocialLinksAttach } from '@/utils/scripts'
 import Head from 'next/head'
 import Script from 'next/script'
 import styled from 'styled-components'
@@ -55,38 +56,9 @@ export default function Home() {
         {/* Google script to add social media */}
         <Script
           type='application/ld+json'
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'ProfessionalService',
-              name: 'inamwebsolutions',
-              image:
-                'https://res.cloudinary.com/inam6530/image/upload/v1667486202/inamwebsolutions/Inam_n9s4i4.svg',
-              '@id': '',
-              url: 'https://www.inamwebsolutions.com/',
-              telephone: '4165606790',
-              address: {
-                '@type': 'PostalAddress',
-                streetAddress: '86 cedar street',
-                addressLocality: 'kitchener',
-                addressRegion: 'ON',
-                postalCode: 'n2g 3l8',
-                addressCountry: 'CA',
-              },
-              geo: {
-                '@type': 'GeoCoordinates',
-                latitude: 43.4451227,
-                longitude: -80.4859651,
-              },
-              sameAs: [
-                'https://www.facebook.com/inamwebsolutions',
-                'https://twitter.com/Inamulrehmn',
-                'https://www.instagram.com/inamwebsolutions/',
-                'https://www.linkedin.com/in/inamwebsolutions/',
-              ],
-            }),
-          }}
-        ></Script>
+          dangerouslySetInnerHTML={googleBusinessSocialLinksAttach()}
+          key='google-jsonld'
+        />
       </Wrapper>
     </>
   )

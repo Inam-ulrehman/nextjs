@@ -9,17 +9,17 @@ const Address = () => {
       <div className='heading'>OUR ADDRESS</div>
       <ul className='body'>
         <li>
-          <Link href={address.path} target={'_blank'}>
+          <Link href={address.path} target={'_blank'} passHref>
             {address.title}
           </Link>
         </li>
         <li>
-          <Link href={mobile.path}>
+          <Link href={mobile.path} passHref>
             <span>Mobile:</span> {mobile.title}
           </Link>
         </li>
         <li>
-          <Link href={email.path}>
+          <Link href={email.path} passHref>
             <span>Email:</span> {email.title}
           </Link>
         </li>

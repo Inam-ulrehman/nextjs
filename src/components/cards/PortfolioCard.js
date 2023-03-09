@@ -9,7 +9,7 @@ const PortfolioCard = () => {
     <Wrapper>
       {portfoliosData.map((item, index) => {
         return (
-          <Link href={item.path} target='_blank' key={index}>
+          <Link href={item.path} target='_blank' key={index} passHref>
             <div className='container'>
               <div className='title'>{item.title}</div>
               <Image

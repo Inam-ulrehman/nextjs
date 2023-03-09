@@ -11,24 +11,24 @@ const Banner = () => {
   return (
     <Wrapper>
       <div className='contact'>
-        <Link className='email' href={email.path}>
+        <Link className='email' href={email.path} passHref>
           <i>{Icons.email}</i> <span>{email.title}</span>
         </Link>
-        <Link className='mobile' href={mobile.path}>
+        <Link className='mobile' href={mobile.path} passHref>
           <i>{Icons.mobile}</i> <span>{mobile.title}</span>
         </Link>
       </div>
       <div className='social'>
-        <Link className='facebook' target={'_blank'} href={facebook}>
+        <Link className='facebook' target={'_blank'} href={facebook} passHref>
           <i>{Icons.facebook}</i>
         </Link>
-        <Link className='linkedin' target={'_blank'} href={linkedin}>
+        <Link className='linkedin' target={'_blank'} href={linkedin} passHref>
           <i>{Icons.linkedin}</i>
         </Link>
-        <Link className='instagram' target={'_blank'} href={instagram}>
+        <Link className='instagram' target={'_blank'} href={instagram} passHref>
           <i>{Icons.instagram}</i>
         </Link>
-        <Link className='twitter' target={'_blank'} href={twitter}>
+        <Link className='twitter' target={'_blank'} href={twitter} passHref>
           <i>{Icons.twitter}</i>
         </Link>
       </div>

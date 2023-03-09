@@ -11,22 +11,22 @@ const SocialMedia = () => {
       <div className='heading'>SOCIAL MEDIA</div>
       <ul>
         <li>
-          <Link className='facebook' target='_blank' href={facebook}>
+          <Link className='facebook' target='_blank' href={facebook} passHref>
             {Icons.facebook}{' '}
           </Link>
         </li>
         <li>
-          <Link className='linkedin' target='_blank' href={linkedin}>
+          <Link className='linkedin' target='_blank' href={linkedin} passHref>
             {Icons.linkedin}{' '}
           </Link>
         </li>
         <li>
-          <Link className='instagram' target='_blank' href={instagram}>
+          <Link className='instagram' target='_blank' href={instagram} passHref>
             {Icons.instagram}{' '}
           </Link>
         </li>
         <li>
-          <Link className='twitter' target='_blank' href={twitter}>
+          <Link className='twitter' target='_blank' href={twitter} passHref>
             {Icons.twitter}{' '}
           </Link>
         </li>

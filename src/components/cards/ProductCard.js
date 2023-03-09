@@ -13,7 +13,7 @@ const LinkWrapper = styled.div`
 const ProductCard = ({ item }) => {
   return (
     <Wrapper inputColor={item.color} className='body-container '>
-      <Link href={`/services/[id]`} as={`/services/${item.path}`}>
+      <Link href={`/services/[id]`} as={`/services/${item.path}`} passHref>
         <div className='body-container-header'>
           <i style={{ color: `var(--${item.color}-7)` }}>{Icons[item.icon]}</i>
           <p style={{ color: `var(--${item.color}-7)` }}>{item.title}</p>
