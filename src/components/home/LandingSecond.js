@@ -1,3 +1,4 @@
+import { Button } from '@/styles/Wrappers/Buttons'
 import { LandingWrapper } from '@/styles/Wrappers/LandingWrapper'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -31,8 +32,10 @@ const LandingSecond = () => {
             priority
           ></Image>
         </div>
-        <Link className='btn' href='/contact'>
-          Let's Talk
+        <Link href='/services'>
+          <Button shadow outlined>
+            Services
+          </Button>
         </Link>
       </div>
       <div className='image-box box'>
