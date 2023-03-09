@@ -2,19 +2,15 @@ import { Icons } from '@/styles/Icons'
 import { servicesData } from '@/utils/data'
 import Head from 'next/head'
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
 
 const SingleService = ({ data }) => {
-  const router = useRouter()
-
   return (
     <>
       <Head>
         <title>{data?.title}</title>
         <meta name='description' content={data?.description} />
-        <link rel='canonical' href={`/services/${data.path}`} />
       </Head>
       <Wrapper>
         <div className='header'>
