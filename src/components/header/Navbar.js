@@ -120,7 +120,7 @@ const Wrapper = styled.nav`
   }
   .active {
     a {
-      color: var(--primary-6);
+      color: var(--primary-5);
       background-color: var(--primary-1);
       border-radius: var(--radius-2);
       padding: 0.75rem;
@@ -141,7 +141,7 @@ const Wrapper = styled.nav`
   .desktop-navbar-dropdown {
     background-color: var(--white);
     position: absolute;
-    top: 3.85rem;
+    top: 3.95rem;
     left: -30%;
     display: none;
 
