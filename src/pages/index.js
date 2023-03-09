@@ -30,6 +30,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
         <link rel='apple-touch-icon' href='/favicon.ico' />
         <link rel='manifest' href='/manifest.json' />
+        <meta name='theme-color' content='var(--primary-5)' />
         <meta name='robots' content='index,follow' />
         <meta name='googlebot' content='index,follow' />
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
