@@ -63,7 +63,7 @@ const Banner = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: var(--primary-8);
+  background-color: var(--primary-7);
   color: var(--white);
   /* address */
   .contact {

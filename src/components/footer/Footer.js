@@ -30,7 +30,7 @@ const Wrapper = styled.footer`
     display: grid;
     justify-content: center;
   }
-  background-color: var(--primary-8);
+  background-color: var(--primary-7);
   @media (min-width: 768px) {
     .footer-body {
       display: grid;

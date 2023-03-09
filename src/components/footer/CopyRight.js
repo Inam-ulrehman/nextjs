@@ -13,12 +13,14 @@ const CopyRight = () => {
   )
 }
 const Wrapper = styled.div`
-  background-color: var(--grey-5);
+  background-color: var(--primary-8);
   overflow: hidden;
   text-align: center;
   padding: 1rem;
   bottom: 0;
   height: fit-content;
+  color: var(--white);
+  border-top: 2px solid var(--white);
   span {
     svg {
       margin-right: 5px;

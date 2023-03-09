@@ -30,8 +30,8 @@ const Address = () => {
 const Wrapper = styled.div`
   .heading {
     font-weight: 700;
-    color: var(--primary-8);
-    border-bottom: 2px solid var(--primary-8);
+    color: var(--primary-2);
+    border-bottom: 2px solid var(--primary-5);
     width: fit-content;
     margin: 0 auto;
   }
@@ -41,12 +41,12 @@ const Wrapper = styled.div`
   }
   a {
     font-weight: 700;
-    color: var(--grey-8);
+    color: var(--white);
     :hover {
-      color: var(--primary-8);
-      border-bottom: 2px solid var(--primary-8);
+      color: var(--primary-2);
+      border-bottom: 2px solid var(--primary-2);
       span {
-        border-bottom: 2px solid var(--primary-8);
+        border-bottom: 2px solid var(--primary-5);
         color: var(--primary-5);
       }
     }

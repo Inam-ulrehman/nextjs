@@ -40,8 +40,8 @@ const Wrapper = styled.div`
 
   .heading {
     font-weight: 700;
-    color: var(--primary-8);
-    border-bottom: 2px solid var(--primary-8);
+    color: var(--primary-2);
+    border-bottom: 2px solid var(--primary-5);
     width: fit-content;
     margin: 0 auto;
   }
@@ -50,28 +50,14 @@ const Wrapper = styled.div`
     gap: 1rem;
     justify-content: center;
   }
-  .facebook {
-    transition: var(--transition);
-    :hover {
-      color: var(--facebook);
-    }
-  }
-  .linkedin {
-    transition: var(--transition);
-    :hover {
-      color: var(--linkedin);
-    }
-  }
-  .instagram {
-    transition: var(--transition);
-    :hover {
-      color: var(--instagram);
-    }
-  }
+  .facebook,
+  .linkedin,
+  .instagram,
   .twitter {
     transition: var(--transition);
+    color: var(--white);
     :hover {
-      color: var(--twitter);
+      color: var(--primary-3);
     }
   }
 `
