@@ -1,7 +1,7 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-import Logo from '../header/Logo'
+import { FooterLogo } from '../header/Logo'
 import Address from './Address'
 import CopyRight from './CopyRight'
 import NavbarLinks from './NavbarLinks'
@@ -12,7 +12,7 @@ const Footer = () => {
   return (
     <Wrapper style={{ minHeight: `calc(100vh - ${headerHeight}px)` }}>
       <div className='logo'>
-        <Logo />
+        <FooterLogo />
       </div>
       <div className='footer-body'>
         <NavbarLinks />
@@ -30,7 +30,7 @@ const Wrapper = styled.footer`
     display: grid;
     justify-content: center;
   }
-  background-color: var(--grey-4);
+  background-color: var(--primary-8);
   @media (min-width: 768px) {
     .footer-body {
       display: grid;

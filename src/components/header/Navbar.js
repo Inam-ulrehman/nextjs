@@ -4,7 +4,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import styled from 'styled-components'
-import Logo from './Logo'
+import { Logo } from './Logo'
 import NavbarDrawer from './NavbarDrawer'
 import ServicesDropdown from './ServicesDropdown'
 const initialState = {
@@ -95,15 +95,15 @@ const Wrapper = styled.nav`
     li {
       position: relative;
       padding: 1rem;
-      border-bottom: 2px solid var(--white);
+      border-bottom: 3px solid var(--white);
       :hover {
-        border-bottom: 2px solid var(--blue-5);
+        border-bottom: 3px solid var(--primary-5);
 
         svg {
           margin-bottom: -0.8rem;
         }
         a {
-          color: var(--blue-5);
+          color: var(--primary-5);
         }
         .desktop-navbar-dropdown {
           display: block;
@@ -120,7 +120,10 @@ const Wrapper = styled.nav`
   }
   .active {
     a {
-      color: var(--blue-8);
+      color: var(--primary-6);
+      background-color: var(--primary-1);
+      border-radius: var(--radius-2);
+      padding: 0.75rem;
       font-weight: 700 !important;
     }
 

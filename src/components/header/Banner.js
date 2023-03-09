@@ -63,7 +63,7 @@ const Banner = () => {
 const Wrapper = styled.div`
   display: flex;
   justify-content: space-around;
-  background-color: var(--grey-6);
+  background-color: var(--primary-8);
   color: var(--white);
   /* address */
   .contact {
@@ -84,7 +84,7 @@ const Wrapper = styled.div`
       border-right: 2px solid var(--white);
       padding-right: 1rem;
       :hover {
-        color: var(--blue-8);
+        color: var(--primary-3);
       }
     }
   }
@@ -92,7 +92,7 @@ const Wrapper = styled.div`
     padding-left: 1rem;
     transition: var(--transition);
     :hover {
-      color: var(--blue-8);
+      color: var(--primary-3);
     }
   }
   /* social  */
@@ -105,28 +105,13 @@ const Wrapper = styled.div`
       margin-bottom: -5px;
       padding: 2px;
     }
-    .facebook {
-      transition: var(--transition);
-      :hover {
-        color: var(--facebook);
-      }
-    }
-    .linkedin {
-      transition: var(--transition);
-      :hover {
-        color: var(--linkedin);
-      }
-    }
-    .instagram {
-      transition: var(--transition);
-      :hover {
-        color: var(--instagram);
-      }
-    }
+    .facebook,
+    .linkedin,
+    .instagram,
     .twitter {
       transition: var(--transition);
       :hover {
-        color: var(--twitter);
+        color: var(--primary-3);
       }
     }
   }

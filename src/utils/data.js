@@ -3,6 +3,8 @@ import { Icons } from '@/styles/Icons'
 // ========icon =========== //
 export const imagesData = {
   logo: 'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/1_um6god.svg',
+  whiteFooterLogo:
+    'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/2_opngdf.svg',
   error:
     'https://res.cloudinary.com/inam6530/image/upload/v1678125716/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_12_jqzwzf.gif',
   contact:

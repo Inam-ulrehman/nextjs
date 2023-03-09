@@ -1,12 +1,29 @@
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-import { imagesData, logo } from '../../utils/data'
+import { imagesData } from '../../utils/data'
 
-const Logo = () => {
+export const Logo = () => {
   return (
     <Wrapper>
       <Image width={40} height={40} src={imagesData.logo} alt='logo' priority />
+      <div className='logo-text'>
+        <span>INAM</span>
+        <span>WEB SOLUTIONS</span>
+      </div>
+    </Wrapper>
+  )
+}
+export const FooterLogo = () => {
+  return (
+    <Wrapper white>
+      <Image
+        width={40}
+        height={40}
+        src={imagesData.whiteFooterLogo}
+        alt='logo'
+        priority
+      />
       <div className='logo-text'>
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>
@@ -22,7 +39,7 @@ const Wrapper = styled.div`
   .logo-text {
     display: grid;
     text-align: center;
-    color: var(--blue-8);
+    color: ${(props) => (props.white ? `var(--white)` : 'var(--primary-8)')};
 
     height: 50px;
     overflow: hidden;
@@ -41,4 +58,3 @@ const Wrapper = styled.div`
     }
   }
 `
-export default Logo
