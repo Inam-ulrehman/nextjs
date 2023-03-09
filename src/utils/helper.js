@@ -79,3 +79,9 @@ export const paginate = (data) => {
   })
   return newData
 }
+
+// ====Dynamic way to reduce rerender and javascript
+
+const CodeSampleModal = dynamic(() => import('../components/CodeSampleModal'), {
+  ssr: false,
+})
