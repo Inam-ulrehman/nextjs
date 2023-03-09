@@ -120,7 +120,8 @@ const Wrapper = styled.nav`
   }
   .active {
     a {
-      color: var(--blue-5) !important;
+      color: var(--blue-8);
+      font-weight: 700 !important;
     }
 
     border-bottom: 2px solid var(--blue-5);

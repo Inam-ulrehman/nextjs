@@ -13,7 +13,6 @@ const CopyRight = () => {
   )
 }
 const Wrapper = styled.div`
-  background-color: var(--grey-7);
   overflow: hidden;
   text-align: center;
   padding: 1rem;
