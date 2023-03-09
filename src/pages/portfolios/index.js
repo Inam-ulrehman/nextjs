@@ -3,7 +3,6 @@ import React from 'react'
 import styled from 'styled-components'
 import { websiteContent } from '@/utils/data'
 import Image from 'next/image'
-
 import PortfolioCard from '@/components/cards/PortfolioCard'
 const { title, subtitle, description, image } = websiteContent.portfolios
 const Portfolios = () => {

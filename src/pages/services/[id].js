@@ -1,5 +1,5 @@
 import { Icons } from '@/styles/Icons'
-import { servicesData } from '@/utils/data'
+import { servicesData, websiteContent } from '@/utils/data'
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'

@@ -1,7 +1,7 @@
 import FormInput from '@/components/FormInput'
 import { Button } from '@/styles/Wrappers/Buttons'
 import { customFetch } from '@/utils/axios'
-import { imagesData } from '@/utils/data'
+import { imagesData, websiteContent } from '@/utils/data'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
