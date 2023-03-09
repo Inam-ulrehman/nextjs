@@ -19,16 +19,40 @@ const Banner = () => {
         </Link>
       </div>
       <div className='social'>
-        <Link className='facebook' target={'_blank'} href={facebook} passHref>
+        <Link
+          alt='facebook'
+          className='facebook'
+          target={'_blank'}
+          href={facebook}
+          passHref
+        >
           <i>{Icons.facebook}</i>
         </Link>
-        <Link className='linkedin' target={'_blank'} href={linkedin} passHref>
+        <Link
+          alt='linkedin'
+          className='linkedin'
+          target={'_blank'}
+          href={linkedin}
+          passHref
+        >
           <i>{Icons.linkedin}</i>
         </Link>
-        <Link className='instagram' target={'_blank'} href={instagram} passHref>
+        <Link
+          alt='instagram'
+          className='instagram'
+          target={'_blank'}
+          href={instagram}
+          passHref
+        >
           <i>{Icons.instagram}</i>
         </Link>
-        <Link className='twitter' target={'_blank'} href={twitter} passHref>
+        <Link
+          alt='twitter'
+          className='twitter'
+          target={'_blank'}
+          href={twitter}
+          passHref
+        >
           <i>{Icons.twitter}</i>
         </Link>
       </div>
