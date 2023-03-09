@@ -14,6 +14,7 @@ const Services = ({ data }) => {
       <Head>
         <title>{title}</title>
         <meta name='description' content={subtitle} />
+        <link rel='canonical' href='/services' />
       </Head>
       <Wrapper>
         <div className='heading'>

@@ -27,6 +27,10 @@ export default function Home() {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='canonical' href='/' />
         <link rel='icon' href='/favicon.ico' />
+        <meta name='robots' content='index,follow' />
+        <meta name='googlebot' content='index,follow' />
+        <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
+        <meta name='google' content='notranslate' key='notranslate' />
         <title>{title}</title>
         <meta name='keywords' content={keywords} />
         <meta name='description' content={description} />
@@ -48,7 +52,7 @@ export default function Home() {
         <FeatureSection />
         <LandingThird />
         <ContactSection />
-
+        {/* Google script to add social media */}
         <Script
           type='application/ld+json'
           dangerouslySetInnerHTML={{

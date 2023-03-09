@@ -10,6 +10,9 @@ export const imagesData = {
 }
 
 export const websiteContent = {
+  seo: {
+    websiteName: 'https://www.inamwebsolutions.com',
+  },
   homepage: {
     title: 'Business Website Design and Development',
     keywords:

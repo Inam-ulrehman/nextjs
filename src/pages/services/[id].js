@@ -2,15 +2,19 @@ import { Icons } from '@/styles/Icons'
 import { servicesData } from '@/utils/data'
 import Head from 'next/head'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import styled from 'styled-components'
 
 const SingleService = ({ data }) => {
+  const router = useRouter()
+
   return (
     <>
       <Head>
         <title>{data?.title}</title>
         <meta name='description' content={data?.description} />
+        <link rel='canonical' href={`/services/${data.path}`} />
       </Head>
       <Wrapper>
         <div className='header'>
@@ -18,7 +22,13 @@ const SingleService = ({ data }) => {
             <h1>{data?.title}</h1>
             <p>{data?.description}</p>
           </div>
-          <Image src={data?.image} width={400} height={400} alt={data?.title} />
+          <Image
+            src={data?.image}
+            width={400}
+            height={400}
+            alt={data?.title}
+            priority
+          />
         </div>
         <div className='body'>
           {data?.points?.map((item, index) => {
