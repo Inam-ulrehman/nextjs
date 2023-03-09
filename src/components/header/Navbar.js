@@ -141,7 +141,7 @@ const Wrapper = styled.nav`
   .desktop-navbar-dropdown {
     background-color: var(--white);
     position: absolute;
-    top: 3.95rem;
+    top: 3.93rem;
     left: -30%;
     display: none;
 
