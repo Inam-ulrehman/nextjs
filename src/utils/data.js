@@ -15,6 +15,11 @@ export const websiteContent = {
   seo: {
     websiteName: 'https://www.inamwebsolutions.com',
   },
+  sendGrid: {
+    hostName: 'Inam Web Solutions',
+    hostEmail: 'no-replay@inamwebsolutions.com',
+    hostWebsite: 'https://www.inamwebsolutions.com/',
+  },
   homepage: {
     title: 'Business Website Design and Development',
     keywords:
