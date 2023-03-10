@@ -20,11 +20,19 @@ export const auth = async (req) => {
         audience: 'urn:example:audience',
       }
     )
-    console.log(payload)
-    const { userId, name } = payload
-    const user = { userId, name }
-    req.body = user
-    return NextResponse.next()
+
+    // const { userId, name } = payload
+    // const user = { userId, name }
+    const requestHeaders = new Headers(req.headers)
+    requestHeaders.set('userid', payload.userId)
+    requestHeaders.set('name', payload.name)
+
+    const response = NextResponse.next({
+      request: {
+        headers: requestHeaders,
+      },
+    })
+    return response
   } catch (error) {
     console.log(error)
     return NextResponse.json(
