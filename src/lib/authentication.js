@@ -1,6 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 import { NextResponse } from 'next/server'
 import { BadRequestError } from './errors'
+import * as jose from 'jose'
 
 export const auth = async (req) => {
   const authHeader = req.headers.get('authorization')
@@ -9,8 +10,28 @@ export const auth = async (req) => {
     return BadRequestError('Auth is Missing.')
   }
 
-  const token = authHeader.split(' ')[1]
+  const jwt = authHeader.split(' ')[1]
+  try {
+    const { payload, protectedHeader } = await jose.jwtVerify(
+      jwt,
+      new TextEncoder().encode(process.env.JWT_SECRET),
+      {
+        issuer: 'urn:example:issuer',
+        audience: 'urn:example:audience',
+      }
+    )
+    console.log(payload)
+    const { userId, name } = payload
+    const user = { userId, name }
+    req.body = user
+    return NextResponse.next()
+  } catch (error) {
+    console.log(error)
+    return NextResponse.json(
+      { message: 'Authentication Invalid' },
+      { status: StatusCodes.UNAUTHORIZED }
+    )
+  }
 
-  return NextResponse.json({ message: 'Auth done' }, { status: 401 })
   // return  new BadRequestError('No data found')
 }

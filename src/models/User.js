@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 import bcrypt from 'bcryptjs'
-import jwt from 'jsonwebtoken'
+import * as jose from 'jose'
 const UserSchema = new mongoose.Schema(
   {
     name: {
@@ -132,14 +132,24 @@ UserSchema.pre('save', async function () {
   this.password = await bcrypt.hash(this.password, salt)
 })
 
-UserSchema.methods.createJWT = function () {
-  return jwt.sign(
-    { userId: this._id, name: this.name },
-    process.env.JWT_SECRET,
-    {
-      expiresIn: process.env.JWT_LIFETIME,
-    }
-  )
+UserSchema.methods.createJWT = async function () {
+  // return jwt.sign(
+  //   { userId: this._id, name: this.name },
+  //   process.env.JWT_SECRET,
+  //   {
+  //     expiresIn: process.env.JWT_LIFETIME,
+  //   }
+  // )
+
+  const alg = 'HS256'
+
+  return await new jose.SignJWT({ userId: this._id, name: this.name })
+    .setProtectedHeader({ alg })
+    .setIssuedAt()
+    .setIssuer('urn:example:issuer')
+    .setAudience('urn:example:audience')
+    .setExpirationTime(process.env.JWT_LIFETIME)
+    .sign(new TextEncoder().encode(process.env.JWT_SECRET))
 }
 
 UserSchema.methods.comparePassword = async function (candiDatePassword) {
