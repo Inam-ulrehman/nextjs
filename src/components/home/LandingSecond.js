@@ -32,9 +32,9 @@ const LandingSecond = () => {
             priority
           ></Image>
         </div>
-        <Link href='/services'>
+        <Link href='/contact'>
           <Button shadow outlined>
-            Services
+            Contact us
           </Button>
         </Link>
       </div>
