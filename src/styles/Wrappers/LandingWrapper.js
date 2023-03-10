@@ -57,6 +57,7 @@ export const LandingWrapper = styled.div`
   .text-box {
     padding-left: 3rem;
     .first-heading {
+      text-transform: none;
       font-size: 20px;
       color: var(--primary-5);
       font-weight: 700;

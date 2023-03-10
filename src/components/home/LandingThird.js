@@ -17,7 +17,7 @@ const LandingThird = () => {
           Your Ultimate Destination for Exceptional Website{' '}
         </h4>
         <h5 className='second-heading'>
-          we are committed to ensuring that you are completely satisfied with
+          We are committed to ensuring that you are completely satisfied with
           the final product.
         </h5>
         <p>

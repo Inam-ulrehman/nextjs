@@ -17,7 +17,7 @@ const Landing = () => {
           Professional Website Designing Services.
         </h1>
         <h2 className='second-heading'>
-          we have the expertise and resources to create a website that reflects
+          We have the expertise and resources to create a website that reflects
           your brand
         </h2>
         <p>
