@@ -123,7 +123,6 @@ const Wrapper = styled.nav`
       color: var(--primary-5);
       border-radius: var(--radius-2);
       padding: 0.75rem;
-      font-weight: 700 !important;
     }
 
     border-bottom: 2px solid var(--blue-5);
