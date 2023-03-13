@@ -134,7 +134,7 @@ export const servicesData = [
     title: 'Web Application Development',
     path: 'Web-application-development',
     image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1678123737/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_6_hpkwjj.gif',
+      'https://res.cloudinary.com/inam6530/image/upload/v1678538863/Inamwebsolutions-nextjs/7_hc7dgu.png',
     description:
       'We have decade-long experience building best-in-class B2B and B2C web apps that power modern businesses and workflows.',
     points: [

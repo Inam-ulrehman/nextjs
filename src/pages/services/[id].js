@@ -22,13 +22,15 @@ const SingleService = ({ data }) => {
             <h1>{data?.title}</h1>
             <p>{data?.description}</p>
           </div>
-          <Image
-            src={data?.image}
-            width={400}
-            height={400}
-            alt={data?.title}
-            priority
-          />
+          <div className='header-image'>
+            <Image
+              src={data?.image}
+              width={400}
+              height={400}
+              alt={data?.title}
+              priority
+            />
+          </div>
         </div>
         <div className='body'>
           {data?.points?.map((item, index) => {
@@ -71,7 +73,6 @@ export async function getStaticProps({ params }) {
 // style
 
 const Wrapper = styled.div`
-  padding: 1rem;
   .header {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -79,11 +80,28 @@ const Wrapper = styled.div`
     .header-titles {
       margin-left: 3rem;
     }
+    .header-image {
+      height: 100%;
+      display: grid;
+      justify-content: center;
+      background: linear-gradient(
+        90deg,
+        rgba(241, 243, 245, 1) 0%,
+        var(--primary-8) 100%
+      );
+    }
     @media (max-width: 620px) {
+      grid-template-columns: 1fr;
       .header-titles {
         margin-left: 0rem;
       }
-      grid-template-columns: 1fr;
+      .header-image {
+        background: linear-gradient(
+          180deg,
+          rgba(241, 243, 245, 1) 0%,
+          var(--primary-8) 100%
+        );
+      }
       img {
         width: 95vw;
         height: auto;
@@ -109,6 +127,7 @@ const Wrapper = styled.div`
       margin: 0 auto;
     }
   }
+  /* body */
   .body {
     display: grid;
     place-content: center;
