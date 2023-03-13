@@ -23,9 +23,11 @@ const Portfolios = () => {
               <h1>{title}</h1>
               <h2>{subtitle}</h2>
             </div>
-            <Image src={image} width={400} height={400} alt={title}></Image>
+            <div className='heading-image'>
+              <Image src={image} width={400} height={400} alt={title}></Image>
+            </div>
           </div>
-          <p>{description}</p>
+          <p className='description'>{description}</p>
         </div>
         <div className='heading-title'>
           <span>PORTFOLIOS</span>
@@ -39,18 +41,24 @@ const Portfolios = () => {
 export default Portfolios
 
 const Wrapper = styled.div`
-  padding: 1rem;
+  .heading {
+    img {
+    }
+    .description {
+      padding: 1rem;
+      min-width: 90vw;
+      margin: 0 auto;
+      color: var(--grey-7);
+    }
+  }
   .heading-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
-  .heading {
-    display: grid;
+  .heading-titles {
+    padding: 1rem;
 
-    img {
-      margin: 0 auto;
-    }
     h1 {
       font-weight: 700;
       margin-left: 0;
@@ -58,39 +66,51 @@ const Wrapper = styled.div`
     }
     h2 {
       max-width: 700px;
-      font-weight: 700;
+      font-weight: 400;
       font-size: var(--large-text);
       margin-left: 0;
     }
-    p {
-      min-width: 90vw;
-      margin: 0 auto;
-      color: var(--grey-7);
-    }
-  }
-
-  .heading-titles {
     margin-left: 3rem;
   }
+  .heading-image {
+    display: grid;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(241, 243, 245, 1) 0%,
+      var(--primary-8) 100%
+    );
+  }
+
   @media (max-width: 620px) {
     .heading-container {
       display: grid;
       grid-template-columns: 1fr;
     }
-    .heading-titles {
-      margin-left: 0rem;
-    }
     .heading {
       h1 {
-        font-size: x-large;
         text-align: center;
+        font-size: x-large;
       }
       img {
         width: 95vw;
         height: auto;
       }
     }
+    .heading-titles {
+      text-align: center;
+      margin-left: 0rem;
+    }
+    .heading-image {
+      background: linear-gradient(
+        180deg,
+        rgba(241, 243, 245, 1) 0%,
+        var(--primary-8) 100%
+      );
+    }
   }
+
   .heading-title {
     font-weight: 700;
     text-align: center;

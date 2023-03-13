@@ -79,7 +79,7 @@ const Wrapper = styled.div`
   }
   .heading-titles {
     padding: 1rem;
-    text-align: center;
+
     h1 {
       font-weight: 700;
       margin-left: 0;
@@ -103,6 +103,7 @@ const Wrapper = styled.div`
       var(--primary-8) 100%
     );
   }
+
   @media (max-width: 620px) {
     .heading-container {
       display: grid;
@@ -119,6 +120,7 @@ const Wrapper = styled.div`
       }
     }
     .heading-titles {
+      text-align: center;
       margin-left: 0rem;
     }
     .heading-image {

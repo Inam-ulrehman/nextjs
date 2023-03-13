@@ -47,7 +47,7 @@ export const websiteContent = {
     subtitle:
       ' We hope that our work speaks for itself and inspires you to trust us with your website design needs. ',
     image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1678126706/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_13_e7kmfb.gif',
+      'https://res.cloudinary.com/inam6530/image/upload/v1678538863/Inamwebsolutions-nextjs/9_ewb8n1.png',
     description:
       'Our website design portfolio showcases some of our most recent and successful projects. From small businesses to large corporations, we have worked with clients from various industries to create websites that not only look great but also drive results. Our portfolio includes examples of website designs, branding, and custom development projects that we have completed for our clients.',
   },
