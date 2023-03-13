@@ -55,9 +55,9 @@ export default SingleService
 export async function getStaticPaths() {
   const data = servicesData
 
-  const paths = data.map((post) => ({
-    params: { id: post.path },
-  }))
+  const paths = data.map((post) => {
+    return { params: { id: post.path } }
+  })
 
   return { paths, fallback: true }
 }
