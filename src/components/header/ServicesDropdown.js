@@ -8,9 +8,10 @@ const ServicesDropdown = () => {
   return (
     <>
       {servicesData.map((item, index) => {
+        const path = item.title.split(' ').join('-').toLowerCase()
         return (
           <Wrapper key={index}>
-            <Link href={`/services/${item.path}`} passHref>
+            <Link href={`/services/${path}`} passHref>
               <div className='menu'>
                 <i style={{ color: `var(--${item.color}-6)` }}>
                   {Icons[item.icon]}
