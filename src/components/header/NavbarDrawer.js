@@ -77,9 +77,10 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
           >
             <ul ref={servicesHeightRef}>
               {servicesData.map((item, index) => {
+                const path = item.title.split(' ').join('-').toLowerCase()
                 return (
                   <li onClick={handleNavbarDrawer} key={index}>
-                    <Link href={`/services/${item.path}`}>{item.title}</Link>
+                    <Link href={`/services/${path}`}>{item.title}</Link>
                   </li>
                 )
               })}
