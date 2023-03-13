@@ -38,7 +38,7 @@ export const websiteContent = {
     subtitle:
       ' Let us help you create a stunning online presence that engages your audience and drives business growth ',
     image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1678122269/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_5_rwr82w.gif',
+      'https://res.cloudinary.com/inam6530/image/upload/v1678538864/Inamwebsolutions-nextjs/12_mv5osm.png',
     description:
       'At our website designing company, we offer professional custom and responsive web design services to businesses of all sizes. Our team of experienced designers will work with you to create a visually appealing website that aligns with your brand and engages your target audience. From initial concept to final delivery, we take care of every step of the design process to ensure your website is functional, user-friendly, and optimized for search engines. Contact us today to discuss your website design needs and take the first step towards a successful online presence.',
   },

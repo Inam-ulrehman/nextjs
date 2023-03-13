@@ -2,15 +2,35 @@ import styled from 'styled-components'
 
 export const LandingWrapper = styled.div`
   display: grid;
-  grid-template-columns: 1.5fr 1fr;
+  grid-template-columns: 1fr 1fr;
   align-items: center;
-
+  background-color: var();
+  .text-box {
+  }
+  .image-box {
+    display: grid;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(
+      90deg,
+      rgba(241, 243, 245, 1) 0%,
+      var(--primary-8) 100%
+    );
+  }
   @media (max-width: 820px) {
     min-height: auto;
     grid-template-columns: 1fr;
 
     .text-box {
       padding: 1rem;
+      .mobile-image {
+        background: linear-gradient(
+          180deg,
+          rgba(241, 243, 245, 1) 0%,
+          var(--primary-8) 100%
+        );
+      }
     }
     .image-box {
       text-align: center;
