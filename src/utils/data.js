@@ -131,8 +131,7 @@ export const servicesData = [
     id: 1,
     icon: 'development',
     color: 'red',
-    title: 'web application development services',
-    path: 'Web-application-development',
+    title: 'web application development',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678719319/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_2_o6ec4t.png',
     description:
@@ -227,7 +226,6 @@ export const servicesData = [
     icon: 'software',
     color: 'yellow',
     title: 'custom software development',
-    path: 'custom-software-development',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678719731/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_3_enczct.png',
     description:
@@ -311,7 +309,6 @@ export const servicesData = [
     icon: 'product',
     color: 'cyan',
     title: 'outsourced product development',
-    path: 'outsourced-product-development',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678538864/Inamwebsolutions-nextjs/10_gxacwr.png',
     description:
@@ -395,7 +392,6 @@ export const servicesData = [
     icon: 'test',
     color: 'pink',
     title: 'testing & qa',
-    path: 'testing-qa',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678538863/Inamwebsolutions-nextjs/4_jsm3oj.png',
     description:
@@ -491,7 +487,6 @@ export const servicesData = [
     icon: 'devops',
     color: 'blue',
     title: 'Devops',
-    path: 'devops',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678720455/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_4_dijach.png',
     description:
@@ -565,7 +560,6 @@ export const servicesData = [
     icon: 'team',
     color: 'yellow',
     title: 'dedicated development team',
-    path: 'dedicated-development-team',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678720822/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_5_xrmtgj.png',
     description:

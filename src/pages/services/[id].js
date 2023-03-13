@@ -55,19 +55,20 @@ export default SingleService
 export async function getStaticPaths() {
   const data = servicesData
 
-  const paths = data.map((post) => {
-    return { params: { id: post.path } }
+  const paths = data.map((item) => {
+    return { params: { id: item.title.split(' ').join('-').toLowerCase() } }
   })
 
   return { paths, fallback: true }
 }
 // This also gets called at build time
 export async function getStaticProps({ params }) {
+  const title = params.id.split('-').join(' ').toLowerCase()
   const result = servicesData
-  const data = result.find((item) => item.path === params.id)
+  const data = result.find((item) => item.title.toLowerCase() === title)
 
   // Pass post data to the page via props
-  return { props: { data } }
+  return JSON.parse(JSON.stringify({ props: { data } }))
 }
 
 // style

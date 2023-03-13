@@ -11,9 +11,11 @@ const LinkWrapper = styled.div`
 `
 
 const ProductCard = ({ item }) => {
+  const path = item.title.split(' ').join('-').toLowerCase()
+
   return (
     <Wrapper inputColor={item.color} className='body-container '>
-      <Link href={`/services/[id]`} as={`/services/${item.path}`} passHref>
+      <Link href={`/services/[id]`} as={`/services/${path}`} passHref>
         <div className='body-container-header'>
           <i style={{ color: `var(--${item.color}-7)` }}>{Icons[item.icon]}</i>
           <p style={{ color: `var(--${item.color}-7)` }}>{item.title}</p>
