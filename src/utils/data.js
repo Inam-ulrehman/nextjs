@@ -6,9 +6,9 @@ export const imagesData = {
   whiteFooterLogo:
     'https://res.cloudinary.com/inam6530/image/upload/v1677928217/Inamwebsolutions-nextjs/2_opngdf.svg',
   error:
-    'https://res.cloudinary.com/inam6530/image/upload/v1678125716/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_12_jqzwzf.gif',
+    'https://res.cloudinary.com/inam6530/image/upload/v1678718169/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_1_yxyrfp.png',
   contact:
-    'https://res.cloudinary.com/inam6530/image/upload/v1678288363/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_14_jotvy3.gif',
+    'https://res.cloudinary.com/inam6530/image/upload/v1678717865/Inamwebsolutions-nextjs/Fresh_INAMWEBSOLUTIONS_hh0krz.png',
 }
 
 export const websiteContent = {
