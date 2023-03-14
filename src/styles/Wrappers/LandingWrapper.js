@@ -71,6 +71,9 @@ export const LandingWrapper = styled.div`
     .image-box {
       display: none;
     }
+    button {
+      margin-top: 10px;
+    }
   }
   .box {
   }
