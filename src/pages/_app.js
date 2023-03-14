@@ -12,7 +12,7 @@ export default function App({ Component, pageProps }) {
     <Provider store={store}>
       <Layout>
         <Component {...pageProps} />
-        <Analytics />
+        <Analytics debug={false} />
       </Layout>
       <ToastContainer />
     </Provider>
