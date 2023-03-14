@@ -1,3 +1,4 @@
+import dbConnect from '@/lib/dbConnect'
 import { UnauthenticatedError } from '@/lib/errors'
 import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
