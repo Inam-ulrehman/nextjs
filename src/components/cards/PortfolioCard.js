@@ -62,7 +62,7 @@ const Wrapper = styled.div`
   }
   @media (max-width: 620px) {
     .container {
-      width: 40vw;
+      width: 45vw;
     }
   }
 `
