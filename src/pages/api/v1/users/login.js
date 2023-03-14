@@ -10,6 +10,7 @@ export default async function handler(req, res) {
   // Create a User
   if (method === 'POST') {
     const { email, password } = body
+    console.log('request came')
     const user = await Users.findOne({ email })
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ msg: 'No user found.' })
