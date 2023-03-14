@@ -38,6 +38,6 @@ export async function getServerSideProps(context) {
   const user = result.toObject()
   user._id = user._id.toString()
 
-  return { props: user }
+  return JSON.parse(JSON.stringify({ props: user }))
 }
 export default SingleUser

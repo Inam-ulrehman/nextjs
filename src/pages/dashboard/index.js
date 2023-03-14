@@ -37,9 +37,10 @@ export async function getServerSideProps() {
   const users = result.map((doc) => {
     const user = doc.toObject()
     user._id = user._id.toString()
+    console.log(user)
     return user
   })
 
-  return { props: { users } }
+  return JSON.parse(JSON.stringify({ props: { users } }))
 }
 export default Dashboard
