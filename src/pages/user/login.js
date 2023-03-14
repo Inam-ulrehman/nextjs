@@ -13,6 +13,12 @@ const login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const result = await customFetch.post('users/login', state)
+      console.log(result)
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleChange = (e) => {
