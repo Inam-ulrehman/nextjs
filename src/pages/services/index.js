@@ -84,6 +84,7 @@ const Wrapper = styled.div`
       font-weight: 700;
       margin-left: 0;
       color: var(--primary-8);
+      text-transform: capitalize;
     }
     h2 {
       max-width: 700px;

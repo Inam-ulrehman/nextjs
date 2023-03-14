@@ -116,6 +116,7 @@ const Wrapper = styled.div`
       font-weight: 700;
       margin-left: 0;
       color: var(--primary-8);
+      text-transform: capitalize;
     }
     p {
       max-width: 700px;
@@ -123,6 +124,7 @@ const Wrapper = styled.div`
       font-size: var(--large-text);
       margin-left: 0;
       color: var(--grey-8);
+      padding: 1rem;
     }
     img {
       margin: 0 auto;
@@ -144,6 +146,7 @@ const Wrapper = styled.div`
       p {
         margin: 0;
         font-weight: 600;
+        text-transform: capitalize;
       }
       i {
         background-color: var(--white);
