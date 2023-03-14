@@ -11,34 +11,18 @@ const initialState = {
   name: '',
   email: '',
   password: '',
-  isMember: true,
 }
 const Login = () => {
   const [state, setState] = useState(initialState)
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!state.email) {
-      return toast.warning('please enter your email')
-    }
-    if (!state.password) {
-      return toast.warning('please enter your password')
-    }
-    if (!state.isMember && !state.name) {
-      return toast.warning('please enter your name')
-    }
-    if (state.isMember) {
-      // login
-      try {
-      } catch (error) {}
-    } else {
-      // register
-      try {
-        const result = await customFetch.post('users/register', state)
-        console.log(result)
-      } catch (error) {
-        console.log(error)
-      }
+    console.log('submit request')
+    try {
+      const response = await customFetch.post('users/register', state)
+      console.log(response)
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -59,13 +43,13 @@ const Login = () => {
         <div className='form-container'>
           <form onSubmit={handleSubmit} className='form'>
             {/* name */}
-            {!state.isMember && (
-              <FormInput
-                name={'name'}
-                value={state.name}
-                onChange={handleChange}
-              />
-            )}
+
+            <FormInput
+              name={'name'}
+              value={state.name}
+              onChange={handleChange}
+            />
+
             {/* email */}
             <FormInput
               name={'email'}
@@ -82,27 +66,11 @@ const Login = () => {
             />
             <div className='btn-holder'>
               <button className='btn' type='submit'>
-                {state.isMember ? 'Login' : 'Register'}
+                Register
               </button>
               <Link className='btn' href={`/user/forgotpassword`}>
                 Forget Password
               </Link>
-            </div>
-
-            <div className='helper-button'>
-              <span>
-                {state.isMember
-                  ? 'You are not a member ?'
-                  : 'Are you a member ?'}
-              </span>
-              <button
-                type='button'
-                onClick={() =>
-                  setState({ ...state, isMember: !state.isMember })
-                }
-              >
-                {!state.isMember ? 'Login' : 'Register'}
-              </button>
             </div>
           </form>
         </div>
