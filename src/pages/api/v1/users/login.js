@@ -3,6 +3,7 @@ import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
 
 export default async function handler(req, res) {
+  await dbConnect()
   const { method, body, query } = req
 
   // Create a User
