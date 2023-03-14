@@ -37,7 +37,7 @@ const Login = () => {
         const result = await customFetch.post('users/register', state)
         console.log(result)
       } catch (error) {
-        console.log(error.result)
+        console.log(error)
       }
     }
   }
