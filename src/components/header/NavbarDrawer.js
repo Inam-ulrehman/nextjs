@@ -60,7 +60,7 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
         </li>
 
         {/* services */}
-        <li className={router.pathname === '/services' ? 'active ' : ''}>
+        <li>
           <button type='button' onClick={handleServices}>
             Services <i>{Icons.dropDown}</i>
           </button>
@@ -128,7 +128,8 @@ const Wrapper = styled.div`
   .drawer-dropdown {
     transition: var(--transition-1);
     li {
-      border-bottom: 2px solid var(--grey-5);
+      text-transform: capitalize;
+      border-bottom: 2px solid var(--grey-05);
     }
   }
 `

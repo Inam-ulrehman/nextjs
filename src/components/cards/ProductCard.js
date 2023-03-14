@@ -49,6 +49,7 @@ const Wrapper = styled.div`
     p {
       font-weight: 700;
       margin-bottom: 0;
+      text-transform: capitalize;
     }
   }
   @media (max-width: 620px) {

@@ -48,6 +48,7 @@ const Wrapper = styled.li`
       display: grid;
       .span-title {
         font-weight: 600;
+        text-transform: capitalize;
       }
       .description {
         font-size: var(--extra-small-text);
