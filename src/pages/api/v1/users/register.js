@@ -34,6 +34,8 @@ export default async function handler(req, res) {
     const token = await user.createJWT()
     UserRegistrationEmail({ email, uuid })
 
-    res.status(StatusCodes.CREATED).json({ user: { name: user.name }, token })
+    res
+      .status(StatusCodes.CREATED)
+      .json({ msg: { user: { name: user.name, token } } })
   }
 }
