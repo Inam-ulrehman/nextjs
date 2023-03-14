@@ -5,12 +5,11 @@ export function middleware(request) {
   // this logic is many routes
   // console.log(request.nextUrl.pathname)
 
-  if (request.nextUrl.pathname.startsWith('/api/v1')) {
-    // console.log('middleware')
-    // direct response back if fail for actions.
+  // if (request.nextUrl.pathname.startsWith('/api/v1')) {
+  //   console.log('middleware')
 
-    NextResponse.next()
-  }
+  //   NextResponse.next()
+  // }
   // ==========Authentication==========
 
   if (request.nextUrl.pathname.startsWith('/api/v1/auth/')) {

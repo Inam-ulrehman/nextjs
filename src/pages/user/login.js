@@ -9,10 +9,8 @@ import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 const initialState = {
-  name: '',
   email: '',
   password: '',
-  isMember: true,
 }
 const Login = () => {
   const router = useRouter()
@@ -29,24 +27,14 @@ const Login = () => {
     // if (!state.password) {
     //   return toast.warning('please enter your password')
     // }
-    if (state.isMember) {
-      // login
-      try {
-        const result = await customFetch.post('users/login', state)
-        console.log(result)
-        // router.push('/dashboard')
-      } catch (error) {
-        console.log(error)
-      }
-    } else {
-      // register
-      try {
-        const result = await customFetch.post('users/register', state)
-        console.log(result)
-        // router.push('/dashboard')
-      } catch (error) {
-        console.log(error)
-      }
+
+    // login
+    try {
+      const result = await customFetch.post('users/login', state)
+      console.log(result)
+      // router.push('/dashboard')
+    } catch (error) {
+      console.log(error)
     }
   }
 
@@ -90,27 +78,11 @@ const Login = () => {
             />
             <div className='btn-holder'>
               <button className='btn' type='submit'>
-                {state.isMember ? 'Login' : 'Register'}
+                login
               </button>
               <Link className='btn' href={`/user/forgotpassword`}>
                 Forget Password
               </Link>
-            </div>
-
-            <div className='helper-button'>
-              <span>
-                {state.isMember
-                  ? 'You are not a member ?'
-                  : 'Are you a member ?'}
-              </span>
-              <button
-                type='button'
-                onClick={() =>
-                  setState({ ...state, isMember: !state.isMember })
-                }
-              >
-                {!state.isMember ? 'Login' : 'Register'}
-              </button>
             </div>
           </form>
         </div>
