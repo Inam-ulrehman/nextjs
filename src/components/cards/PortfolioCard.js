@@ -50,6 +50,7 @@ const Wrapper = styled.div`
 
     width: 30vw;
     .title {
+      text-transform: capitalize;
     }
     img {
       transition: var(--transition);

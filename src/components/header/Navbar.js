@@ -41,7 +41,7 @@ const Navbar = () => {
           <ul className='desktop-navbar-dropdown'>
             {portfoliosData.map((item, index) => {
               return (
-                <li key={index}>
+                <li className='portfolios' key={index}>
                   <Link href={item.path} target='_blank'>
                     {item.title}
                   </Link>{' '}
@@ -152,6 +152,9 @@ const Wrapper = styled.nav`
       :hover {
         background-color: #f8f8ff;
       }
+    }
+    .portfolios {
+      text-transform: capitalize;
     }
     a {
       display: block;
