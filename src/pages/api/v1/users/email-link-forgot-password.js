@@ -25,14 +25,10 @@ export default async function handler(req, res) {
       forgotPasswordId,
     })
     if (emailResult.msg === 'success') {
-      return res
-        .status(StatusCodes.OK)
-        .json({ msg: `Reset password link is sent to ${email}` })
+      return res.status(StatusCodes.OK).json(emailResult)
     }
     if (emailResult.msg === 'error') {
-      return res
-        .status(StatusCodes.BAD_GATEWAY)
-        .json({ msg: 'Email server is down.' })
+      return res.status(StatusCodes.BAD_GATEWAY).json(emailResult)
     }
   } else {
     return res.status(StatusCodes.OK).json({ msg: 'Route Does not exist' })
