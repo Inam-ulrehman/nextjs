@@ -23,14 +23,8 @@ export function middleware(request, response, event) {
   }
   // ==========Authentication Front End==========
   if (request.nextUrl.pathname.startsWith('/dashboard')) {
-    console.log('dashboard')
     // direct response back if fail for actions.
-    isAuthValid(request)
-    if (isAuthValid()) {
-      return NextResponse.next()
-    } else {
-      return NextResponse.redirect(`http://localhost:3000/user/login`)
-    }
+    return isAuthValid(request)
   }
 }
 
