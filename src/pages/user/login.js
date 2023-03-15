@@ -40,14 +40,14 @@ const Login = () => {
       return
     } else {
       // Register
-      setState({ ...state, isLoading: true })
-      const result = await customFetch.post('users/register', state)
-      const token = result.data.msg.user.token
-      Cookies.set('token', token, { expires: 7 })
-      setItemInLocalStorage('user', result.data.msg.user)
-      router.push('/dashboard')
-      setState({ ...state, isLoading: false })
       try {
+        setState({ ...state, isLoading: true })
+        const result = await customFetch.post('users/register', state)
+        const token = result.data.msg.user.token
+        Cookies.set('token', token, { expires: 7 })
+        setItemInLocalStorage('user', result.data.msg.user)
+        router.push('/dashboard')
+        setState({ ...state, isLoading: false })
       } catch (error) {
         setState({ ...state, isLoading: false })
         console.log(error)

@@ -1,7 +1,9 @@
 import FormInput from '@/components/FormInput'
+import { customFetch } from '@/utils/axios'
 import Head from 'next/head'
 import Link from 'next/link'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 const initialState = {
@@ -13,6 +15,17 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    try {
+      const result = await customFetch.post(
+        '/users/email-link-forgot-password',
+        state
+      )
+      if (result?.data?.msg === 'success') {
+        toast.success('Email is sent with verification link')
+      }
+    } catch (error) {
+      toast.error(error?.response?.data?.msg)
+    }
   }
 
   const handleChange = (e) => {
