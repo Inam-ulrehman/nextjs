@@ -47,6 +47,8 @@ const ForgotPassword = () => {
 }
 const Wrapper = styled.div`
   .btn-container {
+    display: flex;
+    justify-content: space-between;
   }
 `
 export default ForgotPassword

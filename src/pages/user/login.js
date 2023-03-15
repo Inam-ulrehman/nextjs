@@ -93,12 +93,12 @@ const Login = () => {
               value={state.password}
               onChange={handleChange}
             />
-            <div className='button-holder'>
+            <div className='btn-container'>
               <button className='btn' type='submit' disabled={state.isLoading}>
                 {state.isLoading && <span className='loading-span'></span>}
                 {state.isMember ? 'Login' : 'Register'}
               </button>
-              <Link className='btn' href='/user/forgotpassword'>
+              <Link className='btn btn-a' href='/user/forgotpassword'>
                 Forgot Password
               </Link>
             </div>
@@ -127,5 +127,9 @@ const Login = () => {
 
 const Wrapper = styled.div`
   min-height: 100vh;
+  .btn-container {
+    display: flex;
+    justify-content: space-between;
+  }
 `
 export default Login
