@@ -5,7 +5,7 @@ const navList = [
   { title: 'Home', path: '/' },
   { title: 'Portfolios', path: '/portfolios' },
   { title: 'Services', path: '/services' },
-  { title: 'About', path: '/about' },
+  { title: 'Client Portal', path: '/user/login' },
   { title: 'Contact', path: '/contact' },
 ]
 const NavbarLinks = () => {
