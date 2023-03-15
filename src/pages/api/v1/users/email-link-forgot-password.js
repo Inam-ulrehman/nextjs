@@ -31,6 +31,8 @@ export default async function handler(req, res) {
       return res.status(StatusCodes.BAD_GATEWAY).json(emailResult)
     }
   } else {
-    return res.status(StatusCodes.OK).json({ msg: 'Route Does not exist' })
+    return res
+      .status(StatusCodes.BAD_REQUEST)
+      .json({ msg: 'Route Does not exist' })
   }
 }
