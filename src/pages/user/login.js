@@ -7,6 +7,7 @@ import { useRouter } from 'next/router'
 import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
+import Cookies from 'js-cookie'
 
 const initialState = {
   name: '',
@@ -27,6 +28,8 @@ const Login = () => {
       try {
         setState({ ...state, isLoading: true })
         const result = await customFetch.post('users/login', state)
+        const token = result.data.msg.user.token
+        Cookies.set('token', token, { expires: 7 })
         setItemInLocalStorage('user', result.data.msg.user)
         router.push('/dashboard')
         setState({ ...state, isLoading: false })
@@ -39,6 +42,8 @@ const Login = () => {
       // Register
       setState({ ...state, isLoading: true })
       const result = await customFetch.post('users/register', state)
+      const token = result.data.msg.user.token
+      Cookies.set('token', token, { expires: 7 })
       setItemInLocalStorage('user', result.data.msg.user)
       router.push('/dashboard')
       setState({ ...state, isLoading: false })
