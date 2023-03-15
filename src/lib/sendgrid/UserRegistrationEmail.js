@@ -23,12 +23,13 @@ export const UserRegistrationEmail = ({ email, uuid }) => {
         </p>
       </div>`,
   }
-  sgMail
+  const result = sgMail
     .send(msg)
-    .then(() => {
-      console.log('Email sent')
+    .then((data) => {
+      return { msg: 'success', data }
     })
     .catch((error) => {
-      console.error(error)
+      return { msg: 'error', error }
     })
+  return result
 }
