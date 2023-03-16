@@ -29,7 +29,7 @@ const ForgotPassword = () => {
       }
       setState(initialState)
     } catch (error) {
-      setState(initialState)
+      setState({ ...state, isLoading: false })
       toast.error(error?.response?.data?.msg)
     }
   }

@@ -22,15 +22,10 @@ export default async function handler(req, res) {
     const hashedPassword = await bcrypt.hash(password, salt)
     // generate another id
     const uuid = uuidv4()
-    const updateUser = await Users.findOneAndUpdate(
+    await Users.findOneAndUpdate(
       { forgotPasswordId },
       { password: hashedPassword, forgotPasswordId: uuid }
     )
-    if (!updateUser) {
-      return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: 'Token Id is already used' })
-    }
 
     const { email } = user
     const emailResult = await EmailChangePassword({ email })

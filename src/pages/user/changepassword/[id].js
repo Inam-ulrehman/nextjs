@@ -1,7 +1,9 @@
 import FormInput from '@/components/FormInput'
+import { customFetch } from '@/utils/axios'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 const initialState = {
@@ -15,7 +17,27 @@ const ChangePassword = () => {
   const { id } = router.query
 
   const handleSubmit = async (e) => {
+    const { password, confirmPassword } = state
     e.preventDefault()
+    if (!password || !confirmPassword) {
+      return toast.warning('Please enter your password')
+    }
+    if (password !== confirmPassword) {
+      return toast.error(`Password don't match`)
+    }
+    if (password.length <= 6) {
+      return toast.error(`Minimum 6 character's required`)
+    }
+    try {
+      const response = await customFetch.post(
+        '/users/email-link-change-password',
+        { id, password }
+      )
+      toast.success(response.data.msg)
+      router.push('/user/login')
+    } catch (error) {
+      toast.error(error.response.data.msg)
+    }
   }
 
   const handleChange = (e) => {
@@ -43,8 +65,8 @@ const ChangePassword = () => {
           <FormInput
             label='Confirm New password'
             type='password'
-            value={state.password}
-            name='password'
+            value={state.confirmPassword}
+            name='confirmPassword'
             onChange={handleChange}
           />
           <button type='submit' className='btn btn-block'>
