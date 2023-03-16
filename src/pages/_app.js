@@ -8,10 +8,11 @@ import { ToastContainer } from 'react-toastify'
 import { Analytics } from '@vercel/analytics/react'
 
 export default function App({ Component, pageProps }) {
+  const getLayout = Component.getLayout || ((page) => page)
   return (
     <Provider store={store}>
       <Layout>
-        <Component {...pageProps} />
+        {getLayout(<Component {...pageProps} />)}
         <Analytics debug={false} />
       </Layout>
       <ToastContainer />
