@@ -8,6 +8,7 @@ import React, { useState } from 'react'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
 import Cookies from 'js-cookie'
+import { Button } from '@/styles/Wrappers/Buttons'
 
 const initialState = {
   name: '',
@@ -108,15 +109,15 @@ const Login = () => {
                   ? 'Are you not a member ?'
                   : 'Are you a member ?'}
               </span>
-              <button
-                className='btn'
+              <Button
+                outlined
                 type='button'
                 onClick={() =>
                   setState({ ...state, isMember: !state.isMember })
                 }
               >
                 {state.isMember ? 'Register' : 'Login'}
-              </button>
+              </Button>
             </div>
           </form>
         </div>
@@ -130,6 +131,12 @@ const Wrapper = styled.div`
   .btn-container {
     display: flex;
     justify-content: space-between;
+  }
+  .footer {
+    padding-top: 1rem;
+    span {
+      margin-right: 1rem;
+    }
   }
 `
 export default Login
