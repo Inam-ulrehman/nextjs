@@ -12,7 +12,6 @@ export default async function handler(req, res) {
   // Create a User
   if (method === 'POST') {
     const { name, lastName, email, password, gender, dateOfBirth } = req.body
-
     const isFirstAccount = await User.countDocuments({})
     const role = isFirstAccount === 0 ? 'admin' : 'user'
 

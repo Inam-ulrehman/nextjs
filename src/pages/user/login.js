@@ -60,7 +60,7 @@ const Login = () => {
         setState({ ...state, isLoading: false })
       } catch (error) {
         setState({ ...state, isLoading: false })
-        console.log(error.response.data.msg)
+        toast.warning(error.response.data.msg)
       }
     }
   }

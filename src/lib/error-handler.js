@@ -10,7 +10,7 @@ const errorHandler = async (error, res) => {
     msg: err.message || 'Something went wrong try again later',
   }
 
-  if (error.name === 'ValidationError') {
+  if (err.name === 'ValidationError') {
     customError.msg = Object.values(err.errors)
       .map((item) => item.message)
       .join(',')
