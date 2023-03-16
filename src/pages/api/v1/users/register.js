@@ -1,4 +1,5 @@
 import dbConnect from '@/lib/dbConnect'
+import errorHandler from '@/lib/error-handler'
 import { UserRegistrationEmail } from '@/lib/sendgrid/UserRegistrationEmail'
 import User from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
@@ -12,14 +13,9 @@ export default async function handler(req, res) {
   if (method === 'POST') {
     const { name, lastName, email, password, gender, dateOfBirth } = req.body
 
-    const emailAlreadyExist = await User.findOne({ email })
     const isFirstAccount = await User.countDocuments({})
     const role = isFirstAccount === 0 ? 'admin' : 'user'
-    if (emailAlreadyExist) {
-      return res
-        .status(StatusCodes.BAD_REQUEST)
-        .json({ msg: 'Email already exist.' })
-    }
+
     const uuid = uuidv4()
 
     try {
@@ -39,7 +35,7 @@ export default async function handler(req, res) {
         .status(StatusCodes.CREATED)
         .json({ msg: { user: { name: user.name, token } } })
     } catch (error) {
-      res.status(StatusCodes.FORBIDDEN).json({ msg: 'error', error })
+      errorHandler(error, res)
     }
   }
 }
