@@ -21,21 +21,25 @@ export default async function handler(req, res) {
         .json({ msg: 'Email already exist.' })
     }
     const uuid = uuidv4()
-    const user = await User.create({
-      name,
-      lastName,
-      gender,
-      dateOfBirth,
-      email,
-      password,
-      role,
-      uuid,
-    })
-    const token = await user.createJWT()
-    UserRegistrationEmail({ email, uuid })
 
-    res
-      .status(StatusCodes.CREATED)
-      .json({ msg: { user: { name: user.name, token } } })
+    try {
+      const user = await User.create({
+        name,
+        lastName,
+        gender,
+        dateOfBirth,
+        email,
+        password,
+        role,
+        uuid,
+      })
+      const token = await user.createJWT()
+      UserRegistrationEmail({ email, uuid })
+      res
+        .status(StatusCodes.CREATED)
+        .json({ msg: { user: { name: user.name, token } } })
+    } catch (error) {
+      res.status(StatusCodes.FORBIDDEN).json({ msg: 'error', error })
+    }
   }
 }
