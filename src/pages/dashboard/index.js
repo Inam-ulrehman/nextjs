@@ -1,46 +1,44 @@
 import dbConnect from '@/lib/dbConnect'
 import Users from '@/models/User'
+import { getItemFromLocalStorage } from '@/utils/localStorage'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
+import * as jose from 'jose'
 
-const Dashboard = ({ users }) => {
+const Dashboard = ({ user }) => {
+  console.log(user)
   return (
     <>
       <Head>
         <title>Welcome to your dashboard</title>
         <meta name='description' content='Your dashboard page.' />
-        <meta name='viewport' content='width=device-width, initial-scale=1' />
-        <link rel='icon' href='/favicon.ico' />
       </Head>
-      <ul>
-        {users.map((item, index) => {
-          return (
-            <div key={index}>
-              <p>Name: {item.name}</p>
-              <Link href='/dashboard/[id]' as={`/dashboard/${item._id}`}>
-                <button className='btn view'>View</button>
-              </Link>
-            </div>
-          )
-        })}
-      </ul>
+      <div>Welcome to your dashboard</div>
     </>
   )
 }
 
 /* Retrieves pet(s) data from mongodb database */
-export async function getServerSideProps() {
+export async function getServerSideProps(context) {
   await dbConnect()
+  const jwt = context.req.cookies['token']
 
-  const result = await Users.find({})
-  const users = result.map((doc) => {
-    const user = doc.toObject()
-    user._id = user._id.toString()
+  const { payload } = await jose.jwtVerify(
+    jwt,
+    new TextEncoder().encode(process.env.JWT_SECRET)
+  )
+  const user = await Users.findById(
+    payload.userId,
+    '-password -forgotPasswordId -uuid '
+  )
+  // console.log(user)
+  // const users = result.map((doc) => {
+  //   const user = doc.toObject()
+  //   user._id = user._id.toString()
 
-    return user
-  })
-
-  return JSON.parse(JSON.stringify({ props: { users } }))
+  //   return user
+  // })
+  return JSON.parse(JSON.stringify({ props: { user } }))
 }
 export default Dashboard
