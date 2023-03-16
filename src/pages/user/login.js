@@ -23,7 +23,7 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!state.isMember && state.name) {
+    if (!state.isMember && !state.name) {
       return toast.warning('please provide your name')
     }
     if (!state.email) {
