@@ -54,6 +54,7 @@ const ForgotPassword = () => {
             <FormInput
               type='email'
               name='email'
+              important={true}
               value={state.email}
               onChange={handleChange}
             />

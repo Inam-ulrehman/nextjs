@@ -23,6 +23,15 @@ const Login = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!state.isMember && state.name) {
+      return toast.warning('please provide your name')
+    }
+    if (!state.email) {
+      return toast.warning('please provide your email')
+    }
+    if (!state.password) {
+      return toast.warning('please provide your password')
+    }
 
     if (state.isMember) {
       // Login
@@ -74,6 +83,7 @@ const Login = () => {
             {/* name  */}
             {!state.isMember && (
               <FormInput
+                important={true}
                 name={'name'}
                 type='text'
                 value={state.name}
@@ -82,6 +92,7 @@ const Login = () => {
             )}
             {/* email  */}
             <FormInput
+              important={true}
               name={'email'}
               type='email'
               value={state.email}
@@ -89,6 +100,7 @@ const Login = () => {
             />
             {/* password  */}
             <FormInput
+              important={true}
               name={'password'}
               type='password'
               value={state.password}
