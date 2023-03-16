@@ -15,6 +15,10 @@ const ForgotPassword = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!state.email) {
+      return toast.warning('please provide email')
+    }
+    setState({ ...state, isLoading: true })
     try {
       const result = await customFetch.post(
         '/users/email-link-forgot-password',
@@ -23,7 +27,9 @@ const ForgotPassword = () => {
       if (result?.data?.msg === 'success') {
         toast.success('Email is sent with verification link')
       }
+      setState(initialState)
     } catch (error) {
+      setState(initialState)
       toast.error(error?.response?.data?.msg)
     }
   }
