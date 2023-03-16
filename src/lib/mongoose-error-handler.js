@@ -1,7 +1,7 @@
 import { StatusCodes } from 'http-status-codes'
 import React from 'react'
 
-const errorHandler = async (error, res) => {
+const mongooseErrorHandler = async (error, res) => {
   let err = JSON.parse(JSON.stringify(error))
 
   let customError = {
@@ -29,4 +29,4 @@ const errorHandler = async (error, res) => {
   return res.status(customError.statusCode).json({ msg: customError.msg })
 }
 
-export default errorHandler
+export default mongooseErrorHandler

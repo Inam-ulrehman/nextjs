@@ -1,5 +1,5 @@
 import dbConnect from '@/lib/dbConnect'
-import errorHandler from '@/lib/error-handler'
+import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import { UserRegistrationEmail } from '@/lib/sendgrid/UserRegistrationEmail'
 import User from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
@@ -34,7 +34,7 @@ export default async function handler(req, res) {
         .status(StatusCodes.CREATED)
         .json({ msg: { user: { name: user.name, token } } })
     } catch (error) {
-      errorHandler(error, res)
+      mongooseErrorHandler(error, res)
     }
   }
 }
