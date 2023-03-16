@@ -5,10 +5,10 @@ import styled from 'styled-components'
 const SampleNestedLayout = ({ children }) => {
   return (
     <Wrapper>
-      <Link href='/blog/one'>one</Link>
-      <Link href='/blog/two'>two</Link>
-      <Link href='/blog/three'>three</Link>
-      <Link href='/blog/four'>four</Link>
+      <Link href='/sample/one'>one</Link>
+      <Link href='/sample/two'>two</Link>
+      <Link href='/sample/three'>three</Link>
+      <Link href='/sample/four'>four</Link>
       <main>{children}</main>
     </Wrapper>
   )
