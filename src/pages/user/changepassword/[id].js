@@ -29,13 +29,16 @@ const ChangePassword = () => {
       return toast.error(`Minimum 6 character's required`)
     }
     try {
+      setState({ ...state, isLoading: true })
       const response = await customFetch.post(
         '/users/email-link-change-password',
         { id, password }
       )
       toast.success(response.data.msg)
+      setState({ ...state, isLoading: false })
       router.push('/user/login')
     } catch (error) {
+      setState({ ...state, isLoading: false })
       toast.error(error.response.data.msg)
     }
   }
@@ -69,8 +72,15 @@ const ChangePassword = () => {
             name='confirmPassword'
             onChange={handleChange}
           />
-          <button type='submit' className='btn btn-block'>
-            Submit
+          <button
+            type='submit'
+            className='btn btn-block'
+            disabled={state.isLoading}
+          >
+            {state.isLoading && <span className='loading-span'></span>}
+            <span className='btn-span'>
+              {state.isLoading ? 'Updating...' : 'Submit'}
+            </span>
           </button>
         </form>
       </Wrapper>
