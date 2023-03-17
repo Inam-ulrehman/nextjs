@@ -1,7 +1,35 @@
-import React from 'react'
 import styled from 'styled-components'
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { allContactsThunk } from '@/features/contacts/contactsSlice'
 
-const List = ({ contacts }) => {
+const List = () => {
+  const dispatch = useDispatch()
+  const { contacts } = useSelector((state) => state)
+  const {
+    isLoading,
+    page,
+    limit,
+    sort,
+    searchName,
+    searchEmail,
+    searchMobile,
+    refreshData,
+    list,
+  } = contacts
+
+  useEffect(() => {
+    dispatch(allContactsThunk(contacts))
+  }, [page, limit, sort, searchName, searchEmail, searchMobile, refreshData])
+
+  if (isLoading) {
+    return (
+      <div className='title'>
+        <h1>Loading...</h1>
+        <div className='loading'></div>
+      </div>
+    )
+  }
   return (
     <Wrapper>
       <thead>
@@ -13,9 +41,9 @@ const List = ({ contacts }) => {
         </tr>
       </thead>
       <tbody>
-        {contacts.map((item) => {
+        {list.map((item) => {
           return (
-            <tr>
+            <tr key={item._id}>
               <td>{item.name}</td>
               <td>{item.email}</td>
               <td>{item.subject}</td>

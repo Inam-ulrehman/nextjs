@@ -1,11 +1,12 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
+import styled from 'styled-components'
 import ScrollHook from './ScrollHook'
 
-const PaginationHook = ({ page, count, limit, next, prev, index }) => {
+const PaginationHook = ({ page, nbHits, limit, next, prev, index }) => {
   const dispatch = useDispatch()
 
-  const totalPages = Math.ceil(count / limit)
+  const totalPages = Math.ceil(nbHits / limit)
   const pagesArray = Array.from({ length: totalPages }, (v, i) => i + 1)
 
   // handle buttons
@@ -24,18 +25,19 @@ const PaginationHook = ({ page, count, limit, next, prev, index }) => {
   }
 
   const handlePrev = (e) => {
+    console.log('hello')
     if (page <= 1) {
       return
     }
     dispatch(prev())
     ScrollHook()
   }
-  if (count <= 9) {
+  if (nbHits <= 9) {
     return
   }
 
   return (
-    <div className='title'>
+    <Wrapper className='title'>
       <button className='btn prev' type='button' onClick={handlePrev}>
         Prev
       </button>
@@ -77,21 +79,21 @@ const PaginationHook = ({ page, count, limit, next, prev, index }) => {
       <button className='btn next' type='button' onClick={handleNext}>
         Next
       </button>
-    </div>
+    </Wrapper>
   )
 }
-// const Wrapper = styled.div`
-//   .active {
-//     background-color: var(--primary-8);
-//   }
-//   .prev,
-//   .next {
-//     margin: 1rem 5px;
-//   }
-//   .btn {
-//     border-radius: 0;
-//   }
-// `
+const Wrapper = styled.div`
+  .active {
+    background-color: var(--primary-8);
+  }
+  .prev,
+  .next {
+    margin: 1rem 5px;
+  }
+  .btn {
+    border-radius: 0;
+  }
+`
 export default PaginationHook
 
 // ======require props======

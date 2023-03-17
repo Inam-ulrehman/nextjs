@@ -2,25 +2,15 @@ import { customFetch } from '@/utils/axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
-  // register
-  name: '',
-  email: '',
-  phone: '',
-  note: '',
-  category: '',
-  date: new Date().toLocaleDateString('en-ca'),
-  availableTimes: '',
-  slot: {},
   // search
   searchName: '',
   searchEmail: '',
-  searchPhone: '',
-  searchDate: '',
+  searchMobile: '',
   // pagination
   list: [],
   page: 1,
   limit: 10,
-  count: '',
+  nbHits: '',
   sort: '-createdAt',
   searchConfirmed: false,
   // delete Id
@@ -28,7 +18,6 @@ const initialState = {
   // update Id
   updateId: '',
   refreshData: false,
-  refreshSlotData: false,
   // deleteMany
   deleteMany: [],
   isLoading: false,
@@ -48,9 +37,12 @@ export const contactsThunk = createAsyncThunk(
 //======== Get All Contacts========
 export const allContactsThunk = createAsyncThunk(
   'contacts/allContactsThunk',
-  async (_, thunkAPI) => {
+
+  async (state, thunkAPI) => {
     try {
-      const response = await customFetch.get('/contacts')
+      const response = await customFetch.get(
+        `/contacts?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`
+      )
 
       return response.data
     } catch (error) {
@@ -69,6 +61,27 @@ const contactsSlice = createSlice({
     getStateValues: (state, { payload }) => {
       const { name, value } = payload
       state[name] = value
+    },
+    clearState: (state, { payload }) => {
+      // search
+      state.searchName = ''
+      state.searchEmail = ''
+      state.searchMobile = ''
+      // pagination
+      state.page = 1
+      state.limit = 10
+      state.sort = '-createdAt'
+    },
+    //======pagination=======
+    next: (state, { payload }) => {
+      state.page = state.page + 1
+    },
+    prev: (state, { payload }) => {
+      state.page = state.page - 1
+    },
+    index: (state, { payload }) => {
+      const index = Number(payload)
+      state.page = index
     },
   },
 
@@ -93,7 +106,10 @@ const contactsSlice = createSlice({
         state.isLoading = true
       })
       .addCase(allContactsThunk.fulfilled, (state, { payload }) => {
-        state.isLoading = true
+        console.log(payload)
+        state.list = payload.list
+        state.nbHits = payload.nbHits
+        state.isLoading = false
       })
       .addCase(allContactsThunk.rejected, (state, { payload }) => {
         console.log(payload)
@@ -101,5 +117,6 @@ const contactsSlice = createSlice({
       })
   },
 })
-export const { createFunction, getStateValues } = contactsSlice.actions
+export const { createFunction, getStateValues, clearState, next, prev, index } =
+  contactsSlice.actions
 export default contactsSlice.reducer

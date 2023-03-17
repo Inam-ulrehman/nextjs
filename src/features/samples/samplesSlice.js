@@ -5,16 +5,14 @@ const initialState = {
   // register
   name: '',
   email: '',
-  phone: '',
+  mobile: '',
   note: '',
   category: '',
   date: new Date().toLocaleDateString('en-ca'),
-  availableTimes: '',
-  slot: {},
   // search
   searchName: '',
   searchEmail: '',
-  searchPhone: '',
+  searchMobile: '',
   searchDate: '',
   // pagination
   list: [],
@@ -22,12 +20,10 @@ const initialState = {
   limit: 10,
   count: '',
   sort: '-createdAt',
-  searchConfirmed: false,
   // delete Id
   deleteId: '',
   // update Id
   updateId: '',
-  refreshData: false,
   refreshSlotData: false,
   // deleteMany
   deleteMany: [],
@@ -56,6 +52,38 @@ const samplesSlice = createSlice({
     getStateValues: (state, { payload }) => {
       const { name, value } = payload
       state[name] = value
+    },
+    clearState: (state, { payload }) => {
+      // register
+      state.name = ''
+      state.email = ''
+      state.email = ''
+      state.mobile = ''
+      state.note = ''
+      state.category = ''
+      state.date = new Date().toLocaleDateString('en-ca')
+      state.availableTimes = ''
+      state.slot = {}
+      // search
+      state.searchName = ''
+      state.searchEmail = ''
+      state.searchMobile = ''
+      state.searchDate = ''
+      // pagination
+      state.page = 1
+      state.limit = 10
+      state.sort = '-createdAt'
+    },
+    //======pagination=======
+    next: (state, { payload }) => {
+      state.page = state.page + 1
+    },
+    prev: (state, { payload }) => {
+      state.page = state.page - 1
+    },
+    index: (state, { payload }) => {
+      const index = Number(payload)
+      state.page = index
     },
   },
 

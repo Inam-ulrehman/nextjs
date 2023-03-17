@@ -7,56 +7,46 @@ export default async function handler(req, res) {
   await dbConnect()
   const { method, body, query } = req
   // ===========Get a Contact=========
-  //    const { date, name, email, phone, confirmed, sort } = req.query
-  //   const queryObject = {}
-  //   let sorted = ''
-  //   // date
-  //   if (date) {
-  //     queryObject.date = date
-  //   }
-  //   // name
-  //   if (name) {
-  //     queryObject.name = { $regex: name, $options: 'i' }
-  //   }
-  //   // phone
-  //   if (phone) {
-  //     queryObject.phone = phone
-  //   }
-  //   // email
-  //   if (email) {
-  //     queryObject.email = { $regex: email, $options: 'i' }
-  //   }
-  //   // confirmed
-  //   if (confirmed === 'true') {
-  //     queryObject.confirmed = true
-  //   }
 
-  //   if (sort) {
-  //     const sortList = sort.split(',').join(' ')
-  //     sorted = sortList
-  //   }
-
-  //   const page = Number(req.query.page) || 1
-  //   const limit = Number(req.query.limit) || 10
-  //   const skip = (page - 1) * limit
-
-  //   let totalOrders = await Appointment.find(queryObject)
-
-  //   let result = await Appointment.find(queryObject)
-  //     .sort(`${sorted}`)
-  //     .skip(skip)
-  //     .limit(limit)
-
-  //   res.status(StatusCodes.OK).json({ result, totalOrders: totalOrders.length })
-  // }
   // =================================
   if (method === 'GET') {
     try {
-      const contacts = await Contacts.find()
+      const { name, email, mobile, sort } = req.query
+      const queryObject = {}
+      let sorted = ''
+
+      // name
+      if (name) {
+        queryObject.name = { $regex: name, $options: 'i' }
+      }
+      // mobile
+      if (mobile) {
+        queryObject.mobile = { $regex: mobile, $options: 'i' }
+      }
+      // email
+      if (email) {
+        queryObject.email = { $regex: email, $options: 'i' }
+      }
+
+      if (sort) {
+        const sortList = sort.split(',').join(' ')
+        sorted = sortList
+      }
+
+      const page = Number(req.query.page) || 1
+      const limit = Number(req.query.limit) || 10
+      const skip = (page - 1) * limit
+
+      const totalContacts = await Contacts.find()
+
+      let result = await Contacts.find(queryObject)
+        .sort(`${sorted}`)
+        .skip(skip)
+        .limit(limit)
 
       return res
         .status(StatusCodes.OK)
-        .json({ msg: 'success', nbHits: contacts.length, contacts: contacts })
+        .json({ msg: 'success', nbHits: totalContacts.length, list: result })
     } catch (error) {
       return mongooseErrorHandler(error, res)
     }
