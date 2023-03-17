@@ -18,5 +18,9 @@ const DashboardSidebar = () => {
   )
 }
 
-const Wrapper = styled.ul``
+const Wrapper = styled.ul`
+  li {
+    padding: 5px;
+  }
+`
 export default DashboardSidebar

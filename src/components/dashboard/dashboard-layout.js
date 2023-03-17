@@ -20,9 +20,12 @@ const Wrapper = styled.div`
     min-width: 200px;
     background-color: var(--grey-3);
   }
+  section {
+    width: 100%;
+  }
   @media (max-width: 768px) {
     aside {
-      width: 30vw;
+      min-width: 20vw;
     }
   }
 `
