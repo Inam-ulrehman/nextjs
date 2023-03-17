@@ -1,13 +1,13 @@
 import dbConnect from '@/lib/dbConnect'
 import Users from '@/models/User'
-import { getItemFromLocalStorage } from '@/utils/localStorage'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 import * as jose from 'jose'
+import DashboardLayout from '@/components/dashboard/dashboard-layout'
 
 const Dashboard = ({ user }) => {
-  console.log(user)
+  // console.log(user)
   return (
     <>
       <Head>
@@ -19,6 +19,9 @@ const Dashboard = ({ user }) => {
   )
 }
 
+Dashboard.getLayout = (page) => {
+  return <DashboardLayout>{page}</DashboardLayout>
+}
 /* Retrieves pet(s) data from mongodb database */
 export async function getServerSideProps(context) {
   await dbConnect()
