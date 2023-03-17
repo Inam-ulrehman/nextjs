@@ -2,6 +2,12 @@ import { customFetch } from '@/utils/axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 
 const initialState = {
+  // register
+  name: '',
+  email: '',
+  mobile: '',
+  subject: '',
+  message: '',
   // search
   searchName: '',
   searchEmail: '',

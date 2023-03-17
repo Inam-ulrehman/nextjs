@@ -39,7 +39,6 @@ const Contact = () => {
     try {
       setState({ ...state, isLoading: true })
       const result = await customFetch.post('/contacts', state)
-      console.log(result)
       toast.success('Your request is submitted.')
       setState(initialState)
     } catch (error) {
