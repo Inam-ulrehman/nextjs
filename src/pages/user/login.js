@@ -53,10 +53,10 @@ const Login = () => {
       try {
         setState({ ...state, isLoading: true })
         const result = await customFetch.post('users/register', state)
+        router.push('/dashboard')
         const token = result.data.msg.user.token
         Cookies.set('token', token, { expires: 7 })
         setItemInLocalStorage('user', result.data.msg.user)
-        router.push('/dashboard')
         setState({ ...state, isLoading: false })
       } catch (error) {
         setState({ ...state, isLoading: false })
