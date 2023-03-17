@@ -1,7 +1,6 @@
 import dbConnect from '@/lib/dbConnect'
 import Users from '@/models/User'
 import Head from 'next/head'
-import Link from 'next/link'
 import React from 'react'
 import * as jose from 'jose'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
