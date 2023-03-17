@@ -2,6 +2,9 @@ import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { allContactsThunk } from '@/features/contacts/contactsSlice'
+import { FiEdit } from 'react-icons/fi'
+import { RiDeleteBack2Line } from 'react-icons/ri'
+import Link from 'next/link'
 
 const List = () => {
   const dispatch = useDispatch()
@@ -38,6 +41,7 @@ const List = () => {
           <td>Email</td>
           <td>Subject</td>
           <td>Time</td>
+          <td>Action</td>
         </tr>
       </thead>
       <tbody>
@@ -48,6 +52,17 @@ const List = () => {
               <td>{item.email}</td>
               <td>{item.subject}</td>
               <td>{item.createdAt}</td>
+              <td>
+                <Link
+                  className='btn btn-a'
+                  href={`/dashboard/contact/${item._id}`}
+                >
+                  <FiEdit />
+                </Link>
+                <button onClick={() => handleDelete(item._id)} className='btn'>
+                  <RiDeleteBack2Line />
+                </button>
+              </td>
             </tr>
           )
         })}
