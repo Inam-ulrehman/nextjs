@@ -15,8 +15,9 @@ const DashboardLayout = ({ children }) => {
 const Wrapper = styled.div`
   display: flex;
   min-height: 100vh;
-
   aside {
+    margin-top: -1.1rem;
+    position: relative;
     min-width: 200px;
     background-color: var(--grey-3);
   }
@@ -24,8 +25,14 @@ const Wrapper = styled.div`
     width: 100%;
   }
   @media (max-width: 768px) {
+    display: grid;
+
     aside {
-      min-width: 20vw;
+      margin-top: 0;
+      position: sticky;
+      top: 11.5%;
+
+      height: fit-content;
     }
   }
 `
