@@ -7,16 +7,15 @@ import {
   deleteManyContactsThunk,
   getStateValues,
 } from '@/features/contacts/contactsSlice'
-import { FiEdit } from 'react-icons/fi'
-import { RiDeleteBack2Line } from 'react-icons/ri'
+
 import Link from 'next/link'
 import { formatDate } from '@/utils/helper'
 import {
   showDeleteAllWarning,
   showDeleteWarning,
 } from '@/features/websitecontent/websitecontentSlice'
-import DeleteWarning from '../warnings/deleteWarning'
-import DeleteAllWarning from '../warnings/DeleteAllWarning'
+import { DeleteAllWarning, DeleteWarning } from '../warnings'
+import { Icons } from '@/styles/Icons'
 
 const List = () => {
   const dispatch = useDispatch()
@@ -31,6 +30,7 @@ const List = () => {
     searchMobile,
     refreshData,
     list,
+    deleteMany,
   } = contacts
 
   //====== handle Delete ====
@@ -42,24 +42,24 @@ const List = () => {
   }
   // =======deleteMany  =======
   const handleSelectAll = () => {
-    if (contacts.list.length === contacts.deleteMany.length) {
+    if (list.length === deleteMany.length) {
       dispatch(getStateValues({ name: 'deleteMany', value: [] }))
       return
     }
-    dispatch(getStateValues({ name: 'deleteMany', value: contacts.list }))
+    dispatch(getStateValues({ name: 'deleteMany', value: list }))
   }
   const handleSelectOne = (_id) => {
-    if (contacts.deleteMany.find((item) => item._id === _id)) {
+    if (deleteMany.find((item) => item._id === _id)) {
       dispatch(
         getStateValues({
           name: 'deleteMany',
-          value: contacts.deleteMany.filter((item) => item._id !== _id),
+          value: deleteMany.filter((item) => item._id !== _id),
         })
       )
       return
     }
-    const result = contacts.list.find((item) => item._id === _id)
-    const newValue = [...contacts.deleteMany, result]
+    const result = list.find((item) => item._id === _id)
+    const newValue = [...deleteMany, result]
     dispatch(getStateValues({ name: 'deleteMany', value: newValue }))
   }
 
@@ -72,14 +72,14 @@ const List = () => {
     dispatch(allContactsThunk(contacts))
   }, [page, limit, sort, searchName, searchEmail, searchMobile, refreshData])
 
-  // if (isLoading) {
-  //   return (
-  //     <div className='title'>
-  //       <h1>Loading...</h1>
-  //       <div className='loading'></div>
-  //     </div>
-  //   )
-  // }
+  if (isLoading) {
+    return (
+      <div className='title'>
+        <h1>Loading...</h1>
+        <div className='loading'></div>
+      </div>
+    )
+  }
   return (
     <Wrapper>
       {/*=== delete warning=== */}
@@ -88,6 +88,7 @@ const List = () => {
           action={() => dispatch(deleteContactThunk(contacts.deleteId))}
         />
       )}
+      {/* ====delete many warning */}
       {websitecontent.isDeleteAllWarning && (
         <DeleteAllWarning
           action={() => dispatch(deleteManyContactsThunk(contacts.deleteMany))}
@@ -149,13 +150,13 @@ const List = () => {
                     className='btn btn-a'
                     href={`/dashboard/contact/${item._id}`}
                   >
-                    <FiEdit />
+                    {Icons.edit}
                   </Link>
                   <button
                     onClick={() => handleDelete(item._id)}
                     className='btn'
                   >
-                    <RiDeleteBack2Line />
+                    {Icons.delete}
                   </button>
                 </td>
               </tr>

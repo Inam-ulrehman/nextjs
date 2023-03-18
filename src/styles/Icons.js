@@ -2,6 +2,7 @@ import {
   RiArrowDropDownLine,
   RiInstagramFill,
   RiTeamFill,
+  RiDeleteBack2Line,
 } from 'react-icons/ri'
 import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
 import { MdImportantDevices } from 'react-icons/md'
@@ -14,6 +15,7 @@ import {
   BsTelephone,
 } from 'react-icons/bs'
 import { SiSpeedtest, SiAzuredevops, SiJirasoftware } from 'react-icons/si'
+import { FiEdit } from 'react-icons/fi'
 
 export const Icons = {
   dropDown: <RiArrowDropDownLine size={30}></RiArrowDropDownLine>,
@@ -30,4 +32,6 @@ export const Icons = {
   facebook: <BsFacebook size={25}></BsFacebook>,
   linkedin: <BsLinkedin size={25}></BsLinkedin>,
   twitter: <FaTwitterSquare size={25}></FaTwitterSquare>,
+  edit: <FiEdit size={15}></FiEdit>,
+  delete: <RiDeleteBack2Line size={15}></RiDeleteBack2Line>,
 }
