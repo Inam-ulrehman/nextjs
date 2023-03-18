@@ -4,15 +4,18 @@ import { useDispatch, useSelector } from 'react-redux'
 import {
   allContactsThunk,
   deleteContactThunk,
+  getStateValues,
 } from '@/features/contacts/contactsSlice'
 import { FiEdit } from 'react-icons/fi'
 import { RiDeleteBack2Line } from 'react-icons/ri'
 import Link from 'next/link'
 import { formatDate } from '@/utils/helper'
+import { showDeleteWarning } from '@/features/websitecontent/websitecontentSlice'
+import DeleteWarning from '../warnings/deleteWarning'
 
 const List = () => {
   const dispatch = useDispatch()
-  const { contacts } = useSelector((state) => state)
+  const { contacts, websitecontent } = useSelector((state) => state)
   const {
     isLoading,
     page,
@@ -24,6 +27,14 @@ const List = () => {
     refreshData,
     list,
   } = contacts
+
+  //====== handle Delete ====
+  const handleDelete = (_id) => {
+    const name = 'deleteId'
+    const value = _id
+    dispatch(getStateValues({ name, value }))
+    dispatch(showDeleteWarning())
+  }
 
   useEffect(() => {
     dispatch(allContactsThunk(contacts))
@@ -39,6 +50,13 @@ const List = () => {
   }
   return (
     <Wrapper>
+      {/*=== delete warning=== */}
+      {websitecontent.isDeleteWarning && (
+        <DeleteWarning
+          action={() => dispatch(deleteContactThunk(contacts.deleteId))}
+        />
+      )}
+
       <table>
         <caption>Contact Table</caption>
         <thead>
@@ -66,7 +84,7 @@ const List = () => {
                     <FiEdit />
                   </Link>
                   <button
-                    onClick={() => dispatch(deleteContactThunk(item._id))}
+                    onClick={() => handleDelete(item._id)}
                     className='btn'
                   >
                     <RiDeleteBack2Line />

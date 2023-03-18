@@ -29,7 +29,6 @@ const initialState = {
   refreshData: false,
   // Delete Many
   deleteMany: [],
-  isWarning: false,
   isLoading: false,
 }
 // ========================================
