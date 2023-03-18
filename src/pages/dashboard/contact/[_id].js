@@ -1,7 +1,9 @@
+import DeleteWarning from '@/components/warnings/deleteWarning'
 import {
   deleteContactThunk,
   singleContactThunk,
 } from '@/features/contacts/contactsSlice'
+import { showDeleteWarning } from '@/features/websitecontent/websitecontentSlice'
 import { formatDate, titleCase } from '@/utils/helper'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -12,11 +14,15 @@ import styled from 'styled-components'
 
 const SingleContact = () => {
   const dispatch = useDispatch()
-  const { contacts } = useSelector((state) => state)
+  const { contacts, websitecontent } = useSelector((state) => state)
   const { isLoading, name, email, mobile, subject, message, createdAt } =
     contacts
   const router = useRouter()
   const { _id } = router.query
+
+  const handleDelete = () => {
+    dispatch(showDeleteWarning())
+  }
 
   useEffect(() => {
     if (_id !== undefined) {
@@ -35,10 +41,15 @@ const SingleContact = () => {
   return (
     <>
       <Head>
-        <title>Single Contact</title>
-        <meta name='description' content='Your dashboard page.' />
+        <title>{name}</title>
+        <meta name='description' content={subject} />
       </Head>
       <Wrapper>
+        {websitecontent.isDeleteWarning && (
+          <DeleteWarning
+            action={() => dispatch(deleteContactThunk(_id))}
+          ></DeleteWarning>
+        )}
         <div className='body-header'>
           <div className='header'>
             <div>
@@ -65,11 +76,7 @@ const SingleContact = () => {
           <div className='body'>
             <p>{message}</p>
             <div className='btn-container'>
-              <button
-                type='button'
-                className='btn'
-                onClick={() => dispatch(deleteContactThunk(_id))}
-              >
+              <button type='button' className='btn' onClick={handleDelete}>
                 Delete
               </button>
               <Link className='btn btn-a' href={`/dashboard/contact`}>
