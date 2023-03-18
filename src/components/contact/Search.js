@@ -2,6 +2,7 @@ import { getStateValues } from '@/features/contacts/contactsSlice'
 import React from 'react'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
+import styled from 'styled-components'
 
 const Search = () => {
   const dispatch = useDispatch()
@@ -14,7 +15,7 @@ const Search = () => {
     dispatch(getStateValues({ name, value }))
   }
   return (
-    <div>
+    <Wrapper>
       {/* name */}
       <div>
         <input
@@ -42,7 +43,7 @@ const Search = () => {
       {/* Mobile */}
       <div>
         <input
-          type='number'
+          type='text'
           placeholder='Mobile'
           name='searchMobile'
           value={searchMobile}
@@ -50,8 +51,27 @@ const Search = () => {
         />
         <BiSearchAlt2 />
       </div>
-    </div>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-wrap: wrap;
+
+  margin: 5px 0;
+  div {
+    margin-right: 1rem;
+    background-color: var(--white);
+    border: 2px solid var(--grey-5);
+    input {
+      border: transparent;
+      height: 100%;
+    }
+    svg {
+      margin: 0 5px;
+    }
+  }
+`
 
 export default Search

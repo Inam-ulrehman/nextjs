@@ -99,6 +99,24 @@ export const deleteContactThunk = createAsyncThunk(
     }
   }
 )
+// ==== Delete Many ====
+
+export const deleteManyContactsThunk = createAsyncThunk(
+  'appointment/deleteManyContactsThunk',
+  async (data, thunkAPI) => {
+    try {
+      const response = await customFetch.patch(`/authadmin/contacts`, data, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`,
+        },
+      })
+      return response.data
+    } catch (error) {
+      console.log(error.response)
+      return thunkAPI.rejectWithValue(error.response.data)
+    }
+  }
+)
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
@@ -185,6 +203,19 @@ const contactsSlice = createSlice({
         state.isLoading = false
       })
       .addCase(deleteContactThunk.rejected, (state, { payload }) => {
+        toast.error(payload.msg)
+        state.isLoading = false
+      })
+      // ===========deleteManyContactsThunk===========
+      .addCase(deleteManyContactsThunk.pending, (state, { payload }) => {
+        state.isLoading = true
+      })
+      .addCase(deleteManyContactsThunk.fulfilled, (state, { payload }) => {
+        toast.success(payload.msg)
+        state.refreshData = !state.refreshData
+        state.isLoading = false
+      })
+      .addCase(deleteManyContactsThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)
         state.isLoading = false
       })

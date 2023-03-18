@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   await dbConnect()
   const { method, body, query } = req
 
-  // =============All Contacts====================
+  // =============All Items====================
   if (method === 'GET') {
     try {
       const { name, email, mobile, sort } = req.query
@@ -36,7 +36,7 @@ export default async function handler(req, res) {
       const limit = Number(req.query.limit) || 10
       const skip = (page - 1) * limit
 
-      const totalContacts = await Contacts.find()
+      const totalContacts = await Contacts.find(queryObject)
 
       let result = await Contacts.find(queryObject)
         .sort(`${sorted}`)
@@ -50,13 +50,14 @@ export default async function handler(req, res) {
       return mongooseErrorHandler(error, res)
     }
   }
-  // Create a Contact
-  if (method === 'POST') {
+  // Delete Many Items
+  if (method === 'PATCH') {
+    // ========deleteManyContacts======START
+
+    const _ids = req.body.map((item) => item._id)
     try {
-      const contact = await Contacts.create(body)
-      return res
-        .status(StatusCodes.OK)
-        .json({ msg: 'Your request is registered' })
+      const result = await Contacts.deleteMany({ _id: { $in: _ids } })
+      return res.status(StatusCodes.OK).json({ msg: 'success', result })
     } catch (error) {
       return mongooseErrorHandler(error, res)
     }

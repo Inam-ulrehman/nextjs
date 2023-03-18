@@ -7,6 +7,7 @@ const initialState = {
   email: '',
   password: '',
   isDeleteWarning: false,
+  isDeleteAllWarning: false,
   isLoading: false,
 }
 
@@ -36,6 +37,12 @@ const websitecontentSlice = createSlice({
     hideDeleteWarning: (state, { payload }) => {
       state.isDeleteWarning = false
     },
+    showDeleteAllWarning: (state, { payload }) => {
+      state.isDeleteAllWarning = true
+    },
+    hideDeleteAllWarning: (state, { payload }) => {
+      state.isDeleteAllWarning = false
+    },
     getStateValues: (state, { payload }) => {
       const { name, value } = payload
       state[name] = value
@@ -64,6 +71,8 @@ export const {
   getStateValues,
   showDeleteWarning,
   hideDeleteWarning,
+  showDeleteAllWarning,
+  hideDeleteAllWarning,
 } = websitecontentSlice.actions
 
 export default websitecontentSlice.reducer

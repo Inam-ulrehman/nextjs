@@ -23,7 +23,33 @@ const SingleContact = () => {
   const handleDelete = () => {
     dispatch(showDeleteWarning())
   }
+  // =======deleteMany  =======
+  const handleSelectAll = () => {
+    if (appointment.list.length === appointment.deleteMany.length) {
+      dispatch(getStateValues({ name: 'deleteMany', value: [] }))
+      return
+    }
+    dispatch(getStateValues({ name: 'deleteMany', value: appointment.list }))
+  }
+  const handleSelectOne = (_id) => {
+    if (appointment.deleteMany.find((item) => item._id === _id)) {
+      dispatch(
+        getStateValues({
+          name: 'deleteMany',
+          value: appointment.deleteMany.filter((item) => item._id !== _id),
+        })
+      )
+      return
+    }
+    const result = appointment.list.find((item) => item._id === _id)
+    const newValue = [...appointment.deleteMany, result]
+    dispatch(getStateValues({ name: 'deleteMany', value: newValue }))
+  }
 
+  const handleDeleteMany = () => {
+    dispatch(showDeleteAllWarning())
+  }
+  // =======deleteMany =======
   useEffect(() => {
     if (_id !== undefined) {
       dispatch(singleContactThunk(_id))
