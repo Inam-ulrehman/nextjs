@@ -1,6 +1,8 @@
 import { customFetch } from '@/utils/axios'
+import { addObjectInState } from '@/utils/helper'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
 
 const initialState = {
   // register
@@ -9,23 +11,23 @@ const initialState = {
   mobile: '',
   subject: '',
   message: '',
-  // search
+  // Search
   searchName: '',
   searchEmail: '',
   searchMobile: '',
-  // pagination
+  // Pagination
   list: [],
   page: 1,
   limit: 10,
   nbHits: '',
   sort: '-createdAt',
   searchConfirmed: false,
-  // delete Id
+  //Id's
   deleteId: '',
-  // update Id
   updateId: '',
+  _id: '',
   refreshData: false,
-  // deleteMany
+  // Delete Many
   deleteMany: [],
   isLoading: false,
 }
@@ -66,9 +68,13 @@ export const allContactsThunk = createAsyncThunk(
 // ==============Single Contact ======================
 export const singleContactThunk = createAsyncThunk(
   'contacts/singleContactThunk',
-  async (_, thunkAPI) => {
+  async (_id, thunkAPI) => {
     try {
-      const response = await customFetch.get('/contacts')
+      const response = await customFetch.get(`/authadmin/contacts/${_id}`, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`,
+        },
+      })
 
       return response.data
     } catch (error) {
@@ -142,17 +148,13 @@ const contactsSlice = createSlice({
       })
       // ===========singleContactThunk===========
       .addCase(singleContactThunk.pending, (state, { payload }) => {
-        console.log('promise pending')
         state.isLoading = true
       })
       .addCase(singleContactThunk.fulfilled, (state, { payload }) => {
-        console.log('promise fulfilled')
-        console.log(payload)
-        state.isLoading = false
+        addObjectInState(payload.result, state)
       })
       .addCase(singleContactThunk.rejected, (state, { payload }) => {
-        console.log('promise rejected')
-        console.log(payload)
+        toast.error(payload.msg)
         state.isLoading = false
       })
   },

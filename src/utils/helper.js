@@ -40,9 +40,6 @@ export const formatPrice = (number) => {
   }).format(number / 100)
 }
 
-// ============Scroll up============
-window.scrollTo({ top: 0, left: 0, behavior: 'smooth' })
-
 // ==========bill calculator========
 
 export const totalBill = (cart) => {
@@ -82,6 +79,6 @@ export const paginate = (data) => {
 
 // ====Dynamic way to reduce rerender and javascript
 
-const CodeSampleModal = dynamic(() => import('../components/CodeSampleModal'), {
-  ssr: false,
-})
+// const CodeSampleModal = dynamic(() => import('../components/CodeSampleModal'), {
+//   ssr: false,
+// })
