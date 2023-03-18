@@ -139,10 +139,10 @@ const List = () => {
                     onChange={() => handleSelectOne(item._id)}
                   />
                 </td>
-                <td>{item.name}</td>
-                <td>{item.email}</td>
-                <td>{item.mobile}</td>
-                <td>{item.subject}</td>
+                <td>{item.name.slice(0, 15)}</td>
+                <td>{item.email.slice(0, 20)}</td>
+                <td>{item.mobile.slice(0, 13)}</td>
+                <td>{item.subject.slice(0, 15)}</td>
                 <td className='time'>{formatDate(item.createdAt)}</td>
                 <td className='action'>
                   <Link
@@ -175,10 +175,10 @@ const Wrapper = styled.div`
     height: 10px;
   }
   .time {
-    width: 14rem;
+    max-width: 7rem;
   }
   .action {
-    width: 6rem;
+    max-width: 4rem;
   }
   .btn-a {
     margin-right: 5px;
