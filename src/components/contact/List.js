@@ -116,9 +116,9 @@ const List = () => {
               />
             </th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Mobile</th>
-            <th>Subject</th>
+            <th className='mobile-hide'>Email</th>
+            <th className='mobile-hide'>Mobile</th>
+            <th className='mobile-hide'>Subject</th>
             <th className='time'>Time</th>
             <th className='action'>Action</th>
           </tr>
@@ -141,10 +141,12 @@ const List = () => {
                   />
                 </td>
                 <td>{item.name.slice(0, 15)}</td>
-                <td>{item.email.slice(0, 20)}</td>
-                <td>{item.mobile.slice(0, 13)}</td>
+                <td className='mobile-hide'>{item.email.slice(0, 20)}</td>
+                <td className='mobile-hide'>{item.mobile.slice(0, 13)}</td>
                 <td>{item.subject.slice(0, 15)}</td>
-                <td className='time'>{formatDate(item.createdAt)}</td>
+                <td className='time mobile-hide'>
+                  {formatDate(item.createdAt)}
+                </td>
                 <td className='action'>
                   <Link
                     className='btn btn-a'
@@ -183,6 +185,12 @@ const Wrapper = styled.div`
   }
   .btn-a {
     margin-right: 5px;
+  }
+  @media (max-width: 768px) {
+    padding: 5px;
+    .mobile-hide {
+      display: none;
+    }
   }
 `
 export default List

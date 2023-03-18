@@ -72,6 +72,9 @@ const Wrapper = styled.div`
       margin: 0 5px;
     }
   }
+  @media (max-width: 768px) {
+    justify-content: center;
+  }
 `
 
 export default Search

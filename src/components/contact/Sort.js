@@ -67,5 +67,12 @@ const Wrapper = styled.div`
       padding: 0 5px;
     }
   }
+  @media (max-width: 768px) {
+    padding: 5px;
+    justify-content: center;
+    .clear-filter {
+      margin-right: 1rem;
+    }
+  }
 `
 export default Sort
