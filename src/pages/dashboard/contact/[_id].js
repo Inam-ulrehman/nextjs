@@ -1,4 +1,4 @@
-import DeleteWarning from '@/components/warnings/deleteWarning'
+import { DeleteWarning } from '@/components/warnings'
 import {
   deleteContactThunk,
   singleContactThunk,
