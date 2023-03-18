@@ -152,6 +152,7 @@ const contactsSlice = createSlice({
       })
       .addCase(singleContactThunk.fulfilled, (state, { payload }) => {
         addObjectInState(payload.result, state)
+        state.isLoading = false
       })
       .addCase(singleContactThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)

@@ -20,8 +20,6 @@ export default async function handler(req, res) {
     } catch (error) {
       return mongooseErrorHandler(error, res)
     }
-
-    return res.status(200).json({ name: 'Get your data' })
   }
   // Create a Sample
   if (method === 'POST') {

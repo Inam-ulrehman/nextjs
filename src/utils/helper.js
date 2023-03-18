@@ -1,5 +1,7 @@
 //==================filter===============
 
+import moment from 'moment/moment'
+
 // get unique values for filter declare variable
 // const categories = getUniqueValues(data,'categories')
 
@@ -40,6 +42,10 @@ export const formatPrice = (number) => {
   }).format(number / 100)
 }
 
+// ==========formate date============
+export const formatDate = (date) => {
+  return moment(date).format('MMMM Do YYYY,h:mm a')
+}
 // ==========bill calculator========
 
 export const totalBill = (cart) => {
@@ -58,12 +64,21 @@ export const paragraphLimit = (string, length) => {
   var trimmedString = string.substring(0, length) + '...'
   return trimmedString
 }
+// =============Upper letter ==========
+
+export const titleCase = (string) => {
+  return string[0].toUpperCase() + string.slice(1).toLowerCase()
+}
 // ==========addObjectInState=======
 export const addObjectInState = (payload, state) => {
   const objectArray = Object.entries(payload)
   return objectArray.forEach(([key, value]) => {
     state[key] = value
   })
+}
+// =========is Object Empty==========
+export const isObjectEmpty = (obj) => {
+  return Object.keys(obj).length === 0
 }
 
 // ============Paginate=========
