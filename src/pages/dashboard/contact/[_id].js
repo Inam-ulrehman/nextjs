@@ -1,4 +1,7 @@
-import { singleContactThunk } from '@/features/contacts/contactsSlice'
+import {
+  deleteContactThunk,
+  singleContactThunk,
+} from '@/features/contacts/contactsSlice'
 import { formatDate, titleCase } from '@/utils/helper'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -20,6 +23,7 @@ const SingleContact = () => {
       dispatch(singleContactThunk(_id))
     }
   }, [_id])
+
   if (isLoading) {
     return (
       <div className='title'>
@@ -61,7 +65,11 @@ const SingleContact = () => {
           <div className='body'>
             <p>{message}</p>
             <div className='btn-container'>
-              <button type='button' className='btn'>
+              <button
+                type='button'
+                className='btn'
+                onClick={() => dispatch(deleteContactThunk(_id))}
+              >
                 Delete
               </button>
               <Link className='btn btn-a' href={`/dashboard/contact`}>
