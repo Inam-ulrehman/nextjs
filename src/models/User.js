@@ -146,8 +146,8 @@ UserSchema.methods.createJWT = async function () {
   return await new jose.SignJWT({ userId: this._id, name: this.name })
     .setProtectedHeader({ alg })
     .setIssuedAt()
-    .setIssuer('urn:example:issuer')
-    .setAudience('urn:example:audience')
+    .setIssuer(this.role)
+    .setAudience(`urn:example:audience`)
     .setExpirationTime(process.env.JWT_LIFETIME)
     .sign(new TextEncoder().encode(process.env.JWT_SECRET))
 }

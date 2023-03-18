@@ -1,6 +1,6 @@
 import { StatusCodes } from 'http-status-codes'
 import { NextResponse } from 'next/server'
-import { BadRequestError } from './errors'
+import { BadRequestError } from '../errors'
 import * as jose from 'jose'
 
 export const auth = async (req) => {
@@ -34,7 +34,7 @@ export const auth = async (req) => {
     })
     return response
   } catch (error) {
-    console.log(error)
+    // console.log(error)
     return NextResponse.json(
       { message: 'Authentication Invalid' },
       { status: StatusCodes.UNAUTHORIZED }

@@ -1,7 +1,6 @@
 import { Router } from 'next/router'
 import { NextResponse } from 'next/server'
-import { auth } from './lib/authentication'
-import { isAuthValid } from './lib/isAuthValid'
+import { auth, authAdmin, isAuthValid } from './lib/authentications'
 
 export function middleware(request, response, event) {
   // this logic is many routes
@@ -20,6 +19,11 @@ export function middleware(request, response, event) {
 
   if (request.nextUrl.pathname.startsWith('/api/v1/auth/')) {
     return auth(request)
+  }
+  // ==========Authentication Back End Admin==========
+
+  if (request.nextUrl.pathname.startsWith('/api/v1/authadmin/')) {
+    return authAdmin(request)
   }
   // ==========Authentication Front End==========
   if (request.nextUrl.pathname.startsWith('/dashboard')) {

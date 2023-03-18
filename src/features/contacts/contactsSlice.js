@@ -1,5 +1,6 @@
 import { customFetch } from '@/utils/axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import Cookies from 'js-cookie'
 
 const initialState = {
   // register
@@ -28,6 +29,7 @@ const initialState = {
   deleteMany: [],
   isLoading: false,
 }
+// ========================================
 export const contactsThunk = createAsyncThunk(
   'contacts/contactsThunk',
   async (_, thunkAPI) => {
@@ -47,7 +49,12 @@ export const allContactsThunk = createAsyncThunk(
   async (state, thunkAPI) => {
     try {
       const response = await customFetch.get(
-        `/contacts?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`
+        `/authadmin/contacts?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get('token')}`,
+          },
+        }
       )
 
       return response.data
@@ -56,7 +63,19 @@ export const allContactsThunk = createAsyncThunk(
     }
   }
 )
+// ==============Single Contact ======================
+export const singleContactThunk = createAsyncThunk(
+  'contacts/singleContactThunk',
+  async (_, thunkAPI) => {
+    try {
+      const response = await customFetch.get('/contacts')
 
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data)
+    }
+  }
+)
 const contactsSlice = createSlice({
   name: 'contacts',
   initialState,
@@ -107,7 +126,7 @@ const contactsSlice = createSlice({
         console.log(payload)
         state.isLoading = false
       })
-      // Get All Contacts
+      // ==========allContactsThunk===============
       .addCase(allContactsThunk.pending, (state, { payload }) => {
         state.isLoading = true
       })
@@ -118,6 +137,21 @@ const contactsSlice = createSlice({
         state.isLoading = false
       })
       .addCase(allContactsThunk.rejected, (state, { payload }) => {
+        console.log(payload)
+        state.isLoading = false
+      })
+      // ===========singleContactThunk===========
+      .addCase(singleContactThunk.pending, (state, { payload }) => {
+        console.log('promise pending')
+        state.isLoading = true
+      })
+      .addCase(singleContactThunk.fulfilled, (state, { payload }) => {
+        console.log('promise fulfilled')
+        console.log(payload)
+        state.isLoading = false
+      })
+      .addCase(singleContactThunk.rejected, (state, { payload }) => {
+        console.log('promise rejected')
         console.log(payload)
         state.isLoading = false
       })
