@@ -52,6 +52,7 @@ const Sort = () => {
 }
 const Wrapper = styled.div`
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-between;
 
   .page-total {
