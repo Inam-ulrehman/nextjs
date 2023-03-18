@@ -172,9 +172,11 @@ const contactsSlice = createSlice({
         state.isLoading = true
       })
       .addCase(allContactsThunk.fulfilled, (state, { payload }) => {
-        console.log(payload)
         state.list = payload.list
         state.nbHits = payload.nbHits
+        if (payload.nbHits < 10) {
+          state.page = 1
+        }
         state.isLoading = false
       })
       .addCase(allContactsThunk.rejected, (state, { payload }) => {

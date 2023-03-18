@@ -72,14 +72,14 @@ const List = () => {
     dispatch(allContactsThunk(contacts))
   }, [page, limit, sort, searchName, searchEmail, searchMobile, refreshData])
 
-  if (isLoading) {
-    return (
-      <div className='title'>
-        <h1>Loading...</h1>
-        <div className='loading'></div>
-      </div>
-    )
-  }
+  // if (isLoading) {
+  //   return (
+  //     <div className='title'>
+  //       <h1>Loading...</h1>
+  //       <div className='loading'></div>
+  //     </div>
+  //   )
+  // }
   return (
     <Wrapper>
       {/*=== delete warning=== */}
@@ -116,9 +116,10 @@ const List = () => {
             </th>
             <th>Name</th>
             <th>Email</th>
+            <th>Mobile</th>
             <th>Subject</th>
-            <th>Time</th>
-            <th>Action</th>
+            <th className='time'>Time</th>
+            <th className='action'>Action</th>
           </tr>
         </thead>
         <tbody>
@@ -140,9 +141,10 @@ const List = () => {
                 </td>
                 <td>{item.name}</td>
                 <td>{item.email}</td>
+                <td>{item.mobile}</td>
                 <td>{item.subject}</td>
-                <td>{formatDate(item.createdAt)}</td>
-                <td>
+                <td className='time'>{formatDate(item.createdAt)}</td>
+                <td className='action'>
                   <Link
                     className='btn btn-a'
                     href={`/dashboard/contact/${item._id}`}
@@ -166,6 +168,20 @@ const List = () => {
 }
 
 const Wrapper = styled.div`
-  /* table-layout: fixed; */
+  table {
+    text-align: center;
+  }
+  .delete-all-button {
+    height: 10px;
+  }
+  .time {
+    width: 14rem;
+  }
+  .action {
+    width: 6rem;
+  }
+  .btn-a {
+    margin-right: 5px;
+  }
 `
 export default List

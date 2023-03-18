@@ -25,7 +25,7 @@ const Sort = () => {
           Page No: <strong>{page}</strong>
         </div>
         <div className='total'>
-          Total List: <strong>{nbHits}</strong>
+          Total: <strong>{nbHits}</strong>
         </div>
       </div>
       <div className='limit-sort'>
