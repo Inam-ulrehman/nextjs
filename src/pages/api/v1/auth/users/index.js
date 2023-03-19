@@ -1,15 +1,16 @@
+import dbConnect from '@/lib/dbConnect'
 import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
-
+dbConnect()
 export default async function handler(req, res) {
   const { method, body, query } = req
   // ===========Get a User=========
   if (method === 'GET') {
     const { userid, name } = req.headers
-
+    console.log()
     const user = await Users.findById(
       { _id: userid },
-      '-password -uuid -role -nots -forgotPasswordId'
+      '-password -uuid -role -notes -forgotPasswordId'
     )
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ msg: 'No user found.' })
