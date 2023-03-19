@@ -9,7 +9,7 @@ export default async function handler(req, res) {
 
     const user = await Users.findById(
       { _id: userid },
-      '-password -uuid -role -nots'
+      '-password -uuid -role -nots -forgotPasswordId'
     )
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ msg: 'No user found.' })
