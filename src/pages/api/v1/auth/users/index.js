@@ -7,7 +7,7 @@ export default async function handler(req, res) {
   // ===========Get a User=========
   if (method === 'GET') {
     const { userid, name } = req.headers
-    console.log()
+
     const user = await Users.findById(
       { _id: userid },
       '-password -uuid -role -notes -forgotPasswordId'

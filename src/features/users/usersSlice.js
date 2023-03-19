@@ -4,10 +4,22 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 const initialState = {
   // register
   name: '',
-  email: '',
+  lastName: '',
+  gender: '',
+  dateOfBirth: '',
+  apartment: '',
+  house: '',
+  street: '',
+  city: '',
+  province: '',
+  country: '',
+  postalCode: '',
   mobile: '',
-  subject: '',
-  message: '',
+  email: '',
+  password: '',
+  verified: '',
+  notes: '',
+
   // Search
   searchName: '',
   searchEmail: '',
@@ -28,8 +40,8 @@ const initialState = {
   deleteMany: [],
   isLoading: false,
 }
-export const samplesThunk = createAsyncThunk(
-  'samples/samplesThunk',
+export const usersThunk = createAsyncThunk(
+  'users/usersThunk',
   async (_, thunkAPI) => {
     try {
       const response = await customFetch.get('/products/static')
@@ -40,14 +52,14 @@ export const samplesThunk = createAsyncThunk(
     }
   }
 )
-//======== Get All Samples========
-export const allSamplesThunk = createAsyncThunk(
-  'samples/allSamplesThunk',
+//======== Get All Users========
+export const allUsersThunk = createAsyncThunk(
+  'users/allUsersThunk',
 
   async (state, thunkAPI) => {
     try {
       const response = await customFetch.get(
-        `/authadmin/samples?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
+        `/authadmin/users?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
         {
           headers: {
             Authorization: `Bearer ${Cookies.get('token')}`,
@@ -61,12 +73,12 @@ export const allSamplesThunk = createAsyncThunk(
     }
   }
 )
-// ==============Single Sample ======================
-export const singleSampleThunk = createAsyncThunk(
-  'samples/singleSampleThunk',
+// ==============Single User ======================
+export const singleUserThunk = createAsyncThunk(
+  'users/singleUserThunk',
   async (_id, thunkAPI) => {
     try {
-      const response = await customFetch.get(`/authadmin/samples/${_id}`, {
+      const response = await customFetch.get(`/authadmin/users/${_id}`, {
         headers: {
           Authorization: `Bearer ${Cookies.get('token')}`,
         },
@@ -78,12 +90,12 @@ export const singleSampleThunk = createAsyncThunk(
     }
   }
 )
-// ==============Delete Sample ======================
-export const deleteSampleThunk = createAsyncThunk(
-  'samples/deleteSampleThunk',
+// ==============Delete User ======================
+export const deleteUserThunk = createAsyncThunk(
+  'users/deleteUserThunk',
   async (_id, thunkAPI) => {
     try {
-      const response = await customFetch.delete(`/authadmin/samples/${_id}`, {
+      const response = await customFetch.delete(`/authadmin/users/${_id}`, {
         headers: {
           Authorization: `Bearer ${Cookies.get('token')}`,
         },
@@ -97,11 +109,11 @@ export const deleteSampleThunk = createAsyncThunk(
 )
 // ==== Delete Many ====
 
-export const deleteManySamplesThunk = createAsyncThunk(
-  'appointment/deleteManySamplesThunk',
+export const deleteManyUsersThunk = createAsyncThunk(
+  'appointment/deleteManyUsersThunk',
   async (data, thunkAPI) => {
     try {
-      const response = await customFetch.patch(`/authadmin/samples`, data, {
+      const response = await customFetch.patch(`/authadmin/users`, data, {
         headers: {
           Authorization: `Bearer ${Cookies.get('token')}`,
         },
@@ -113,8 +125,8 @@ export const deleteManySamplesThunk = createAsyncThunk(
     }
   }
 )
-const samplesSlice = createSlice({
-  name: 'samples',
+const usersSlice = createSlice({
+  name: 'users',
   initialState,
   reducers: {
     createFunction: (state, { payload }) => {
@@ -126,11 +138,6 @@ const samplesSlice = createSlice({
     },
     clearState: (state, { payload }) => {
       // register
-      state.name = ''
-      state.email = ''
-      state.email = ''
-      state.mobile = ''
-
       // search
       state.searchName = ''
       state.searchEmail = ''
@@ -155,25 +162,25 @@ const samplesSlice = createSlice({
 
   extraReducers: (builder) => {
     builder
-      .addCase(samplesThunk.pending, (state, { payload }) => {
+      .addCase(usersThunk.pending, (state, { payload }) => {
         console.log('promise pending')
         state.isLoading = true
       })
-      .addCase(samplesThunk.fulfilled, (state, { payload }) => {
+      .addCase(usersThunk.fulfilled, (state, { payload }) => {
         console.log('promise fulfilled')
         console.log(payload)
         state.isLoading = false
       })
-      .addCase(samplesThunk.rejected, (state, { payload }) => {
+      .addCase(usersThunk.rejected, (state, { payload }) => {
         console.log('promise rejected')
         console.log(payload)
         state.isLoading = false
       })
-      // ==========allSamplesThunk===============
-      .addCase(allSamplesThunk.pending, (state, { payload }) => {
+      // ==========allUsersThunk===============
+      .addCase(allUsersThunk.pending, (state, { payload }) => {
         state.isLoading = true
       })
-      .addCase(allSamplesThunk.fulfilled, (state, { payload }) => {
+      .addCase(allUsersThunk.fulfilled, (state, { payload }) => {
         state.list = payload.list
         state.nbHits = payload.nbHits
         if (payload.nbHits < 10) {
@@ -181,50 +188,50 @@ const samplesSlice = createSlice({
         }
         state.isLoading = false
       })
-      .addCase(allSamplesThunk.rejected, (state, { payload }) => {
+      .addCase(allUsersThunk.rejected, (state, { payload }) => {
         console.log(payload)
         state.isLoading = false
       })
-      // ===========singleSampleThunk===========
-      .addCase(singleSampleThunk.pending, (state, { payload }) => {
+      // ===========singleUserThunk===========
+      .addCase(singleUserThunk.pending, (state, { payload }) => {
         state.isLoading = true
       })
-      .addCase(singleSampleThunk.fulfilled, (state, { payload }) => {
+      .addCase(singleUserThunk.fulfilled, (state, { payload }) => {
         addObjectInState(payload.result, state)
         state.isLoading = false
       })
-      .addCase(singleSampleThunk.rejected, (state, { payload }) => {
+      .addCase(singleUserThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)
         state.isLoading = false
       })
-      // ===========deleteSampleThunk===========
-      .addCase(deleteSampleThunk.pending, (state, { payload }) => {
+      // ===========deleteUserThunk===========
+      .addCase(deleteUserThunk.pending, (state, { payload }) => {
         state.isLoading = true
       })
-      .addCase(deleteSampleThunk.fulfilled, (state, { payload }) => {
+      .addCase(deleteUserThunk.fulfilled, (state, { payload }) => {
         toast.success(payload.msg)
         state.refreshData = !state.refreshData
         state.isLoading = false
       })
-      .addCase(deleteSampleThunk.rejected, (state, { payload }) => {
+      .addCase(deleteUserThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)
         state.isLoading = false
       })
-      // ===========deleteManySamplesThunk===========
-      .addCase(deleteManySamplesThunk.pending, (state, { payload }) => {
+      // ===========deleteManyUsersThunk===========
+      .addCase(deleteManyUsersThunk.pending, (state, { payload }) => {
         state.isLoading = true
       })
-      .addCase(deleteManySamplesThunk.fulfilled, (state, { payload }) => {
+      .addCase(deleteManyUsersThunk.fulfilled, (state, { payload }) => {
         toast.success(payload.msg)
         state.refreshData = !state.refreshData
         state.isLoading = false
       })
-      .addCase(deleteManySamplesThunk.rejected, (state, { payload }) => {
+      .addCase(deleteManyUsersThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)
         state.isLoading = false
       })
   },
 })
 export const { createFunction, getStateValues, clearState, next, prev, index } =
-  samplesSlice.actions
-export default samplesSlice.reducer
+  usersSlice.actions
+export default usersSlice.reducer
