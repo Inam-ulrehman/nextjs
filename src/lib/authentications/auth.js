@@ -9,16 +9,11 @@ export const auth = async (req) => {
   if (!authHeader || !authHeader.startsWith('Bearer')) {
     return BadRequestError('Auth is Missing.')
   }
-
   const jwt = authHeader.split(' ')[1]
   try {
     const { payload, protectedHeader } = await jose.jwtVerify(
       jwt,
-      new TextEncoder().encode(process.env.JWT_SECRET),
-      {
-        issuer: 'urn:example:issuer',
-        audience: 'urn:example:audience',
-      }
+      new TextEncoder().encode(process.env.JWT_SECRET)
     )
 
     // const { userId, name } = payload
