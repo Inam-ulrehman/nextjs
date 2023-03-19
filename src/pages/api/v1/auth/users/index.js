@@ -7,11 +7,14 @@ export default async function handler(req, res) {
   if (method === 'GET') {
     const { userid, name } = req.headers
 
-    const user = await Users.findById({ _id: userid })
+    const user = await Users.findById(
+      { _id: userid },
+      '-password -uuid -role -nots'
+    )
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ msg: 'No user found.' })
     }
-    return res.status(StatusCodes.OK).json({ user })
+    return res.status(StatusCodes.OK).json({ msg: 'success', result: user })
   }
   //Update
   if (method === 'PATCH') {
