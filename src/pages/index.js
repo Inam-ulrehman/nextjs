@@ -6,10 +6,12 @@ import {
   ServicesSection,
 } from '@/components/home'
 import ContactSection from '@/components/home/ContactSection'
+import { fetchPortfolios } from '@/utils/axios'
 import { websiteContent } from '@/utils/data'
 import { googleBusinessSocialLinksAttach } from '@/utils/scripts'
 import Head from 'next/head'
 import Script from 'next/script'
+import { useEffect } from 'react'
 import styled from 'styled-components'
 const {
   author,
@@ -21,7 +23,11 @@ const {
   ogUrl,
   title,
 } = websiteContent.homepage
+
 export default function Home() {
+  useEffect(() => {
+    fetchPortfolios()
+  }, [])
   return (
     <>
       <Head>

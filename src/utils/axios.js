@@ -5,3 +5,15 @@ import axios from 'axios'
 export const customFetch = axios.create({
   baseURL: `${process.env.NEXT_PUBLIC_WEBSITE}/api/v1`,
 })
+
+//
+
+export const fetchPortfolios = async () => {
+  const boltSign = await axios('https://boltsign.herokuapp.com/api/v1/products')
+  const jobProjectRehman = await axios(
+    'https://jobprojectrehman.herokuapp.com/api/v1/products'
+  )
+  const aryanaSpa = await axios(
+    'https://aryanaspa.herokuapp.com/api/v1/products'
+  )
+}
