@@ -5,12 +5,14 @@ import styled from 'styled-components'
 
 // This is outcome from address
 
+const libraries = ['places']
+
 const GooglePlacesHook = ({ state, setState }) => {
   // Load your script first
   const { isLoaded } = useLoadScript({
     googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     // library is must
-    libraries: ['places'],
+    libraries,
   })
 
   if (!isLoaded) {

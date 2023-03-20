@@ -1,4 +1,7 @@
+import { customFetch } from '@/utils/axios'
+import Cookies from 'js-cookie'
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 import FormInput from '../FormInput'
 
@@ -11,6 +14,22 @@ const ChangePassword = () => {
   const [state, setState] = useState(initialState)
   const handleSubmit = async (e) => {
     e.preventDefault()
+    if (!state.password || !state.confirmPassword) {
+      return toast.warning('please put your password')
+    }
+    if (state.password !== state.confirmPassword) {
+      return toast.warning(`Password does't match`)
+    }
+    try {
+      const result = await customFetch.post('/auth/users', state, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`,
+        },
+      })
+      toast.success(result.data.msg)
+    } catch (error) {
+      toast.error(error.result.data.msg)
+    }
   }
 
   const handleChange = (e) => {
@@ -26,6 +45,7 @@ const ChangePassword = () => {
       <form className='form' onSubmit={handleSubmit}>
         {/* password */}
         <FormInput
+          important={true}
           type='password'
           name='password'
           label='New Password'
@@ -34,6 +54,7 @@ const ChangePassword = () => {
         />
         {/* confirmPassword */}
         <FormInput
+          important={true}
           type='password'
           name='confirmPassword'
           label='Confirm New Password'
