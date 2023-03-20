@@ -41,7 +41,7 @@ const Profile = () => {
     try {
       const response = await customFetch.patch('/auth/users', state, {
         headers: {
-          Authorization: `Bearer ${user.token}`,
+          Authorization: `Bearer ${Cookies.get('token')}`,
         },
       })
 
@@ -65,13 +65,13 @@ const Profile = () => {
           Authorization: `Bearer ${Cookies.get('token')}`,
         },
       })
-      console.log(response)
+
       const data = response.data.result
 
       setState({ ...state, ...data, isLoading: false })
     } catch (error) {
+      toast.error(error.response.data.msg)
       setState({ ...state, isLoading: false })
-      console.log(error)
     }
   }
 

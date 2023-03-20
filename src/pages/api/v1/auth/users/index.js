@@ -1,13 +1,13 @@
 import dbConnect from '@/lib/dbConnect'
+import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
 export default async function handler(req, res) {
   dbConnect()
-  const { method, body, query } = req
+  const { method, body, query, headers } = req
+  const { userid, name } = headers
   // ===========Get a User=========
   if (method === 'GET') {
-    const { userid, name } = req.headers
-
     const user = await Users.findById(
       { _id: userid },
       '-password -uuid -role -notes -forgotPasswordId'
@@ -19,11 +19,46 @@ export default async function handler(req, res) {
   }
   //Update
   if (method === 'PATCH') {
+    const {
+      name,
+      lastName,
+      gender,
+      dateOfBirth,
+      phone,
+      email,
+      apartment,
+      house,
+      street,
+      city,
+      province,
+      country,
+      postalCode,
+    } = body
     try {
-      const user = await Users.create(body)
-      return res.status(200).json({ msg: 'User Registered' })
+      const user = await Users.findOneAndUpdate(
+        { _id: userid },
+        {
+          name,
+          lastName,
+          gender,
+          dateOfBirth,
+          phone,
+          email,
+          apartment,
+          house,
+          street,
+          city,
+          province,
+          country,
+          postalCode,
+        },
+        { runValidators: true }
+      )
+      return res
+        .status(StatusCodes.OK)
+        .json({ msg: 'Profile Updated', result: user })
     } catch (error) {
-      return res.status(400).json({ error })
+      return mongooseErrorHandler(error, res)
     }
   }
 }

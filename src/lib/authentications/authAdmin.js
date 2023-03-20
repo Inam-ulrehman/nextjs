@@ -35,7 +35,7 @@ export const authAdmin = async (req) => {
   } catch (error) {
     // console.log(error)
     return NextResponse.json(
-      { message: 'Authentication Invalid' },
+      { msg: 'Authentication Invalid' },
       { status: StatusCodes.UNAUTHORIZED }
     )
   }
