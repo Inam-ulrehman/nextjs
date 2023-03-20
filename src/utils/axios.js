@@ -9,11 +9,9 @@ export const customFetch = axios.create({
 //
 
 export const fetchPortfolios = async () => {
-  const boltSign = await axios('https://boltsign.herokuapp.com/api/v1/products')
+  const boltSign = await axios('https://boltsign.herokuapp.com/')
   const jobProjectRehman = await axios(
-    'https://jobprojectrehman.herokuapp.com/api/v1/products'
+    'https://jobprojectrehman.herokuapp.com/'
   )
-  const aryanaSpa = await axios(
-    'https://aryanaspa.herokuapp.com/api/v1/products'
-  )
+  const aryanaSpa = await axios('https://aryanaspa.herokuapp.com/')
 }
