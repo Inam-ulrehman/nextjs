@@ -9,6 +9,7 @@ import GooglePlacesHook from '../../hooks/GooglePlacesHook'
 import Cookies from 'js-cookie'
 import Head from 'next/head'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
+import ChangePassword from '@/components/dashboard/ChangePassword'
 const genderValue = ['male', 'female', 'other']
 
 const initialState = {
@@ -19,7 +20,7 @@ const initialState = {
   gender: '',
   dateOfBirth: '',
   email: '',
-  phone: '',
+  mobile: '',
   apartment: '',
   house: '',
   street: '',
@@ -229,6 +230,7 @@ const Profile = () => {
             </button>
           </div>
         </form>
+        <ChangePassword />
       </Wrapper>
     </>
   )
