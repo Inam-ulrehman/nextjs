@@ -54,9 +54,7 @@ export default async function handler(req, res) {
         },
         { runValidators: true }
       )
-      return res
-        .status(StatusCodes.OK)
-        .json({ msg: 'Profile Updated', result: user })
+      return res.status(StatusCodes.OK).json({ msg: 'Profile Updated' })
     } catch (error) {
       return mongooseErrorHandler(error, res)
     }
