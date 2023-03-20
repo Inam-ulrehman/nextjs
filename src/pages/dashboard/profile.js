@@ -47,7 +47,7 @@ const Profile = () => {
 
       toast.success(response.data.msg)
     } catch (error) {
-      console.log(error.response)
+      toast.success(error.response.data.msg)
     }
   }
   const handleChange = (e) => {
@@ -127,7 +127,7 @@ const Profile = () => {
                 label={'Date Of Birth'}
                 type={'date'}
                 name={'dateOfBirth'}
-                value={state.dateOfBirth.split('T')[0]}
+                value={state.dateOfBirth?.split('T')[0]}
                 onChange={handleChange}
               />
             </div>
