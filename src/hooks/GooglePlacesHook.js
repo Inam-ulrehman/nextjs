@@ -1,13 +1,14 @@
 import { useLoadScript } from '@react-google-maps/api'
 import usePlacesAutocomplete, { getGeocode } from 'use-places-autocomplete'
 import { useRef } from 'react'
+import styled from 'styled-components'
 
 // This is outcome from address
 
 const GooglePlacesHook = ({ state, setState }) => {
   // Load your script first
   const { isLoaded } = useLoadScript({
-    googleMapsApiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
+    googleMapsApiKey: process.env.NEXT_PUBLIC_GOOGLE_MAPS_API_KEY,
     // library is must
     libraries: ['places'],
   })
@@ -72,7 +73,7 @@ const PlacesAutocomplete = ({ state, setState }) => {
   }
   // state code=======End
   return (
-    <div>
+    <Wrapper>
       <label className='form-label' htmlFor='address'>
         Search your address
       </label>
@@ -96,29 +97,29 @@ const PlacesAutocomplete = ({ state, setState }) => {
           })}
         </ul>
       )}
-    </div>
+    </Wrapper>
   )
 }
-// const Wrapper = styled.div`
-//   input {
-//     position: relative;
-//   }
+const Wrapper = styled.div`
+  input {
+    position: relative;
+  }
 
-//   ul {
-//     position: absolute;
-//     background-color: var(--white);
-//     margin: 0;
-//     box-shadow: var(--shadow-2);
+  ul {
+    position: absolute;
+    background-color: var(--white);
+    margin: 0;
+    box-shadow: var(--shadow-2);
 
-//     li {
-//       padding: 5px 10px;
+    li {
+      padding: 5px 10px;
 
-//       :hover {
-//         cursor: pointer;
-//         background-color: var(--grey-1);
-//       }
-//     }
-//   }
-// `
+      :hover {
+        cursor: pointer;
+        background-color: var(--grey-1);
+      }
+    }
+  }
+`
 
 export default GooglePlacesHook

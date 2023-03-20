@@ -1,8 +1,8 @@
 import dbConnect from '@/lib/dbConnect'
 import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
-dbConnect()
 export default async function handler(req, res) {
+  dbConnect()
   const { method, body, query } = req
   // ===========Get a User=========
   if (method === 'GET') {

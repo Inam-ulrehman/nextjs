@@ -19,13 +19,7 @@ const UserSchema = new mongoose.Schema(
     },
     gender: {
       type: String,
-      enum: [
-        'male',
-        'female',
-        'transgender',
-        'non-binary/non-conforming',
-        'prefer not to respond',
-      ],
+      enum: ['male', 'female', 'other'],
       default: 'male',
       lowercase: true,
       trim: true,

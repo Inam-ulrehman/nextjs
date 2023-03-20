@@ -1,5 +1,8 @@
 import { customFetch } from '@/utils/axios'
+import { addObjectInState } from '@/utils/helper'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
 
 const initialState = {
   // register
@@ -76,16 +79,18 @@ export const allUsersThunk = createAsyncThunk(
 // ==============Single User ======================
 export const singleUserThunk = createAsyncThunk(
   'users/singleUserThunk',
-  async (_id, thunkAPI) => {
+  async (_, thunkAPI) => {
     try {
-      const response = await customFetch.get(`/authadmin/users/${_id}`, {
+      const response = await customFetch.get(`/auth/users/`, {
         headers: {
           Authorization: `Bearer ${Cookies.get('token')}`,
         },
       })
+      console.log(response)
 
       return response.data
     } catch (error) {
+      console.log(error)
       return thunkAPI.rejectWithValue(error.response.data)
     }
   }
@@ -135,6 +140,9 @@ const usersSlice = createSlice({
     getStateValues: (state, { payload }) => {
       const { name, value } = payload
       state[name] = value
+    },
+    getGooglePlacesValues: (state, { payload }) => {
+      addObjectInState(state, payload)
     },
     clearState: (state, { payload }) => {
       // register
@@ -232,6 +240,13 @@ const usersSlice = createSlice({
       })
   },
 })
-export const { createFunction, getStateValues, clearState, next, prev, index } =
-  usersSlice.actions
+export const {
+  createFunction,
+  getStateValues,
+  clearState,
+  next,
+  prev,
+  index,
+  getGooglePlacesValues,
+} = usersSlice.actions
 export default usersSlice.reducer
