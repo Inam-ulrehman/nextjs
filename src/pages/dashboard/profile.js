@@ -225,8 +225,8 @@ const Profile = () => {
               />
             </div>
 
-            <button className='btn' type='submit'>
-              Submit
+            <button className='btn btn-block' type='submit'>
+              Update Details
             </button>
           </div>
         </form>

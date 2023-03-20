@@ -2,6 +2,7 @@ import dbConnect from '@/lib/dbConnect'
 import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
+import bcrypt from 'bcryptjs'
 export default async function handler(req, res) {
   dbConnect()
   const { method, body, query, headers } = req
@@ -55,6 +56,23 @@ export default async function handler(req, res) {
         { runValidators: true }
       )
       return res.status(StatusCodes.OK).json({ msg: 'Profile Updated' })
+    } catch (error) {
+      return mongooseErrorHandler(error, res)
+    }
+  }
+  //Update
+  if (method === 'POST') {
+    const { password } = body
+    const salt = await bcrypt.genSalt(10)
+    const hashedPassword = await bcrypt.hash(password, salt)
+    try {
+      const user = await Users.findOneAndUpdate(
+        { _id: userid },
+        { password: hashedPassword },
+        { runValidators: true }
+      )
+      const { email } = user
+      return res.status(StatusCodes.OK).json({ msg: 'password updated' })
     } catch (error) {
       return mongooseErrorHandler(error, res)
     }
