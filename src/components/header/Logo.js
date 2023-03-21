@@ -8,6 +8,7 @@ import { imagesData } from '../../utils/data'
 
 export const Logo = () => {
   const dispatch = useDispatch()
+
   return (
     <Wrapper>
       <Image width={40} height={40} src={imagesData.logo} alt='logo' priority />
@@ -15,13 +16,13 @@ export const Logo = () => {
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>
       </div>
-      <button
+      <ButtonWrapper
+        className='btn'
         type='button'
-        className='btn menu-btn'
         onClick={() => dispatch(toggleDashboardSidebar())}
       >
         {Icons.menu}
-      </button>
+      </ButtonWrapper>
     </Wrapper>
   )
 }
@@ -68,9 +69,13 @@ const Wrapper = styled.div`
       }
     }
   }
-  .menu-btn {
-    padding: 3px;
-    height: 2.3rem;
-    margin-left: 1rem;
+`
+const ButtonWrapper = styled.div`
+  margin-left: 1rem;
+  margin-top: 5px;
+  height: 37px;
+  padding: 4px;
+  @media (max-width: 768px) {
+    display: none;
   }
 `
