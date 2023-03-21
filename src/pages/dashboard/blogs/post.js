@@ -1,7 +1,7 @@
 import BlogDesign from '@/components/dashboard/blog/BlogDesign'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
 import FormInput from '@/components/FormInput'
-import { getStateValues } from '@/features/blogs/blogsSlice'
+import { createBlogThunk, getStateValues } from '@/features/blogs/blogsSlice'
 import Head from 'next/head'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
@@ -14,6 +14,7 @@ const PostBlog = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    dispatch(createBlogThunk(blogs))
   }
   const handleChange = (e) => {
     const name = e.target.name

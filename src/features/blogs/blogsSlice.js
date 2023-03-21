@@ -1,5 +1,6 @@
 import { customFetch } from '@/utils/axios'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import Cookies from 'js-cookie'
 
 const initialState = {
   // register
@@ -40,11 +41,16 @@ export const blogsThunk = createAsyncThunk(
     }
   }
 )
+//  ========create Blog=========
 export const createBlogThunk = createAsyncThunk(
   'blogs/createBlogThunk',
   async (state, thunkAPI) => {
     try {
-      const response = await customFetch.get('/products/static')
+      const response = await customFetch.post('/authadmin/blogs', state, {
+        headers: {
+          Authorization: `Bearer ${Cookies.get('token')}`,
+        },
+      })
 
       return response.data
     } catch (error) {
