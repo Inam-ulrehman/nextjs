@@ -79,7 +79,7 @@ const PostBlog = () => {
           </form>
         </div>
         <div className='blog-design'>
-          <BlogDesign />
+          <BlogDesign blogs={blogs} />
         </div>
       </Wrapper>
     </>

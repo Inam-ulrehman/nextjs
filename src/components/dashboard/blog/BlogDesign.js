@@ -1,16 +1,14 @@
 import { formatDate } from '@/utils/helper'
 import Image from 'next/image'
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const defaultImage =
   'https://res.cloudinary.com/inam6530/image/upload/v1679415017/Inamwebsolutions-nextjs/website_blogs_zlhiwz.svg'
 
-const BlogDesign = () => {
-  const { blogs } = useSelector((state) => state)
-
+const BlogDesign = ({ blogs }) => {
   const {
+    image,
     heading,
     description,
     blogHeading,
@@ -29,17 +27,22 @@ const BlogDesign = () => {
           width={600}
           height={340}
           alt={heading}
-          src={blogs.image.length > 5 ? blogs.image : defaultImage}
+          src={image.length > 5 ? blogs.image : defaultImage}
         ></Image>
       </div>
       <div className='body-container'>
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
-            <span> {createdBy}</span>
+            <span> {createdBy.length < 2 ? 'inam' : createdBy}</span>
           </div>
           <div className='time'>
-            <span>Posted On :</span> <span>{formatDate(createdAt)}</span>
+            <span>Posted On :</span>{' '}
+            <span>
+              {createdAt.length > 0
+                ? formatDate(createdAt)
+                : formatDate(new Date())}
+            </span>
           </div>
         </div>
         <div className='body-heading-description'>
