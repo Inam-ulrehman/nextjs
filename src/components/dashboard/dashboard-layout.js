@@ -1,10 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 import DashboardSidebar from './Dashboard-Sidebar'
-
+import { useSelector } from 'react-redux'
 const DashboardLayout = ({ children }) => {
+  const { dashboardSidebar } = useSelector((state) => state.global)
+
   return (
-    <Wrapper>
+    <Wrapper showDashboardSidebar={dashboardSidebar}>
       <aside>
         <DashboardSidebar />
       </aside>
@@ -18,7 +20,7 @@ const Wrapper = styled.div`
   aside {
     margin-top: -1.1rem;
     position: relative;
-    min-width: 200px;
+    min-width: ${(props) => (props.showDashboardSidebar ? '200px' : '50px')};
     background-color: var(--grey-3);
   }
   section {

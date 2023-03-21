@@ -1,9 +1,13 @@
+import { toggleDashboardSidebar } from '@/features/global/globalSlice'
+import { Icons } from '@/styles/Icons'
 import Image from 'next/image'
 import React from 'react'
+import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
 import { imagesData } from '../../utils/data'
 
 export const Logo = () => {
+  const dispatch = useDispatch()
   return (
     <Wrapper>
       <Image width={40} height={40} src={imagesData.logo} alt='logo' priority />
@@ -11,6 +15,13 @@ export const Logo = () => {
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>
       </div>
+      <button
+        type='button'
+        className='btn menu-btn'
+        onClick={() => dispatch(toggleDashboardSidebar())}
+      >
+        {Icons.menu}
+      </button>
     </Wrapper>
   )
 }
@@ -56,5 +67,10 @@ const Wrapper = styled.div`
         margin-top: -0.7rem;
       }
     }
+  }
+  .menu-btn {
+    padding: 3px;
+    height: 2.3rem;
+    margin-left: 1rem;
   }
 `

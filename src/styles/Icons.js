@@ -4,8 +4,16 @@ import {
   RiTeamFill,
   RiDeleteBack2Line,
 } from 'react-icons/ri'
-import { AiOutlineMail, AiOutlineMenu } from 'react-icons/ai'
-import { MdImportantDevices } from 'react-icons/md'
+import {
+  AiOutlineMail,
+  AiOutlineMenu,
+  AiOutlineDashboard,
+} from 'react-icons/ai'
+import {
+  MdImportantDevices,
+  MdOutlineContactMail,
+  MdOutlineContacts,
+} from 'react-icons/md'
 import { GrCloudSoftware } from 'react-icons/gr'
 import { FaProductHunt, FaTwitterSquare } from 'react-icons/fa'
 import {
@@ -16,6 +24,7 @@ import {
 } from 'react-icons/bs'
 import { SiSpeedtest, SiAzuredevops, SiJirasoftware } from 'react-icons/si'
 import { FiEdit } from 'react-icons/fi'
+import { ImBlogger2 } from 'react-icons/im'
 
 export const Icons = {
   dropDown: <RiArrowDropDownLine size={30}></RiArrowDropDownLine>,
@@ -34,4 +43,8 @@ export const Icons = {
   twitter: <FaTwitterSquare size={25}></FaTwitterSquare>,
   edit: <FiEdit size={15}></FiEdit>,
   delete: <RiDeleteBack2Line size={15}></RiDeleteBack2Line>,
+  dashboard: <AiOutlineDashboard></AiOutlineDashboard>,
+  contact: <MdOutlineContactMail></MdOutlineContactMail>,
+  profile: <MdOutlineContacts></MdOutlineContacts>,
+  blog: <ImBlogger2></ImBlogger2>,
 }

@@ -1,18 +1,32 @@
+import { Icons } from '@/styles/Icons'
 import Link from 'next/link'
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const DashboardSidebar = () => {
+  const { dashboardSidebar } = useSelector((state) => state.global)
   return (
-    <Wrapper>
+    <Wrapper dashboardSidebar={dashboardSidebar}>
       <li>
-        <Link href={'/dashboard'}>Dashboard</Link>
+        <Link href={'/dashboard'}>
+          {Icons.dashboard} {dashboardSidebar && 'Dashboard'}
+        </Link>
       </li>
       <li>
-        <Link href={'/dashboard/contact'}>Contact Form</Link>
+        <Link href={'contact'}>
+          {Icons.contact} {dashboardSidebar && 'Contact'}
+        </Link>
       </li>
       <li>
-        <Link href={'/dashboard/profile'}>Profile</Link>
+        <Link href={'profile'}>
+          {Icons.profile} {dashboardSidebar && 'Profile'}
+        </Link>
+      </li>
+      <li>
+        <Link href={'blog'}>
+          {Icons.blog} {dashboardSidebar && 'Blogs'}
+        </Link>
       </li>
     </Wrapper>
   )
@@ -23,12 +37,14 @@ const Wrapper = styled.ul`
   top: 16%;
 
   li {
-    a {
-      display: block;
-      padding: 10px;
-      :hover {
-        background-color: var(--grey-5);
-      }
+    padding: 0.5rem;
+
+    svg {
+      margin: 0 7px;
+    }
+
+    :hover {
+      background-color: var(--grey-5);
     }
   }
   @media (max-width: 768px) {
@@ -36,6 +52,9 @@ const Wrapper = styled.ul`
     flex-wrap: wrap;
     margin: 0;
     li {
+      svg {
+        display: none;
+      }
       a {
         padding: 5px;
         background-color: var(--grey-4);
