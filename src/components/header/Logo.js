@@ -1,6 +1,7 @@
 import { toggleDashboardSidebar } from '@/features/global/globalSlice'
 import { Icons } from '@/styles/Icons'
 import Image from 'next/image'
+import { useRouter } from 'next/router'
 import React from 'react'
 import { useDispatch } from 'react-redux'
 import styled from 'styled-components'
@@ -8,6 +9,8 @@ import { imagesData } from '../../utils/data'
 
 export const Logo = () => {
   const dispatch = useDispatch()
+  const router = useRouter()
+  const dashboardRoute = router.pathname.startsWith('/dashboard')
 
   return (
     <Wrapper>
@@ -16,13 +19,15 @@ export const Logo = () => {
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>
       </div>
-      <ButtonWrapper
-        className='btn'
-        type='button'
-        onClick={() => dispatch(toggleDashboardSidebar())}
-      >
-        {Icons.menu}
-      </ButtonWrapper>
+      {dashboardRoute && (
+        <ButtonWrapper
+          className='btn'
+          type='button'
+          onClick={() => dispatch(toggleDashboardSidebar())}
+        >
+          {Icons.menu}
+        </ButtonWrapper>
+      )}
     </Wrapper>
   )
 }
