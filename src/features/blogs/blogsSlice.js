@@ -8,6 +8,8 @@ const initialState = {
   image: '',
   blogHeading: '',
   blogDescription: '',
+  createdBy: 'inam',
+  createdAt: '2023-03-21T14:45:39.794+00:00',
   // Search
   search: '',
   // Pagination

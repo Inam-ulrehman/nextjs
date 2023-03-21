@@ -1,16 +1,24 @@
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
+import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
 
 const Blogs = () => {
   return (
-    <div>
-      <div className='heading'>
-        <Link href={'/dashboard/blogs/post'} className='btn'>
-          new blog
-        </Link>
+    <>
+      <Head>
+        <title>List Of Blogs</title>
+        <meta name='description' content='Your dashboard page.' />
+      </Head>
+
+      <div>
+        <div className='heading'>
+          <Link href={'/dashboard/blogs/post'} className='btn'>
+            new blog
+          </Link>
+        </div>
       </div>
-    </div>
+    </>
   )
 }
 
