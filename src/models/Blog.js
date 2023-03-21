@@ -1,6 +1,6 @@
 import mongoose from 'mongoose'
 
-const SampleSchema = new mongoose.Schema(
+const BlogSchema = new mongoose.Schema(
   {
     heading: {
       type: String,
@@ -16,7 +16,6 @@ const SampleSchema = new mongoose.Schema(
     image: {
       type: String,
       required: [true, 'Please provide image'],
-      maxLength: 100,
     },
     blogHeading: {
       type: String,
@@ -25,6 +24,7 @@ const SampleSchema = new mongoose.Schema(
     },
     blogDescription: {
       type: String,
+      lowercase: true,
     },
     createdBy: {
       type: mongoose.Types.ObjectId,
@@ -35,4 +35,4 @@ const SampleSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-export default mongoose.models.Sample || mongoose.model('Sample', SampleSchema)
+export default mongoose.models.Blog || mongoose.model('Blog', BlogSchema)
