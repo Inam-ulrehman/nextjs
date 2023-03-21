@@ -14,17 +14,17 @@ const DashboardSidebar = () => {
         </Link>
       </li>
       <li>
-        <Link href={'contact'}>
+        <Link href={'/dashboard/contact'}>
           {Icons.contact} {dashboardSidebar && 'Contact'}
         </Link>
       </li>
       <li>
-        <Link href={'profile'}>
+        <Link href={'/dashboard/profile'}>
           {Icons.profile} {dashboardSidebar && 'Profile'}
         </Link>
       </li>
       <li>
-        <Link href={'blog'}>
+        <Link href={'/dashboard/blogs'}>
           {Icons.blog} {dashboardSidebar && 'Blogs'}
         </Link>
       </li>
