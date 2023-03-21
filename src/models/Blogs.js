@@ -7,7 +7,7 @@ const SampleSchema = new mongoose.Schema(
       lowercase: true,
       trim: true,
     },
-    title: {
+    description: {
       type: String,
       lowercase: true,
       trim: true,
