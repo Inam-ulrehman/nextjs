@@ -1,7 +1,7 @@
 import nextConnect from 'next-connect'
 import multer from 'multer'
 import { v4 as uuidv4 } from 'uuid'
-const fs = require('fs')
+
 let filename = uuidv4() + '-' + new Date().getTime()
 const upload = multer({
   storage: multer.diskStorage({
@@ -34,7 +34,6 @@ const apiRoute = nextConnect({
 apiRoute.use(upload.array('file')) // attribute name you are sending the file by
 
 apiRoute.post((req, res) => {
-  fs.unlinkSync(`./public/uploads/${filename}`)
   res.status(200).json({ data: `/uploads/${filename}` }) // response
 })
 
