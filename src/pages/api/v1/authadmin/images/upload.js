@@ -23,6 +23,7 @@ export default async function handler(req, res) {
   const { userid, name } = headers
 
   if (method === 'POST') {
+    console.log('post hit')
     const middleware = upload.single('file')
     middleware(req, res, async () => {
       if (req.file === undefined) {
