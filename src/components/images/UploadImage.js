@@ -106,12 +106,16 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     <Wrapper>
       {/* ==========upload Image============ */}
       <div className='file-upload-container'>
-        <input
-          type='file'
-          ref={imageRef}
-          className='custom-file-input'
-          onChange={handleChange}
-        />
+        <label for='file-upload' class='custom-file-upload'>
+          Select Image
+          <input
+            type='file'
+            id='file-upload'
+            ref={imageRef}
+            className='custom-file-input'
+            onChange={handleChange}
+          />
+        </label>
       </div>
       {/* =========Button show and hide========= */}
       <div className='heading'>
@@ -167,6 +171,26 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
 const Wrapper = styled.div`
   display: grid;
   place-content: center;
+  /* imageUpload */
+  .file-upload-container {
+    text-align: center;
+    input[type='file'] {
+      display: none;
+    }
+    .custom-file-upload {
+      border: 1px solid #ccc;
+      display: inline-block;
+      padding: 6px 12px;
+      margin: 0.5rem;
+      background-color: var(--white);
+      box-shadow: var(--shadow-3);
+      cursor: pointer;
+      :hover {
+        background-color: var(--grey-3);
+      }
+    }
+  }
+  /* warnings */
   .heading {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -176,6 +200,7 @@ const Wrapper = styled.div`
       color: var(--white);
       border: transparent;
       transition: var(--transition-1);
+      padding: 7px;
       :hover {
         background: var(--primary-7);
         cursor: pointer;
