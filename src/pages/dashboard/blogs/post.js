@@ -1,6 +1,7 @@
 import BlogDesign from '@/components/dashboard/blog/BlogDesign'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
 import FormInput from '@/components/FormInput'
+import UploadImage from '@/components/images/UploadImage'
 import { createBlogThunk, getStateValues } from '@/features/blogs/blogsSlice'
 import Head from 'next/head'
 import React from 'react'
@@ -12,6 +13,9 @@ const PostBlog = () => {
   const { blogs } = useSelector((state) => state)
   const { heading, description, image, blogHeading, blogDescription } = blogs
 
+  const cbFunction = (images) => {
+    // console.log(images)
+  }
   const handleSubmit = async (e) => {
     e.preventDefault()
     dispatch(createBlogThunk(blogs))
@@ -31,6 +35,10 @@ const PostBlog = () => {
       <Wrapper>
         <div className='input'>
           <form className='form' onSubmit={handleSubmit}>
+            <UploadImage
+              cbFunction={cbFunction}
+              path={'/authadmin/images/upload'}
+            />
             {/* image */}
             <FormInput
               value={image}
@@ -92,15 +100,29 @@ PostBlog.getLayout = (page) => {
 }
 
 const Wrapper = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  /* desktop only  */
 
-  .form {
-    margin: 0;
-  }
-  .description {
-    span {
-      color: red;
+  @media (min-width: 768px) {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    margin-top: 1rem;
+    .input {
+      background-color: var(--white);
+      position: relative;
+      position: sticky;
+      min-height: 100%;
+      .form {
+        position: sticky;
+        top: 0;
+      }
+    }
+    .description {
+      span {
+        color: red;
+      }
+    }
+    .blog-design {
+      background-color: var(--white);
     }
   }
 `

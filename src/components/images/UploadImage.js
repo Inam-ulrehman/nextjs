@@ -121,23 +121,20 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
       <div className='heading'>
         <div className='box-1'>
           <button type='button' onClick={handleRequirements}>
-            Upload Image requirements?
+            requirements?
           </button>
           <ul className={state.showRequirements ? null : 'hide'}>
-            <li>Size must be under 10MB</li>
-            <li>File must be PNG format</li>
+            <li>Size 10MB</li>
+            <li>Format PNG</li>
           </ul>
         </div>
         <div className='box-2'>
           <button type='button' onClick={handleHowToUploadImage}>
-            How to upload Image?
+            How to upload?
           </button>
           <ul className={state.showHowToUpload ? null : 'hide'}>
             <li>
-              <strong>Step 1.</strong> Choose File
-            </li>
-            <li>
-              <strong>Step 2.</strong> {imageTitle ? imageTitle : 'Upload File'}
+              <strong>1.</strong> Select Image
             </li>
           </ul>
         </div>
@@ -235,3 +232,8 @@ const Wrapper = styled.div`
   }
 `
 export default UploadImage
+
+// ======= how to use=======
+// api `path` to deliver image and handle from back end
+// cb function ro receive images [] back .
+// images also stored in localStorage .

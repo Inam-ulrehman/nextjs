@@ -56,7 +56,7 @@ const BlogDesign = ({ blogs }) => {
 
 const Wrapper = styled.div`
   padding: 1rem;
-  border: 2px solid black;
+
   /* max-width: 600px; */
   .title-description {
     span {

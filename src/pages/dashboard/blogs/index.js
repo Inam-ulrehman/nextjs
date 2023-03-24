@@ -1,12 +1,7 @@
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
-import UploadImage from '@/components/images/UploadImage'
 import Head from 'next/head'
 import Link from 'next/link'
 import React from 'react'
-const cbFunction = (images) => {
-  // console.log(images)
-}
-const path = '/authadmin/images/upload'
 const Blogs = () => {
   return (
     <>
@@ -21,7 +16,6 @@ const Blogs = () => {
             new blog
           </Link>
         </div>
-        <UploadImage cbFunction={cbFunction} path={path} />
       </div>
     </>
   )

@@ -21,7 +21,7 @@ const Wrapper = styled.div`
     margin-top: -1.1rem;
     position: relative;
     min-width: ${(props) => (props.showDashboardSidebar ? '200px' : '50px')};
-    background-color: var(--grey-3);
+    background-color: var(--grey-05);
   }
   section {
     width: 100%;
