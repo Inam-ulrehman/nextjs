@@ -29,21 +29,24 @@ export default async function handler(req, res) {
   // =============All Items====================
   if (method === 'GET') {
     try {
-      const { name, email, mobile, sort } = req.query
+      const { heading, description, blogHeading, blogDescription, sort } =
+        req.query
       const queryObject = {}
       let sorted = ''
 
-      // name
-      if (name) {
-        queryObject.name = { $regex: name, $options: 'i' }
+      if (heading) {
+        queryObject.heading = { $regex: heading, $options: 'i' }
       }
-      // mobile
-      if (mobile) {
-        queryObject.mobile = { $regex: mobile, $options: 'i' }
+
+      if (description) {
+        queryObject.description = { $regex: description, $options: 'i' }
       }
-      // email
-      if (email) {
-        queryObject.email = { $regex: email, $options: 'i' }
+
+      if (blogHeading) {
+        queryObject.blogHeading = { $regex: blogHeading, $options: 'i' }
+      }
+      if (blogDescription) {
+        queryObject.blogDescription = { $regex: blogDescription, $options: 'i' }
       }
 
       if (sort) {

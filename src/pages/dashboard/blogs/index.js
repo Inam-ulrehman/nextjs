@@ -1,3 +1,4 @@
+import { List, Pagination, Search, Sort } from '@/components/dashboard/blog'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
 import Head from 'next/head'
 import Link from 'next/link'
@@ -11,10 +12,16 @@ const Blogs = () => {
       </Head>
 
       <div>
-        <div className='heading'>
+        <div className='heading title'>
           <Link href={'/dashboard/blogs/post'} className='btn'>
             new blog
           </Link>
+        </div>
+        <div className='body'>
+          <Sort />
+          <Search />
+          <List />
+          <Pagination />
         </div>
       </div>
     </>
