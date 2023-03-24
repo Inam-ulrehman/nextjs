@@ -40,11 +40,11 @@ const PostBlog = () => {
 
       <Wrapper>
         <div className='input'>
+          <UploadImage
+            cbFunction={cbFunction}
+            path={'/authadmin/images/upload'}
+          />
           <form className='form' onSubmit={handleSubmit}>
-            <UploadImage
-              cbFunction={cbFunction}
-              path={'/authadmin/images/upload'}
-            />
             {/* heading */}
             <FormInput
               value={heading}

@@ -57,8 +57,8 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
   // =====Delete Image==========
   const handleDelete = async (public_id) => {
     const cookies = Cookies.get('token')
+    setState({ ...state, isLoading: true })
     try {
-      setState({ ...state, isLoading: true })
       const result = await customFetch.post(
         '/authadmin/images/destroy',
         { public_id },
