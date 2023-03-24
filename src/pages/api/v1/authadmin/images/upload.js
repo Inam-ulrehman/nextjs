@@ -4,7 +4,7 @@ import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
 import multer from 'multer'
 const cloudinary = require('cloudinary').v2
-const upload = multer({ dest: './public/uploads' })
+const upload = multer({ dest: './tmp/uploads' })
 const fs = require('fs')
 export const config = {
   api: {
