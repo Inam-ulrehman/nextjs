@@ -12,11 +12,7 @@ export default async function handler(req, res) {
   if (method === 'GET') {
     try {
       const result = await Blog.findById(query)
-      if (!result) {
-        return res
-          .status(StatusCodes.NOT_FOUND)
-          .json({ msg: 'No record match' })
-      }
+
       return res.status(StatusCodes.OK).json({ msg: 'success', result })
     } catch (error) {
       return mongooseErrorHandler(error, res)

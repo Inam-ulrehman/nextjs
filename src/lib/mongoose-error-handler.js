@@ -3,7 +3,7 @@ import React from 'react'
 
 const mongooseErrorHandler = async (error, res) => {
   let err = JSON.parse(JSON.stringify(error))
-  console.log(err)
+
   let customError = {
     // set default
     statusCode: err.statusCode || StatusCodes.INTERNAL_SERVER_ERROR,
