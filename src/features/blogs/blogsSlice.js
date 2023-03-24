@@ -1,6 +1,8 @@
 import { customFetch } from '@/utils/axios'
+import { removeItemFromLocalStorage } from '@/utils/localStorage'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
+import { toast } from 'react-toastify'
 
 const initialState = {
   // register
@@ -46,13 +48,14 @@ export const createBlogThunk = createAsyncThunk(
   'blogs/createBlogThunk',
   async (state, thunkAPI) => {
     const cookies = Cookies.get('token')
+
     try {
       const response = await customFetch.post('/authadmin/blogs', state, {
         headers: {
           Authorization: `Bearer ${cookies}`,
         },
       })
-
+      thunkAPI.dispatch(clearState())
       return response.data
     } catch (error) {
       return thunkAPI.rejectWithValue(error.response.data)
@@ -148,8 +151,8 @@ const blogsSlice = createSlice({
     clearState: (state, { payload }) => {
       // register
       state.heading = ''
-      state.title = ''
-      state.image = ''
+      state.description = ''
+      state.image = []
       state.blogHeading = ''
       state.blogDescription = ''
 
@@ -191,17 +194,17 @@ const blogsSlice = createSlice({
       })
       //======= Create Blog Thunk ======
       .addCase(createBlogThunk.pending, (state, { payload }) => {
-        console.log('promise pending')
         state.isLoading = true
       })
       .addCase(createBlogThunk.fulfilled, (state, { payload }) => {
-        console.log('promise fulfilled')
-        console.log(payload)
+        toast.success(payload.msg)
+
+        state.refreshData = !state.refreshData
         state.isLoading = false
       })
       .addCase(createBlogThunk.rejected, (state, { payload }) => {
-        console.log('promise rejected')
         console.log(payload)
+
         state.isLoading = false
       })
       // ==========allBlogsThunk===============

@@ -1,11 +1,13 @@
 import { customFetch } from '@/utils/axios'
 import {
   getItemFromLocalStorage,
+  removeItemFromLocalStorage,
   setItemInLocalStorage,
 } from '@/utils/localStorage'
 import Cookies from 'js-cookie'
 import Image from 'next/image'
 import React, { useEffect, useRef, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
@@ -18,6 +20,7 @@ const initialState = {
   submitImage: false,
 }
 const UploadImage = ({ path, cbFunction, imageTitle }) => {
+  const { blogs } = useSelector((state) => state)
   const [state, setState] = useState(initialState)
   const imageRef = useRef()
 
@@ -102,6 +105,12 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     }
     handleSubmit()
   }, [state.file])
+
+  // ======= clean image from component ======
+  useEffect(() => {
+    removeItemFromLocalStorage('uploadImage')
+    setState({ ...state, uploadedImages: [] })
+  }, [blogs.refreshData])
   return (
     <Wrapper>
       {/* ==========upload Image============ */}
@@ -237,3 +246,4 @@ export default UploadImage
 // api `path` to deliver image and handle from back end
 // cb function ro receive images [] back .
 // images also stored in localStorage .
+//
