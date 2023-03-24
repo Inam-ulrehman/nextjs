@@ -6,6 +6,7 @@ import { createBlogThunk, getStateValues } from '@/features/blogs/blogsSlice'
 import Head from 'next/head'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 const PostBlog = () => {
@@ -13,10 +14,15 @@ const PostBlog = () => {
   const { blogs } = useSelector((state) => state)
   const { heading, description, image, blogHeading, blogDescription } = blogs
 
+  // image results
   const cbFunction = (images) => {
-    // console.log(images)
+    dispatch(getStateValues({ name: 'image', value: images }))
   }
+  // handle submit
   const handleSubmit = async (e) => {
+    if (!image) {
+      toast.warning('Please upload image')
+    }
     e.preventDefault()
     dispatch(createBlogThunk(blogs))
   }
@@ -38,13 +44,6 @@ const PostBlog = () => {
             <UploadImage
               cbFunction={cbFunction}
               path={'/authadmin/images/upload'}
-            />
-            {/* image */}
-            <FormInput
-              value={image}
-              name='image'
-              important={true}
-              onChange={handleChange}
             />
             {/* heading */}
             <FormInput

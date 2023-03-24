@@ -106,7 +106,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     <Wrapper>
       {/* ==========upload Image============ */}
       <div className='file-upload-container'>
-        <label for='file-upload' class='custom-file-upload'>
+        <label htmlFor='file-upload' className='custom-file-upload'>
           Select Image
           <input
             type='file'
