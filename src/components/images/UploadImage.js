@@ -13,28 +13,28 @@ const initialState = {
   showRequirements: false,
   showHowToUpload: false,
   uploadedImages: [],
+  file: null,
   isLoading: false,
 }
 const UploadImage = ({ path, cbFunction, imageTitle }) => {
-  const [file, setFile] = useState(null)
   const [state, setState] = useState(initialState)
 
   const handleChange = (e) => {
-    setFile(e.target.files[0])
+    setState({ ...state, file: e.target.files[0] })
   }
 
   // =======handle Submit Upload Image=========
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    if (!file) {
+    if (!state.file) {
       return toast.warning('Please Chose a file.')
     }
     setState({ ...state, isLoading: true })
     const cookies = Cookies.get('token')
     try {
       const formData = new FormData()
-      formData.append('file', file)
+      formData.append('file', state.file)
       const result = await customFetch.post(`${path}`, formData, {
         headers: {
           Authorization: `Bearer ${cookies}`,
