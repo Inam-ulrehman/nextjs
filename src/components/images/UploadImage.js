@@ -5,7 +5,7 @@ import {
 } from '@/utils/localStorage'
 import Cookies from 'js-cookie'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
@@ -15,22 +15,18 @@ const initialState = {
   uploadedImages: [],
   file: null,
   isLoading: false,
+  submitImage: false,
 }
 const UploadImage = ({ path, cbFunction, imageTitle }) => {
   const [state, setState] = useState(initialState)
+  const imageRef = useRef()
 
-  const handleChange = (e) => {
+  const handleChange = async (e) => {
     setState({ ...state, file: e.target.files[0] })
   }
-
-  // =======handle Submit Upload Image=========
-
-  const handleSubmit = async (e) => {
-    e.preventDefault()
-    if (!state.file) {
-      return toast.warning('Please Chose a file.')
-    }
+  const handleSubmit = async () => {
     setState({ ...state, isLoading: true })
+
     const cookies = Cookies.get('token')
     try {
       const formData = new FormData()
@@ -49,6 +45,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
       const item = [...state.uploadedImages, image]
       setItemInLocalStorage('uploadImage', item)
       toast.success('Image Updated.')
+      imageRef.current.value = ''
       return
     } catch (error) {
       console.log(error)
@@ -56,6 +53,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
       toast.error('Image is not uploaded.')
     }
   }
+
   // =====Delete Image==========
   const handleDelete = async (public_id) => {
     const cookies = Cookies.get('token')
@@ -88,7 +86,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     setState({ ...state, showHowToUpload: !state.showHowToUpload })
   }
 
-  // =====================================
+  // ===== set image in local storage and cb function===========
   useEffect(() => {
     const localImages = getItemFromLocalStorage('uploadImage')
     if (localImages === null) {
@@ -97,18 +95,23 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     setState({ ...state, uploadedImages: localImages })
     cbFunction(localImages)
   }, [state.isLoading])
+  // =======submit image ==========
+  useEffect(() => {
+    if (state.file === null) {
+      return
+    }
+    handleSubmit()
+  }, [state.file])
   return (
     <Wrapper>
       {/* ==========upload Image============ */}
       <div className='file-upload-container'>
         <input
           type='file'
+          ref={imageRef}
           className='custom-file-input'
           onChange={handleChange}
         />
-        <button className='btn' type='submit' onClick={handleSubmit}>
-          {imageTitle ? imageTitle : 'Upload File'}
-        </button>
       </div>
       {/* =========Button show and hide========= */}
       <div className='heading'>
