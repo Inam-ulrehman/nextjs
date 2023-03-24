@@ -1,12 +1,14 @@
 import { formatDate } from '@/utils/helper'
 import Image from 'next/image'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
 const defaultImage =
   'https://res.cloudinary.com/inam6530/image/upload/v1679415017/Inamwebsolutions-nextjs/website_blogs_zlhiwz.svg'
-
+const initialState = {
+  images: [],
+}
 const BlogDesign = ({ blogs }) => {
+  const [state, setState] = useState(initialState)
   const {
     image,
     heading,
@@ -16,6 +18,9 @@ const BlogDesign = ({ blogs }) => {
     createdBy,
     createdAt,
   } = blogs
+  useEffect(() => {
+    setState({ ...state, images: image })
+  }, [image])
   return (
     <Wrapper>
       <div className='title-description'>
@@ -27,7 +32,11 @@ const BlogDesign = ({ blogs }) => {
           width={600}
           height={340}
           alt={heading}
-          src={image.length > 5 ? blogs.image : defaultImage}
+          src={
+            state.images.length === 0
+              ? defaultImage
+              : state.images[0]?.secure_url
+          }
         ></Image>
       </div>
       <div className='body-container'>

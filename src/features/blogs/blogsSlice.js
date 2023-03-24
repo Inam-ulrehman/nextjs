@@ -6,7 +6,7 @@ const initialState = {
   // register
   heading: '',
   description: '',
-  image: '',
+  image: [],
   blogHeading: '',
   blogDescription: '',
   createdBy: '',
