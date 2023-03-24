@@ -1,12 +1,10 @@
-import { index, next, prev } from '@/features/contacts/contactsSlice'
+import { index, next, prev } from '@/features/blogs/blogsSlice'
 import PaginationHook from '@/hooks/PaginationHook'
 import React from 'react'
 import { useSelector } from 'react-redux'
 
 const Pagination = () => {
-  const { isLoading, page, nbHits, limit } = useSelector(
-    (state) => state.contacts
-  )
+  const { isLoading, page, nbHits, limit } = useSelector((state) => state.blogs)
 
   if (isLoading) {
     return <></>

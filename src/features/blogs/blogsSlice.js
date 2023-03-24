@@ -14,7 +14,10 @@ const initialState = {
   createdBy: '',
   createdAt: '',
   // Search
-  search: '',
+  searchHeading: '',
+  searchDescription: '',
+  searchBlogHeading: '',
+  searchBlogDescription: '',
   // Pagination
   list: [],
   page: 1,
@@ -69,7 +72,7 @@ export const allBlogsThunk = createAsyncThunk(
   async (state, thunkAPI) => {
     try {
       const response = await customFetch.get(
-        `/authadmin/blogs?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
+        `/authadmin/blogs?searchHeading=${state?.searchHeading}&searchDescription=${state?.searchDescription}&searchBlogHeading=${state?.searchBlogHeading}&searchBlogDescription=${state?.searchBlogDescription}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
         {
           headers: {
             Authorization: `Bearer ${Cookies.get('token')}`,
@@ -157,7 +160,11 @@ const blogsSlice = createSlice({
       state.blogDescription = ''
 
       // search
-      state.search = ''
+      state.searchHeading = ''
+      state.searchDescription = ''
+      state.searchBlogHeading = ''
+      state.searchBlogDescription = ''
+
       // pagination
       state.page = 1
       state.limit = 10

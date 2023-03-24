@@ -1,4 +1,4 @@
-import { getStateValues } from '@/features/contacts/contactsSlice'
+import { getStateValues } from '@/features/blogs/blogsSlice'
 import React from 'react'
 import { BiSearchAlt2 } from 'react-icons/bi'
 import { useDispatch, useSelector } from 'react-redux'
@@ -6,9 +6,12 @@ import styled from 'styled-components'
 
 const Search = () => {
   const dispatch = useDispatch()
-  const { searchName, searchEmail, searchMobile } = useSelector(
-    (state) => state.contacts
-  )
+  const {
+    searchHeading,
+    searchDescription,
+    searchBlogHeading,
+    searchBlogDescription,
+  } = useSelector((state) => state.blogs)
   const handleChange = (e) => {
     const name = e.target.name
     const value = e.target.value
@@ -16,37 +19,46 @@ const Search = () => {
   }
   return (
     <Wrapper>
-      {/* name */}
+      {/* Heading */}
       <div>
         <input
           type='text'
-          name='searchName'
-          placeholder='Name'
-          value={searchName}
+          name='searchHeading'
+          placeholder='Heading'
+          value={searchHeading}
           onChange={handleChange}
         />
         <BiSearchAlt2 />
       </div>
-
-      {/* email */}
+      {/* Description */}
       <div>
         <input
-          type='email'
-          name='searchEmail'
-          placeholder='Email'
-          value={searchEmail}
+          type='text'
+          name='searchDescription'
+          placeholder='Description'
+          value={searchDescription}
           onChange={handleChange}
         />
         <BiSearchAlt2 />
       </div>
-
-      {/* Mobile */}
+      {/* BlogHeading */}
       <div>
         <input
           type='text'
-          placeholder='Mobile'
-          name='searchMobile'
-          value={searchMobile}
+          name='searchBlogHeading'
+          placeholder='BlogHeading'
+          value={searchBlogHeading}
+          onChange={handleChange}
+        />
+        <BiSearchAlt2 />
+      </div>
+      {/* BlogDescription */}
+      <div>
+        <input
+          type='text'
+          name='searchBlogDescription'
+          placeholder='Blog Description'
+          value={searchBlogDescription}
           onChange={handleChange}
         />
         <BiSearchAlt2 />

@@ -7,12 +7,12 @@ export default async function handler(req, res) {
   await dbConnect()
   const { method, body, query, headers } = req
   const userId = headers.userid
-  const { image, title, description, blogHeading, blogDescription } = body
+  const { image, heading, description, blogHeading, blogDescription } = body
   if (method === 'POST') {
     try {
       const blog = await Blogs.create({
         image,
-        title,
+        heading,
         description,
         blogHeading,
         blogDescription,
@@ -29,24 +29,38 @@ export default async function handler(req, res) {
   // =============All Items====================
   if (method === 'GET') {
     try {
-      const { heading, description, blogHeading, blogDescription, sort } =
-        req.query
+      const {
+        searchHeading,
+        searchDescription,
+        searchBlogHeading,
+        searchBlogDescription,
+        sort,
+      } = req.query
       const queryObject = {}
       let sorted = ''
 
-      if (heading) {
-        queryObject.heading = { $regex: heading, $options: 'i' }
+      if (searchHeading) {
+        queryObject.heading = { $regex: searchHeading, $options: 'i' }
       }
 
-      if (description) {
-        queryObject.description = { $regex: description, $options: 'i' }
+      if (searchDescription) {
+        queryObject.description = {
+          $regex: searchDescription,
+          $options: 'i',
+        }
       }
 
-      if (blogHeading) {
-        queryObject.blogHeading = { $regex: blogHeading, $options: 'i' }
+      if (searchBlogHeading) {
+        queryObject.blogHeading = {
+          $regex: searchBlogHeading,
+          $options: 'i',
+        }
       }
-      if (blogDescription) {
-        queryObject.blogDescription = { $regex: blogDescription, $options: 'i' }
+      if (searchBlogDescription) {
+        queryObject.blogDescription = {
+          $regex: searchBlogDescription,
+          $options: 'i',
+        }
       }
 
       if (sort) {
@@ -59,6 +73,7 @@ export default async function handler(req, res) {
       const skip = (page - 1) * limit
 
       const totalBlogs = await Blogs.find(queryObject)
+      console.log(req.query)
 
       let result = await Blogs.find(queryObject)
         .sort(`${sorted}`)

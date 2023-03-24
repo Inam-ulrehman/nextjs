@@ -2,11 +2,11 @@ import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import {
-  allContactsThunk,
-  deleteContactThunk,
-  deleteManyContactsThunk,
+  allBlogsThunk,
+  deleteBlogThunk,
+  deleteManyBlogsThunk,
   getStateValues,
-} from '@/features/contacts/contactsSlice'
+} from '@/features/blogs/blogsSlice'
 
 import Link from 'next/link'
 import { formatDate } from '@/utils/helper'
@@ -19,19 +19,20 @@ import { Icons } from '@/styles/Icons'
 
 const List = () => {
   const dispatch = useDispatch()
-  const { contacts, websitecontent } = useSelector((state) => state)
+  const { blogs, websitecontent } = useSelector((state) => state)
   const {
     isLoading,
     page,
     limit,
     sort,
-    searchName,
-    searchEmail,
-    searchMobile,
+    searchHeading,
+    searchDescription,
+    searchBlogHeading,
+    searchBlogDescription,
     refreshData,
     list,
     deleteMany,
-  } = contacts
+  } = blogs
 
   //====== handle Delete ====
   const handleDelete = (_id) => {
@@ -69,8 +70,17 @@ const List = () => {
   // =======deleteMany =======
 
   useEffect(() => {
-    dispatch(allContactsThunk(contacts))
-  }, [page, limit, sort, searchName, searchEmail, searchMobile, refreshData])
+    dispatch(allBlogsThunk(blogs))
+  }, [
+    page,
+    limit,
+    sort,
+    searchHeading,
+    searchDescription,
+    searchBlogHeading,
+    searchBlogDescription,
+    refreshData,
+  ])
 
   if (isLoading) {
     return (
@@ -85,18 +95,18 @@ const List = () => {
       {/*=== delete warning=== */}
       {websitecontent.isDeleteWarning && (
         <DeleteWarning
-          action={() => dispatch(deleteContactThunk(contacts.deleteId))}
+          action={() => dispatch(deleteBlogThunk(blogs.deleteId))}
         />
       )}
       {/* ====delete many warning */}
       {websitecontent.isDeleteAllWarning && (
         <DeleteAllWarning
-          action={() => dispatch(deleteManyContactsThunk(contacts.deleteMany))}
+          action={() => dispatch(deleteManyBlogsThunk(blogs.deleteMany))}
         ></DeleteAllWarning>
       )}
       {/* show delete all button */}
       <div className='delete-all-button'>
-        {contacts.deleteMany.length > 0 && (
+        {blogs.deleteMany.length > 0 && (
           <div className='delete-all-button'>
             <button className='btn' onClick={handleDeleteMany}>
               Delete Selected
@@ -105,20 +115,18 @@ const List = () => {
         )}
       </div>
       <table>
-        <caption>Contact Table</caption>
+        <caption>Blog Table</caption>
         <thead>
           <tr>
             <th>
               <input
                 type='checkbox'
-                checked={contacts.deleteMany.length === contacts.list.length}
+                checked={blogs.deleteMany.length === blogs.list.length}
                 onChange={handleSelectAll}
               />
             </th>
-            <th>Name</th>
-            <th className='mobile-hide'>Email</th>
-            <th className='mobile-hide'>Mobile</th>
-            <th className='mobile-hide'>Subject</th>
+            <th>image</th>
+            <th className=''>Heading</th>
             <th className='time'>Time</th>
             <th className='action'>Action</th>
           </tr>
@@ -131,26 +139,23 @@ const List = () => {
                   <input
                     type='checkbox'
                     checked={
-                      contacts.deleteMany.find(
-                        (items) => items._id === item._id
-                      )
+                      blogs.deleteMany.find((items) => items._id === item._id)
                         ? true
                         : false
                     }
                     onChange={() => handleSelectOne(item._id)}
                   />
                 </td>
-                <td>{item.name.slice(0, 15)}</td>
-                <td className='mobile-hide'>{item.email.slice(0, 20)}</td>
-                <td className='mobile-hide'>{item.mobile.slice(0, 13)}</td>
-                <td>{item.subject.slice(0, 15)}</td>
+                <td>image</td>
+                <td>{item.heading}</td>
+
                 <td className='time mobile-hide'>
                   {formatDate(item.createdAt)}
                 </td>
                 <td className='action'>
                   <Link
                     className='btn btn-a'
-                    href={`/dashboard/contact/${item._id}`}
+                    href={`/dashboard/blog/${item._id}`}
                   >
                     {Icons.edit}
                   </Link>

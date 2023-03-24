@@ -1,10 +1,10 @@
-import { clearState, getStateValues } from '@/features/contacts/contactsSlice'
+import { clearState, getStateValues } from '@/features/blogs/blogsSlice'
 import React from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import styled from 'styled-components'
 
 const Sort = () => {
-  const { limit, sort, nbHits, page } = useSelector((state) => state.contacts)
+  const { limit, sort, nbHits, page } = useSelector((state) => state.blogs)
   const dispatch = useDispatch()
 
   const handleChange = (e) => {
