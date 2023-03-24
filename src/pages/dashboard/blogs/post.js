@@ -20,10 +20,11 @@ const PostBlog = () => {
   }
   // handle submit
   const handleSubmit = async (e) => {
-    if (!image) {
-      toast.warning('Please upload image')
-    }
     e.preventDefault()
+
+    if (image.length === 0) {
+      return toast.warning('Please upload image')
+    }
     dispatch(createBlogThunk(blogs))
   }
   const handleChange = (e) => {

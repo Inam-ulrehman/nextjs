@@ -14,7 +14,7 @@ const BlogSchema = new mongoose.Schema(
     },
 
     image: {
-      type: String,
+      type: [],
       required: [true, 'Please provide image'],
     },
     blogHeading: {
