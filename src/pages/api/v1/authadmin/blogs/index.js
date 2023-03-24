@@ -73,7 +73,6 @@ export default async function handler(req, res) {
       const skip = (page - 1) * limit
 
       const totalBlogs = await Blogs.find(queryObject)
-      console.log(req.query)
 
       let result = await Blogs.find(queryObject)
         .sort(`${sorted}`)
