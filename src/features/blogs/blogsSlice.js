@@ -45,10 +45,11 @@ export const blogsThunk = createAsyncThunk(
 export const createBlogThunk = createAsyncThunk(
   'blogs/createBlogThunk',
   async (state, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.post('/authadmin/blogs', state, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
@@ -83,10 +84,11 @@ export const allBlogsThunk = createAsyncThunk(
 export const singleBlogThunk = createAsyncThunk(
   'blogs/singleBlogThunk',
   async (_id, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get(`/authadmin/blogs/${_id}`, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
@@ -118,10 +120,11 @@ export const deleteBlogThunk = createAsyncThunk(
 export const deleteManyBlogsThunk = createAsyncThunk(
   'appointment/deleteManyBlogsThunk',
   async (data, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.patch(`/authadmin/blogs`, data, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
       return response.data

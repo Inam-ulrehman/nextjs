@@ -14,16 +14,18 @@ const ChangePassword = () => {
   const [state, setState] = useState(initialState)
   const handleSubmit = async (e) => {
     e.preventDefault()
+
     if (!state.password || !state.confirmPassword) {
       return toast.warning('please put your password')
     }
     if (state.password !== state.confirmPassword) {
       return toast.warning(`Password does't match`)
     }
+    const cookies = Cookies.get('token')
     try {
       const result = await customFetch.post('/auth/users', state, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
       toast.success(result.data.msg)

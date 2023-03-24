@@ -49,12 +49,13 @@ export const allContactsThunk = createAsyncThunk(
   'contacts/allContactsThunk',
 
   async (state, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get(
         `/authadmin/contacts?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
         {
           headers: {
-            Authorization: `Bearer ${Cookies.get('token')}`,
+            Authorization: `Bearer ${cookies}`,
           },
         }
       )
@@ -86,10 +87,11 @@ export const singleContactThunk = createAsyncThunk(
 export const deleteContactThunk = createAsyncThunk(
   'contacts/deleteContactThunk',
   async (_id, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.delete(`/authadmin/contacts/${_id}`, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 

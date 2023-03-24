@@ -38,11 +38,11 @@ const Profile = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.patch('/auth/users', state, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
@@ -60,10 +60,11 @@ const Profile = () => {
   // Get single User
   const getData = async () => {
     setState({ ...state, isLoading: true })
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get('auth/users', {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 

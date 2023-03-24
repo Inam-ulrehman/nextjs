@@ -45,12 +45,13 @@ export const allSamplesThunk = createAsyncThunk(
   'samples/allSamplesThunk',
 
   async (state, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get(
         `/authadmin/samples?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
         {
           headers: {
-            Authorization: `Bearer ${Cookies.get('token')}`,
+            Authorization: `Bearer ${cookies}`,
           },
         }
       )
@@ -82,10 +83,11 @@ export const singleSampleThunk = createAsyncThunk(
 export const deleteSampleThunk = createAsyncThunk(
   'samples/deleteSampleThunk',
   async (_id, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.delete(`/authadmin/samples/${_id}`, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
@@ -100,10 +102,11 @@ export const deleteSampleThunk = createAsyncThunk(
 export const deleteManySamplesThunk = createAsyncThunk(
   'appointment/deleteManySamplesThunk',
   async (data, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.patch(`/authadmin/samples`, data, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
       return response.data

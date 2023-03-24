@@ -57,12 +57,13 @@ export const allUsersThunk = createAsyncThunk(
   'users/allUsersThunk',
 
   async (state, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get(
         `/authadmin/users?name=${state?.searchName}&email=${state?.searchEmail}&mobile=${state?.searchMobile}&sort=${state?.sort}&limit=${state?.limit}&page=${state?.page}`,
         {
           headers: {
-            Authorization: `Bearer ${Cookies.get('token')}`,
+            Authorization: `Bearer ${cookies}`,
           },
         }
       )
@@ -77,10 +78,11 @@ export const allUsersThunk = createAsyncThunk(
 export const singleUserThunk = createAsyncThunk(
   'users/singleUserThunk',
   async (_id, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.get(`/authadmin/users/${_id}`, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
@@ -94,10 +96,11 @@ export const singleUserThunk = createAsyncThunk(
 export const deleteUserThunk = createAsyncThunk(
   'users/deleteUserThunk',
   async (_id, thunkAPI) => {
+    const cookies = Cookies.get('token')
     try {
       const response = await customFetch.delete(`/authadmin/users/${_id}`, {
         headers: {
-          Authorization: `Bearer ${Cookies.get('token')}`,
+          Authorization: `Bearer ${cookies}`,
         },
       })
 
