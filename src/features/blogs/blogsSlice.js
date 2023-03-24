@@ -1,4 +1,5 @@
 import { customFetch } from '@/utils/axios'
+import { addObjectInState } from '@/utils/helper'
 import { removeItemFromLocalStorage } from '@/utils/localStorage'
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import Cookies from 'js-cookie'
@@ -205,7 +206,7 @@ const blogsSlice = createSlice({
       })
       .addCase(createBlogThunk.fulfilled, (state, { payload }) => {
         toast.success(payload.msg)
-
+        removeItemFromLocalStorage('uploadImage')
         state.refreshData = !state.refreshData
         state.isLoading = false
       })

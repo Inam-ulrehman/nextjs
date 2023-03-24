@@ -155,7 +155,7 @@ const List = () => {
                 <td className='action'>
                   <Link
                     className='btn btn-a'
-                    href={`/dashboard/blog/${item._id}`}
+                    href={`/dashboard/blogs/${item._id}`}
                   >
                     {Icons.edit}
                   </Link>

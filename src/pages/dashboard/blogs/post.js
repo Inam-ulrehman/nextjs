@@ -2,9 +2,13 @@ import BlogDesign from '@/components/dashboard/blog/BlogDesign'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
 import FormInput from '@/components/FormInput'
 import UploadImage from '@/components/images/UploadImage'
-import { createBlogThunk, getStateValues } from '@/features/blogs/blogsSlice'
+import {
+  clearState,
+  createBlogThunk,
+  getStateValues,
+} from '@/features/blogs/blogsSlice'
 import Head from 'next/head'
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
 import styled from 'styled-components'
@@ -29,6 +33,9 @@ const PostBlog = () => {
     const value = e.target.value
     dispatch(getStateValues({ name, value }))
   }
+  useEffect(() => {
+    dispatch(clearState())
+  }, [])
   return (
     <>
       <Head>

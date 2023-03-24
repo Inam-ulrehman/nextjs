@@ -108,8 +108,9 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
 
   // ======= clean image from component ======
   useEffect(() => {
-    removeItemFromLocalStorage('uploadImage')
-    setState({ ...state, uploadedImages: [] })
+    if (getItemFromLocalStorage('uploadImage') === null) {
+      setState({ ...state, uploadedImages: [] })
+    }
   }, [blogs.refreshData])
   return (
     <Wrapper>
