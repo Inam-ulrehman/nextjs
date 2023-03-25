@@ -273,6 +273,8 @@ const blogsSlice = createSlice({
       })
       .addCase(updateBlogThunk.fulfilled, (state, { payload }) => {
         toast.success(payload.msg)
+        removeItemFromLocalStorage('uploadImage')
+        state.removeImage = !state.removeImage
         state.isLoading = false
       })
       .addCase(updateBlogThunk.rejected, (state, { payload }) => {
