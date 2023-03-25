@@ -1,6 +1,7 @@
 import dbConnect from '@/lib/dbConnect'
 import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Blogs from '@/models/Blog'
+import User from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
 
 export default async function handler(req, res) {
@@ -10,12 +11,15 @@ export default async function handler(req, res) {
   const { image, heading, description, blogHeading, blogDescription } = body
   if (method === 'POST') {
     try {
+      const user = await User.findById({ _id: userId })
+      const author = `${user?.name} ${user?.lastName}`
       const blog = await Blogs.create({
         image,
         heading,
         description,
         blogHeading,
         blogDescription,
+        author,
         createdBy: userId,
       })
       return res

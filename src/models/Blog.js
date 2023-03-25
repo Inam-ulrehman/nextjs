@@ -2,6 +2,9 @@ import mongoose from 'mongoose'
 
 const BlogSchema = new mongoose.Schema(
   {
+    author: {
+      type: String,
+    },
     heading: {
       type: String,
       lowercase: true,

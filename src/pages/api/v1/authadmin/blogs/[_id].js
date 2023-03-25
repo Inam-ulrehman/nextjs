@@ -2,6 +2,7 @@ import dbConnect from '@/lib/dbConnect'
 import { BadRequestError } from '@/lib/errors'
 import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Blog from '@/models/Blog'
+
 import { StatusCodes } from 'http-status-codes'
 
 export default async function handler(req, res) {
@@ -11,8 +12,7 @@ export default async function handler(req, res) {
   // single blog
   if (method === 'GET') {
     try {
-      const result = await Blog.findById(query)
-
+      const result = await Blog.findById(query, '-createdBy')
       return res.status(StatusCodes.OK).json({ msg: 'success', result })
     } catch (error) {
       return mongooseErrorHandler(error, res)
