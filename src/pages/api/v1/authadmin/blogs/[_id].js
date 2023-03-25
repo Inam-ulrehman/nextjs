@@ -33,7 +33,17 @@ export default async function handler(req, res) {
       mongooseErrorHandler(error, res)
     }
   }
-  // Create a Sample
+
+  if (method === 'PATCH') {
+    delete req.body['_id']
+    try {
+      const result = await Blog.findOneAndUpdate({ _id: query._id }, body)
+
+      return res.status(StatusCodes.OK).json({ msg: 'success', result })
+    } catch (error) {
+      return mongooseErrorHandler(error, res)
+    }
+  }
   if (method === 'POST') {
     return res.status(200).json({ name: 'Post your data' })
   }

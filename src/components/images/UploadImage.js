@@ -11,8 +11,6 @@ import { toast } from 'react-toastify'
 import styled from 'styled-components'
 
 const initialState = {
-  showRequirements: false,
-  showHowToUpload: false,
   uploadedImages: [],
   file: null,
   isLoading: false,
@@ -80,13 +78,6 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
       console.log(error)
     }
   }
-  // =====handle show class buttons=======
-  const handleRequirements = (e) => {
-    setState({ ...state, showRequirements: !state.showRequirements })
-  }
-  const handleHowToUploadImage = (e) => {
-    setState({ ...state, showHowToUpload: !state.showHowToUpload })
-  }
 
   // ===== set image in local storage and cb function===========
   useEffect(() => {
@@ -115,8 +106,8 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     <Wrapper>
       {/* ==========upload Image============ */}
       <div className='file-upload-container'>
-        <label htmlFor='file-upload' className='custom-file-upload'>
-          Select Image
+        <label htmlFor='file-upload' className='btn'>
+          Upload
           <input
             type='file'
             id='file-upload'
@@ -126,28 +117,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
           />
         </label>
       </div>
-      {/* =========Button show and hide========= */}
-      <div className='heading'>
-        <div className='box-1'>
-          <button type='button' onClick={handleRequirements}>
-            requirements?
-          </button>
-          <ul className={state.showRequirements ? null : 'hide'}>
-            <li>Size 10MB</li>
-            <li>Format PNG</li>
-          </ul>
-        </div>
-        <div className='box-2'>
-          <button type='button' onClick={handleHowToUploadImage}>
-            How to upload?
-          </button>
-          <ul className={state.showHowToUpload ? null : 'hide'}>
-            <li>
-              <strong>1.</strong> Select Image
-            </li>
-          </ul>
-        </div>
-      </div>
+
       {/* ===========List Of images ======== */}
       <div className='image-list-container'>
         {state.uploadedImages?.map((item, index) => {
@@ -183,48 +153,8 @@ const Wrapper = styled.div`
     input[type='file'] {
       display: none;
     }
-    .custom-file-upload {
-      border: 1px solid #ccc;
-      display: inline-block;
-      padding: 6px 12px;
-      margin: 0.5rem;
-      background-color: var(--white);
-      box-shadow: var(--shadow-3);
-      cursor: pointer;
-      :hover {
-        background-color: var(--grey-3);
-      }
-    }
   }
-  /* warnings */
-  .heading {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    text-align: center;
-    button {
-      background: var(--primary-5);
-      color: var(--white);
-      border: transparent;
-      transition: var(--transition-1);
-      padding: 7px;
-      :hover {
-        background: var(--primary-7);
-        cursor: pointer;
-      }
-    }
-    ul {
-      margin: 0;
-      margin-top: -5px;
-      background-color: var(--grey-3);
-    }
-    .box-1,
-    .box-2 {
-      margin: 0 auto;
-    }
-  }
-  .hide {
-    display: none;
-  }
+
   /*========= upload images List======== */
   .image-list-container {
     display: flex;
