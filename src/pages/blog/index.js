@@ -40,13 +40,15 @@ const Blogs = ({ data }) => {
             </div>
           </div>
 
-          {data.map((item) => {
-            return (
-              <div className='blog-holder' key={item._id}>
-                <BlogDesign blogs={item} />
-              </div>
-            )
-          })}
+          <div className='blog-body'>
+            {data.map((item) => {
+              return (
+                <div className='blog-holder' key={item._id}>
+                  <BlogDesign blogs={item} />
+                </div>
+              )
+            })}
+          </div>
         </div>
       </Wrapper>
     </>
@@ -96,6 +98,11 @@ const Wrapper = styled.div`
       var(--primary-8) 100%
     );
   }
+  /* body */
+  .blog-body {
+    padding: 3rem;
+    max-width: 70vw;
+  }
   /* mobile only */
   @media (max-width: 768px) {
     .heading-container {
@@ -122,6 +129,12 @@ const Wrapper = styled.div`
         rgba(241, 243, 245, 1) 0%,
         var(--primary-8) 100%
       );
+    }
+    /* body */
+    .blog-body {
+      padding: 1rem;
+      margin: 0 auto;
+      max-width: 100vw;
     }
   }
 `
