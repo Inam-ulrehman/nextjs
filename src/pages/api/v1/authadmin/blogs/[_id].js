@@ -37,7 +37,6 @@ export default async function handler(req, res) {
   if (method === 'PATCH') {
     delete req.body['_id']
     delete req.body['createdBy']
-    console.log(body)
 
     try {
       const result = await Blog.findOneAndUpdate({ _id: query._id }, body, {
