@@ -15,7 +15,7 @@ const BlogDesign = ({ blogs }) => {
     description,
     blogHeading,
     blogDescription,
-    createdBy,
+    author,
     createdAt,
   } = blogs
   useEffect(() => {
@@ -43,7 +43,7 @@ const BlogDesign = ({ blogs }) => {
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
-            <span> {createdBy.length < 2 ? 'inam' : createdBy}</span>
+            <span> {!author ? 'inam' : author}</span>
           </div>
           <div className='time'>
             <span>Posted On :</span>{' '}

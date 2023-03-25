@@ -125,7 +125,7 @@ const List = () => {
                 onChange={handleSelectAll}
               />
             </th>
-            <th>image</th>
+            <th>Author</th>
             <th className=''>Heading</th>
             <th className='time'>Time</th>
             <th className='action'>Action</th>
@@ -146,12 +146,10 @@ const List = () => {
                     onChange={() => handleSelectOne(item._id)}
                   />
                 </td>
-                <td>image</td>
+                <td>{item.author}</td>
                 <td>{item.heading}</td>
 
-                <td className='time mobile-hide'>
-                  {formatDate(item.createdAt)}
-                </td>
+                <td className='time '>{formatDate(item.createdAt)}</td>
                 <td className='action'>
                   <Link
                     className='btn btn-a'
