@@ -31,6 +31,7 @@ const initialState = {
   updateId: '',
   _id: '',
   refreshData: false,
+  removeImage: false,
   // Delete Many
   deleteMany: [],
   isLoading: false,
@@ -207,7 +208,7 @@ const blogsSlice = createSlice({
       .addCase(createBlogThunk.fulfilled, (state, { payload }) => {
         toast.success(payload.msg)
         removeItemFromLocalStorage('uploadImage')
-        state.refreshData = !state.refreshData
+        state.removeImage = !state.removeImage
         state.isLoading = false
       })
       .addCase(createBlogThunk.rejected, (state, { payload }) => {
