@@ -23,7 +23,6 @@ const mongooseErrorHandler = async (error, res) => {
     customError.statusCode = 400
   }
   if (err.name === 'CastError') {
-    console.log(err)
     customError.msg = `No item found with id : ${err.value._id}`
     customError.statusCode = 404
   }
