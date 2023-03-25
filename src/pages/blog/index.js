@@ -22,18 +22,24 @@ const Blogs = ({ data }) => {
       </Head>
       <Wrapper>
         <div className='blog-container'>
-          <div className='blog-header'>
-            <div className='text'>
-              <span>Blog</span>
-              <h1>
+          <div className='heading-container'>
+            <div className='heading-titles'>
+              <h1>Our Comprehensive Blogging Service</h1>
+              <h2>
                 Stay informed and up-to-date with our thought-provoking blog
                 posts
-              </h1>
+              </h2>
             </div>
-            <div className='image'>
-              <Image src={imageUrl} width={520} height={520} />
+            <div className='heading-image'>
+              <Image
+                src={imageUrl}
+                width={400}
+                height={400}
+                alt={'blog'}
+              ></Image>
             </div>
           </div>
+
           {data.map((item) => {
             return (
               <div className='blog-holder' key={item._id}>
@@ -58,47 +64,64 @@ export async function getStaticProps() {
 
 // style
 const Wrapper = styled.div`
-  .blog-container {
-    padding: 2rem;
-    .blog-header {
-      min-height: calc(100vh - 96px);
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      align-items: center;
-      span {
-        padding: 1rem;
-        font-size: 4rem;
-        font-weight: 700;
-        border-bottom: 5px solid var(--primary-5);
-      }
-      h1 {
-        margin: 0;
-        font-size: 2.5rem;
-        font-weight: 600;
-        padding: 3rem 0;
-      }
-      .image {
-      }
-    }
+  .heading-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
   }
-  /* desktop only */
-  @media (min-width: 768px) {
-    .blog-holder {
-      max-width: 70vw;
+  .heading-titles {
+    padding: 1rem;
+
+    h1 {
+      font-weight: 700;
+      margin-left: 0;
+      color: var(--primary-8);
+      text-transform: capitalize;
     }
-    .blog-header {
-      span {
-      }
-      h1 {
-        max-width: 800px;
-      }
+    h2 {
+      max-width: 700px;
+      font-weight: 500;
+      font-size: var(--large-text);
+      margin-left: 0;
     }
+    margin-left: 3rem;
+  }
+  .heading-image {
+    display: grid;
+    justify-content: center;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      rgba(241, 243, 245, 1) 0%,
+      var(--primary-8) 100%
+    );
   }
   /* mobile only */
-
   @media (max-width: 768px) {
-    .blog-header {
-      grid-template-columns: 1fr !important;
+    .heading-container {
+      display: grid;
+      grid-template-columns: 1fr;
+    }
+    .heading {
+      h1 {
+        text-align: center;
+        font-size: x-large;
+      }
+      img {
+        width: 95vw;
+        height: auto;
+      }
+    }
+    .heading-titles {
+      text-align: center;
+      margin-left: 0rem;
+    }
+    .heading-image {
+      background: linear-gradient(
+        180deg,
+        rgba(241, 243, 245, 1) 0%,
+        var(--primary-8) 100%
+      );
     }
   }
 `

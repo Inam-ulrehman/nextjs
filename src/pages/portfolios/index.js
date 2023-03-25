@@ -67,7 +67,7 @@ const Wrapper = styled.div`
     }
     h2 {
       max-width: 700px;
-      font-weight: 400;
+      font-weight: 500;
       font-size: var(--large-text);
       margin-left: 0;
     }
@@ -94,6 +94,7 @@ const Wrapper = styled.div`
         text-align: center;
         font-size: x-large;
       }
+
       img {
         width: 95vw;
         height: auto;
