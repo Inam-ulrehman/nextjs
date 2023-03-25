@@ -1,7 +1,6 @@
 import { customFetch } from '@/utils/axios'
 import {
   getItemFromLocalStorage,
-  removeItemFromLocalStorage,
   setItemInLocalStorage,
 } from '@/utils/localStorage'
 import Cookies from 'js-cookie'
@@ -111,7 +110,7 @@ const UploadImage = ({ path, cbFunction, imageTitle }) => {
     if (getItemFromLocalStorage('uploadImage') === null) {
       setState({ ...state, uploadedImages: [] })
     }
-  }, [blogs.refreshData])
+  }, [blogs.removeImage])
   return (
     <Wrapper>
       {/* ==========upload Image============ */}
