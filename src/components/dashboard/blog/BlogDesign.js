@@ -27,7 +27,7 @@ const BlogDesign = ({ blogs }) => {
     <Wrapper>
       <div className='title-description'>
         <Link
-          href={`/blog/[id]`}
+          href={`/blog/[_id]`}
           as={`/blog/${path}`}
           passHref
           className='title'

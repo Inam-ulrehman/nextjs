@@ -6,6 +6,7 @@ Allow: /
 User-agent: *
 Disallow: /dashboard
 Disallow: /user
+Disallow: /sample
 
 # Host
 Host: https://www.inamwebsolutions.com
