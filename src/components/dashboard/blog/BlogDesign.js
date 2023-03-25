@@ -56,7 +56,10 @@ const BlogDesign = ({ blogs }) => {
         </div>
         <div className='body-heading-description'>
           <div className='body-heading'>{blogHeading}</div>
-          <div dangerouslySetInnerHTML={{ __html: blogDescription }} />
+          <div
+            className='description'
+            dangerouslySetInnerHTML={{ __html: blogDescription }}
+          />
         </div>
       </div>
     </Wrapper>
@@ -64,8 +67,6 @@ const BlogDesign = ({ blogs }) => {
 }
 
 const Wrapper = styled.div`
-  padding: 1rem;
-
   /* max-width: 600px; */
   .title-description {
     span {
@@ -78,6 +79,11 @@ const Wrapper = styled.div`
       text-transform: capitalize;
       border-bottom: 2px solid var(--grey-4);
       width: fit-content;
+    }
+    .description {
+      :first-letter {
+        text-transform: capitalize;
+      }
     }
   }
   /* image */
@@ -116,6 +122,13 @@ const Wrapper = styled.div`
     border-bottom: 2px solid var(--grey-4);
     width: fit-content;
     padding: 1rem 0;
+  }
+  .description {
+    p {
+      :first-letter {
+        text-transform: capitalize;
+      }
+    }
   }
 `
 export default BlogDesign
