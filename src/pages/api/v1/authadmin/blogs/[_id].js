@@ -37,7 +37,9 @@ export default async function handler(req, res) {
   if (method === 'PATCH') {
     delete req.body['_id']
     try {
-      const result = await Blog.findOneAndUpdate({ _id: query._id }, body)
+      const result = await Blog.findOneAndUpdate({ _id: query._id }, body, {
+        new: true,
+      })
 
       return res.status(StatusCodes.OK).json({ msg: 'success', result })
     } catch (error) {

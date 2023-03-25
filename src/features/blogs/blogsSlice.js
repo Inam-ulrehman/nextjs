@@ -106,6 +106,29 @@ export const singleBlogThunk = createAsyncThunk(
     }
   }
 )
+// ============update Blog===========
+export const updateBlogThunk = createAsyncThunk(
+  'blogs/updateBlogThunk',
+  async (state, thunkAPI) => {
+    const cookies = Cookies.get('token')
+    console.log(state)
+    try {
+      const response = await customFetch.patch(
+        `/authadmin/blogs/${state._id}`,
+        state,
+        {
+          headers: {
+            Authorization: `Bearer ${cookies}`,
+          },
+        }
+      )
+
+      return response.data
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.response.data)
+    }
+  }
+)
 // ==============Delete Blog ======================
 export const deleteBlogThunk = createAsyncThunk(
   'blogs/deleteBlogThunk',
@@ -241,6 +264,18 @@ const blogsSlice = createSlice({
         state.isLoading = false
       })
       .addCase(singleBlogThunk.rejected, (state, { payload }) => {
+        toast.error(payload.msg)
+        state.isLoading = false
+      })
+      // ===========updateBlogThunk===========
+      .addCase(updateBlogThunk.pending, (state, { payload }) => {
+        state.isLoading = true
+      })
+      .addCase(updateBlogThunk.fulfilled, (state, { payload }) => {
+        toast.success(payload.msg)
+        state.isLoading = false
+      })
+      .addCase(updateBlogThunk.rejected, (state, { payload }) => {
         toast.error(payload.msg)
         state.isLoading = false
       })

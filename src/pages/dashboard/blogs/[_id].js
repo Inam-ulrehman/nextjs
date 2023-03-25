@@ -2,8 +2,11 @@ import { BlogDesign } from '@/components/dashboard/blog'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
 import FormInput from '@/components/FormInput'
 import UploadImage from '@/components/images/UploadImage'
-import { getStateValues, singleBlogThunk } from '@/features/blogs/blogsSlice'
-import { setItemInLocalStorage } from '@/utils/localStorage'
+import {
+  getStateValues,
+  singleBlogThunk,
+  updateBlogThunk,
+} from '@/features/blogs/blogsSlice'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 import React, { useEffect } from 'react'
@@ -25,8 +28,7 @@ const SingleBlog = () => {
   // handle submit
   const handleSubmit = async (e) => {
     e.preventDefault()
-
-    dispatch(createBlogThunk(blogs))
+    dispatch(updateBlogThunk(blogs))
   }
   const handleChange = (e) => {
     const name = e.target.name
