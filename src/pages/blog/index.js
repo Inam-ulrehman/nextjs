@@ -7,7 +7,8 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-
+const imageUrl =
+  'https://res.cloudinary.com/inam6530/image/upload/v1679775120/Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y.png'
 const Blogs = ({ data }) => {
   return (
     <>
@@ -22,10 +23,16 @@ const Blogs = ({ data }) => {
       <Wrapper>
         <div className='blog-container'>
           <div className='blog-header'>
-            <span>Blog</span>
-            <h1>
-              Stay informed and up-to-date with our thought-provoking blog posts
-            </h1>
+            <div className='text'>
+              <span>Blog</span>
+              <h1>
+                Stay informed and up-to-date with our thought-provoking blog
+                posts
+              </h1>
+            </div>
+            <div className='image'>
+              <Image src={imageUrl} width={520} height={520} />
+            </div>
           </div>
           {data.map((item) => {
             return (
@@ -54,6 +61,10 @@ const Wrapper = styled.div`
   .blog-container {
     padding: 2rem;
     .blog-header {
+      min-height: calc(100vh - 96px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
       span {
         padding: 1rem;
         font-size: 4rem;
@@ -65,6 +76,8 @@ const Wrapper = styled.div`
         font-size: 2.5rem;
         font-weight: 600;
         padding: 3rem 0;
+      }
+      .image {
       }
     }
   }
@@ -79,6 +92,13 @@ const Wrapper = styled.div`
       h1 {
         max-width: 800px;
       }
+    }
+  }
+  /* mobile only */
+
+  @media (max-width: 768px) {
+    .blog-header {
+      grid-template-columns: 1fr !important;
     }
   }
 `
