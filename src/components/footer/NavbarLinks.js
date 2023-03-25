@@ -3,6 +3,7 @@ import React from 'react'
 import styled from 'styled-components'
 const navList = [
   { title: 'Home', path: '/' },
+  { title: 'Blog', path: '/blog' },
   { title: 'Portfolios', path: '/portfolios' },
   { title: 'Services', path: '/services' },
   { title: 'Client Portal', path: '/user/login' },

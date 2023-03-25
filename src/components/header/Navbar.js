@@ -27,6 +27,9 @@ const Navbar = () => {
         <li className={router.pathname === '/' ? 'active' : ''}>
           <Link href={'/'}>Home</Link>
         </li>
+        <li className={router.pathname.startsWith('/blog') ? 'active' : ''}>
+          <Link href={'/blog'}>Blog</Link>
+        </li>
 
         {/* ======Services======= */}
         <li className={router.pathname.startsWith('/services') ? 'active' : ''}>

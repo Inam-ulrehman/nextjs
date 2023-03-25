@@ -28,6 +28,12 @@ const NavbarDrawer = ({ state, setState, handleNavbarDrawer }) => {
         >
           <Link href={'/'}>Home</Link>
         </li>
+        <li
+          onClick={handleNavbarDrawer}
+          className={router.pathname.startsWith('/blog') ? 'active' : ''}
+        >
+          <Link href={'/blog'}>Blog</Link>
+        </li>
         {/* Drawer Drop Down */}
         {/* portfolios */}
         <li className={router.pathname === '/portfolios' ? 'active ' : ''}>
