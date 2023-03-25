@@ -1,5 +1,6 @@
 import { formatDate } from '@/utils/helper'
 import Image from 'next/image'
+import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 const defaultImage =
@@ -18,13 +19,35 @@ const BlogDesign = ({ blogs }) => {
     author,
     createdAt,
   } = blogs
+  const path = heading.split(' ').join('-').toLowerCase()
   useEffect(() => {
     setState({ ...state, images: image })
   }, [image])
   return (
     <Wrapper>
       <div className='title-description'>
-        <span className='title'>{heading}</span>
+        <Link
+          href={`/blog/[id]`}
+          as={`/blog/${path}`}
+          passHref
+          className='title'
+        >
+          {heading}
+        </Link>
+        <div className='name-time'>
+          <div className='name'>
+            <span>Written By :</span>
+            <span> {!author ? 'inam' : author}</span>
+          </div>
+          <div className='time'>
+            <span>Posted On :</span>{' '}
+            <span>
+              {createdAt.length > 0
+                ? formatDate(createdAt)
+                : formatDate(new Date())}
+            </span>
+          </div>
+        </div>
         <span className='description'>{description}</span>
       </div>
       <div className='image-container'>
@@ -40,20 +63,6 @@ const BlogDesign = ({ blogs }) => {
         ></Image>
       </div>
       <div className='body-container'>
-        <div className='name-time'>
-          <div className='name'>
-            <span>Written By :</span>
-            <span> {!author ? 'inam' : author}</span>
-          </div>
-          <div className='time'>
-            <span>Posted On :</span>{' '}
-            <span>
-              {createdAt.length > 0
-                ? formatDate(createdAt)
-                : formatDate(new Date())}
-            </span>
-          </div>
-        </div>
         <div className='body-heading-description'>
           <div className='body-heading'>{blogHeading}</div>
           <div
@@ -69,35 +78,33 @@ const BlogDesign = ({ blogs }) => {
 const Wrapper = styled.div`
   /* max-width: 600px; */
   .title-description {
-    span {
+    /* span {
       display: block;
-    }
+    } */
     .title {
       text-align: start;
+      padding: 1rem 0;
       font-size: 2rem;
       font-weight: 650;
       text-transform: capitalize;
-      border-bottom: 2px solid var(--grey-4);
+      border-bottom: 2px solid var(--primary-4);
       width: fit-content;
+      :hover {
+        cursor: pointer;
+        color: var(--primary-5);
+      }
     }
     .description {
+      display: block;
+      font-size: 1.3rem;
+      font-weight: 700;
       :first-letter {
         text-transform: capitalize;
       }
     }
   }
-  /* image */
-  .image-container {
-    /* display: grid;
-    place-items: center; */
-    img {
-      width: 100%;
-      height: auto;
-      padding: 1rem 0;
-    }
-  }
-  /* body */
   .name-time {
+    margin: 2rem 0;
     .name {
       span:nth-child(2) {
         text-transform: uppercase;
@@ -115,9 +122,21 @@ const Wrapper = styled.div`
       }
     }
   }
+  /* image */
+  .image-container {
+    /* display: grid;
+    place-items: center; */
+    img {
+      width: 100%;
+      height: auto;
+      padding: 1rem 0;
+    }
+  }
+  /* body */
+
   .body-heading {
-    font-size: 1.8rem;
-    font-weight: 650;
+    font-size: 1.5rem;
+    font-weight: 600;
     text-transform: capitalize;
     border-bottom: 2px solid var(--grey-4);
     width: fit-content;
