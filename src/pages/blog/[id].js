@@ -15,6 +15,19 @@ const SingleBlog = ({ data }) => {
       <Head>
         <title>{data?.heading}</title>
         <meta name='description' content={data?.description} />
+        <meta name='og:site_name' content={websiteContent.seo.websiteName} />
+        <meta name='og:title' content={data?.heading} />
+        <meta
+          name='og:url'
+          content={`${websiteContent.seo.websiteName}/blog/${data?.heading
+            .split(' ')
+            .join('-')
+            .toLowerCase()}`}
+        />
+        <meta name='og:image' content={data?.image[0]?.secure_url} />
+        <meta property='og:type' content='website' />
+        <meta property='og:locale' content='en_CA' />
+
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${data?.heading
