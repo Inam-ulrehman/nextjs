@@ -8,8 +8,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-const imageUrl =
-  'https://res.cloudinary.com/inam6530/image/upload/v1679775120/Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y.png'
+
 const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
 const Blogs = ({ data }) => {
   return (

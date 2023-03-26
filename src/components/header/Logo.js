@@ -1,6 +1,7 @@
 import { toggleDashboardSidebar } from '@/features/global/globalSlice'
 import { Icons } from '@/styles/Icons'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
+
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useDispatch } from 'react-redux'
@@ -14,7 +15,7 @@ export const Logo = () => {
 
   return (
     <Wrapper>
-      <Image width={40} height={40} src={imagesData.logo} alt='logo' priority />
+      <CldImage width={40} height={40} src={imagesData.logo} alt='logo' />
       <div className='logo-text'>
         <span>INAM</span>
         <span>WEB SOLUTIONS</span>
@@ -34,12 +35,11 @@ export const Logo = () => {
 export const FooterLogo = () => {
   return (
     <Wrapper white>
-      <Image
+      <CldImage
         width={40}
         height={40}
         src={imagesData.whiteFooterLogo}
         alt='logo'
-        priority
       />
       <div className='logo-text'>
         <span>INAM</span>

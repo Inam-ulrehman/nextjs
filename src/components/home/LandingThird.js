@@ -1,12 +1,12 @@
 import { Button } from '@/styles/Wrappers/Buttons'
 import { LandingWrapper } from '@/styles/Wrappers/LandingWrapper'
+import { CldImage } from 'next-cloudinary'
 import Image from 'next/image'
 import Link from 'next/link'
 import React from 'react'
 import { useSelector } from 'react-redux'
 import styled from 'styled-components'
-const url =
-  'https://res.cloudinary.com/inam6530/image/upload/v1678538864/Inamwebsolutions-nextjs/11_pz70pn.png'
+const src = 'Inamwebsolutions-nextjs/11_pz70pn'
 
 const LandingThird = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
@@ -26,13 +26,12 @@ const LandingThird = () => {
           before we start the design process.
         </p>
         <div className='mobile-image'>
-          <Image
-            src={url}
+          <CldImage
+            src={src}
             width={400}
             height={400}
             alt='Home page image'
-            priority
-          ></Image>
+          ></CldImage>
         </div>
         <Link href='/portfolios'>
           <Button shadow outlined>
@@ -41,7 +40,12 @@ const LandingThird = () => {
         </Link>
       </div>
       <div className='image-box box'>
-        <Image src={url} width={400} height={400} alt='Home page image'></Image>
+        <CldImage
+          src={src}
+          width={400}
+          height={400}
+          alt='Home page image'
+        ></CldImage>
       </div>
     </LandingWrapper>
   )
