@@ -60,7 +60,7 @@ export default Blogs
 
 export async function getStaticProps() {
   await dbConnect()
-  const data = await Blog.find()
+  const data = await Blog.find().sort('-createdAt')
 
   return JSON.parse(JSON.stringify({ props: { data } }))
 }
