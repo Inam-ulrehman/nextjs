@@ -10,6 +10,7 @@ import React from 'react'
 import styled from 'styled-components'
 const imageUrl =
   'https://res.cloudinary.com/inam6530/image/upload/v1679775120/Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y.png'
+const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
 const Blogs = ({ data }) => {
   return (
     <>
@@ -32,13 +33,12 @@ const Blogs = ({ data }) => {
               </h2>
             </div>
             <div className='heading-image'>
-              <Image
-                src={imageUrl}
+              <CldImage
+                src={src}
                 width={400}
                 height={400}
                 alt={'blog'}
-                loading={'lazy'}
-              ></Image>
+              ></CldImage>
             </div>
           </div>
 
