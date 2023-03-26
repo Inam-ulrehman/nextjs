@@ -119,7 +119,7 @@ const List = () => {
             <th className='mobile-hide'>Email</th>
             <th className='mobile-hide'>Mobile</th>
             <th className='mobile-hide'>Subject</th>
-            <th className='time'>Time</th>
+            <th className=''>Time</th>
             <th className='action'>Action</th>
           </tr>
         </thead>
@@ -172,16 +172,16 @@ const List = () => {
 
 const Wrapper = styled.div`
   table {
-    text-align: center;
   }
   .delete-all-button {
     height: 10px;
   }
   .time {
-    max-width: 7rem;
   }
   .action {
-    max-width: 4rem;
+    display: flex;
+    justify-content: center;
+    border: none;
   }
   .btn-a {
     margin-right: 5px;

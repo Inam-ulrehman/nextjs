@@ -181,10 +181,11 @@ const Wrapper = styled.div`
     height: 10px;
   }
   .time {
-    max-width: 7rem;
   }
   .action {
-    max-width: 4rem;
+    display: flex;
+    justify-content: center;
+    border: none;
   }
   .btn-a {
     margin-right: 5px;

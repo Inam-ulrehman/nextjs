@@ -23,7 +23,8 @@ export default async function handler(req, res) {
         author,
         createdBy: userId,
       })
-      const result = await axios.post(process.env.VERCEL_DEPLOY_HOOK)
+      // VERCEL BUILD HOOK
+      await axios.post(process.env.VERCEL_DEPLOY_HOOK)
       return res
         .status(StatusCodes.CREATED)
         .json({ msg: 'Blog is created', result: blog })
