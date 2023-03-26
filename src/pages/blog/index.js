@@ -103,8 +103,24 @@ const Wrapper = styled.div`
   .blog-body {
     padding: 3rem;
   }
+
   /* desktop only */
   @media (min-width: 768px) {
+    /* blog inside class */
+    .title-description {
+      .header {
+        display: grid;
+
+        height: 120px;
+        align-items: center;
+      }
+      a:first-child {
+        display: block;
+        border-bottom: none;
+      }
+    }
+
+    /* body */
     .blog-body {
       display: grid;
       grid-template-columns: 1fr 1fr;

@@ -27,9 +27,11 @@ const BlogDesign = ({ blogs, readMore }) => {
   return (
     <Wrapper>
       <div className='title-description'>
-        <Link href={`/blog/[id]`} as={`/blog/${path}`} className='title'>
-          {heading}
-        </Link>
+        <div className='header'>
+          <Link href={`/blog/[id]`} as={`/blog/${path}`} className='title'>
+            {heading}
+          </Link>
+        </div>
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
@@ -120,7 +122,7 @@ const Wrapper = styled.div`
     }
   }
   .name-time {
-    margin: 2rem 0;
+    margin-top: 1rem;
     .name {
       span:nth-child(2) {
         text-transform: uppercase;
