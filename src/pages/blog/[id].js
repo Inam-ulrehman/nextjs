@@ -5,7 +5,7 @@ import { servicesData, websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
 import Head from 'next/head'
 import Image from 'next/image'
-import Link from 'next/link'
+
 import React from 'react'
 import styled from 'styled-components'
 
@@ -25,6 +25,8 @@ const SingleBlog = ({ data }) => {
             .toLowerCase()}`}
         />
         <meta name='og:image' content={data?.image[0]?.secure_url} />
+        <meta name='og:image:width' content={2400} />
+        <meta name='og:image:height' content={1200} />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en_CA' />
 
