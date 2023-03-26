@@ -39,6 +39,7 @@ const Profile = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const cookies = Cookies.get('token')
+
     try {
       const response = await customFetch.patch('/auth/users', state, {
         headers: {

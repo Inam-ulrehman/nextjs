@@ -4,7 +4,7 @@ import Users from '@/models/User'
 import { StatusCodes } from 'http-status-codes'
 import bcrypt from 'bcryptjs'
 export default async function handler(req, res) {
-  dbConnect()
+  await dbConnect()
   const { method, body, query, headers } = req
   const { userid, name } = headers
   // ===========Get a User=========
@@ -13,6 +13,7 @@ export default async function handler(req, res) {
       { _id: userid },
       '-password -uuid -role -notes -forgotPasswordId'
     )
+
     if (!user) {
       return res.status(StatusCodes.NOT_FOUND).json({ msg: 'No user found.' })
     }
