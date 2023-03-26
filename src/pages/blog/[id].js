@@ -17,7 +17,10 @@ const SingleBlog = ({ data }) => {
         <meta name='description' content={data?.description} />
         <link
           rel='canonical'
-          href={`${websiteContent.seo.websiteName}/blog/${data?.heading}`}
+          href={`${websiteContent.seo.websiteName}/blog/${data?.heading
+            .split(' ')
+            .join('-')
+            .toLowerCase()}`}
         />
       </Head>
 
