@@ -25,6 +25,7 @@ import {
 import { SiSpeedtest, SiAzuredevops, SiJirasoftware } from 'react-icons/si'
 import { FiEdit } from 'react-icons/fi'
 import { ImBlogger2 } from 'react-icons/im'
+import { FaExternalLinkAlt } from 'react-icons/fa'
 
 export const Icons = {
   dropDown: <RiArrowDropDownLine size={30}></RiArrowDropDownLine>,
@@ -47,4 +48,5 @@ export const Icons = {
   contact: <MdOutlineContactMail></MdOutlineContactMail>,
   profile: <MdOutlineContacts></MdOutlineContacts>,
   blog: <ImBlogger2></ImBlogger2>,
+  link: <FaExternalLinkAlt></FaExternalLinkAlt>,
 }

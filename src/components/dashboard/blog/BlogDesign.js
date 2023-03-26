@@ -1,3 +1,4 @@
+import { Icons } from '@/styles/Icons'
 import { formatDate } from '@/utils/helper'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -8,7 +9,7 @@ const defaultImage =
 const initialState = {
   images: [],
 }
-const BlogDesign = ({ blogs }) => {
+const BlogDesign = ({ blogs, readMore }) => {
   const [state, setState] = useState(initialState)
   const {
     image,
@@ -26,12 +27,7 @@ const BlogDesign = ({ blogs }) => {
   return (
     <Wrapper>
       <div className='title-description'>
-        <Link
-          href={`/blog/[_id]`}
-          as={`/blog/${path}`}
-          passHref
-          className='title'
-        >
+        <Link href={`/blog/[id]`} as={`/blog/${path}`} className='title'>
           {heading}
         </Link>
         <div className='name-time'>
@@ -48,29 +44,40 @@ const BlogDesign = ({ blogs }) => {
             </span>
           </div>
         </div>
-        <span className='description'>{description}</span>
-      </div>
-      <div className='image-container'>
-        <Image
-          width={600}
-          height={340}
-          alt={heading}
-          src={
-            state.images.length === 0
-              ? defaultImage
-              : state.images[0]?.secure_url
-          }
-        ></Image>
-      </div>
-      <div className='body-container'>
-        <div className='body-heading-description'>
-          <div className='body-heading'>{blogHeading}</div>
-          <div
-            className='description'
-            dangerouslySetInnerHTML={{ __html: blogDescription }}
-          />
+        <div className='image-container'>
+          <Image
+            width={600}
+            height={340}
+            alt={heading}
+            src={
+              state.images.length === 0
+                ? defaultImage
+                : state.images[0]?.secure_url
+            }
+          ></Image>
         </div>
+        <span className='description'>
+          {description}{' '}
+          {readMore && (
+            <Link href={`/blog/[id]`} as={`/blog/${path}`}>
+              <span>Read More</span>
+              {Icons.link}
+            </Link>
+          )}
+        </span>
       </div>
+      {/* =========Body container====== */}
+      {!readMore && (
+        <div className='body-container'>
+          <div className='body-heading-description'>
+            <div className='body-heading'>{blogHeading}</div>
+            <div
+              className='description'
+              dangerouslySetInnerHTML={{ __html: blogDescription }}
+            />
+          </div>
+        </div>
+      )}
     </Wrapper>
   )
 }
@@ -96,10 +103,19 @@ const Wrapper = styled.div`
     }
     .description {
       display: block;
-      font-size: 1.3rem;
-      font-weight: 700;
+      font-size: 1.1rem;
+      font-weight: 500;
       :first-letter {
         text-transform: capitalize;
+      }
+      a {
+        color: var(--primary-4);
+        span {
+          margin: 0 0.5rem;
+        }
+        :hover {
+          color: var(--primary-6);
+        }
       }
     }
   }
