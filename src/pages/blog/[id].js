@@ -1,7 +1,7 @@
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
-import { servicesData, websiteContent } from '@/utils/data'
+import { websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -15,6 +15,7 @@ const SingleBlog = ({ data }) => {
       <Head>
         <title>{data?.heading}</title>
         <meta name='description' content={data?.description} />
+        {/* facebook */}
         <meta name='og:site_name' content={websiteContent.seo.websiteName} />
         <meta name='og:title' content={data?.heading} />
         <meta
@@ -26,9 +27,22 @@ const SingleBlog = ({ data }) => {
         />
         <meta name='og:image' content={data?.image[0]?.secure_url} />
         <meta name='og:image:width' content={2400} />
-        <meta name='og:image:height' content={1200} />
+        <meta name='og:image' content={1200} />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en_CA' />
+        {/* Twitter */}
+        <meta name='twitter:card' content='summary_large_image' />
+        <meta property='twitter:domain' content='inamwebsolutions.com' />
+        <meta
+          property='twitter:url'
+          content={`${websiteContent.seo.websiteName}/blog/${data?.heading
+            .split(' ')
+            .join('-')
+            .toLowerCase()}`}
+        />
+        <meta name='twitter:title' content={data?.heading} />
+        <meta name='twitter:description' content={data?.description} />
+        <meta name='twitter:image' content={data?.image[0]?.secure_url}></meta>
 
         <link
           rel='canonical'
