@@ -3,87 +3,71 @@ import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
 import { websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
+import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
-
 import React from 'react'
 import styled from 'styled-components'
 
 const SingleBlog = ({ data }) => {
+  if (!data) {
+    return <></>
+  }
+  const {
+    heading,
+    description,
+    image,
+    author,
+    createdAt,
+    blogHeading,
+    blogDescription,
+  } = data
   return (
     <>
       <Head>
-        <title>{data?.heading}</title>
-        <meta name='description' content={data?.description} />
-        {/* facebook */}
-        <meta name='og:site_name' content={websiteContent.seo.websiteName} />
-        <meta name='og:title' content={data?.heading} />
-        <meta
-          name='og:url'
-          content={`${websiteContent.seo.websiteName}/blog/${data?.heading
-            .split(' ')
-            .join('-')
-            .toLowerCase()}`}
-        />
-        <meta name='og:image' content={data?.image[0]?.secure_url} />
-        <meta name='og:image:width' content={2400} />
-        <meta name='og:image' content={1200} />
-        <meta property='og:type' content='website' />
-        <meta property='og:locale' content='en_CA' />
-        {/* Twitter */}
-        <meta name='twitter:card' content='summary_large_image' />
-        <meta property='twitter:domain' content='inamwebsolutions.com' />
-        <meta
-          property='twitter:url'
-          content={`${websiteContent.seo.websiteName}/blog/${data?.heading
-            .split(' ')
-            .join('-')
-            .toLowerCase()}`}
-        />
-        <meta name='twitter:title' content={data?.heading} />
-        <meta name='twitter:description' content={data?.description} />
-        <meta name='twitter:image' content={data?.image[0]?.secure_url}></meta>
-
-        <link
-          rel='canonical'
-          href={`${websiteContent.seo.websiteName}/blog/${data?.heading
-            .split(' ')
-            .join('-')
-            .toLowerCase()}`}
-        />
+        <title>{data.heading}</title>
+        <meta name='description' content={data.description} />
       </Head>
+
+      <CldOgImage
+        width={2400}
+        height={1200}
+        alt={data.heading}
+        src={data.image[0].secure_url}
+        twitterTitle={data.heading}
+      ></CldOgImage>
 
       <Wrapper>
         <div className='blog-container'>
           <div className='bog-design'>
             <div className='title-description'>
-              <div className='title'>{data?.heading}</div>
+              <div className='title'>{heading}</div>
               <div className='name-time'>
                 <div className='name'>
                   <span>Written By :</span>
-                  <span> {data?.author}</span>
+                  <span> {author}</span>
                 </div>
                 <div className='time'>
                   <span>Posted On :</span>
-                  <span>{formatDate(data?.createdAt)}</span>
+                  <span>{formatDate(createdAt)}</span>
                 </div>
               </div>
-              <span className='description'>{data?.description}</span>
+              <span className='description'>{description}</span>
             </div>
             <div className='image-container'>
-              <Image
+              <CldImage
                 width={600}
                 height={340}
-                alt={data?.heading}
-                src={data?.image[0]?.secure_url}
-              ></Image>
+                alt={heading}
+                src={image[0]?.public_id}
+              ></CldImage>
             </div>
             <div className='body-container'>
               <div className='body-heading-description'>
-                <div className='body-heading'>{data?.blogHeading}</div>
+                <div className='body-heading'>{blogHeading}</div>
                 <div
                   className='description'
-                  dangerouslySetInnerHTML={{ __html: data?.blogDescription }}
+                  dangerouslySetInnerHTML={{ __html: blogDescription }}
                 />
               </div>
             </div>
