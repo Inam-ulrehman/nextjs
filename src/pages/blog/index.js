@@ -102,8 +102,16 @@ const Wrapper = styled.div`
   /* body */
   .blog-body {
     padding: 3rem;
-    max-width: 70vw;
   }
+  /* desktop only */
+  @media (min-width: 768px) {
+    .blog-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+  }
+
   /* mobile only */
   @media (max-width: 768px) {
     .heading-container {
