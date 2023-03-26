@@ -107,13 +107,8 @@ const Wrapper = styled.div`
   @media (min-width: 768px) {
     /* blog inside class */
     .title-description {
-      .header {
-        display: grid;
-
+      .description-title {
         height: 120px;
-        align-items: center;
-      }
-      a:first-child {
         display: block;
         border-bottom: none;
       }

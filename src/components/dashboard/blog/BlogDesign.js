@@ -27,11 +27,13 @@ const BlogDesign = ({ blogs, readMore }) => {
   return (
     <Wrapper>
       <div className='title-description'>
-        <div className='header'>
-          <Link href={`/blog/[id]`} as={`/blog/${path}`} className='title'>
-            {heading}
-          </Link>
-        </div>
+        <Link
+          href={`/blog/[id]`}
+          as={`/blog/${path}`}
+          className='title description-title'
+        >
+          {heading}
+        </Link>
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
