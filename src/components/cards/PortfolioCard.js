@@ -1,5 +1,5 @@
 import { portfoliosData } from '@/utils/data'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import React from 'react'
 import styled from 'styled-components'
@@ -8,17 +8,15 @@ const PortfolioCard = () => {
   return (
     <Wrapper>
       {portfoliosData.map((item, index) => {
+        const first = item.image.split('/')[7]
+        const second = item.image.split('/')[8].split('.')[0]
+        const src = `${first}/${second}`
+
         return (
           <Link href={item.path} target='_blank' key={index} passHref>
             <div className='container'>
               <div className='title'>{item.title}</div>
-              <Image
-                src={item.image}
-                width={400}
-                height={400}
-                alt={item.title}
-                priority
-              />
+              <CldImage src={src} width={400} height={400} alt={item.title} />
             </div>
           </Link>
         )

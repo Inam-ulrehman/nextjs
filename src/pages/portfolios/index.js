@@ -2,8 +2,8 @@ import Head from 'next/head'
 import React from 'react'
 import styled from 'styled-components'
 import { websiteContent } from '@/utils/data'
-import Image from 'next/image'
 import PortfolioCard from '@/components/cards/PortfolioCard'
+import { CldImage } from 'next-cloudinary'
 const { title, subtitle, description, image } = websiteContent.portfolios
 const Portfolios = () => {
   return (
@@ -24,7 +24,12 @@ const Portfolios = () => {
               <h2>{subtitle}</h2>
             </div>
             <div className='heading-image'>
-              <Image src={image} width={400} height={400} alt={title}></Image>
+              <CldImage
+                src={image}
+                width={400}
+                height={400}
+                alt={title}
+              ></CldImage>
             </div>
           </div>
           <p className='description'>{description}</p>

@@ -1,11 +1,16 @@
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
+import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
 
 const SingleService = ({ data }) => {
+  const first = data?.image.split('/')[7]
+  const second = data?.image.split('/')[8].split('.')[0]
+  const src = `${first}/${second}`
+
   return (
     <>
       <Head>
@@ -23,13 +28,7 @@ const SingleService = ({ data }) => {
             <p>{data?.description}</p>
           </div>
           <div className='header-image'>
-            <Image
-              src={data?.image}
-              width={400}
-              height={400}
-              alt={data?.title}
-              priority
-            />
+            <CldImage src={src} width={400} height={400} alt={data?.title} />
           </div>
         </div>
         <div className='body'>

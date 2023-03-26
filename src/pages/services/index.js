@@ -1,15 +1,16 @@
 import ProductCard from '@/components/cards/ProductCard'
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
+import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
-import Image from 'next/image'
-
 import React from 'react'
 import styled from 'styled-components'
 
 const Services = ({ data }) => {
   const { title, subtitle, description, image } = websiteContent.services
-
+  const first = image.split('/')[7]
+  const second = image.split('/')[8].split('.')[0]
+  const src = `${first}/${second}`
   return (
     <>
       <Head>
@@ -28,7 +29,12 @@ const Services = ({ data }) => {
               <h2>{subtitle}</h2>
             </div>
             <div className='heading-image'>
-              <Image src={image} width={400} height={400} alt={title}></Image>
+              <CldImage
+                src={src}
+                width={400}
+                height={400}
+                alt={title}
+              ></CldImage>
             </div>
           </div>
           <p className='description'>{description}</p>
