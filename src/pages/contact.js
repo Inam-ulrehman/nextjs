@@ -2,6 +2,7 @@ import FormInput from '@/components/FormInput'
 import { Button } from '@/styles/Wrappers/Buttons'
 import { customFetch } from '@/utils/axios'
 import { imagesData, websiteContent } from '@/utils/data'
+import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
 import React, { useState } from 'react'
@@ -69,12 +70,11 @@ const Contact = () => {
 
       <Wrapper className='section'>
         <div className='contact-image'>
-          <Image
+          <CldImage
             src={imagesData.contact}
             width={400}
             height={400}
             alt='contact us'
-            priority
           />
         </div>
         <div className='form'>

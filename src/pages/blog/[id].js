@@ -3,6 +3,7 @@ import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
+import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -15,19 +16,6 @@ const SingleBlog = ({ data }) => {
       <Head>
         <title>{data?.heading}</title>
         <meta name='description' content={data?.description} />
-        <meta name='og:site_name' content={websiteContent.seo.websiteName} />
-        <meta name='og:title' content={data?.heading} />
-        <meta
-          name='og:url'
-          content={`${websiteContent.seo.websiteName}/blog/${data?.heading
-            .split(' ')
-            .join('-')
-            .toLowerCase()}`}
-        />
-        <meta name='og:image' content={data?.image[0]?.secure_url} />
-        <meta property='og:type' content='website' />
-        <meta property='og:locale' content='en_CA' />
-
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${data?.heading
@@ -36,7 +24,13 @@ const SingleBlog = ({ data }) => {
             .toLowerCase()}`}
         />
       </Head>
-
+      <CldOgImage
+        width={2400}
+        height={1200}
+        crop='fill'
+        alt={data?.heading}
+        src={data?.image[0]?.public_id}
+      ></CldOgImage>
       <Wrapper>
         <div className='blog-container'>
           <div className='bog-design'>
@@ -55,12 +49,12 @@ const SingleBlog = ({ data }) => {
               <span className='description'>{data?.description}</span>
             </div>
             <div className='image-container'>
-              <Image
+              <CldImage
                 width={600}
                 height={340}
                 alt={data?.heading}
-                src={data?.image[0]?.secure_url}
-              ></Image>
+                src={data?.image[0]?.public_id}
+              ></CldImage>
             </div>
             <div className='body-container'>
               <div className='body-heading-description'>

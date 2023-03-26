@@ -1,11 +1,10 @@
 import { Icons } from '@/styles/Icons'
 import { formatDate } from '@/utils/helper'
-import Image from 'next/image'
+import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-const defaultImage =
-  'https://res.cloudinary.com/inam6530/image/upload/v1679415017/Inamwebsolutions-nextjs/website_blogs_zlhiwz.svg'
+const defaultImage = 'Inamwebsolutions-nextjs/website_blogs_zlhiwz'
 const initialState = {
   images: [],
 }
@@ -20,6 +19,7 @@ const BlogDesign = ({ blogs, readMore }) => {
     author,
     createdAt,
   } = blogs
+
   const path = heading.split(' ').join('-').toLowerCase()
   useEffect(() => {
     setState({ ...state, images: image })
@@ -49,16 +49,16 @@ const BlogDesign = ({ blogs, readMore }) => {
           </div>
         </div>
         <div className='image-container'>
-          <Image
+          <CldImage
             width={600}
             height={340}
             alt={heading}
             src={
               state.images.length === 0
                 ? defaultImage
-                : state.images[0]?.secure_url
+                : state.images[0]?.public_id
             }
-          ></Image>
+          ></CldImage>
         </div>
         <span className='description'>
           {description}{' '}
