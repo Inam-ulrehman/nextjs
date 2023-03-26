@@ -1,11 +1,10 @@
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
-import { websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
 import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
-import Image from 'next/image'
+
 import React from 'react'
 import styled from 'styled-components'
 
@@ -56,8 +55,8 @@ const SingleBlog = ({ data }) => {
             </div>
             <div className='image-container'>
               <CldImage
-                width={600}
-                height={340}
+                width={1200}
+                height={628}
                 alt={heading}
                 src={image[0]?.public_id}
               ></CldImage>
