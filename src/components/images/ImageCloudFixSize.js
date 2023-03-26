@@ -1,5 +1,5 @@
 import { Cloudinary } from '@cloudinary/url-gen'
-import { AdvancedImage } from '@cloudinary/react'
+import { AdvancedImage, lazyload, placeholder } from '@cloudinary/react'
 import { fill } from '@cloudinary/url-gen/actions/resize'
 
 const ImageCloudFixSize = ({ width, height, src }) => {
@@ -13,7 +13,10 @@ const ImageCloudFixSize = ({ width, height, src }) => {
 
   return (
     <div>
-      <AdvancedImage cldImg={myImage} />
+      <AdvancedImage
+        cldImg={myImage}
+        // plugins={[lazyload(), placeholder({ mode: 'predominant-color' })]}
+      />
     </div>
   )
 }

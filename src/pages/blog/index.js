@@ -1,12 +1,15 @@
 import { BlogDesign } from '@/components/dashboard/blog'
-import ImageCloud from '@/components/images/ImageCloud'
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
+import { Icons } from '@/styles/Icons'
 import { websiteContent } from '@/utils/data'
+import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
+import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
-
+const imageUrl =
+  'https://res.cloudinary.com/inam6530/image/upload/v1679775120/Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y.png'
 const Blogs = ({ data }) => {
   return (
     <>
@@ -29,11 +32,13 @@ const Blogs = ({ data }) => {
               </h2>
             </div>
             <div className='heading-image'>
-              <ImageCloud
+              <Image
+                src={imageUrl}
                 width={400}
                 height={400}
-                src='Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
-              />
+                alt={'blog'}
+                loading={'lazy'}
+              ></Image>
             </div>
           </div>
 
