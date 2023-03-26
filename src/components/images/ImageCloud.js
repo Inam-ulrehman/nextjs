@@ -27,6 +27,7 @@ const ImageCloud = ({ width, height, src }) => {
         ...state,
         localWidth: windowWidth - 40,
         localHeight: windowWidth - 40,
+        localSrc: src,
       })
     }
 
