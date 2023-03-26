@@ -42,7 +42,6 @@ const Blogs = ({ data }) => {
 
           <div className='blog-body'>
             {data.map((item) => {
-              console.log(item)
               return (
                 <div className='blog-holder' key={item._id}>
                   <BlogDesign blogs={item} readMore={true} />
