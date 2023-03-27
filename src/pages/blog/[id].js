@@ -130,7 +130,6 @@ export async function getStaticProps({ params }) {
 
 const Wrapper = styled.div`
   .blog-container {
-    padding-top: 3rem;
     width: 90vw;
     margin: 0 auto;
     p {
@@ -140,9 +139,6 @@ const Wrapper = styled.div`
   .bog-design {
     /* max-width: 600px; */
     .title-description {
-      /* span {
-      display: block;
-    } */
       .title {
         text-align: start;
         padding: 1rem 0;
@@ -155,6 +151,7 @@ const Wrapper = styled.div`
           cursor: pointer;
           color: var(--primary-5);
         }
+        margin-left: 0;
       }
       .description {
         display: block;
