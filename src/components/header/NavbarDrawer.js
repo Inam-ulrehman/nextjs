@@ -114,6 +114,7 @@ const Wrapper = styled.div`
     padding: 2rem;
     li {
       width: fit-content;
+      padding: 8px;
     }
   }
 
