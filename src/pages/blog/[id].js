@@ -77,7 +77,9 @@ const SingleBlog = ({ data }) => {
                 </div>
                 <div className='time'>
                   <span>Posted On :</span>
-                  <span>{formatDate(createdAt)}</span>
+                  <span>
+                    <time datetime={createdAt}>{formatDate(createdAt)}</time>
+                  </span>
                 </div>
               </div>
               <span className='description'>{description}</span>
