@@ -2,7 +2,7 @@ import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
 import { websiteContent } from '@/utils/data'
-import { formatDate } from '@/utils/helper'
+import { formatDate, titleCase } from '@/utils/helper'
 import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
 
@@ -31,12 +31,12 @@ const SingleBlog = ({ data }) => {
   return (
     <>
       <Head>
-        <title>{heading}</title>
-        <meta name='description' content={description} />
-        <meta name='og:description' content={description} />
+        <title>{titleCase(heading)}</title>
+        <meta name='description' content={titleCase(description)} />
+        <meta name='og:description' content={titleCase(description)} />
         <meta property='og:type' content='article'></meta>
         <meta name='author' content={author}></meta>
-        <meta name='og:title' content={heading} />
+        <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
         <meta
           name='article-published_time'
@@ -57,7 +57,7 @@ const SingleBlog = ({ data }) => {
         height={1200}
         alt={heading}
         src={image[0].secure_url}
-        twitterTitle={heading}
+        twitterTitle={titleCase(heading)}
       ></CldOgImage>
 
       <Wrapper>
