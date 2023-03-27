@@ -127,7 +127,7 @@ const List = () => {
           {list.map((item) => {
             return (
               <tr key={item._id}>
-                <td>
+                <td className='delete-button'>
                   <input
                     type='checkbox'
                     checked={
@@ -175,6 +175,9 @@ const Wrapper = styled.div`
   }
   .delete-all-button {
     height: 10px;
+  }
+  .delete-button {
+    text-align: center;
   }
   .time {
   }
