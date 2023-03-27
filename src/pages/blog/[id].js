@@ -186,6 +186,7 @@ const Wrapper = styled.div`
     }
     /* image */
     .image-container {
+      max-width: var(--max-width);
       /* display: grid;
     place-items: center; */
       img {
