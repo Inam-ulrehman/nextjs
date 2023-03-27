@@ -3,7 +3,6 @@ import { servicesData, websiteContent } from '@/utils/data'
 import { cloudinarySrc, titleCase } from '@/utils/helper'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
-import Image from 'next/image'
 import React from 'react'
 import styled from 'styled-components'
 
@@ -34,7 +33,7 @@ const SingleService = ({ data }) => {
             <p>{description}</p>
           </div>
           <div className='header-image'>
-            <CldImage src={src} width={400} height={400} alt={title} />
+            <CldImage src={src} width={720} height={720} alt={title} />
           </div>
         </div>
         <div className='body'>
@@ -95,8 +94,12 @@ const Wrapper = styled.div`
         rgba(241, 243, 245, 1) 0%,
         var(--primary-8) 100%
       );
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
-    @media (max-width: 620px) {
+    @media (max-width: 768px) {
       grid-template-columns: 1fr;
       .header-titles {
         margin-left: 0rem;

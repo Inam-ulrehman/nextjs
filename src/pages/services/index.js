@@ -117,7 +117,7 @@ const Wrapper = styled.div`
     }
   }
 
-  @media (max-width: 620px) {
+  @media (max-width: 768px) {
     .heading-container {
       display: grid;
       grid-template-columns: 1fr;
