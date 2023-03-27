@@ -22,6 +22,7 @@ const SingleBlog = ({ data }) => {
     blogHeading,
     blogDescription,
   } = data
+  // console.log(typeof createdAt)
   return (
     <>
       <Head>
@@ -32,8 +33,13 @@ const SingleBlog = ({ data }) => {
         <meta
           name='publish_date'
           property='og:publish_date'
-          content={createdAt}
+          content='2019-10-21T00:00:00-0600'
         ></meta>
+        {/* <meta
+          name='publish_date'
+          property='og:publish_date'
+          content={createdAt}
+        ></meta> */}
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${heading
