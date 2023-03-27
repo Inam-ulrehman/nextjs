@@ -18,7 +18,6 @@ export const LandingWrapper = styled.div`
       var(--primary-8) 100%
     );
     img {
-      margin: 0 auto;
       width: 100%;
       height: 100%;
     }
