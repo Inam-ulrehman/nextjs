@@ -1,6 +1,7 @@
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
+import { websiteContent } from '@/utils/data'
 import { formatDate } from '@/utils/helper'
 import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
@@ -24,16 +25,23 @@ const SingleBlog = ({ data }) => {
   return (
     <>
       <Head>
-        <title>{data.heading}</title>
-        <meta name='description' content={data.description} />
+        <title>{heading}</title>
+        <meta name='description' content={description} />
+        <link
+          rel='canonical'
+          href={`${websiteContent.seo.websiteName}/blog/${heading
+            .split(' ')
+            .join('-')
+            .toLowerCase()}`}
+        />
       </Head>
 
       <CldOgImage
         width={2400}
         height={1200}
-        alt={data.heading}
-        src={data.image[0].secure_url}
-        twitterTitle={data.heading}
+        alt={heading}
+        src={image[0].secure_url}
+        twitterTitle={heading}
       ></CldOgImage>
 
       <Wrapper>
