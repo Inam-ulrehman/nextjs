@@ -26,8 +26,8 @@ const Portfolios = () => {
             <div className='heading-image'>
               <CldImage
                 src={image}
-                width={400}
-                height={400}
+                width={720}
+                height={720}
                 alt={title}
               ></CldImage>
             </div>
@@ -87,6 +87,10 @@ const Wrapper = styled.div`
       rgba(241, 243, 245, 1) 0%,
       var(--primary-8) 100%
     );
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
 
   @media (max-width: 620px) {
@@ -115,6 +119,10 @@ const Wrapper = styled.div`
         rgba(241, 243, 245, 1) 0%,
         var(--primary-8) 100%
       );
+      img {
+        width: 100%;
+        height: 100%;
+      }
     }
   }
 
