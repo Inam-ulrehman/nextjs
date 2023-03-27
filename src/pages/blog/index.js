@@ -133,25 +133,25 @@ const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 1fr;
     }
-  }
-  .heading-titles {
-    margin-left: 0rem;
+    .heading-titles {
+      margin-left: 0rem;
 
-    h1 {
-      font-size: 2rem;
-      text-align: center;
+      h1 {
+        font-size: 2rem;
+        text-align: center;
+      }
+      h1,
+      h2 {
+        max-width: 90vw;
+      }
     }
-    h1,
-    h2 {
-      max-width: 90vw;
+    .heading-image {
+      background: linear-gradient(
+        180deg,
+        rgba(241, 243, 245, 1) 0%,
+        var(--primary-8) 100%
+      );
     }
-  }
-  .heading-image {
-    background: linear-gradient(
-      180deg,
-      rgba(241, 243, 245, 1) 0%,
-      var(--primary-8) 100%
-    );
   }
   /* body */
   .blog-body {
