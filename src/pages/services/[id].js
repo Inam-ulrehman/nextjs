@@ -1,6 +1,6 @@
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
-import { cloudinarySrc } from '@/utils/helper'
+import { cloudinarySrc, titleCase } from '@/utils/helper'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -17,8 +17,8 @@ const SingleService = ({ data }) => {
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name='description' content={description} />
+        <title>{titleCase(title)}</title>
+        <meta name='description' content={titleCase(description)} />
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/services/${title

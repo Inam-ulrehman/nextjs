@@ -8,6 +8,7 @@ import {
 import ContactSection from '@/components/home/ContactSection'
 import { fetchPortfolios } from '@/utils/axios'
 import { websiteContent } from '@/utils/data'
+import { titleCase } from '@/utils/helper'
 import { googleBusinessSocialLinksAttach } from '@/utils/scripts'
 import Head from 'next/head'
 import Script from 'next/script'
@@ -41,18 +42,18 @@ export default function Home() {
         <meta name='googlebot' content='index,follow' />
         <meta name='google' content='nositelinkssearchbox' key='sitelinks' />
         <meta name='google' content='notranslate' key='notranslate' />
-        <title>{title}</title>
+        <title>{titleCase(title)}</title>
         <meta name='keywords' content={keywords} />
-        <meta name='description' content={description} />
+        <meta name='description' content={titleCase(description)} />
 
-        <meta name='Author' content={author} />
+        <meta name='Author' content={titleCase(author)} />
         <meta name='og:site_name' content={ogSiteName} />
-        <meta name='og:title' content={ogTitle} />
+        <meta name='og:title' content={titleCase(ogTitle)} />
         <meta name='og:url' content={ogUrl} />
         <meta name='og:image' content={ogImage} />
         <meta property='og:type' content='website' />
         <meta property='og:locale' content='en_CA' />
-        <meta name='og:description' content={description} />
+        <meta name='og:description' content={titleCase(description)} />
       </Head>
 
       <Wrapper>

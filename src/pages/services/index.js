@@ -1,6 +1,7 @@
 import ProductCard from '@/components/cards/ProductCard'
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
+import { titleCase } from '@/utils/helper'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import React from 'react'
@@ -11,11 +12,12 @@ const Services = ({ data }) => {
   const first = image.split('/')[7]
   const second = image.split('/')[8].split('.')[0]
   const src = `${first}/${second}`
+
   return (
     <>
       <Head>
-        <title>{title}</title>
-        <meta name='description' content={subtitle} />
+        <title>{titleCase(title)}</title>
+        <meta name='description' content={titleCase(subtitle)} />
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/services`}
