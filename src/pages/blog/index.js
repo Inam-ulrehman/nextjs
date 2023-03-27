@@ -34,8 +34,8 @@ const Blogs = ({ data }) => {
             <div className='heading-image'>
               <CldImage
                 src={src}
-                width={400}
-                height={400}
+                width={720}
+                height={720}
                 alt={'blog'}
               ></CldImage>
             </div>
@@ -92,12 +92,16 @@ const Wrapper = styled.div`
   .heading-image {
     display: grid;
     justify-content: center;
-    height: 100%;
+
     background: linear-gradient(
       90deg,
       rgba(241, 243, 245, 1) 0%,
       var(--primary-8) 100%
     );
+    img {
+      width: 100%;
+      height: 100%;
+    }
   }
   /* body */
   .blog-body {
@@ -129,32 +133,30 @@ const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 1fr;
     }
-    .heading {
-      h1 {
-        text-align: center;
-        font-size: x-large;
-      }
-      img {
-        width: 95vw;
-        height: auto;
-      }
-    }
-    .heading-titles {
+  }
+  .heading-titles {
+    margin-left: 0rem;
+
+    h1 {
+      font-size: 2rem;
       text-align: center;
-      margin-left: 0rem;
     }
-    .heading-image {
-      background: linear-gradient(
-        180deg,
-        rgba(241, 243, 245, 1) 0%,
-        var(--primary-8) 100%
-      );
+    h1,
+    h2 {
+      max-width: 90vw;
     }
-    /* body */
-    .blog-body {
-      padding: 1rem;
-      margin: 0 auto;
-      max-width: 100vw;
-    }
+  }
+  .heading-image {
+    background: linear-gradient(
+      180deg,
+      rgba(241, 243, 245, 1) 0%,
+      var(--primary-8) 100%
+    );
+  }
+  /* body */
+  .blog-body {
+    padding: 1rem;
+    margin: 0 auto;
+    max-width: 100vw;
   }
 `
