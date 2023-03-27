@@ -38,7 +38,7 @@ export default async function handler(req, res) {
           folder: 'inamwebsolutions-nextjs/blogs',
           // width: '720',
           // height: '720',
-          crop: 'fill',
+          // crop: 'fill',
           // background_removal: 'cloudinary_ai',
         })
         fs.unlinkSync(path)
