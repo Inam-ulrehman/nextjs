@@ -30,7 +30,7 @@ const SingleBlog = ({ data }) => {
         <title>{heading}</title>
         <meta name='description' content={description} />
         <meta name='og:description' content={description} />
-        {/* <meta property='og:type' content='article'></meta> */}
+        <meta property='og:type' content='article'></meta>
         <meta name='author' content={author}></meta>
         <meta
           name='article-published_time'
