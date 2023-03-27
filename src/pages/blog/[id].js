@@ -19,6 +19,7 @@ const SingleBlog = ({ data }) => {
     image,
     author,
     createdAt,
+    updatedAt,
     blogHeading,
     blogDescription,
   } = data
@@ -29,17 +30,24 @@ const SingleBlog = ({ data }) => {
         <title>{heading}</title>
         <meta name='description' content={description} />
         <meta name='og:description' content={description} />
+        {/* <meta property='og:type' content='article'></meta> */}
         <meta name='author' content={author}></meta>
+        <meta
+          name='article-published_time'
+          property='article:published_time'
+          content={createdAt}
+        />
+        <meta
+          name='article-modified_time'
+          property='article:modified_time'
+          content={updatedAt}
+        />
         <meta
           name='publish_date'
           property='og:publish_date'
-          content='2019-10-21T00:00:00-0600'
-        ></meta>
-        {/* <meta
-          name='publish_date'
-          property='og:publish_date'
           content={createdAt}
-        ></meta> */}
+        />
+
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${heading
