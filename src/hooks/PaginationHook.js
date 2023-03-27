@@ -55,7 +55,11 @@ const PaginationHook = ({ page, nbHits, limit, next, prev, index }) => {
           return (
             <button
               key={index}
-              className={Number(page) === index + 1 ? `btn active` : 'btn'}
+              className={
+                Number(page) === index + 1
+                  ? `btn btn-numbers active`
+                  : 'btn btn-numbers'
+              }
               type='button'
               onClick={handleIndex}
               value={item}
@@ -92,6 +96,9 @@ const Wrapper = styled.div`
   }
   .btn {
     border-radius: 0;
+  }
+  .btn-numbers {
+    margin: 0 1px;
   }
 `
 export default PaginationHook
