@@ -8,7 +8,6 @@ export const LandingWrapper = styled.div`
   .text-box {
   }
   .image-box {
-    border: 2px solid black;
     display: grid;
     height: 100%;
     justify-content: center;
