@@ -36,8 +36,8 @@ export default async function handler(req, res) {
           use_filename: true,
           unique_filename: false,
           folder: 'inamwebsolutions-nextjs/blogs',
-          width: '720',
-          height: '720',
+          // width: '720',
+          // height: '720',
           crop: 'fill',
           // background_removal: 'cloudinary_ai',
         })
