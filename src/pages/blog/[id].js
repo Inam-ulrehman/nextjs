@@ -27,6 +27,7 @@ const SingleBlog = ({ data }) => {
       <Head>
         <title>{heading}</title>
         <meta name='description' content={description} />
+        <meta name='og:description' content={description} />
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${heading
