@@ -127,6 +127,9 @@ const Wrapper = styled.div`
     }
     .blog-design {
       background-color: var(--white);
+      img {
+        max-width: 600px;
+      }
     }
   }
 `
