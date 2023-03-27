@@ -50,8 +50,8 @@ const BlogDesign = ({ blogs, readMore }) => {
         </div>
         <div className='image-container'>
           <CldImage
-            width={600}
-            height={340}
+            width={1200}
+            height={600}
             alt={heading}
             src={
               state.images.length === 0
