@@ -28,12 +28,6 @@ const SingleBlog = ({ data }) => {
         <title>{heading}</title>
         <meta name='description' content={description} />
         <meta name='og:description' content={description} />
-        <meta name='author' content={author}></meta>
-        <meta
-          name='publish_date'
-          property='og:publish_date'
-          content={createdAt}
-        ></meta>
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/blog/${heading
@@ -184,7 +178,6 @@ const Wrapper = styled.div`
       }
     }
     /* body */
-
     .body-heading {
       font-size: 1.5rem;
       font-weight: 600;
