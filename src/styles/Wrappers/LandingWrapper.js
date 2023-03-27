@@ -8,6 +8,7 @@ export const LandingWrapper = styled.div`
   .text-box {
   }
   .image-box {
+    border: 2px solid black;
     display: grid;
     height: 100%;
     justify-content: center;
@@ -17,6 +18,11 @@ export const LandingWrapper = styled.div`
       rgba(241, 243, 245, 1) 0%,
       var(--primary-8) 100%
     );
+    img {
+      margin: 0 auto;
+      width: 100%;
+      height: 100%;
+    }
   }
   @media (max-width: 820px) {
     min-height: auto;
@@ -49,8 +55,9 @@ export const LandingWrapper = styled.div`
       width: 100vw;
       overflow: hidden;
       img {
-        min-width: 95vw;
-        height: auto;
+        margin: 0 auto;
+        width: 95%;
+        height: 100%;
       }
     }
     .text-box {

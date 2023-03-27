@@ -42,8 +42,8 @@ const LandingThird = () => {
       <div className='image-box box'>
         <CldImage
           src={src}
-          width={400}
-          height={400}
+          width={720}
+          height={720}
           alt='Home page image'
         ></CldImage>
       </div>
