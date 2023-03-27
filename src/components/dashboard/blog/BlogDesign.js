@@ -64,8 +64,7 @@ const BlogDesign = ({ blogs, readMore }) => {
           {description}{' '}
           {readMore && (
             <Link href={`/blog/[id]`} as={`/blog/${path}`}>
-              <span>Read More</span>
-              {Icons.link}
+              <span>Read More {Icons.link}</span>
             </Link>
           )}
         </span>
@@ -115,6 +114,7 @@ const Wrapper = styled.div`
       a {
         color: var(--primary-4);
         span {
+          display: inline-block;
           margin: 0 0.5rem;
         }
         :hover {
