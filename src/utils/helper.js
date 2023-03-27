@@ -97,3 +97,12 @@ export const paginate = (data) => {
 // const CodeSampleModal = dynamic(() => import('../components/CodeSampleModal'), {
 //   ssr: false,
 // })
+
+// ===========Convert cloudinary image in src========
+
+export const cloudinarySrc = (image) => {
+  const first = image.split('/')[7]
+  const second = image.split('/')[8].split('.')[0]
+  const src = `${first}/${second}`
+  return src
+}

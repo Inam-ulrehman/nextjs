@@ -1,5 +1,6 @@
 import { Icons } from '@/styles/Icons'
 import { servicesData, websiteContent } from '@/utils/data'
+import { cloudinarySrc } from '@/utils/helper'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import Image from 'next/image'
@@ -7,39 +8,44 @@ import React from 'react'
 import styled from 'styled-components'
 
 const SingleService = ({ data }) => {
-  const first = data?.image.split('/')[7]
-  const second = data?.image.split('/')[8].split('.')[0]
-  const src = `${first}/${second}`
+  if (!data) {
+    return <></>
+  }
+  const { title, image, description, points } = data
+  const src = cloudinarySrc(image)
 
   return (
     <>
       <Head>
-        <title>{data?.title}</title>
-        <meta name='description' content={data?.description} />
+        <title>{title}</title>
+        <meta name='description' content={description} />
         <link
           rel='canonical'
-          href={`${websiteContent.seo.websiteName}/services/${data?.title}`}
+          href={`${websiteContent.seo.websiteName}/services/${title
+            .split(' ')
+            .join('-')
+            .toLowerCase()}`}
         />
       </Head>
       <Wrapper>
         <div className='header'>
           <div className='header-titles'>
-            <h1>{data?.title}</h1>
-            <p>{data?.description}</p>
+            <h1>{title}</h1>
+            <p>{description}</p>
           </div>
           <div className='header-image'>
-            <CldImage src={src} width={400} height={400} alt={data?.title} />
+            <CldImage src={src} width={400} height={400} alt={title} />
           </div>
         </div>
         <div className='body'>
-          {data?.points?.map((item, index) => {
+          {points.map((item, index) => {
             return (
               <div className='body-container card' key={index}>
                 <div className='body-container-header'>
                   <i>{Icons.development}</i>
-                  <p>{item?.title}</p>
+                  <p>{item.title}</p>
                 </div>
-                <p className='description'>{item?.description}</p>
+                <p className='description'>{item.description}</p>
               </div>
             )
           })}
