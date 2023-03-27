@@ -48,11 +48,6 @@ const SingleBlog = ({ data }) => {
           property='article:modified_time'
           content={updatedAt}
         />
-        <meta
-          name='publish_date'
-          property='og:publish_date'
-          content={createdAt}
-        />
 
         <link rel='canonical' href={url} />
       </Head>
