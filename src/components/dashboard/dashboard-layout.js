@@ -24,7 +24,11 @@ const Wrapper = styled.div`
     background-color: var(--grey-05);
   }
   section {
+    padding: 10px;
+    margin-top: 1rem;
+    margin-right: 1rem;
     width: 100%;
+    background-color: var(--white);
   }
   @media (max-width: 768px) {
     display: grid;
