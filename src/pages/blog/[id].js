@@ -23,7 +23,11 @@ const SingleBlog = ({ data }) => {
     blogHeading,
     blogDescription,
   } = data
-  // console.log(typeof createdAt)
+
+  const url = `${websiteContent.seo.websiteName}/blog/${heading
+    .split(' ')
+    .join('-')
+    .toLowerCase()}`
   return (
     <>
       <Head>
@@ -32,6 +36,8 @@ const SingleBlog = ({ data }) => {
         <meta name='og:description' content={description} />
         <meta property='og:type' content='article'></meta>
         <meta name='author' content={author}></meta>
+        <meta name='og:title' content={heading} />
+        <meta name='og:url' content={url} />
         <meta
           name='article-published_time'
           property='article:published_time'
@@ -48,13 +54,7 @@ const SingleBlog = ({ data }) => {
           content={createdAt}
         />
 
-        <link
-          rel='canonical'
-          href={`${websiteContent.seo.websiteName}/blog/${heading
-            .split(' ')
-            .join('-')
-            .toLowerCase()}`}
-        />
+        <link rel='canonical' href={url} />
       </Head>
 
       <CldOgImage
@@ -69,7 +69,7 @@ const SingleBlog = ({ data }) => {
         <div className='blog-container'>
           <div className='bog-design'>
             <div className='title-description'>
-              <div className='title'>{heading}</div>
+              <h1 className='title'>{heading}</h1>
               <div className='name-time'>
                 <div className='name'>
                   <span>Written By :</span>
