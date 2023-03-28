@@ -38,6 +38,7 @@ const SingleBlog = ({ data }) => {
         <meta name='author' content={author}></meta>
         <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
+        <meta property='og:locale' content='en_CA' />
         <meta
           name='article-published_time'
           property='article:published_time'
@@ -53,8 +54,8 @@ const SingleBlog = ({ data }) => {
       </Head>
 
       <CldOgImage
-        width={2400}
-        height={1200}
+        width={1200}
+        height={628}
         alt={heading}
         src={image[0].secure_url}
         twitterTitle={titleCase(heading)}
