@@ -2,7 +2,7 @@ import dbConnect from '@/lib/dbConnect'
 import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Blogs from '@/models/Blog'
 import User from '@/models/User'
-import axios from 'axios'
+
 import { StatusCodes } from 'http-status-codes'
 
 export default async function handler(req, res) {
@@ -23,8 +23,7 @@ export default async function handler(req, res) {
         author,
         createdBy: userId,
       })
-      // VERCEL BUILD HOOK
-      await axios.post(process.env.VERCEL_DEPLOY_HOOK)
+
       return res
         .status(StatusCodes.CREATED)
         .json({ msg: 'Blog is created', result: blog })

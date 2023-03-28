@@ -1,6 +1,7 @@
 import dbConnect from '@/lib/dbConnect'
 import mongooseErrorHandler from '@/lib/mongoose-error-handler'
 import Users from '@/models/User'
+import axios from 'axios'
 import { StatusCodes } from 'http-status-codes'
 export default async function handler(req, res) {
   await dbConnect()
@@ -14,12 +15,18 @@ export default async function handler(req, res) {
     }
     return res.status(StatusCodes.OK).json({ msg: 'success', result: user })
   }
-
+  // =========Vercel =========
   if (method === 'POST') {
     try {
-      return res.status(StatusCodes.OK).json({ msg: 'post request' })
+      const result = await axios.post(process.env.VERCEL_DEPLOY_HOOK)
+      console.log(result.data.job.state)
+      return res
+        .status(StatusCodes.OK)
+        .json({ msg: 'success', result: result.data })
     } catch (error) {
-      return mongooseErrorHandler(error, res)
+      return res
+        .status(StatusCodes.BAD_REQUEST)
+        .json({ msg: 'error', result: error })
     }
   }
 }
