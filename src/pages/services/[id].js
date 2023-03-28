@@ -33,7 +33,7 @@ const SingleService = ({ data }) => {
             <p>{description}</p>
           </div>
           <div className='header-image'>
-            <CldImage src={src} width={720} height={720} alt={title} />
+            <CldImage src={src} width={720} height={720} alt={title} priority />
           </div>
         </div>
         <div className='body'>

@@ -74,7 +74,7 @@ const SingleBlog = ({ data }) => {
                 <div className='time'>
                   <span>Posted On :</span>
                   <span>
-                    <time datetime={createdAt}>{formatDate(createdAt)}</time>
+                    <time dateTime={createdAt}>{formatDate(createdAt)}</time>
                   </span>
                 </div>
               </div>
@@ -86,6 +86,7 @@ const SingleBlog = ({ data }) => {
                 height={628}
                 alt={heading}
                 src={image[0]?.public_id}
+                priority
               ></CldImage>
             </div>
             <div className='body-container'>

@@ -36,6 +36,7 @@ const Services = ({ data }) => {
                 width={720}
                 height={720}
                 alt={title}
+                priority
               ></CldImage>
             </div>
           </div>

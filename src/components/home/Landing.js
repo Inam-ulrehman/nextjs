@@ -31,6 +31,7 @@ const Landing = () => {
             width={720}
             height={720}
             alt='Home page image'
+            priority
           ></CldImage>
         </div>
         <Link href='/contact' passHref>
@@ -45,6 +46,7 @@ const Landing = () => {
           width={720}
           height={720}
           alt='Home page image'
+          priority
         ></CldImage>
       </div>
     </LandingWrapper>

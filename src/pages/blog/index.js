@@ -37,6 +37,7 @@ const Blogs = ({ data }) => {
                 width={720}
                 height={720}
                 alt={'blog'}
+                priority
               ></CldImage>
             </div>
           </div>
