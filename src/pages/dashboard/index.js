@@ -4,6 +4,7 @@ import Head from 'next/head'
 import React from 'react'
 import * as jose from 'jose'
 import DashboardLayout from '@/components/dashboard/dashboard-layout'
+import { vercelDeploy } from '@/utils/axios'
 
 const Dashboard = ({ user }) => {
   // console.log(user)
@@ -13,7 +14,11 @@ const Dashboard = ({ user }) => {
         <title>Welcome to your dashboard</title>
         <meta name='description' content='Your dashboard page.' />
       </Head>
-      <div>Welcome to your dashboard</div>
+      <div>
+        <button onClick={() => vercelDeploy()} className='btn' type='button'>
+          Vercel build
+        </button>
+      </div>
     </>
   )
 }
