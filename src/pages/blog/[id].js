@@ -208,6 +208,13 @@ const Wrapper = styled.div`
           text-transform: capitalize;
         }
       }
+      a {
+        color: var(--primary-5);
+        font-weight: 500;
+        :hover {
+          color: var(--primary-7);
+        }
+      }
     }
   }
 `
