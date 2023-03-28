@@ -16,7 +16,14 @@ import styled from 'styled-components'
 const PostBlog = () => {
   const dispatch = useDispatch()
   const { blogs } = useSelector((state) => state)
-  const { heading, description, image, blogHeading, blogDescription } = blogs
+  const {
+    heading,
+    description,
+    image,
+    blogHeading,
+    blogDescription,
+    isLoading,
+  } = blogs
 
   // image results
   const cbFunction = (images) => {
@@ -86,7 +93,7 @@ const PostBlog = () => {
                 rows='10'
               ></textarea>
             </div>
-            <button className='btn' type='submit'>
+            <button className='btn' type='submit' disabled={isLoading}>
               Submit
             </button>
           </form>
