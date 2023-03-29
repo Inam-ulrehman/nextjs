@@ -18,7 +18,7 @@ const src = 'Inamwebsolutions-nextjs/7_hc7dgu'
 const Landing = () => {
   const { headerHeight } = useSelector((state) => state.websitecontent)
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine)
+    // console.log(engine)
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
@@ -26,7 +26,7 @@ const Landing = () => {
   }, [])
 
   const particlesLoaded = useCallback(async (container) => {
-    await console.log(container)
+    // await console.log(container)
   }, [])
 
   return (
@@ -144,7 +144,7 @@ const Landing = () => {
               ></CldImage>
             </div>
             <Link href='/contact' passHref>
-              <Button shadow>Lets Talk</Button>
+              <Button>Lets Talk</Button>
             </Link>
           </div>
           <div className='image-box box'>
@@ -172,6 +172,17 @@ const Wrapper = styled.div`
     }
     .mobile-image {
       background: transparent;
+    }
+    .text-box {
+      h1,
+      h2,
+      p {
+        background-color: var(--grey-5);
+        width: fit-content;
+      }
+      p {
+        font-weight: 600;
+      }
     }
   }
   .particles {
