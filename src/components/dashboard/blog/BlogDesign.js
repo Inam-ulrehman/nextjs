@@ -10,15 +10,7 @@ const initialState = {
 }
 const BlogDesign = ({ blogs, readMore }) => {
   const [state, setState] = useState(initialState)
-  const {
-    image,
-    heading,
-    description,
-    blogHeading,
-    blogDescription,
-    author,
-    createdAt,
-  } = blogs
+  const { image, heading, description, blogHeading, blogDescription } = blogs
 
   const path = heading.split(' ').join('-').toLowerCase()
   useEffect(() => {
