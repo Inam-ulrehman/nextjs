@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const LandingWrapper = styled.div`
+  background-color: var(--grey-05);
   display: grid;
   grid-template-columns: 1fr 1fr;
   align-items: center;
