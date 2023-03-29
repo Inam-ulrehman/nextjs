@@ -36,7 +36,7 @@ const PostBlog = () => {
       toast.warning('Please upload image')
     }
 
-    // dispatch(createBlogThunk(blogs))
+    dispatch(createBlogThunk(blogs))
   }
   const handleChange = (e) => {
     const name = e.target.name
