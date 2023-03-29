@@ -391,7 +391,7 @@ export const servicesData = [
     id: 5,
     icon: 'test',
     color: 'pink',
-    title: 'testing & qa very important',
+    title: 'testing and qa very important',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1678538863/Inamwebsolutions-nextjs/4_jsm3oj.png',
     description:
