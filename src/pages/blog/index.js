@@ -1,4 +1,4 @@
-import { BlogDesign } from '@/components/dashboard/blog'
+import BlogDesignIndex from '@/components/dashboard/blog/BlogDesignIndex'
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
@@ -46,7 +46,7 @@ const Blogs = ({ data }) => {
             {data.map((item) => {
               return (
                 <div className='blog-holder' key={item._id}>
-                  <BlogDesign blogs={item} readMore={true} />
+                  <BlogDesignIndex blogs={item} readMore={true} />
                 </div>
               )
             })}
