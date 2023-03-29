@@ -154,6 +154,12 @@ const Wrapper = styled.div`
       :first-letter {
         text-transform: capitalize;
       }
+      a {
+        color: var(--primary-5);
+        :hover {
+          color: var(--primary-6);
+        }
+      }
     }
   }
 `
