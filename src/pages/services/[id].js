@@ -17,7 +17,10 @@ const SingleService = ({ data }) => {
     <>
       <Head>
         <title>{titleCase(title)}</title>
-        <meta name='description' content={titleCase(description)} />
+        <meta
+          name='description'
+          content={titleCase(description).slice(0, 160)}
+        />
         <link
           rel='canonical'
           href={`${websiteContent.seo.websiteName}/services/${title
