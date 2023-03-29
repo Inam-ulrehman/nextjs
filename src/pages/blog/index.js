@@ -70,6 +70,7 @@ export async function getStaticProps() {
 const Wrapper = styled.div`
   .heading-container {
     display: grid;
+
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
@@ -92,7 +93,8 @@ const Wrapper = styled.div`
   }
   .heading-image {
     display: grid;
-    justify-content: center;
+    height: 100%;
+    place-content: center;
 
     background: linear-gradient(
       90deg,
@@ -101,7 +103,7 @@ const Wrapper = styled.div`
     );
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
   }
   /* body */

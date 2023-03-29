@@ -8,18 +8,12 @@ export const LandingWrapper = styled.div`
   .text-box {
   }
   .image-box {
-    display: grid;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(
-      90deg,
-      rgba(241, 243, 245, 1) 0%,
-      var(--primary-8) 100%
-    );
+    height: calc(100vh - 94px);
+
     img {
       width: 100%;
       height: 100%;
+      object-fit: contain;
     }
   }
   @media (max-width: 820px) {
@@ -29,11 +23,6 @@ export const LandingWrapper = styled.div`
     .text-box {
       padding: 1rem;
       .mobile-image {
-        background: linear-gradient(
-          180deg,
-          rgba(241, 243, 245, 1) 0%,
-          var(--primary-8) 100%
-        );
       }
     }
     .image-box {
