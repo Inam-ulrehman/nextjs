@@ -85,7 +85,7 @@ const Wrapper = styled.div`
     }
     h2 {
       max-width: 700px;
-      font-weight: 500;
+      font-weight: 400;
       font-size: var(--large-text);
       margin-left: 0;
     }
@@ -98,8 +98,9 @@ const Wrapper = styled.div`
 
     background: linear-gradient(
       90deg,
-      rgba(241, 243, 245, 1) 0%,
-      var(--primary-8) 100%
+      var(--grey-05) 0%,
+      var(--grey-4) 50%,
+      var(--grey-5) 100%
     );
     img {
       width: 100%;
@@ -151,8 +152,9 @@ const Wrapper = styled.div`
     .heading-image {
       background: linear-gradient(
         180deg,
-        rgba(241, 243, 245, 1) 0%,
-        var(--primary-8) 100%
+        var(--grey-05) 0%,
+        var(--grey-4) 50%,
+        var(--grey-5) 100%
       );
     }
   }

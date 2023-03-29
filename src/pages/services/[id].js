@@ -91,8 +91,9 @@ const Wrapper = styled.div`
       justify-content: center;
       background: linear-gradient(
         90deg,
-        rgba(241, 243, 245, 1) 0%,
-        var(--primary-8) 100%
+        var(--grey-05) 0%,
+        var(--grey-4) 50%,
+        var(--grey-5) 100%
       );
       img {
         width: 100%;
@@ -103,12 +104,16 @@ const Wrapper = styled.div`
       grid-template-columns: 1fr;
       .header-titles {
         margin-left: 0rem;
+        p {
+          padding: 1rem;
+        }
       }
       .header-image {
         background: linear-gradient(
           180deg,
-          rgba(241, 243, 245, 1) 0%,
-          var(--primary-8) 100%
+          var(--grey-05) 0%,
+          var(--grey-4) 50%,
+          var(--grey-5) 100%
         );
       }
       img {
@@ -128,11 +133,10 @@ const Wrapper = styled.div`
     }
     p {
       max-width: 700px;
-      font-weight: 700;
+      font-weight: 500;
       font-size: var(--large-text);
       margin-left: 0;
       color: var(--grey-8);
-      padding: 1rem;
     }
     img {
       margin: 0 auto;
