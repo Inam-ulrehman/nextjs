@@ -41,10 +41,19 @@ export const LandingWrapper = styled.div`
         font-size: large;
       }
     }
+    .image-box {
+      background: linear-gradient(
+        90deg,
+        var(--grey-05) 0%,
+        var(--grey-4) 50%,
+        var(--grey-5) 100%
+      );
+    }
     .mobile-image {
       display: none;
     }
   }
+
   /* mobile only */
   @media (max-width: 620px) {
     text-align: center;
@@ -53,6 +62,14 @@ export const LandingWrapper = styled.div`
     .mobile-image {
       width: 100vw;
       overflow: hidden;
+
+      background: linear-gradient(
+        180deg,
+        var(--grey-05) 0%,
+        var(--grey-4) 50%,
+        var(--grey-5) 100%
+      );
+
       img {
         margin: 0 auto;
         width: 95%;
