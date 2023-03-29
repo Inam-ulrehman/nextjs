@@ -38,16 +38,17 @@ const SingleBlog = ({ data }) => {
         <meta name='author' content={author}></meta>
         <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
-        {/* <meta
+        <meta property='og:locale' content='en_CA' />
+        <meta
           name='article-published_time'
           property='article:published_time'
           content={createdAt}
-        /> */}
-        {/* <meta
+        />
+        <meta
           name='article-modified_time'
           property='article:modified_time'
           content={updatedAt}
-        /> */}
+        />
 
         <link rel='canonical' href={url} />
       </Head>
@@ -72,7 +73,9 @@ const SingleBlog = ({ data }) => {
                 </div>
                 <div className='time'>
                   <span>Posted On :</span>
-                  {/* <span>{formatDate(createdAt)}</span> */}
+                  <span>
+                    <time dateTime={createdAt}>{formatDate(createdAt)}</time>
+                  </span>
                 </div>
               </div>
               <span className='description'>{description}</span>
