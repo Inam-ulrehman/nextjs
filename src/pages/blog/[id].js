@@ -38,7 +38,6 @@ const SingleBlog = ({ data }) => {
         <meta name='author' content={author}></meta>
         <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
-        <meta property='og:locale' content='en_CA' />
         <meta
           name='article-published_time'
           property='article:published_time'

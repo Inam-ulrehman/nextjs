@@ -4,7 +4,7 @@ import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-
+const defaultImage = 'Inamwebsolutions-nextjs/website_blogs_zlhiwz'
 const initialState = {
   images: [],
 }
@@ -37,22 +37,28 @@ const BlogDesign = ({ blogs, readMore }) => {
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
-            <span> {author}</span>
+            <span> {!author ? 'inam' : author}</span>
           </div>
           <div className='time'>
-            <span>Posted On :</span>
-            {createdAt && <span>{formatDate(createdAt)}</span>}
+            <span>Posted On :</span>{' '}
+            <span>
+              {createdAt.length > 0
+                ? formatDate(createdAt)
+                : formatDate(new Date())}
+            </span>
           </div>
         </div>
         <div className='image-container'>
-          {state.images.length > 0 && (
-            <CldImage
-              width={1200}
-              height={600}
-              alt={heading}
-              src={state.images[0]?.public_id}
-            ></CldImage>
-          )}
+          <CldImage
+            width={1200}
+            height={600}
+            alt={heading}
+            src={
+              state.images.length === 0
+                ? defaultImage
+                : state.images[0]?.public_id
+            }
+          ></CldImage>
         </div>
         <span className='description'>
           {description}{' '}
