@@ -107,10 +107,6 @@ const Wrapper = styled.div`
       height: auto;
     }
   }
-  /* body */
-  .blog-body {
-    padding: 3rem;
-  }
 
   /* desktop only */
   @media (min-width: 768px) {
@@ -128,6 +124,7 @@ const Wrapper = styled.div`
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
+      width: 93vw;
     }
   }
 
