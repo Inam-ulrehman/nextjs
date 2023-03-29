@@ -178,8 +178,8 @@ const Wrapper = styled.div`
       }
       .description {
         display: block;
-        font-size: 1.3rem;
-        font-weight: 700;
+        font-size: 1rem;
+        font-weight: 400;
         :first-letter {
           text-transform: capitalize;
         }

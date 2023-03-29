@@ -100,8 +100,8 @@ const Wrapper = styled.div`
     }
     .description {
       display: block;
-      font-size: 1.1rem;
-      font-weight: 500;
+      font-size: 1rem;
+      font-weight: 400;
       :first-letter {
         text-transform: capitalize;
       }
@@ -109,7 +109,6 @@ const Wrapper = styled.div`
         color: var(--primary-4);
         span {
           display: inline-block;
-          margin: 0 0.5rem;
         }
         :hover {
           color: var(--primary-6);
