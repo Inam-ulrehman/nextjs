@@ -1,12 +1,9 @@
 import BlogDesignIndex from '@/components/dashboard/blog/BlogDesignIndex'
 import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
-import { Icons } from '@/styles/Icons'
 import { websiteContent } from '@/utils/data'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
-import Image from 'next/image'
-import React from 'react'
 import styled from 'styled-components'
 
 const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
@@ -14,10 +11,12 @@ const Blogs = ({ data }) => {
   return (
     <>
       <Head>
-        <title>Blog</title>
+        <title>
+          Design Insights: Expert Tips and Latest Trends in Website Design
+        </title>
         <meta
           name='description'
-          content=' Stay Informed and Up-to-Date with Our Thought-Provoking Blog Posts'
+          content=' Stay ahead of the curve with our Design Insights blog. Our team of experts shares valuable tips, techniques, and insights on the latest trends in website design.'
         />
         <link rel='canonical' href={`${websiteContent.seo.websiteName}/blog`} />
       </Head>
@@ -27,8 +26,9 @@ const Blogs = ({ data }) => {
             <div className='heading-titles'>
               <h1>Our Comprehensive Blogging Service</h1>
               <h2>
-                Stay informed and up-to-date with our thought-provoking blog
-                posts
+                Stay ahead of the curve with our Design Insights blog. Our team
+                of experts shares valuable tips, techniques, and insights on the
+                latest trends in website design.
               </h2>
             </div>
             <div className='heading-image'>
