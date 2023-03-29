@@ -2,7 +2,7 @@ import dbConnect from '@/lib/dbConnect'
 import Blog from '@/models/Blog'
 import { Icons } from '@/styles/Icons'
 import { websiteContent } from '@/utils/data'
-import { formatDate, titleCase } from '@/utils/helper'
+import { formatDateStatic, titleCase } from '@/utils/helper'
 import { CldImage, CldOgImage } from 'next-cloudinary'
 import Head from 'next/head'
 
@@ -74,7 +74,9 @@ const SingleBlog = ({ data }) => {
                 <div className='time'>
                   <span>Posted On :</span>
                   <span>
-                    <time dateTime={createdAt}>{formatDate(createdAt)}</time>
+                    <time dateTime={createdAt}>
+                      {formatDateStatic(createdAt)}
+                    </time>
                   </span>
                 </div>
               </div>
@@ -155,6 +157,25 @@ const Wrapper = styled.div`
         }
         margin-left: 0;
       }
+      .name-time {
+        margin: 2rem 0;
+        .name {
+          span:nth-child(2) {
+            text-transform: capitalize;
+            font-weight: 500;
+            border-bottom: 2px solid var(--grey-7);
+            margin-left: 1rem;
+          }
+        }
+        .time {
+          span:nth-child(2) {
+            text-transform: capitalize;
+            margin-left: 1rem;
+            border-bottom: 2px solid var(--grey-7);
+            font-weight: 500;
+          }
+        }
+      }
       .description {
         display: block;
         font-size: 1.3rem;
@@ -164,25 +185,7 @@ const Wrapper = styled.div`
         }
       }
     }
-    .name-time {
-      margin: 2rem 0;
-      .name {
-        span:nth-child(2) {
-          text-transform: uppercase;
-          font-weight: 500;
-          border-bottom: 2px solid var(--grey-7);
-          margin-left: 1rem;
-        }
-      }
-      .time {
-        span:nth-child(2) {
-          text-transform: uppercase;
-          margin-left: 1rem;
-          border-bottom: 2px solid var(--grey-7);
-          font-weight: 500;
-        }
-      }
-    }
+
     /* image */
     .image-container {
       max-width: var(--max-width);

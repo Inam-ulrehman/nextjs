@@ -121,7 +121,7 @@ const Wrapper = styled.div`
     margin-top: 1rem;
     .name {
       span:nth-child(2) {
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-weight: 500;
         border-bottom: 2px solid var(--grey-7);
         margin-left: 1rem;
@@ -129,7 +129,7 @@ const Wrapper = styled.div`
     }
     .time {
       span:nth-child(2) {
-        text-transform: uppercase;
+        text-transform: capitalize;
         margin-left: 1rem;
         border-bottom: 2px solid var(--grey-7);
         font-weight: 500;
