@@ -29,11 +29,23 @@ export const LandingWrapper = styled.div`
       text-align: center;
     }
   }
+  /* desktop only */
   @media (min-width: 620px) {
+    .text-box {
+      .first-heading {
+        font-weight: 600 !important;
+      }
+      .second-heading {
+      }
+      p {
+        font-size: large;
+      }
+    }
     .mobile-image {
       display: none;
     }
   }
+  /* mobile only */
   @media (max-width: 620px) {
     text-align: center;
     width: 100vw;
