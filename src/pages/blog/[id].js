@@ -32,7 +32,10 @@ const SingleBlog = ({ data }) => {
     <>
       <Head>
         <title>{titleCase(heading)}</title>
-        <meta name='description' content={titleCase(description)} />
+        <meta
+          name='description'
+          content={titleCase(description).slice(0, 170)}
+        />
         <meta name='og:description' content={titleCase(description)} />
         <meta property='og:type' content='article'></meta>
         <meta name='author' content={author}></meta>
