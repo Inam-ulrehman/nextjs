@@ -1,5 +1,5 @@
 import { Icons } from '@/styles/Icons'
-import { formatDate } from '@/utils/helper'
+import { formatDateStatic } from '@/utils/helper'
 import { CldImage } from 'next-cloudinary'
 import Link from 'next/link'
 import React, { useEffect, useState } from 'react'
@@ -37,15 +37,10 @@ const BlogDesign = ({ blogs, readMore }) => {
         <div className='name-time'>
           <div className='name'>
             <span>Written By :</span>
-            <span> {!author ? 'inam' : author}</span>
+            <span>inam</span>
           </div>
           <div className='time'>
-            <span>Posted On :</span>{' '}
-            <span>
-              {createdAt.length > 0
-                ? formatDate(createdAt)
-                : formatDate(new Date())}
-            </span>
+            <span>Posted On :</span> <span>{formatDateStatic(new Date())}</span>
           </div>
         </div>
         <div className='image-container'>
@@ -127,7 +122,7 @@ const Wrapper = styled.div`
     margin-top: 1rem;
     .name {
       span:nth-child(2) {
-        text-transform: uppercase;
+        text-transform: capitalize;
         font-weight: 500;
         border-bottom: 2px solid var(--grey-7);
         margin-left: 1rem;
@@ -135,7 +130,7 @@ const Wrapper = styled.div`
     }
     .time {
       span:nth-child(2) {
-        text-transform: uppercase;
+        text-transform: capitalize;
         margin-left: 1rem;
         border-bottom: 2px solid var(--grey-7);
         font-weight: 500;
