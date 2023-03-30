@@ -32,6 +32,7 @@ const Landing = () => {
   return (
     <>
       <Wrapper>
+        <div className='color-particles'></div>
         <div className='particles-container'>
           <Particles
             className='particles'
@@ -163,8 +164,14 @@ const Landing = () => {
 }
 
 const Wrapper = styled.div`
-  background-color: none !important;
-  z-index: -11 !important;
+  /* initial body color hide  */
+  .color-particles {
+    background-color: var(--grey-5);
+    z-index: -15;
+    position: absolute;
+    height: calc(100% - 94px);
+    width: 100%;
+  }
   .landingWrapper {
     background-color: transparent;
     .image-box {
@@ -185,6 +192,7 @@ const Wrapper = styled.div`
       }
     }
   }
+
   .particles {
     position: absolute;
     right: 0;
