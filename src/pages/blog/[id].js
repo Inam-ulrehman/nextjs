@@ -41,18 +41,13 @@ const SingleBlog = ({ data }) => {
         <meta name='author' content={author}></meta>
         <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
+        <meta
+          name='robots'
+          content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
+        ></meta>
         <meta property='og:locale' content='en_CA' />
-        <meta
-          name='article-published_time'
-          property='article:published_time'
-          content={createdAt}
-        />
-        <meta
-          name='article-modified_time'
-          property='article:modified_time'
-          content={updatedAt}
-        />
-
+        <meta property='article:published_time' content={createdAt}></meta>
+        <meta property='article:modified_time' content={updatedAt}></meta>
         <link rel='canonical' href={url} />
       </Head>
 
