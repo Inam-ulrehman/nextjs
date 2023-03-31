@@ -130,7 +130,7 @@ export async function getStaticProps({ params }) {
 
 // style
 
-const Wrapper = styled.div`
+const Wrapper = styled.article`
   .blog-container {
     width: 90vw;
     margin: 0 auto;
