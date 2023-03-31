@@ -140,9 +140,10 @@ const Wrapper = styled.div`
     /* display: grid;
     place-items: center; */
     img {
+      box-shadow: var(--shadow-3);
       width: 100%;
       height: auto;
-      padding: 1rem 0;
+      margin: 1rem 0;
     }
   }
   /* body */

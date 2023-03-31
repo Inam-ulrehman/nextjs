@@ -23,5 +23,6 @@
     "editor.defaultFormatter": "esbenp.prettier-vscode"
   },
   "editor.cursorBlinking": "expand",
-  "window.zoomLevel": 0
+  "window.zoomLevel": 0,
+  "cSpell.words": ["awdem", "nextjs", "nnzlsqedlgak"]
 }

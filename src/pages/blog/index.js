@@ -113,15 +113,18 @@ const Wrapper = styled.div`
     /* blog inside class */
     .title-description {
       .description-title {
-        height: 120px;
+        min-height: 70px;
         display: block;
         border-bottom: none;
+        font-size: 20px;
+        padding: 0;
       }
     }
 
     /* body */
     .blog-body {
       display: grid;
+
       grid-template-columns: 1fr 1fr;
       gap: 2rem;
       width: 93vw;
