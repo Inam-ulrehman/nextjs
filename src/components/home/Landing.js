@@ -32,7 +32,6 @@ const Landing = () => {
   return (
     <>
       <Wrapper>
-        <div className='color-particles'></div>
         <div className='particles-container'>
           <Particles
             className='particles'
@@ -42,7 +41,7 @@ const Landing = () => {
             options={{
               background: {
                 color: {
-                  value: '#c1c8cd',
+                  value: '#f1f3f5',
                 },
               },
               fpsLimit: 120,
@@ -70,10 +69,10 @@ const Landing = () => {
               },
               particles: {
                 color: {
-                  value: '#ffffff',
+                  value: '#06b7db',
                 },
                 links: {
-                  color: '#ffffff',
+                  color: '#0077b6',
                   distance: 150,
                   enable: true,
                   opacity: 0.5,
@@ -97,7 +96,7 @@ const Landing = () => {
                     enable: true,
                     area: 800,
                   },
-                  value: 80,
+                  value: 50,
                 },
                 opacity: {
                   value: 0.5,
@@ -164,14 +163,6 @@ const Landing = () => {
 }
 
 const Wrapper = styled.div`
-  /* initial body color hide  */
-  .color-particles {
-    background-color: var(--grey-5);
-    z-index: -15;
-    position: absolute;
-    height: calc(100% - 94px);
-    width: 100%;
-  }
   .landingWrapper {
     background-color: transparent;
     .image-box {
@@ -184,8 +175,8 @@ const Wrapper = styled.div`
       h1,
       h2,
       p {
-        background-color: var(--grey-5);
-        width: fit-content;
+        /* background-color: var(--grey-5);
+        width: fit-content; */
       }
       p {
         font-weight: 600;
