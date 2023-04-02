@@ -96,7 +96,9 @@ const SingleBlog = () => {
             </button>
           </form>
         </div>
-        <div className='blog-design'>{/* <BlogDesign blogs={blogs} /> */}</div>
+        <div className='blog-design'>
+          <BlogDesign blogs={blogs} />
+        </div>
       </Wrapper>
     </>
   )
