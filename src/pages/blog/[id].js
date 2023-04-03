@@ -41,6 +41,7 @@ const SingleBlog = ({ data }) => {
         <meta name='author' content={author}></meta>
         <meta name='og:title' content={titleCase(heading)} />
         <meta name='og:url' content={url} />
+        <meta property='fb:app_id' content='1487594494979910' />
         <meta
           name='robots'
           content='index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1'
