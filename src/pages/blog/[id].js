@@ -36,11 +36,11 @@ const SingleBlog = ({ data }) => {
           name='description'
           content={titleCase(description).slice(0, 160)}
         />
-        <meta name='og:description' content={titleCase(description)} />
+        <meta property='og:description' content={titleCase(description)} />
         <meta property='og:type' content='article'></meta>
         <meta name='author' content={author}></meta>
-        <meta name='og:title' content={titleCase(heading)} />
-        <meta name='og:url' content={url} />
+        <meta property='og:title' content={titleCase(heading)} />
+        <meta property='og:url' content={url} />
         <meta property='fb:app_id' content='1487594494979910' />
         <meta
           name='robots'
