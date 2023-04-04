@@ -45,7 +45,10 @@ export default function Home() {
         <title>{titleCase(title)}</title>
         <meta name='keywords' content={keywords} />
         <meta name='description' content={titleCase(description)} />
-
+        <meta
+          name='google-site-verification'
+          content='nEVV-L-zSRu5-sipuU75O8Mbgi9ys3NLi1v0P8wHRwo'
+        />
         <meta name='Author' content={titleCase(author)} />
         <meta name='og:site_name' content={ogSiteName} />
         <meta name='og:title' content={titleCase(ogTitle)} />
