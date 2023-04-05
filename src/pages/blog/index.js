@@ -1,13 +1,30 @@
-import BlogDesignIndex from '@/components/dashboard/blog/BlogDesignIndex'
-import dbConnect from '@/lib/dbConnect'
-import Blog from '@/models/Blog'
+import List from '@/components/blogs/List'
+import Pagination from '@/components/blogs/Pagination'
+import { customFetch } from '@/utils/axios'
 import { websiteContent } from '@/utils/data'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
+import { useState } from 'react'
 import styled from 'styled-components'
-
+import useSWRConfig from 'swr'
 const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
-const Blogs = ({ data }) => {
+
+const initialState = {
+  page: 1,
+  limit: 10,
+}
+
+const Blogs = () => {
+  const [state, setState] = useState(initialState)
+  const { page, limit } = state
+
+  const { data, error, isLoading } = useSWRConfig(
+    `/blogs?page=${page}&limit=${limit}`,
+    customFetch
+  )
+  if (error) {
+    return <div className='title'>Error</div>
+  }
   return (
     <>
       <Head>
@@ -41,16 +58,20 @@ const Blogs = ({ data }) => {
               ></CldImage>
             </div>
           </div>
-
-          <div className='blog-body'>
-            {data.map((item) => {
-              return (
-                <div className='blog-holder' key={item._id}>
-                  <BlogDesignIndex blogs={item} readMore={true} />
-                </div>
-              )
-            })}
-          </div>
+          {isLoading ? (
+            <div className='title'>
+              <h3>Loading...</h3>
+              <div className='loading'></div>
+            </div>
+          ) : (
+            <List data={data} />
+          )}
+          {/* pagination */}
+          <Pagination
+            state={state}
+            setState={setState}
+            nbHits={data?.data?.nbHits}
+          />
         </div>
       </Wrapper>
     </>
@@ -58,13 +79,6 @@ const Blogs = ({ data }) => {
 }
 
 export default Blogs
-
-export async function getStaticProps() {
-  await dbConnect()
-  const data = await Blog.find().sort('-createdAt')
-
-  return JSON.parse(JSON.stringify({ props: { data } }))
-}
 
 // style
 const Wrapper = styled.div`
