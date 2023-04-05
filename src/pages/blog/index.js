@@ -17,7 +17,8 @@ const initialState = {
 const Blogs = () => {
   const [state, setState] = useState(initialState)
   const viewPoint = useRef()
-  const executeScroll = () => viewPoint.current.scrollIntoView()
+  const executeScroll = () =>
+    viewPoint.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const { page, limit } = state
 
   const { data, error, isLoading } = useSWRConfig(
@@ -70,7 +71,7 @@ const Blogs = () => {
               <div className='loading'></div>
             </div>
           ) : (
-            <div ref={viewPoint}>
+            <div ref={viewPoint} className='list'>
               <List data={data} />
               <div style={{ display: 'none' }}>
                 <List data={preloadData} />
@@ -133,13 +134,15 @@ const Wrapper = styled.div`
       height: auto;
     }
   }
+  .list {
+    padding-top: 5rem;
+  }
 
   /* desktop only */
   @media (min-width: 768px) {
     /* blog inside class */
     .title-description {
       .description-title {
-        min-height: 70px;
         display: block;
         border-bottom: none;
         font-size: 20px;

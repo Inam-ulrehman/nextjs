@@ -81,17 +81,22 @@ const BlogDesignIndex = ({ blogs, readMore }) => {
 
 const Wrapper = styled.div`
   /* max-width: 600px; */
+
   .title-description {
+    .description-title {
+      padding: 0 !important;
+    }
     /* span {
       display: block;
     } */
     .title {
       text-align: start;
       padding: 1rem 0;
-      font-size: 2rem;
+      font-size: 1.2rem;
       font-weight: 650;
       text-transform: capitalize;
       border-bottom: 2px solid var(--primary-4);
+
       width: fit-content;
       :hover {
         cursor: pointer;
