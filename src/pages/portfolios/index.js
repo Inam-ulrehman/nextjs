@@ -59,6 +59,9 @@ const Wrapper = styled.div`
   }
   .heading-container {
     display: grid;
+    @media (min-width: 768px) {
+      min-height: calc(100vh - 94px);
+    }
     grid-template-columns: 1fr 1fr;
     align-items: center;
   }
