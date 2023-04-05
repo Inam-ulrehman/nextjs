@@ -26,7 +26,7 @@ const Pagination = ({ state, setState, nbHits, executeScroll }) => {
     setState({ ...state, page: state.page - 1 })
   }
   const handleIndex = (index) => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    executeScroll()
     setState({ ...state, page: index })
   }
 
