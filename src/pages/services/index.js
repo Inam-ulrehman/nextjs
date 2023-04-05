@@ -108,8 +108,9 @@ const Wrapper = styled.div`
   }
   .heading-image {
     display: grid;
-    justify-content: center;
     height: 100%;
+    place-content: center;
+
     background: linear-gradient(
       90deg,
       var(--grey-05) 0%,
@@ -118,7 +119,7 @@ const Wrapper = styled.div`
     );
     img {
       width: 100%;
-      height: 100%;
+      height: auto;
     }
   }
 
