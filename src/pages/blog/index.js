@@ -22,6 +22,10 @@ const Blogs = () => {
     `/blogs?page=${page}&limit=${limit}`,
     customFetch
   )
+  const { data: preloadData } = useSWRConfig(
+    `/blogs?page=${page + 1}&limit=${limit}`,
+    customFetch
+  )
   if (error) {
     return <div className='title'>Error</div>
   }
@@ -64,7 +68,12 @@ const Blogs = () => {
               <div className='loading'></div>
             </div>
           ) : (
-            <List data={data} />
+            <div>
+              <List data={data} />
+              <div style={{ display: 'none' }}>
+                <List data={preloadData} />
+              </div>
+            </div>
           )}
           {/* pagination */}
           <Pagination
