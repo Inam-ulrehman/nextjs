@@ -96,6 +96,12 @@ const Wrapper = styled.div`
       font-weight: 650;
       text-transform: capitalize;
       border-bottom: 2px solid var(--primary-4);
+      @media (min-width: 720px) {
+        min-height: 70px;
+
+        display: flex;
+        align-items: center;
+      }
 
       width: fit-content;
       :hover {
