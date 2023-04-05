@@ -2,7 +2,7 @@ import { customFetch } from '@/utils/axios'
 import React from 'react'
 import styled from 'styled-components'
 
-const Pagination = ({ state, setState, nbHits }) => {
+const Pagination = ({ state, setState, nbHits, executeScroll }) => {
   if (!state) {
     return
   }
@@ -15,14 +15,14 @@ const Pagination = ({ state, setState, nbHits }) => {
     if (state.page === totalPages) {
       return
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
     setState({ ...state, page: state.page + 1 })
+    executeScroll()
   }
   const handlePrev = () => {
     if (state.page === 1) {
       return
     }
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    executeScroll()
     setState({ ...state, page: state.page - 1 })
   }
   const handleIndex = (index) => {

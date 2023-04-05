@@ -4,7 +4,7 @@ import { customFetch } from '@/utils/axios'
 import { websiteContent } from '@/utils/data'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import styled from 'styled-components'
 import useSWRConfig from 'swr'
 const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
@@ -16,6 +16,8 @@ const initialState = {
 
 const Blogs = () => {
   const [state, setState] = useState(initialState)
+  const viewPoint = useRef()
+  const executeScroll = () => viewPoint.current.scrollIntoView()
   const { page, limit } = state
 
   const { data, error, isLoading } = useSWRConfig(
@@ -68,7 +70,7 @@ const Blogs = () => {
               <div className='loading'></div>
             </div>
           ) : (
-            <div>
+            <div ref={viewPoint}>
               <List data={data} />
               <div style={{ display: 'none' }}>
                 <List data={preloadData} />
@@ -80,6 +82,7 @@ const Blogs = () => {
             state={state}
             setState={setState}
             nbHits={data?.data?.nbHits}
+            executeScroll={executeScroll}
           />
         </div>
       </Wrapper>
