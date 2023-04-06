@@ -111,7 +111,6 @@ export default SingleBlog
 export async function getStaticPaths() {
   await dbConnect()
   const data = await Blog.find()
-
   const paths = data.map((item) => {
     return { params: { id: item.heading.split(' ').join('-').toLowerCase() } }
   })
