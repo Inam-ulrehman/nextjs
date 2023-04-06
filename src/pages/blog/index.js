@@ -1,12 +1,13 @@
 import List from '@/components/blogs/List'
 import Pagination from '@/components/blogs/Pagination'
+import { useBlogs } from '@/features/blogs/swr'
 import { customFetch } from '@/utils/axios'
 import { websiteContent } from '@/utils/data'
 import { CldImage } from 'next-cloudinary'
 import Head from 'next/head'
 import { useRef, useState } from 'react'
 import styled from 'styled-components'
-import useSWRConfig from 'swr'
+
 const src = 'Inamwebsolutions-nextjs/nnzlsqedlgak3awdem5y'
 
 const initialState = {
@@ -21,17 +22,11 @@ const Blogs = () => {
     viewPoint.current.scrollIntoView({ behavior: 'smooth', block: 'start' })
   const { page, limit } = state
 
-  const { data, error, isLoading } = useSWRConfig(
-    `/blogs?page=${page}&limit=${limit}`,
-    customFetch
-  )
-  const { data: preloadData } = useSWRConfig(
-    `/blogs?page=${page + 1}&limit=${limit}`,
-    customFetch
-  )
+  const { data, isLoading, error } = useBlogs({ page, limit })
   if (error) {
     return <div className='title'>Error</div>
   }
+  const { data: preloadData } = useBlogs({ page: page + 1, limit })
   return (
     <>
       <Head>
