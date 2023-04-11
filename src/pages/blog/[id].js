@@ -138,6 +138,7 @@ const Wrapper = styled.article`
       min-width: 100% !important;
     }
   }
+
   .bog-design {
     /* max-width: 600px; */
     .title-description {
@@ -206,6 +207,15 @@ const Wrapper = styled.article`
       padding: 1rem 0;
     }
     .description {
+      ul {
+        list-style-type: decimal;
+        margin-left: 1rem;
+        li {
+          :first-letter {
+            text-transform: capitalize;
+          }
+        }
+      }
       p {
         :first-letter {
           text-transform: capitalize;
