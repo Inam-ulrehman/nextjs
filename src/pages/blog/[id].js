@@ -221,6 +221,13 @@ const Wrapper = styled.article`
           text-transform: capitalize;
         }
       }
+      strong {
+        display: inline-block;
+
+        :first-letter {
+          text-transform: capitalize;
+        }
+      }
       a {
         color: var(--primary-5);
         font-weight: 500;
