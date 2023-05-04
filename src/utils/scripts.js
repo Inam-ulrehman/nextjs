@@ -9,7 +9,7 @@ export const googleBusinessSocialLinksAttach = () => {
   "name": "inamwebsolutions",
   "image": "https://res.cloudinary.com/inam6530/image/upload/v1667486202/inamwebsolutions/Inam_n9s4i4.svg",
   "@id": "",
-  "url": "www.inamwebsolutions.com",
+  "url": "https://www.inamwebsolutions.com",
   "telephone": "4165606790",
   "priceRange": "1000",
   "address": {
