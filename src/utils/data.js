@@ -80,14 +80,21 @@ export const websiteContent = {
 
 export const portfoliosData = [
   {
-    id: 5,
+    id: 1,
+    title: 'Car Max',
+    image:
+      'https://res.cloudinary.com/inam6530/image/upload/v1683984674/Inamwebsolutions-nextjs/vfq7reovsltb76icqeco.png',
+    path: 'https://crmax.vercel.app',
+  },
+  {
+    id: 2,
     title: 'bolt signs',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1676298680/inamwebsolutions/portfolio_720_720_grrpv3.png',
     path: 'https://boltsign.netlify.app/',
   },
   {
-    id: 2,
+    id: 3,
     title: 'aryana spa',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/5_p8gnj6.png',
@@ -95,14 +102,14 @@ export const portfoliosData = [
   },
 
   {
-    id: 5,
+    id: 4,
     title: 'optical house',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/6_s4tfjv.png',
     path: 'https://k-w-opticalhouse.netlify.app/',
   },
   {
-    id: 3,
+    id: 5,
     title: 'business website',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1669135917/inamwebsolutions/1_xtvk85.svg',
@@ -110,18 +117,11 @@ export const portfoliosData = [
   },
 
   {
-    id: 4,
+    id: 6,
     title: 'real pure water',
     image:
       'https://res.cloudinary.com/inam6530/image/upload/v1675258527/inamwebsolutions/7_utcyd8.png',
     path: 'https://www.realpurewater.ca/',
-  },
-  {
-    id: 1,
-    title: 'burger queen',
-    image:
-      'https://res.cloudinary.com/inam6530/image/upload/v1669135918/inamwebsolutions/2_nerta3.svg',
-    path: 'https://burgerqueenbyinam.netlify.app/',
   },
 ]
 
